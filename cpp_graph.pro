@@ -14,12 +14,14 @@ SOURCES += \
     graphcontainer.cpp \
     main.cpp \
     mainwindow.cpp \
+    modelwrapper.cpp \
     signal.cpp
 
 HEADERS += \
     ../CircAdapt_cpp/qcustomplot.h \
     graphcontainer.h \
     mainwindow.h \
+    modelwrapper.h \
     signal.h
 
 FORMS += \
@@ -38,3 +40,10 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../CircAdapt/gitlab/CircAdapt_Library/build/release/ -lCircAdaptLib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../CircAdapt/gitlab/CircAdapt_Library/build/debug/ -lCircAdaptLib
+else:unix: LIBS += -L$$PWD/../../CircAdapt/gitlab/CircAdapt_Library/build/ -lCircAdaptLib
+
+INCLUDEPATH += $$PWD/../../CircAdapt/gitlab/CircAdapt_Library/include
+DEPENDPATH += $$PWD/../../CircAdapt/gitlab/CircAdapt_Library/include
