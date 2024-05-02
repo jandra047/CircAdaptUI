@@ -31,7 +31,7 @@ void Signal::updateGraph()
     removeData(m_xPos, m_xPos + m_dt);
 }
 
-void Signal::removeData(double x0, double x1)
+void Signal::removeData(double const x0, double x1)
 {
     if (x1 > keyAxis()->range().upper)
     {
@@ -39,7 +39,7 @@ void Signal::removeData(double x0, double x1)
 
         for (int i = 0; i < data()->size(); i++)
         {
-            auto dp = data()->at(i);
+            auto const dp = data()->at(i);
             if (dp->mainKey() >= x0 || dp->mainKey() <= x1)
             {
                 data()->remove(dp->sortKey());
@@ -51,7 +51,7 @@ void Signal::removeData(double x0, double x1)
     {
         for (int i = 0; i < data()->size(); i++)
         {
-            auto dp = data()->at(i);
+            auto const dp = data()->at(i);
             if (dp->mainKey() >= x0 && dp->mainKey() <= x1)
             {
                 data()->remove(dp->sortKey());

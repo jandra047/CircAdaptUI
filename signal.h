@@ -8,8 +8,8 @@ public:
     Signal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPCurve(xAxis, yAxis) {};
     void updateGraph();
     void removeData(double, double);
-    void setXData(QVector<double>& x) {m_x = x;};
-    void setYData(QVector<double>& y) {m_y = y;};
+    void setXData(QVector<double>const & x) {m_x = x;};
+    void setYData(QVector<double>const & y) {m_y = y;};
 
 
 private:
