@@ -16,7 +16,7 @@ GraphContainer::GraphContainer(QWidget* parent) :
     xAxis->setRange(0,8);
 }
 
-void GraphContainer::createSignals(int N_signals)
+void GraphContainer::createSignals(int const N_signals)
 {
     mSignals.reserve(N_signals);
     for (int i = 0; i < N_signals; i++)
