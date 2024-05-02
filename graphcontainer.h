@@ -7,7 +7,7 @@ class GraphContainer : public QCustomPlot
 {
 public:
     GraphContainer(QWidget* parent);
-    QList<Signal* > mSignals;
+    QList<Signal* > mSignals{};
     void updateGraph();
     void createSignals(int);
 };

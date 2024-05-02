@@ -1,8 +1,7 @@
 #include "graphcontainer.h"
 
 GraphContainer::GraphContainer(QWidget* parent) :
-    QCustomPlot(parent),
-    mSignals()
+    QCustomPlot(parent)
 {
     currentLayer()->setMode(QCPLayer::lmBuffered);
     setInteractions(QCP::iRangeZoom);
