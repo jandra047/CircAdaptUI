@@ -1,13 +1,5 @@
 #include "signal.h"
 
-Signal::Signal(QCPAxis* xAxis, QCPAxis* yAxis):
-    QCPCurve(xAxis, yAxis),
-    m_xPos(0),
-    i(0),
-    m_dt(0.2)
-{
-}
-
 void Signal::updateGraph()
 {
     if (i >= m_x.size() - 1)
