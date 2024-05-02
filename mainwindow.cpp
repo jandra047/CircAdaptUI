@@ -3,7 +3,6 @@
 #include <math.h>
 #include <QDebug>
 #include <QTime>
-#define PI 3.14159265359
 #include <modelwrapper.h>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -44,28 +43,4 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-QVector<double> MainWindow::sine(QVector<double> &x, double phase)
-{
-    QVector<double> y(x.size());
-    for (int i = 0; i < x.size(); i++)
-    {
-        y[i] = sin(x[i] - phase);
-    }
-    return y;
-}
-
-QVector<double> MainWindow::linspace(double x0, double x1, int N_samples)
-{
-    double delta = (x1 - x0)/(N_samples - 1);
-    QVector<double> x;
-
-    for (int i = 0; i < N_samples - 1; i++)
-    {
-        x.push_back(x0 + i * delta);
-    }
-
-    x.push_back(x1);
-    return x;
 }
