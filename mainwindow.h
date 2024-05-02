@@ -17,8 +17,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QVector<double> sine(QVector<double>&, double);
-    QVector<double> linspace(double, double, int);
 private:
     Ui::MainWindow *ui;
 };
