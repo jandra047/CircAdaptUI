@@ -11,8 +11,8 @@ GraphContainer::GraphContainer(QWidget* parent) :
     yAxis->ticker()->setTickCount(5);
     yAxis->grid()->setPen(QPen(QColor(0xd0d0d0), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     setBackground(QColor(0xededed));
-    yAxis->setRange(-1,1);
-    xAxis->setRange(0,8);
+    yAxis->setRange(0,200);
+    xAxis->setRange(0,3);
 }
 
 void GraphContainer::createSignals(int const N_signals)
