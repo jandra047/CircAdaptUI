@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QTime>
 #define PI 3.14159265359
+#include <modelwrapper.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,21 +12,29 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QTimer *timer = new QTimer(this);
-    // timer->setInterval(100);
     connect(timer, &QTimer::timeout, ui->graph, &GraphContainer::updateGraph);
 
 
-    ui->graph->createSignals(20);
-    QVector<double> x,y;
-    for (int i = 0; i < 20; i++)
+    ui->graph->createSignals(2);
+    QList<Signal* > ss = ui->graph->mSignals;
+    ModelWrapper mw;
+    mw.set_model_state();
+    // mw.run_stable(true);
+    mw.run_single_beat();
+    auto const t = mw.get_vec("Solver.t");
+    auto VLv = mw.get_vec("Model.Peri.TriSeg.cLv.V");
+    auto VRv = mw.get_vec("Model.Peri.TriSeg.cRv.V");
+    for (int i = 0; i < VLv.size(); i++)
     {
-        x = linspace(0, 2 * PI, 426);
-        y = sine(x, i);
-        ui->graph->mSignals[i]->setXData(x);
-        ui->graph->mSignals[i]->setYData(y);
-
-
+        VLv[i] *= 1e6;
+        VRv[i] *= 1e6;
     }
+
+
+    ss[0]->setXData(t);
+    ss[0]->setYData(VLv);
+    ss[1]->setXData(t);
+    ss[1]->setYData(VRv);
 
     timer->start(10);
 
