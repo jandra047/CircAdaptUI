@@ -1,5 +1,9 @@
 #include "signal.h"
 
+namespace {
+    auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
+}
+
 void Signal::updateGraph()
 {
     if (i >= m_x.size() - 1)
@@ -9,7 +13,7 @@ void Signal::updateGraph()
         m_xPos += m_x[i+1] - m_x[i];
         if (m_xPos >= keyAxis()->range().upper)
         {
-            addData(std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN());
+            addData(quiet_nan, quiet_nan);
         }
         m_xPos = fmod(m_xPos, keyAxis()->range().upper);
     }
@@ -18,7 +22,7 @@ void Signal::updateGraph()
         m_xPos += m_x[i+1] - m_x[i];
         if (m_xPos >= keyAxis()->range().upper)
         {
-            addData(std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN());
+            addData(quiet_nan, quiet_nan);
         }
         m_xPos = fmod(m_xPos, keyAxis()->range().upper);
         i += 1;
