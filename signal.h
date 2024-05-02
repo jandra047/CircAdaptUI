@@ -5,7 +5,7 @@
 class Signal : public QCPCurve
 {
 public:
-    Signal(QCPAxis*, QCPAxis*);
+    Signal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPCurve(xAxis, yAxis) {};
     void updateGraph();
     void removeData(double, double);
     void setXData(QVector<double>& x) {m_x = x;};
@@ -15,9 +15,9 @@ public:
 private:
     QVector<double> m_x;
     QVector<double> m_y;
-    double m_xPos;
-    int i;
-    double m_dt;
+    double m_xPos{0};
+    int i{0};
+    double m_dt{0.2};
 };
 
 #endif // SIGNAL_H
