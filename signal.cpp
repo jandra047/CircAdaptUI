@@ -6,29 +6,13 @@ namespace {
 
 void Signal::updateGraph()
 {
-    if (i >= m_x.size() - 1)
-    {
-        addData(m_xPos, m_y[i]);
-        i = 0;
-        m_xPos += m_x[i+1] - m_x[i];
-        if (m_xPos >= keyAxis()->range().upper)
-        {
-            addData(quiet_nan, quiet_nan);
-        }
-        m_xPos = fmod(m_xPos, keyAxis()->range().upper);
-    }
-    else {
-        addData(m_xPos, m_y[i]);
-        m_xPos += m_x[i+1] - m_x[i];
-        if (m_xPos >= keyAxis()->range().upper)
-        {
-            addData(quiet_nan, quiet_nan);
-        }
-        m_xPos = fmod(m_xPos, keyAxis()->range().upper);
-        i += 1;
-    }
-
+    addData(m_xPos, m_xPos, m_y[i]);
+    i %= m_x.size() - 1;
+    m_xPos += m_x[1] - m_x[0];
+    m_xPos = fmod(m_xPos, keyAxis()->range().upper);
+    i += 1;
     removeData(m_xPos, m_xPos + m_dt);
+    addData(m_xPos + m_dt, m_xPos + m_dt, quiet_nan);
 }
 
 void Signal::removeData(double const x0, double x1)
