@@ -1,7 +1,7 @@
 #ifndef MODELWRAPPER_H
 #define MODELWRAPPER_H
-#import <QVector>
-#import "Core.hpp"
+#include <QVector>
+#include "Core.hpp"
 
 class ModelWrapper : public CAcore::Core {
 
