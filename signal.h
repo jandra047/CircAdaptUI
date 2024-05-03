@@ -5,7 +5,10 @@
 class Signal : public QCPCurve
 {
 public:
-    Signal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPCurve(xAxis, yAxis) {};
+    Signal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPCurve(xAxis, yAxis)
+    {
+        setPen(QPen(Qt::black, 2));
+    };
     void updateGraph();
     void removeData(double, double);
     void setXData(QVector<double>const & x) {m_x = x;};
