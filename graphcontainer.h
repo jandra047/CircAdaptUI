@@ -10,6 +10,7 @@ public:
     QList<Signal* > mSignals{};
     void updateGraph();
     void createSignals(int);
+private:
     void zoom(QWheelEvent*);
 };
 

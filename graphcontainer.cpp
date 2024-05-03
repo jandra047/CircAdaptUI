@@ -1,4 +1,11 @@
 #include "graphcontainer.h"
+#include <iostream>
+
+namespace {
+    int sign(double x) {
+        return (x > 0) ? 1 : -1;
+    }
+}
 
 GraphContainer::GraphContainer(QWidget* parent) :
     QCustomPlot(parent)
@@ -37,16 +44,26 @@ void GraphContainer::updateGraph()
 
 void GraphContainer::zoom(QWheelEvent* event)
 {
-        // Calculate the zoom factor based on the wheel angle delta
-        double zoomFactor = 1 - event->angleDelta().y() / 1200.0; // Adjust as needed
+    // Calculate the zoom factor based on the wheel angle delta
+    double zoomFactor = 1 - event->angleDelta().y() / 1200.0; // Adjust as needed
 
-        // Apply the new range and translation
+    if (event->modifiers() & Qt::ShiftModifier)
+    {
         xAxis->setRange(0, xAxis->range().upper * zoomFactor);
+    }
+    else if (event->modifiers() & Qt::ControlModifier)
+    {
+        // TODO: Make dependent on current ranges
+        yAxis->setRangeLower(yAxis->range().lower - 15 * zoomFactor * sign(event->angleDelta().y()));
+    }
+    else
+    {
+        yAxis->setRangeUpper(yAxis->range().upper * zoomFactor);
+    }
 
-        // Replot the customPlot to update the display
-        replot();
+    replot();
 
-        // Accept the event to prevent further processing
-        event->accept();
+    // Accept the event to prevent further processing
+    event->accept();
 
 }
