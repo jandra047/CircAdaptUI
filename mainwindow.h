@@ -19,5 +19,8 @@ public:
     ~MainWindow();
 private:
     Ui::MainWindow *ui;
+    QTimer *timer = new QTimer(this);
+private slots:
+    void on_actionPlay_triggered();
 };
 #endif // MAINWINDOW_H
