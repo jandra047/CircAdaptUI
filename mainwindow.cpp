@@ -79,3 +79,10 @@ void MainWindow::on_actionPlay_triggered()
         timer->start();
     }
 }
+
+void MainWindow::on_actionAutoscale_triggered()
+{
+    ui->signalGraph->rescaleAxes();
+    ui->ssGraph->rescaleAxes();
+    ui->pvGraph->rescaleAxes();
+}
