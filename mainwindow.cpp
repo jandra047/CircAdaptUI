@@ -4,10 +4,6 @@
 #include <QTime>
 #include <modelwrapper.h>
 
-namespace {
-    auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
-}
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
