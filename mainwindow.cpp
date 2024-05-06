@@ -14,20 +14,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // setStyleSheet("background-color: #aaaaaa");
-    connect(timer, &QTimer::timeout, ui->signalGraph, &GraphContainer::updateGraph);
-    // connect(timer, &QTimer::timeout, ui->pvGraph, &GraphContainer::updateGraph);
+    connect(timer, &QTimer::timeout, ui->signalGraph, &SignalGraph::updateGraph);
+    connect(timer, &QTimer::timeout, ui->pvGraph, &PVLoopGraph::updateGraph);
     connect(ui->actionPlay, SIGNAL(ui->actionPlay->triggered), this, SLOT(drawToggle));
 
 
 
     ui->signalGraph->createSignals(2);
-    ui->pvGraph->createSignals(1);
+    ui->pvGraph->createSignals(2);
     // ui->pvGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
     // ui->pvGraph->axisRect()->setRangeZoom(Qt::Horizontal);
     ui->pvGraph->xAxis->setRange(0, 200);
     ui->pvGraph->yAxis->setRange(0, 200);
-    QList<Signal* > ss = ui->signalGraph->mSignals;
-    QList<Signal* > ss2 = ui->pvGraph->mSignals;
+    QList<TimeSignal* > ss = ui->signalGraph->mSignals;
+    QList<LoopSignal* > ss2 = ui->pvGraph->mSignals;
     ModelWrapper mw;
     mw.set_model_state();
     // mw.run_stable(true);
@@ -46,18 +46,20 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
 
-    ss[0]->setXData(t);
+    ss[0]->setTData(t);
     ss[0]->setYData(pLv);
-    ss[1]->setXData(t);
+    ss[1]->setTData(t);
     ss[1]->setYData(pRv);
     ss2[0]->setXData(VLv);
     ss2[0]->setYData(pLv);
-    ss2[0]->addData(t, VLv, pLv);
-    ss2[0]->data()->remove(0.3, 0.7);
-    ss2[0]->addData(0.5, quiet_nan, quiet_nan);
-    ss2[0]->layer()->replot();
-    // ss2[1]->setXData(VRv);
-    // ss2[1]->setYData(pRv);
+    ss2[0]->setTData(t);
+    // ss2[0]->addData(t, VLv, pLv);
+    // ss2[0]->data()->remove(0.3, 0.7);
+    // ss2[0]->addData(0.5, quiet_nan, quiet_nan);
+    // ss2[0]->layer()->replot();
+    ss2[1]->setXData(VRv);
+    ss2[1]->setYData(pRv);
+    ss2[1]->setTData(t);
     // ss2[1]->setPen(QPen(Qt::red));
 
     timer->start(10);

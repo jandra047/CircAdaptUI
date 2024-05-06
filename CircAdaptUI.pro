@@ -10,23 +10,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    loopsignal.cpp \
     pvloopgraph.cpp \
     qcustomplot.cpp \
     graphcontainer.cpp \
     main.cpp \
     mainwindow.cpp \
     modelwrapper.cpp \
-    signal.cpp \
-    signalgraph.cpp
+    signalgraph.cpp \
+    timesignal.cpp
 
 HEADERS += \
+    loopsignal.h \
     pvloopgraph.h \
     qcustomplot.h \
     graphcontainer.h \
     mainwindow.h \
     modelwrapper.h \
-    signal.h \
-    signalgraph.h
+    signalgraph.h \
+    timesignal.h
 
 FORMS += \
     mainwindow.ui

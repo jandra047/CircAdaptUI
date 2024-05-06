@@ -1,12 +1,15 @@
 #include "graphcontainer.h"
+#include <loopsignal.h>
+#include <timesignal.h>
 
 namespace {
-    int sign(double x) {
+    int sign(double const x) {
         return (x > 0) ? 1 : -1;
     }
 }
 
-GraphContainer::GraphContainer(QWidget* parent) :
+template<typename T>
+GraphContainer<T>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent)
 {
     currentLayer()->setMode(QCPLayer::lmBuffered);
@@ -24,27 +27,20 @@ GraphContainer::GraphContainer(QWidget* parent) :
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
 }
 
-void GraphContainer::createSignals(int const N_signals)
+template<typename T>
+void GraphContainer<T>::createSignals(int const N_signals)
 {
     mSignals.reserve(N_signals);
     for (int i = 0; i < N_signals; i++)
     {
-        Signal* signal = new Signal(this->xAxis, this->yAxis);
+        T* signal = new T(this->xAxis, this->yAxis);
         signal->setLayer(this->currentLayer());
         mSignals.push_back(signal);
     }
 }
 
-void GraphContainer::updateGraph()
-{
-    for (int i = 0; i < mSignals.size(); i++)
-    {
-        mSignals[i]->updateGraph();
-    }
-    currentLayer()->replot();
-}
-
-void GraphContainer::zoom(QWheelEvent* event)
+template<typename T>
+void GraphContainer<T>::zoom(QWheelEvent* event)
 {
     // Calculate the zoom factor based on the wheel angle delta
     double zoomFactor = 1 - event->angleDelta().y() / 1200.0; // Adjust as needed
@@ -67,5 +63,17 @@ void GraphContainer::zoom(QWheelEvent* event)
 
     // Accept the event to prevent further processing
     event->accept();
-
 }
+
+template<typename T>
+void GraphContainer<T>::updateGraph()
+{
+    for (int i = 0; i < mSignals.size(); i++)
+    {
+        mSignals[i]->updateGraph();
+    }
+    currentLayer()->replot();
+}
+
+template class GraphContainer<LoopSignal>;
+template class GraphContainer<TimeSignal>;

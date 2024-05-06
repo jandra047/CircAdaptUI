@@ -1,21 +1,22 @@
-#include "signal.h"
+#include "timesignal.h"
 
 namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
 }
 
-void Signal::updateGraph()
+void TimeSignal::updateGraph()
 {
     addData(m_xPos, m_xPos, m_y[i]);
-    i %= m_x.size() - 1;
-    m_xPos += m_x[1] - m_x[0];
+    i %= m_t.size() - 1;
+    m_xPos += m_t[1] - m_t[0];
     m_xPos = fmod(m_xPos, keyAxis()->range().upper);
     i += 1;
     removeData(m_xPos, m_xPos + m_dt);
+    // data()->remove(m_xPos, m_xPos + m_dt);
     addData(m_xPos + m_dt, m_xPos + m_dt, quiet_nan);
 }
 
-void Signal::removeData(double const x0, double x1)
+void TimeSignal::removeData(double const x0, double x1)
 {
     if (x1 > keyAxis()->range().upper)
     {

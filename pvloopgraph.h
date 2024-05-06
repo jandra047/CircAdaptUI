@@ -1,13 +1,12 @@
 #ifndef PVLOOPGRAPH_H
 #define PVLOOPGRAPH_H
 #include <graphcontainer.h>
+#include <loopsignal.h>
 
-class PVLoopGraph : public GraphContainer
+class PVLoopGraph : public GraphContainer<LoopSignal>
 {
 public:
     PVLoopGraph(QWidget* parent);
-    void updateGraph();
-
 };
 
 #endif // PVLOOPGRAPH_H
