@@ -1,5 +1,4 @@
 #include "graphcontainer.h"
-#include <iostream>
 
 namespace {
     int sign(double x) {
