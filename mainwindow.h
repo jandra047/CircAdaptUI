@@ -22,6 +22,7 @@ private:
     QTimer *timer = new QTimer(this);
 private slots:
     void on_actionPlay_triggered();
+    void on_actionStress_strain_toggled(bool arg1);
     void on_actionAutoscale_triggered();
 };
 #endif // MAINWINDOW_H

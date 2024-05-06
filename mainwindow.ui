@@ -29,26 +29,29 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QSplitter" name="splitter">
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
+     <widget class="QSplitter" name="splitter_3">
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
       </property>
-      <property name="opaqueResize">
-       <bool>false</bool>
-      </property>
-      <property name="childrenCollapsible">
-       <bool>false</bool>
-      </property>
       <widget class="SignalGraph" name="signalGraph" native="true"/>
-      <widget class="PVLoopGraph" name="pvGraph" native="true"/>
+      <widget class="QSplitter" name="splitter_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <widget class="QSplitter" name="splitter">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="childrenCollapsible">
+         <bool>false</bool>
+        </property>
+        <widget class="PVLoopGraph" name="pvGraph" native="true"/>
+        <widget class="PVLoopGraph" name="ssGraph" native="true"/>
+       </widget>
+       <widget class="QWidget" name="widget_2" native="true"/>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -87,9 +90,22 @@
      <string>Help</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuSignals">
+     <property name="title">
+      <string>Signals</string>
+     </property>
+     <addaction name="actionStress_strain"/>
+    </widget>
+    <addaction name="menuSignals"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuExecute"/>
+   <addaction name="menuView"/>
    <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -160,6 +176,17 @@
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionStress_strain">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Stress-strain</string>
    </property>
   </action>
  </widget>
