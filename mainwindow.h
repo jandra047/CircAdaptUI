@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <qcustomplot.h>
+#include <modelwrapper.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +21,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QTimer *timer = new QTimer(this);
+    ModelWrapper mw;
 private slots:
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);
