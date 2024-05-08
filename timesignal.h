@@ -2,10 +2,10 @@
 #define TIMESIGNAL_H
 #include <qcustomplot.h>
 
-class TimeSignal : public QCPCurve
+class TimeSignal : public QCPGraph
 {
 public:
-    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPCurve(xAxis, yAxis)
+    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPGraph(xAxis, yAxis)
     {
         setPen(QPen(Qt::black, 2));
     };
