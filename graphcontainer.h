@@ -10,7 +10,6 @@ public:
     GraphContainer(QWidget* parent);
     void updateGraph();
     void createSignals(int);
-    void rescaleAxes();
     QVector<ptr_type> mSignals;
 private:
     void zoom(QWheelEvent*);

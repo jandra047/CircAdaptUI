@@ -107,7 +107,10 @@ void MainWindow::on_actionStress_strain_toggled(bool isVisible)
 
 void MainWindow::on_actionAutoscale_triggered()
 {
-    ui->signalGraph->rescaleAxes();
-    ui->ssGraph->rescaleAxes();
-    ui->pvGraph->rescaleAxes();
+    ui->signalGraph->rescaleAxes(true);
+    ui->signalGraph->replot();
+    ui->ssGraph->rescaleAxes(true);
+    ui->ssGraph->replot();
+    ui->pvGraph->rescaleAxes(true);
+    ui->pvGraph->replot();
 }

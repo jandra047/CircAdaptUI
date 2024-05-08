@@ -75,12 +75,5 @@ void GraphContainer<T>::updateGraph()
     currentLayer()->replot();
 }
 
-template<typename T>
-void GraphContainer<T>::rescaleAxes()
-{
-    xAxis->rescale();
-    yAxis->rescale();
-}
-
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;
