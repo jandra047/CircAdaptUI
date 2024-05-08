@@ -156,4 +156,26 @@ QVector<double> ModelWrapper::get_vec(const char* par) {
     return qVec;
 }
 
+void ModelWrapper::run_single_step() {
 
+    size_t nt = ((size_t)(model->get_t_cycle() / solver->get_dt_export()));
+    if (it == 0) {
+        solver->pre_beat();
+        solver->init_iteration();
+        it++;
+    }
+    else {
+        t_export = (it + 1) * solver->get_dt_export();
+        solver->stepper(t_export, true);
+
+        model->true_iteration(t_export, solver->get_dt_export());
+
+        it++;
+    }
+    if (it >= nt)
+    {
+        solver->after_beat();
+        it = 0;
+    }
+    emit timestep_done();
+}
