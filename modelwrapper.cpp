@@ -1,15 +1,5 @@
-#include "Core.hpp"
 #include "modelwrapper.h"
 #include <vector>
-
-CAcore::Core* ModelWrapper::build_model(const char *model, const char *solver) {
-    CAcore::Factory factory;
-
-    CAcore::Core* C = new CAcore::Core(&factory);
-    C->build(model, solver);
-
-    return C;
-}
 
 void ModelWrapper::set_model_state() {
     this->set_bool("Model.Peri.La.buckling", false);
