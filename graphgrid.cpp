@@ -49,3 +49,11 @@ void GraphGrid::updateGraphs(Buffer& buffer)
 
     }
 }
+
+void GraphGrid::setRowVisible(int row, bool isVisible)
+{
+    for (int i = 0; i < cols; i++)
+    {
+        gridLayout.itemAtPosition(row, i)->widget()->setVisible(isVisible);
+    }
+}

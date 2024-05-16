@@ -17,6 +17,7 @@ class GraphGrid : public QWidget
 
 public:
     GraphGrid(int, int, QWidget*);
+    void setRowVisible(int, bool);
 public slots:
     void updateGraphs(Buffer&);
 
