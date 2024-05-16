@@ -5,7 +5,7 @@
 #include <QGridLayout>
 #include "buffer.h"
 
-class TestGrid : public QWidget
+class GraphGrid : public QWidget
 {
     Q_OBJECT
     enum ColType {
@@ -16,7 +16,7 @@ class TestGrid : public QWidget
     const QVector<QString> types = {"REFERENCE", "SNAPSHOT", "CURRENT"};
 
 public:
-    TestGrid(int, int, QWidget*);
+    GraphGrid(int, int, QWidget*);
 public slots:
     void updateGraphs(Buffer&);
 

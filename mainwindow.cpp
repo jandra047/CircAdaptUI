@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionPlay, SIGNAL(ui->actionPlay->triggered), this, SLOT(drawToggle));
 
 
+    ui->splitter->addWidget(a);
 
     ui->signalGraph->createSignals(2);
     ui->pvGraph->createSignals(2);

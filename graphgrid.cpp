@@ -2,7 +2,7 @@
 #include "graphcontainer.h"
 #include "timesignal.h"
 
-TestGrid::TestGrid(int rows, int cols, QWidget* parent) :
+GraphGrid::GraphGrid(int rows, int cols, QWidget* parent) :
     QWidget(parent),
     gridLayout(this),
     rows(rows),
@@ -41,7 +41,7 @@ TestGrid::TestGrid(int rows, int cols, QWidget* parent) :
     gridLayout.setColumnStretch(2, 2);
 }
 
-void TestGrid::updateGraphs(Buffer& buffer)
+void GraphGrid::updateGraphs(Buffer& buffer)
 {
     for (int i = 0; i < rows; i++)
     {
