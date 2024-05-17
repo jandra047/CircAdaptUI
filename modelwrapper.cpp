@@ -139,12 +139,6 @@ void ModelWrapper::set_model_state() {
     //         self['Patch']['LsPasActT'] = [3.  , 3.  , 2.31, 2.31, 2.31]
 
 }
-QVector<double> ModelWrapper::get_vec(const char* par) {
-    std::vector<double> vec;
-    this->get_double_vector(par, vec);
-    QVector<double> qVec = QVector<double>(vec.begin(), vec.end());
-    return qVec;
-}
 
 void ModelWrapper::run_single_step() {
 

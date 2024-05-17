@@ -20,7 +20,6 @@ public:
     };
 
     void set_model_state();
-    QVector<double> get_vec(const char*);
 
 private:
     Buffer& buffer;
