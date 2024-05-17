@@ -1,6 +1,6 @@
-#include "pvloopgraph.h"
+#include "loopgraph.h"
 
-PVLoopGraph::PVLoopGraph(QWidget* parent) :
+LoopGraph::LoopGraph(QWidget* parent) :
     GraphContainer<LoopSignal>(parent)
 {
     xAxis->setLabel("Volume [mL]");

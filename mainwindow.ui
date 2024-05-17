@@ -62,8 +62,8 @@
         <property name="childrenCollapsible">
          <bool>false</bool>
         </property>
-        <widget class="PVLoopGraph" name="pvGraph" native="true"/>
-        <widget class="PVLoopGraph" name="ssGraph" native="true"/>
+        <widget class="LoopGraph" name="pvGraph" native="true"/>
+        <widget class="LoopGraph" name="ssGraph" native="true"/>
        </widget>
        <widget class="QWidget" name="widget" native="true"/>
       </widget>
@@ -213,15 +213,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PVLoopGraph</class>
-   <extends>QWidget</extends>
-   <header>pvloopgraph.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>GraphGrid</class>
    <extends>QWidget</extends>
    <header>graphgrid.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LoopGraph</class>
+   <extends>QWidget</extends>
+   <header>loopgraph.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
