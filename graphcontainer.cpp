@@ -21,7 +21,7 @@ GraphContainer<T>::GraphContainer(QWidget* parent) :
     yAxis->grid()->setPen(QPen(QColor(0xaaaaaa), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     axisRect()->setBackground(QColor(0xededed));
     setBackground(QColor(0xaaaaaa));
-    yAxis->setRange(0,200);
+    yAxis->setRange(0,20000);
     xAxis->setRange(0,3);
 
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
@@ -75,5 +75,14 @@ void GraphContainer<T>::updateGraph()
     currentLayer()->replot();
 }
 
+template<typename T>
+void GraphContainer<T>::updateGraph2(Buffer& buffer)
+{
+    for (int i = 0; i < mSignals.size(); i++)
+    {
+        mSignals[i]->updateGraph2(buffer);
+    }
+    currentLayer()->replot();
+}
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;

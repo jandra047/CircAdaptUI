@@ -23,12 +23,14 @@ public:
 private:
     Ui::MainWindow *ui;
     QTimer *timer = new QTimer(this);
+    QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
     ModelWrapper mw;
     GraphGrid* a = new GraphGrid(2,3, this);
 private slots:
+    void updateGraphs();
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);
-    void on_actionAutoscale_triggered();
+    // void on_actionAutoscale_triggered();
 };
 #endif // MAINWINDOW_H
