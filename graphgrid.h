@@ -16,7 +16,7 @@ class GraphGrid : public QWidget
     const QVector<QString> types = {"REFERENCE", "SNAPSHOT", "CURRENT"};
 
 public:
-    GraphGrid(int, int, QWidget*);
+    GraphGrid(QWidget*, int rows = 2, int cols = 3);
     void setRowVisible(int, bool);
 public slots:
     void updateGraphs(Buffer&);

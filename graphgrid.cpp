@@ -2,7 +2,7 @@
 #include "graphcontainer.h"
 #include "timesignal.h"
 
-GraphGrid::GraphGrid(int rows, int cols, QWidget* parent) :
+GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     QWidget(parent),
     gridLayout(this),
     rows(rows),
