@@ -23,7 +23,7 @@ private:
     Ui::MainWindow *ui;
     QTimer *timer = new QTimer(this);
     ModelWrapper mw;
-    GraphGrid* a = new GraphGrid(5,3, this);
+    GraphGrid* a = new GraphGrid(2,3, this);
 private slots:
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);

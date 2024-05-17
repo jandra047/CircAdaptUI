@@ -28,12 +28,12 @@ GraphContainer<T>::GraphContainer(QWidget* parent) :
 }
 
 template<typename T>
-void GraphContainer<T>::createSignals(int const N_signals)
+void GraphContainer<T>::createSignals(int const N_signals, QVector<QString> names)
 {
     mSignals.reserve(N_signals);
     for (int i = 0; i < N_signals; i++)
     {
-        T* signal = new T(this->xAxis, this->yAxis);
+        T* signal = new T(this->xAxis, this->yAxis, names[i]);
         signal->setLayer(this->currentLayer());
         mSignals.push_back(signal);
     }

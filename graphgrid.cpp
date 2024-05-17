@@ -15,15 +15,23 @@ GraphGrid::GraphGrid(int rows, int cols, QWidget* parent) :
             GraphContainer<TimeSignal>* plot = new GraphContainer<TimeSignal>(this);
             if (j == ColType::CURRENT)
             {
-                plot->createSignals(2);
+                if (i == 0)
+                    plot->createSignals(1, QVector<QString>(QString("pLv")));
+                if (i == 1)
+                {
+                    QVector<QString> l;
+                    l.push_back(QString("pRv"));
+                    l.push_back(QString("pRa"));
+                    plot->createSignals(2, l);
+                }
             }
             if (j > 0)
             {
-                plot->yAxis->setTicks(false);
+                // plot->yAxis->setTicks(false);
             }
             if (i < (rows - 1))
             {
-                plot->xAxis->setTicks(false);
+                // plot->xAxis->setTicks(false);
             }
             if (i == 0)
             {

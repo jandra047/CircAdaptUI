@@ -5,7 +5,7 @@
 class LoopSignal : public QCPCurve
 {
 public:
-    LoopSignal(QCPAxis* xAxis, QCPAxis* yAxis) : QCPCurve(xAxis, yAxis)
+    LoopSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString name) : QCPCurve(xAxis, yAxis), m_name(name)
     {
         setPen(QPen(Qt::black, 2));
     };
@@ -15,6 +15,7 @@ public:
     void setTData(QVector<double>const & t) {m_t = t;};
 
 private:
+    QString m_name;
     QVector<double> m_x;
     QVector<double> m_y;
     QVector<double> m_t;
