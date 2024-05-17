@@ -10,23 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
     , mw(buffer, this)
 {
     ui->setupUi(this);
-    // setStyleSheet("background-color: #aaaaaa");
     connect(timer, &QTimer::timeout, &mw, &ModelWrapper::run_single_step);
-    // connect(&mw, &ModelWrapper::timestep_done, this, &MainWindow::updateSigGraph);
-    // connect(&mw, &ModelWrapper::timestep_done, this, &MainWindow::updatePVGraph);
-    // connect(&mw, &ModelWrapper::timestep_done, ui->ssGraph, &PVLoopGraph::updateGraph);
-
-
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
 
     timer->start(0);
     buffertimer->setSingleShot(true);
-    buffertimer->start(2000); // 5000 milliseconds = 5 seconds
+    buffertimer->start(2000);
 
-    // Connect the timer's timeout signal to a lambda function
     connect(buffertimer, &QTimer::timeout, [&]() {
-
-        // Start the timer with a 100 ms interval
         buffertimer->start(1000/60);
     });
 
