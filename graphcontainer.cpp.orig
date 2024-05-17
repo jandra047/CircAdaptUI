@@ -1,4 +1,23 @@
 #include "graphcontainer.h"
+<<<<<<< HEAD
+
+GraphContainer::GraphContainer(QWidget* parent) :
+    QCustomPlot(parent)
+{
+    currentLayer()->setMode(QCPLayer::lmBuffered);
+    setInteractions(QCP::iRangeZoom);
+    axisRect()->setRangeZoom(Qt::Horizontal);
+    xAxis->ticker()->setTickCount(5);
+    xAxis->grid()->setPen(QPen(QColor(0xd0d0d0), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    yAxis->ticker()->setTickCount(5);
+    yAxis->grid()->setPen(QPen(QColor(0xd0d0d0), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    setBackground(QColor(0xededed));
+    yAxis->setRange(0,200);
+    xAxis->setRange(0,3);
+}
+
+void GraphContainer::createSignals(int const N_signals)
+=======
 #include <loopsignal.h>
 #include <timesignal.h>
 
@@ -30,16 +49,24 @@ GraphContainer<T>::GraphContainer(QWidget* parent) :
 
 template<typename T>
 void GraphContainer<T>::createSignals(int const N_signals, QVector<QString> names)
+>>>>>>> dev
 {
     mSignals.reserve(N_signals);
     for (int i = 0; i < N_signals; i++)
     {
+<<<<<<< HEAD
+        Signal* signal = new Signal(this->xAxis, this->yAxis);
+=======
         T* signal = new T(this->xAxis, this->yAxis, names[i]);
+>>>>>>> dev
         signal->setLayer(this->currentLayer());
         mSignals.push_back(signal);
     }
 }
 
+<<<<<<< HEAD
+void GraphContainer::updateGraph()
+=======
 template<typename T>
 void GraphContainer<T>::zoom(QWheelEvent* event)
 {
@@ -68,6 +95,7 @@ void GraphContainer<T>::zoom(QWheelEvent* event)
 
 template<typename T>
 void GraphContainer<T>::updateGraph()
+>>>>>>> dev
 {
     for (int i = 0; i < mSignals.size(); i++)
     {
@@ -75,6 +103,8 @@ void GraphContainer<T>::updateGraph()
     }
     currentLayer()->replot();
 }
+<<<<<<< HEAD
+=======
 
 template<typename T>
 void GraphContainer<T>::updateGraph2(Buffer& buffer)
@@ -87,3 +117,4 @@ void GraphContainer<T>::updateGraph2(Buffer& buffer)
 }
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;
+>>>>>>> dev

@@ -1,6 +1,17 @@
 #ifndef GRAPHCONTAINER_H
 #define GRAPHCONTAINER_H
 #include <qcustomplot.h>
+<<<<<<< HEAD
+#include <signal.h>
+
+class GraphContainer : public QCustomPlot
+{
+public:
+    GraphContainer(QWidget* parent);
+    QList<Signal* > mSignals{};
+    void updateGraph();
+    void createSignals(int);
+=======
 #include "buffer.h"
 
 template<typename SignalType>
@@ -15,6 +26,7 @@ public:
     QVector<ptr_type> mSignals;
 private:
     void zoom(QWheelEvent*);
+>>>>>>> dev
 };
 
 #endif // GRAPHCONTAINER_H

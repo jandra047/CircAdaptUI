@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+
+=======
 QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 DEFINES += QCUSTOMPLOT_USE_OPENGL
+>>>>>>> dev
 CONFIG += c++17
 # CONFIG += sanitizer sanitize_address
 
@@ -10,15 +17,23 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+<<<<<<< HEAD
+=======
     buffer.cpp \
     graphgrid.cpp \
     loopsignal.cpp \
     pvloopgraph.cpp \
+>>>>>>> dev
     qcustomplot.cpp \
     graphcontainer.cpp \
     main.cpp \
     mainwindow.cpp \
     modelwrapper.cpp \
+<<<<<<< HEAD
+    signal.cpp
+
+HEADERS += \
+=======
     signalgraph.cpp \
     timesignal.cpp
 
@@ -27,12 +42,17 @@ HEADERS += \
     graphgrid.h \
     loopsignal.h \
     pvloopgraph.h \
+>>>>>>> dev
     qcustomplot.h \
     graphcontainer.h \
     mainwindow.h \
     modelwrapper.h \
+<<<<<<< HEAD
+    signal.h
+=======
     signalgraph.h \
     timesignal.h
+>>>>>>> dev
 
 FORMS += \
     mainwindow.ui

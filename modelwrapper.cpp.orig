@@ -1,6 +1,22 @@
+<<<<<<< HEAD
+#include "Core.hpp"
 #include "modelwrapper.h"
 #include <vector>
 
+CAcore::Core* ModelWrapper::build_model(const char *model, const char *solver) {
+    CAcore::Factory factory;
+
+    CAcore::Core* C = new CAcore::Core(&factory);
+    C->build(model, solver);
+
+    return C;
+}
+
+=======
+#include "modelwrapper.h"
+#include <vector>
+
+>>>>>>> dev
 void ModelWrapper::set_model_state() {
     this->set_bool("Model.Peri.La.buckling", false);
     this->set_bool("Model.Peri.Ra.buckling", false);
@@ -139,6 +155,16 @@ void ModelWrapper::set_model_state() {
     //         self['Patch']['LsPasActT'] = [3.  , 3.  , 2.31, 2.31, 2.31]
 
 }
+<<<<<<< HEAD
+QVector<double> ModelWrapper::get_vec(const char* par) {
+    std::vector<double> vec;
+    this->get_double_vector(par, vec);
+    QVector<double> qVec = QVector<double>(vec.begin(), vec.end());
+    return qVec;
+}
+
+
+=======
 
 void ModelWrapper::run_single_step() {
 
@@ -180,3 +206,4 @@ void ModelWrapper::updateBuffer()
     buffer.append("pRa", pRa);
     buffer.append("t", t);
 }
+>>>>>>> dev

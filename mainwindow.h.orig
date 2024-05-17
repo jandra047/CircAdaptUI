@@ -3,9 +3,12 @@
 
 #include <QMainWindow>
 #include <qcustomplot.h>
+<<<<<<< HEAD
+=======
 #include <modelwrapper.h>
 #include "buffer.h"
 #include "graphgrid.h"
+>>>>>>> dev
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,6 +25,8 @@ public:
     ~MainWindow();
 private:
     Ui::MainWindow *ui;
+<<<<<<< HEAD
+=======
     QTimer *timer = new QTimer(this);
     QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
@@ -32,5 +37,6 @@ private slots:
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);
     // void on_actionAutoscale_triggered();
+>>>>>>> dev
 };
 #endif // MAINWINDOW_H
