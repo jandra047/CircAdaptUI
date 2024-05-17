@@ -19,7 +19,6 @@ public:
         init_SVar();
     };
 
-    CAcore::Core* build_model(const char *model, const char *solver);
     void set_model_state();
     QVector<double> get_vec(const char*);
 
