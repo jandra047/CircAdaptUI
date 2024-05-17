@@ -3,16 +3,20 @@
 #include <QVector>
 #include <QObject>
 #include "Core.hpp"
+#include <buffer.h>
 
 class ModelWrapper : public QObject, public CAcore::Core {
         Q_OBJECT
 
 public:
-    ModelWrapper(QObject *parent = Q_NULLPTR) :
+    ModelWrapper(Buffer& buffer, QObject *parent = Q_NULLPTR) :
         QObject(parent),
-        CAcore::Core(new CAcore::Factory)
+        CAcore::Core(new CAcore::Factory),
+        buffer(buffer)
     {
         build("VanOsta2022", "forward_euler");
+        set_model_state();
+        init_SVar();
     };
 
     CAcore::Core* build_model(const char *model, const char *solver);
@@ -20,9 +24,11 @@ public:
     QVector<double> get_vec(const char*);
 
 private:
+    Buffer& buffer;
     size_t it = 0;
     int nt;
     double t_export;
+    void updateBuffer();
 public slots:
     void run_single_step();
 signals:

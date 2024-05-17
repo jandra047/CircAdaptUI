@@ -167,5 +167,22 @@ void ModelWrapper::run_single_step() {
         solver->after_beat();
         it = 0;
     }
+    updateBuffer();
     emit timestep_done();
+}
+
+void ModelWrapper::updateBuffer()
+{
+    double pLv;
+    double pRv;
+    double pRa;
+    double t = solver->get_t();
+    get_double("Model.Peri.TriSeg.cLv.p", pLv);
+    get_double("Model.Peri.TriSeg.cRv.p", pRv);
+    get_double("Model.Peri.Ra.p", pRa);
+    get_double("Solver.t", t);
+    buffer.append("pLv", pLv);
+    buffer.append("pRv", pRv);
+    buffer.append("pRa", pRa);
+    buffer.append("t", t);
 }

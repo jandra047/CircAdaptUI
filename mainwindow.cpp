@@ -7,7 +7,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , mw(this)
+    , buffer()
+    , mw(buffer, this)
 {
     ui->setupUi(this);
     // setStyleSheet("background-color: #aaaaaa");

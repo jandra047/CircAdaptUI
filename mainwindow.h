@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <qcustomplot.h>
 #include <modelwrapper.h>
+#include "buffer.h"
 #include "graphgrid.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +23,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QTimer *timer = new QTimer(this);
+    Buffer buffer;
     ModelWrapper mw;
     GraphGrid* a = new GraphGrid(2,3, this);
 private slots:
