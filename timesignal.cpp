@@ -42,9 +42,10 @@ void TimeSignal::updateGraph2(Buffer& buffer)
     QVector<double> tData = buffer.get("t", 0.015);
 
     // Shift time data to start from current m_xPos
-    double tOffset = m_xPos - tData.first();
+    double tOffset = m_xPos - tData[0];
+    double dt = tData[1] - tData[0];
     for (int i = 0; i < tData.size(); ++i) {
-        tData[i] += tOffset;
+        tData[i] += tOffset + dt;
     }
 
     // Remove old data before plotting the new data
