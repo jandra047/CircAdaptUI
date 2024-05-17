@@ -55,15 +55,11 @@ void MainWindow::on_actionStress_strain_toggled(bool isVisible)
     ui->ssGraph->setVisible(isVisible);
 }
 
-// void MainWindow::on_actionAutoscale_triggered()
-// {
-//     ui->signalGraph->rescaleAxes(true);
-//     ui->signalGraph->replot();
-//     ui->ssGraph->rescaleAxes(true);
-//     ui->ssGraph->replot();
-//     ui->pvGraph->rescaleAxes(true);
-//     ui->pvGraph->replot();
-// }
+void MainWindow::on_actionAutoscale_triggered()
+{
+    ui->a->rescaleAxes(true);
+    ui->a->replot();
+}
 
 void MainWindow::updateGraphs()
 {

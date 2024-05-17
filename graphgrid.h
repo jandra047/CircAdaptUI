@@ -18,6 +18,8 @@ class GraphGrid : public QWidget
 public:
     GraphGrid(QWidget*, int rows = 2, int cols = 3);
     void setRowVisible(int, bool);
+    void rescaleAxes(bool);
+    void replot();
 public slots:
     void updateGraphs(Buffer&);
 

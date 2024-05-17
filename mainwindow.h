@@ -5,7 +5,6 @@
 #include <qcustomplot.h>
 #include <modelwrapper.h>
 #include "buffer.h"
-#include "graphgrid.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,6 +30,6 @@ private slots:
     void updateGraphs();
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);
-    // void on_actionAutoscale_triggered();
+    void on_actionAutoscale_triggered();
 };
 #endif // MAINWINDOW_H

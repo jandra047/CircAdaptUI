@@ -65,3 +65,27 @@ void GraphGrid::setRowVisible(int row, bool isVisible)
         gridLayout.itemAtPosition(row, i)->widget()->setVisible(isVisible);
     }
 }
+
+void GraphGrid::rescaleAxes(bool onlyVisiblePlottables)
+{
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, j)->widget())->rescaleAxes(onlyVisiblePlottables);
+        }
+    }
+}
+
+void GraphGrid::replot()
+{
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, j)->widget())->replot();
+        }
+    }
+}
