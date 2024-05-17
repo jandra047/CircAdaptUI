@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <iostream>
 #include <QTime>
 #include <modelwrapper.h>
 
@@ -18,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     // connect(&mw, &ModelWrapper::timestep_done, ui->ssGraph, &PVLoopGraph::updateGraph);
 
 
-    ui->splitter->addWidget(a);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
 
     timer->start(0);
@@ -69,6 +67,6 @@ void MainWindow::on_actionStress_strain_toggled(bool isVisible)
 
 void MainWindow::updateGraphs()
 {
-    a->updateGraphs(buffer);
+    ui->a->updateGraphs(buffer);
     buffer.take("t", 0.015);
 }

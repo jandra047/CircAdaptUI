@@ -29,34 +29,35 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <widget class="QSplitter" name="splitter_3">
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
       </property>
+      <property name="opaqueResize">
+       <bool>false</bool>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="GraphGrid" name="a" native="true"/>
       <widget class="QSplitter" name="splitter_2">
        <property name="orientation">
         <enum>Qt::Orientation::Vertical</enum>
        </property>
+       <property name="opaqueResize">
+        <bool>false</bool>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
+       </property>
        <widget class="QSplitter" name="splitter">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="opaqueResize">
+         <bool>false</bool>
         </property>
         <property name="childrenCollapsible">
          <bool>false</bool>
@@ -64,7 +65,7 @@
         <widget class="PVLoopGraph" name="pvGraph" native="true"/>
         <widget class="PVLoopGraph" name="ssGraph" native="true"/>
        </widget>
-       <widget class="QWidget" name="widget_2" native="true"/>
+       <widget class="QWidget" name="widget" native="true"/>
       </widget>
      </widget>
     </item>
@@ -215,6 +216,12 @@
    <class>PVLoopGraph</class>
    <extends>QWidget</extends>
    <header>pvloopgraph.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GraphGrid</class>
+   <extends>QWidget</extends>
+   <header>graphgrid.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

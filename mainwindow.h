@@ -26,7 +26,7 @@ private:
     QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
     ModelWrapper mw;
-    GraphGrid* a = new GraphGrid(2,3, this);
+    // GraphGrid* a = new GraphGrid(2,3, this);
 private slots:
     void updateGraphs();
     void on_actionPlay_triggered();
