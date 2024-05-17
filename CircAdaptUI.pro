@@ -12,8 +12,8 @@ CONFIG += c++17
 SOURCES += \
     buffer.cpp \
     graphgrid.cpp \
+    loopgraph.cpp \
     loopsignal.cpp \
-    pvloopgraph.cpp \
     qcustomplot.cpp \
     graphcontainer.cpp \
     main.cpp \
@@ -25,8 +25,8 @@ SOURCES += \
 HEADERS += \
     buffer.h \
     graphgrid.h \
+    loopgraph.h \
     loopsignal.h \
-    pvloopgraph.h \
     qcustomplot.h \
     graphcontainer.h \
     mainwindow.h \
