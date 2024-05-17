@@ -12,6 +12,7 @@ template<typename T>
 GraphContainer<T>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent)
 {
+    setOpenGl(true);
     currentLayer()->setMode(QCPLayer::lmBuffered);
     xAxis->ticker()->setTickCount(5);
     xAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));

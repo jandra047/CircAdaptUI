@@ -1,7 +1,7 @@
-QT       += core gui
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
-
+DEFINES += QCUSTOMPLOT_USE_OPENGL
 CONFIG += c++17
 # CONFIG += sanitizer sanitize_address
 
