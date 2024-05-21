@@ -141,7 +141,6 @@ void ModelWrapper::set_model_state() {
 }
 
 void ModelWrapper::run_single_step() {
-
     size_t nt = ((size_t)(model->get_t_cycle() / solver->get_dt_export()));
     if (it == 0) {
         solver->pre_beat();

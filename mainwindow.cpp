@@ -7,10 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , buffer()
-    , mw(buffer, this)
 {
+    ModelWrapper* mw = new ModelWrapper(buffer);
     ui->setupUi(this);
-    connect(timer, &QTimer::timeout, &mw, &ModelWrapper::run_single_step);
+    connect(timer, &QTimer::timeout, mw, &ModelWrapper::run_single_step);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
 
     timer->start(0);
@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete mw;
 }
 
 void MainWindow::on_actionPlay_triggered()

@@ -24,7 +24,7 @@ private:
     QTimer *timer = new QTimer(this);
     QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
-    ModelWrapper mw;
+    ModelWrapper* mw;
 private slots:
     void updateGraphs();
     void on_actionPlay_triggered();
