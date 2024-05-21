@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QTime>
 #include <modelwrapper.h>
+#include "settings.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ModelWrapper* mw = new ModelWrapper(buffer);
     ui->setupUi(this);
+
     connect(timer, &QTimer::timeout, mw, &ModelWrapper::run_single_step);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
 
@@ -18,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     buffertimer->start(2000);
 
     connect(buffertimer, &QTimer::timeout, [&]() {
-        buffertimer->start(1000/60);
+        buffertimer->start(1000/(double)Settings::instance().fps());
     });
 
 
@@ -56,5 +58,5 @@ void MainWindow::on_actionAutoscale_triggered()
 void MainWindow::updateGraphs()
 {
     ui->a->updateGraphs(buffer);
-    buffer.take("t", 0.015);
+    buffer.take("t", 1000/((double)Settings::instance().fps() * 1000));
 }

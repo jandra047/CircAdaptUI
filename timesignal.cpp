@@ -1,4 +1,5 @@
 #include "timesignal.h"
+#include "settings.h"
 
 namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
@@ -38,8 +39,8 @@ void TimeSignal::updateGraph()
 void TimeSignal::updateGraph2(Buffer& buffer)
 {
     // Get all the data from the buffer
-    QVector<double> yData = buffer.take(m_name, 0.015);
-    QVector<double> tData = buffer.get("t", 0.015);
+    QVector<double> yData = buffer.take(m_name, 1000/((double)Settings::instance().fps() * 1000));
+    QVector<double> tData = buffer.get("t", 1000/((double)Settings::instance().fps() * 1000));
 
     // Shift time data to start from current m_xPos
     double tOffset = m_xPos - tData[0];
