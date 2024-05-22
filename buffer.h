@@ -15,7 +15,7 @@ public:
 
 
 private:
-    QMap<QString, QVector<double>> data;
+    QMap<QString, QVector<double>> m_data;
 
 };
 

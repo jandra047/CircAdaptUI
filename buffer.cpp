@@ -4,18 +4,18 @@ Buffer::Buffer() {}
 
 void Buffer::append(const QString& string, double value)
 {
-    data[string].append(value);
+    m_data[string].append(value);
 }
 
 QVector<double> Buffer::take(const QString& string, double dt)
 {
     int count = 0;
-    QVector<double>& vec = data[string];
+    QVector<double>& vec = m_data[string];
     if (!vec.empty())
     {
-        for (int i = 0; i < data["t"].size(); i++)
+        for (int i = 0; i < m_data["t"].size(); i++)
         {
-            if (qAbs(data["t"][i] - data["t"][0]) <= dt)
+            if (qAbs(m_data["t"][i] - m_data["t"][0]) <= dt)
             {
                 ++count;
             }
@@ -40,12 +40,12 @@ QVector<double> Buffer::take(const QString& string, double dt)
 QVector<double> Buffer::get(const QString& string, double dt)
 {
     int count = 0;
-    QVector<double>& vec = data[string];
+    QVector<double>& vec = m_data[string];
     if (!vec.empty())
     {
-        for (int i = 0; i < data["t"].size(); i++)
+        for (int i = 0; i < m_data["t"].size(); i++)
         {
-            if (qAbs(data["t"][i] - data["t"][0]) <= dt)
+            if (qAbs(m_data["t"][i] - m_data["t"][0]) <= dt)
             {
                 ++count;
             }
@@ -61,5 +61,6 @@ QVector<double> Buffer::get(const QString& string, double dt)
     {
         throw std::range_error(string.toStdString() + " buffer empty!");
     }
+}
 
 }
