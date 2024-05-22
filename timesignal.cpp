@@ -8,7 +8,7 @@ namespace {
 void TimeSignal::updateGraph(Buffer& buffer)
 {
     // Get all the data from the buffer
-    QVector<double> yData = buffer.take(m_name, 1000/((double)Settings::instance().fps() * 1000));
+    QVector<double> yData = buffer.get(m_name, 1000/((double)Settings::instance().fps() * 1000));
     QVector<double> tData = buffer.get("t", 1000/((double)Settings::instance().fps() * 1000));
 
     // Shift time data to start from current m_xPos

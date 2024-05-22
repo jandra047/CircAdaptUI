@@ -10,8 +10,8 @@ class Buffer
 public:
     Buffer();
     void append(const QString&, double);
-    QVector<double> take(const QString&, double);
     QVector<double> get(const QString&, double);
+    void clear(double);
 
 
 private:

@@ -58,5 +58,5 @@ void MainWindow::on_actionAutoscale_triggered()
 void MainWindow::updateGraphs()
 {
     ui->a->updateGraphs(buffer);
-    buffer.take("t", 1000/((double)Settings::instance().fps() * 1000));
+    buffer.clear(1000/((double)Settings::instance().fps() * 1000), m_mutex);
 }
