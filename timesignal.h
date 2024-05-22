@@ -13,16 +13,10 @@ public:
     };
     void updateGraph(Buffer&);
     void removeData(double, double);
-    void setYData(QVector<double>const & y) {m_y = y;};
-    void setTData(QVector<double>const & t) {m_t = t;};
-    void addYData(double const & y) {m_y.push_back(y);};
-    void addTData(double const & t) {m_t.push_back(t);};
 
 
 private:
     QString m_name;
-    QVector<double> m_y{};
-    QVector<double> m_t{};
     double m_xPos{0};
     int i{0};
     double m_dt{0.1};
