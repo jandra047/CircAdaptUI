@@ -8,8 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , buffer()
+    , m_mutex()
 {
-    ModelWrapper* mw = new ModelWrapper(buffer);
+    ModelWrapper* mw = new ModelWrapper(buffer, m_mutex);
     ui->setupUi(this);
 
     connect(timer, &QTimer::timeout, mw, &ModelWrapper::run_single_step);

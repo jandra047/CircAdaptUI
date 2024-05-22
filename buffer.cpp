@@ -2,9 +2,11 @@
 
 Buffer::Buffer() {}
 
-void Buffer::append(const QString& string, double value)
+void Buffer::append(const QString& string, double value, QMutex& mutex)
 {
+    mutex.lock();
     m_data[string].append(value);
+    mutex.unlock();
 }
 
 QVector<double> Buffer::get(const QString& string, double dt)
@@ -33,9 +35,9 @@ QVector<double> Buffer::get(const QString& string, double dt)
     }
 }
 
-void Buffer::clear(double dt)
+void Buffer::clear(double dt, QMutex& mutex)
 {
-
+    mutex.lock();
     int count = 0;
     for (int i = 0; i < m_data["t"].size(); i++)
     {
@@ -50,4 +52,5 @@ void Buffer::clear(double dt)
     {
         vec.erase(vec.begin(), vec.begin() + count);
     }
+    mutex.unlock();
 }

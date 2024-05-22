@@ -4,14 +4,15 @@
 #include <QMap>
 #include <QString>
 #include <QDebug>
+#include <QMutex>
 
 class Buffer
 {
 public:
     Buffer();
-    void append(const QString&, double);
+    void append(const QString&, double, QMutex&);
     QVector<double> get(const QString&, double);
-    void clear(double);
+    void clear(double, QMutex&);
 
 
 private:

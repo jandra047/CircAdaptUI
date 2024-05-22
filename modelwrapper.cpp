@@ -174,8 +174,8 @@ void ModelWrapper::updateBuffer()
     get_double("Model.Peri.TriSeg.cRv.p", pRv);
     get_double("Model.Peri.Ra.p", pRa);
     get_double("Solver.t", t);
-    buffer.append("pLv", pLv);
-    buffer.append("pRv", pRv);
-    buffer.append("pRa", pRa);
-    buffer.append("t", t);
+    buffer.append("pLv", pLv, mutex);
+    buffer.append("pRv", pRv, mutex);
+    buffer.append("pRa", pRa, mutex);
+    buffer.append("t", t, mutex);
 }
