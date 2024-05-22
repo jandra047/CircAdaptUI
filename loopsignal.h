@@ -10,11 +10,11 @@ public:
     {
         setPen(QPen(Qt::black, 2));
     };
-    void updateGraph();
-    void updateGraph2(Buffer& buffer);
+    void updateGraph(Buffer& buffer);
     void setXData(QVector<double>const & x) {m_x = x;};
     void setYData(QVector<double>const & y) {m_y = y;};
     void setTData(QVector<double>const & t) {m_t = t;};
+    void removeData(double const, double);
 
 private:
     QString m_name;

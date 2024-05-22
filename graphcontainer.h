@@ -9,8 +9,7 @@ class GraphContainer : public QCustomPlot
 public:
     using ptr_type = SignalType*;
     GraphContainer(QWidget* parent = Q_NULLPTR);
-    void updateGraph();
-    void updateGraph2(Buffer& buffer);
+    void updateGraph(Buffer& buffer);
     void createSignals(int, QVector<QString>);
     QVector<ptr_type> mSignals;
 private:

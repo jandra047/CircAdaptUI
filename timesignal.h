@@ -11,8 +11,7 @@ public:
     {
         setPen(QPen(Qt::black, 2));
     };
-    void updateGraph();
-    void updateGraph2(Buffer& buffer);
+    void updateGraph(Buffer&);
     void removeData(double, double);
     void setYData(QVector<double>const & y) {m_y = y;};
     void setTData(QVector<double>const & t) {m_t = t;};

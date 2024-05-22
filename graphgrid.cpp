@@ -53,7 +53,7 @@ void GraphGrid::updateGraphs(Buffer& buffer)
 {
     for (int i = 0; i < rows; i++)
     {
-        dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, ColType::CURRENT)->widget())->updateGraph2(buffer);
+        dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, ColType::CURRENT)->widget())->updateGraph(buffer);
 
     }
 }

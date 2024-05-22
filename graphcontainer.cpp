@@ -67,23 +67,14 @@ void GraphContainer<T>::zoom(QWheelEvent* event)
 }
 
 template<typename T>
-void GraphContainer<T>::updateGraph()
+void GraphContainer<T>::updateGraph(Buffer& buffer)
 {
     for (int i = 0; i < mSignals.size(); i++)
     {
-        mSignals[i]->updateGraph();
+        mSignals[i]->updateGraph(buffer);
     }
     currentLayer()->replot();
 }
 
-template<typename T>
-void GraphContainer<T>::updateGraph2(Buffer& buffer)
-{
-    for (int i = 0; i < mSignals.size(); i++)
-    {
-        mSignals[i]->updateGraph2(buffer);
-    }
-    currentLayer()->replot();
-}
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;
