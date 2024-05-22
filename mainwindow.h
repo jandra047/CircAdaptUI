@@ -25,7 +25,6 @@ private:
     QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
     ModelWrapper* mw;
-    QMutex m_mutex;
 private slots:
     void updateGraphs();
     void on_actionPlay_triggered();

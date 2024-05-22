@@ -11,11 +11,10 @@ class ModelWrapper : public QObject, public CAcore::Core {
         Q_OBJECT
 
 public:
-    ModelWrapper(Buffer& buffer, QMutex& mutex) :
+    ModelWrapper(Buffer& buffer) :
         QObject(),
         CAcore::Core(new CAcore::Factory),
-        buffer(buffer),
-        mutex(mutex)
+        buffer(buffer)
     {
         build("VanOsta2022", "forward_euler");
         set_model_state();
@@ -35,7 +34,6 @@ public:
 
 private:
     Buffer& buffer;
-    QMutex& mutex;
     size_t it = 0;
     int nt;
     double t_export;

@@ -10,13 +10,14 @@ class Buffer
 {
 public:
     Buffer();
-    void append(const QString&, double, QMutex&);
+    void append(const QString&, double);
     QVector<double> get(const QString&, double);
-    void clear(double, QMutex&);
+    void clear(double);
 
 
 private:
     QMap<QString, QVector<double>> m_data;
+    QMutex mutex;
 
 };
 
