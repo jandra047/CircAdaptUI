@@ -8,8 +8,8 @@ namespace {
     }
 }
 
-template<typename T>
-GraphContainer<T>::GraphContainer(QWidget* parent) :
+template<typename SignalType>
+GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent)
 {
     setOpenGl(true);
@@ -28,20 +28,20 @@ GraphContainer<T>::GraphContainer(QWidget* parent) :
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
 }
 
-template<typename T>
-void GraphContainer<T>::createSignals(int const N_signals, QVector<QString> names)
+template<typename SignalType>
+void GraphContainer<SignalType>::createSignals(int const N_signals, QVector<QString> names)
 {
     mSignals.reserve(N_signals);
     for (int i = 0; i < N_signals; i++)
     {
-        T* signal = new T(this->xAxis, this->yAxis, names[i]);
+        SignalType* signal = new SignalType(this->xAxis, this->yAxis, names[i]);
         signal->setLayer(this->currentLayer());
         mSignals.push_back(signal);
     }
 }
 
-template<typename T>
-void GraphContainer<T>::zoom(QWheelEvent* event)
+template<typename SignalType>
+void GraphContainer<SignalType>::zoom(QWheelEvent* event)
 {
     // Calculate the zoom factor based on the wheel angle delta
     double zoomFactor = 1 - event->angleDelta().y() / 1200.0; // Adjust as needed
@@ -66,8 +66,8 @@ void GraphContainer<T>::zoom(QWheelEvent* event)
     event->accept();
 }
 
-template<typename T>
-void GraphContainer<T>::updateGraph(Buffer& buffer)
+template<typename SignalType>
+void GraphContainer<SignalType>::updateGraph(Buffer& buffer)
 {
     for (int i = 0; i < mSignals.size(); i++)
     {
