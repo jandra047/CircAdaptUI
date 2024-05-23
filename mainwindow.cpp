@@ -54,15 +54,15 @@ void MainWindow::on_actionStress_strain_toggled(bool isVisible)
 
 void MainWindow::on_actionAutoscale_triggered()
 {
-    ui->a->rescaleAxes(true);
-    ui->a->replot();
+    ui->graphGrid->rescaleAxes(true);
+    ui->graphGrid->replot();
     ui->pvGraph->rescaleAxes(true);
     ui->pvGraph->replot();
 }
 
 void MainWindow::updateGraphs()
 {
-    ui->a->updateGraphs(buffer);
+    ui->graphGrid->updateGraphs(buffer);
     ui->pvGraph->updateGraph(buffer);
     buffer.clear(1000/((double)Settings::instance().fps() * 1000));
 }
