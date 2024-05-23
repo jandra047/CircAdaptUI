@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ModelWrapper* mw = new ModelWrapper(buffer);
     ui->setupUi(this);
+    ui->ssGraph->setVisible(false);
 
     connect(timer, &QTimer::timeout, mw, &ModelWrapper::run_single_step);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
