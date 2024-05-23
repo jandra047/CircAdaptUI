@@ -167,14 +167,17 @@ void ModelWrapper::run_single_step() {
 void ModelWrapper::updateBuffer()
 {
     double pLv;
+    double VLv;
     double pRv;
     double pRa;
     double t = solver->get_t();
     get_double("Model.Peri.TriSeg.cLv.p", pLv);
+    get_double("Model.Peri.TriSeg.cLv.V", VLv);
     get_double("Model.Peri.TriSeg.cRv.p", pRv);
     get_double("Model.Peri.Ra.p", pRa);
     get_double("Solver.t", t);
     buffer.append("pLv", pLv);
+    buffer.append("VLv", VLv);
     buffer.append("pRv", pRv);
     buffer.append("pRa", pRa);
     buffer.append("t", t);

@@ -7,7 +7,10 @@ class TimeSignal : public QCPGraph
 {
 
 public:
-    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString name) : QCPGraph(xAxis, yAxis), m_name(name)
+    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar = "t") :
+        QCPGraph(xAxis, yAxis),
+        m_yVar(yVar),
+        m_xVar(xVar)
     {
         setPen(QPen(Qt::black, 2));
     };
@@ -16,7 +19,8 @@ public:
 
 
 private:
-    QString m_name;
+    QString m_yVar;
+    QString m_xVar;
     double m_xPos{0};
     int i{0};
     double m_dt{0.1};

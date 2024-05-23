@@ -10,8 +10,8 @@ public:
     using ptr_type = SignalType*;
     GraphContainer(QWidget* parent = Q_NULLPTR);
     void updateGraph(Buffer& buffer);
-    void createSignals(int, QVector<QString>);
     QVector<ptr_type> mSignals;
+    void addSignal(ptr_type);
 private:
     void zoom(QWheelEvent*);
 };

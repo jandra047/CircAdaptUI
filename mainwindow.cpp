@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->ssGraph->setVisible(false);
 
+    LoopSignal* sig = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pLv", "VLv");
+    ui->pvGraph->addSignal(sig);
     connect(timer, &QTimer::timeout, mw, &ModelWrapper::run_single_step);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
 
@@ -54,10 +56,13 @@ void MainWindow::on_actionAutoscale_triggered()
 {
     ui->a->rescaleAxes(true);
     ui->a->replot();
+    ui->pvGraph->rescaleAxes(true);
+    ui->pvGraph->replot();
 }
 
 void MainWindow::updateGraphs()
 {
     ui->a->updateGraphs(buffer);
+    ui->pvGraph->updateGraph(buffer);
     buffer.clear(1000/((double)Settings::instance().fps() * 1000));
 }

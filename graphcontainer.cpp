@@ -29,15 +29,10 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 }
 
 template<typename SignalType>
-void GraphContainer<SignalType>::createSignals(int const N_signals, QVector<QString> names)
+void GraphContainer<SignalType>::addSignal(SignalType* signal)
 {
-    mSignals.reserve(N_signals);
-    for (int i = 0; i < N_signals; i++)
-    {
-        SignalType* signal = new SignalType(this->xAxis, this->yAxis, names[i]);
-        signal->setLayer(this->currentLayer());
-        mSignals.push_back(signal);
-    }
+    signal->setLayer(this->currentLayer());
+    mSignals.push_back(signal);
 }
 
 template<typename SignalType>
