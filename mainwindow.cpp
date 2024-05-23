@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ModelWrapper* mw = new ModelWrapper(buffer);
     ui->setupUi(this);
     ui->ssGraph->setVisible(false);
+    l = new QLabel(ui->graphGrid);
 
     LoopSignal* sig = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pLv", "VLv");
     ui->pvGraph->addSignal(sig);
@@ -26,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
         buffertimer->start(1000/(double)Settings::instance().fps());
     });
 
+    connect(buffertimer, &QTimer::timeout, this, &MainWindow::changetext);
 
 }
 

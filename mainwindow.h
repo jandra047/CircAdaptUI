@@ -25,7 +25,12 @@ private:
     QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
     ModelWrapper* mw;
+    QLabel* l = Q_NULLPTR;
 private slots:
+    void changetext()
+    {
+        l->setText("Buffer size: " + QString::number(buffer.getLen()));
+    }
     void updateGraphs();
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);

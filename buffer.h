@@ -13,6 +13,7 @@ public:
     void append(const QString&, double);
     QVector<double> get(const QString&, double);
     void clear(double);
+    int getLen() { QMutexLocker l(&mutex); return m_data["t"].size(); }
 
 
 private:
