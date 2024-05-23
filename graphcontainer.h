@@ -9,10 +9,9 @@ class GraphContainer : public QCustomPlot
 public:
     using ptr_type = SignalType*;
     GraphContainer(QWidget* parent = Q_NULLPTR);
-    void updateGraph();
-    void updateGraph2(Buffer& buffer);
-    void createSignals(int, QVector<QString>);
+    void updateGraph(Buffer& buffer);
     QVector<ptr_type> mSignals;
+    void addSignal(ptr_type);
 private:
     void zoom(QWheelEvent*);
 };

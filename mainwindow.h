@@ -5,7 +5,6 @@
 #include <qcustomplot.h>
 #include <modelwrapper.h>
 #include "buffer.h"
-#include "graphgrid.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,12 +24,18 @@ private:
     QTimer *timer = new QTimer(this);
     QTimer *buffertimer = new QTimer(this);
     Buffer buffer;
-    ModelWrapper mw;
-    // GraphGrid* a = new GraphGrid(2,3, this);
+    ModelWrapper* mw;
+    QLabel* l = Q_NULLPTR;
 private slots:
+    void changetext()
+    {
+        l->setText("Buffer size: " + QString::number(buffer.getLen()));
+    }
     void updateGraphs();
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);
-    // void on_actionAutoscale_triggered();
+    void on_actionAutoscale_triggered();
+public: signals:
+    int updateDone();
 };
 #endif // MAINWINDOW_H

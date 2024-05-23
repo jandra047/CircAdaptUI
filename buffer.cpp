@@ -4,45 +4,51 @@ Buffer::Buffer() {}
 
 void Buffer::append(const QString& string, double value)
 {
-    data[string].append(value);
-}
-
-QVector<double> Buffer::take(const QString& string, double dt)
-{
-    int count = 0;
-    QVector<double>& vec = data[string];
-    for (int i = 0; i < data["t"].size(); i++) {
-        if (qAbs(data["t"][i] - data["t"][0]) <= dt) {
-            ++count;
-        }
-        else break;
-    }
-
-    QVector<double> out;
-    out.reserve(count);
-    std::move(vec.begin(),
-              vec.begin() + count,
-              std::back_inserter(out));
-
-    // Erase the moved elements from originalVector
-    vec.erase(vec.begin(), vec.begin() + count);
-    return out;
+    QMutexLocker l(&mutex);
+    m_data[string].append(value);
 }
 
 QVector<double> Buffer::get(const QString& string, double dt)
 {
     int count = 0;
-    QVector<double>& vec = data[string];
-    for (int i = 0; i < data["t"].size(); i++) {
-        if (qAbs(data["t"][i] - data["t"][0]) <= dt) {
-            ++count;
+    QVector<double>& vec = m_data[string];
+    if (!vec.empty())
+    {
+        for (int i = 0; i < m_data["t"].size(); i++)
+        {
+            if (qAbs(m_data["t"][i] - m_data["t"][0]) <= dt)
+            {
+                ++count;
+            }
+            else break;
+        }
+
+        QVector<double> out;
+        out.reserve(count);
+        std::copy(vec.begin(), vec.begin() + count, std::back_inserter(out));
+        return out;
+    }
+    else
+    {
+        throw std::range_error(string.toStdString() + " buffer empty!");
+    }
+}
+
+void Buffer::clear(double dt)
+{
+    QMutexLocker l(&mutex);
+    int count = 0;
+    for (int i = 0; i < m_data["t"].size(); i++)
+    {
+        if (qAbs(m_data["t"][i] - m_data["t"][0]) <= dt)
+        {
+            count++;
         }
         else break;
     }
 
-    QVector<double> out;
-    out.reserve(count);
-    std::copy(vec.begin(), vec.begin() + count, std::back_inserter(out));
-    return out;
-
+    for (auto [key, vec] : m_data.asKeyValueRange())
+    {
+        vec.erase(vec.begin(), vec.begin() + count);
+    }
 }

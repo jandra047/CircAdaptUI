@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     modelwrapper.cpp \
+    settings.cpp \
     signalgraph.cpp \
     timesignal.cpp
 
@@ -31,6 +32,7 @@ HEADERS += \
     graphcontainer.h \
     mainwindow.h \
     modelwrapper.h \
+    settings.h \
     signalgraph.h \
     timesignal.h
 

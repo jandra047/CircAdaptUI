@@ -16,13 +16,16 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             if (j == ColType::CURRENT)
             {
                 if (i == 0)
-                    plot->createSignals(1, QVector<QString>(QString("pLv")));
+                {
+                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pLv", "t");
+                    plot->addSignal(sig);
+                }
                 if (i == 1)
                 {
-                    QVector<QString> l;
-                    l.push_back(QString("pRv"));
-                    l.push_back(QString("pRa"));
-                    plot->createSignals(2, l);
+                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pRv", "t");
+                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis,"pRa", "t");
+                    plot->addSignal(sig);
+                    plot->addSignal(sig2);
                 }
             }
             if (j > 0)
@@ -53,7 +56,7 @@ void GraphGrid::updateGraphs(Buffer& buffer)
 {
     for (int i = 0; i < rows; i++)
     {
-        dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, ColType::CURRENT)->widget())->updateGraph2(buffer);
+        dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, ColType::CURRENT)->widget())->updateGraph(buffer);
 
     }
 }
@@ -63,5 +66,29 @@ void GraphGrid::setRowVisible(int row, bool isVisible)
     for (int i = 0; i < cols; i++)
     {
         gridLayout.itemAtPosition(row, i)->widget()->setVisible(isVisible);
+    }
+}
+
+void GraphGrid::rescaleAxes(bool onlyVisiblePlottables)
+{
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, j)->widget())->rescaleAxes(onlyVisiblePlottables);
+        }
+    }
+}
+
+void GraphGrid::replot()
+{
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, j)->widget())->replot();
+        }
     }
 }

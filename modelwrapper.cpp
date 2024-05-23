@@ -1,4 +1,5 @@
 #include "modelwrapper.h"
+#include "settings.h"
 #include <vector>
 
 void ModelWrapper::set_model_state() {
@@ -140,8 +141,16 @@ void ModelWrapper::set_model_state() {
 
 }
 
-void ModelWrapper::run_single_step() {
+void ModelWrapper::run_steps()
+{
 
+    for (int i = buffer.getLen(); i < Settings::instance().buffersize(); i++)
+    {
+        run_single_step();
+    }
+}
+
+void ModelWrapper::run_single_step() {
     size_t nt = ((size_t)(model->get_t_cycle() / solver->get_dt_export()));
     if (it == 0) {
         solver->pre_beat();
@@ -168,14 +177,17 @@ void ModelWrapper::run_single_step() {
 void ModelWrapper::updateBuffer()
 {
     double pLv;
+    double VLv;
     double pRv;
     double pRa;
     double t = solver->get_t();
     get_double("Model.Peri.TriSeg.cLv.p", pLv);
+    get_double("Model.Peri.TriSeg.cLv.V", VLv);
     get_double("Model.Peri.TriSeg.cRv.p", pRv);
     get_double("Model.Peri.Ra.p", pRa);
     get_double("Solver.t", t);
     buffer.append("pLv", pLv);
+    buffer.append("VLv", VLv);
     buffer.append("pRv", pRv);
     buffer.append("pRa", pRa);
     buffer.append("t", t);

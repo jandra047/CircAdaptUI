@@ -6,21 +6,19 @@
 class LoopSignal : public QCPCurve
 {
 public:
-    LoopSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString name) : QCPCurve(xAxis, yAxis), m_name(name)
+    LoopSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar) :
+        QCPCurve(xAxis, yAxis),
+        m_yVar(yVar),
+        m_xVar(xVar)
     {
         setPen(QPen(Qt::black, 2));
     };
-    void updateGraph();
-    void updateGraph2(Buffer& buffer);
-    void setXData(QVector<double>const & x) {m_x = x;};
-    void setYData(QVector<double>const & y) {m_y = y;};
-    void setTData(QVector<double>const & t) {m_t = t;};
+    void updateGraph(Buffer& buffer);
+    void removeData(double const, double);
 
 private:
-    QString m_name;
-    QVector<double> m_x;
-    QVector<double> m_y;
-    QVector<double> m_t;
+    QString m_yVar;
+    QString m_xVar;
     int i{0};
     double m_dt{0.1};
 };

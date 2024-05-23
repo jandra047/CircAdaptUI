@@ -41,7 +41,7 @@
       <property name="childrenCollapsible">
        <bool>false</bool>
       </property>
-      <widget class="GraphGrid" name="a" native="true"/>
+      <widget class="GraphGrid" name="graphGrid" native="true"/>
       <widget class="QSplitter" name="splitter_2">
        <property name="orientation">
         <enum>Qt::Orientation::Vertical</enum>
@@ -204,7 +204,7 @@
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="text">
     <string>Stress-strain</string>

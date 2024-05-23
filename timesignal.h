@@ -7,23 +7,20 @@ class TimeSignal : public QCPGraph
 {
 
 public:
-    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString name) : QCPGraph(xAxis, yAxis), m_name(name)
+    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar = "t") :
+        QCPGraph(xAxis, yAxis),
+        m_yVar(yVar),
+        m_xVar(xVar)
     {
         setPen(QPen(Qt::black, 2));
     };
-    void updateGraph();
-    void updateGraph2(Buffer& buffer);
+    void updateGraph(Buffer&);
     void removeData(double, double);
-    void setYData(QVector<double>const & y) {m_y = y;};
-    void setTData(QVector<double>const & t) {m_t = t;};
-    void addYData(double const & y) {m_y.push_back(y);};
-    void addTData(double const & t) {m_t.push_back(t);};
 
 
 private:
-    QString m_name;
-    QVector<double> m_y{};
-    QVector<double> m_t{};
+    QString m_yVar;
+    QString m_xVar;
     double m_xPos{0};
     int i{0};
     double m_dt{0.1};
