@@ -1,4 +1,5 @@
 #include "modelwrapper.h"
+#include "settings.h"
 #include <vector>
 
 void ModelWrapper::set_model_state() {
@@ -138,6 +139,15 @@ void ModelWrapper::set_model_state() {
     //         self['Patch']['SfPasActT'] = [2800., 2800., 6600., 6600., 6600.]
     //         self['Patch']['LsPasActT'] = [3.  , 3.  , 2.31, 2.31, 2.31]
 
+}
+
+void ModelWrapper::run_steps()
+{
+
+    for (int i = buffer.getLen(); i < Settings::instance().buffersize(); i++)
+    {
+        run_single_step();
+    }
 }
 
 void ModelWrapper::run_single_step() {

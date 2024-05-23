@@ -22,6 +22,7 @@ public:
         m_thread.reset(new QThread);
         moveToThread(m_thread.get());
         m_thread->start();
+        run_steps();
     };
 
     ~ModelWrapper()
@@ -40,6 +41,7 @@ private:
     void updateBuffer();
     std::unique_ptr<QThread> m_thread;
 public slots:
+    void run_steps();
     void run_single_step();
 signals:
     void timestep_done();

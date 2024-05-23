@@ -35,5 +35,7 @@ private slots:
     void on_actionPlay_triggered();
     void on_actionStress_strain_toggled(bool arg1);
     void on_actionAutoscale_triggered();
+public: signals:
+    int updateDone();
 };
 #endif // MAINWINDOW_H

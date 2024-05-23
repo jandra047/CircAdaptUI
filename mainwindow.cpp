@@ -16,10 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     LoopSignal* sig = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pLv", "VLv");
     ui->pvGraph->addSignal(sig);
-    connect(timer, &QTimer::timeout, mw, &ModelWrapper::run_single_step);
+
+    connect(this, &MainWindow::updateDone, mw, &ModelWrapper::run_steps);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
 
-    timer->start(0);
     buffertimer->setSingleShot(true);
     buffertimer->start(2000);
 
@@ -67,4 +67,5 @@ void MainWindow::updateGraphs()
     ui->graphGrid->updateGraphs(buffer);
     ui->pvGraph->updateGraph(buffer);
     buffer.clear(1000/((double)Settings::instance().fps() * 1000));
+    emit updateDone();
 }
