@@ -29,6 +29,16 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 }
 
 template<typename SignalType>
+GraphContainer<SignalType>::~GraphContainer()
+{
+    while (mSignals.count())
+    {
+        delete mSignals.takeLast();
+    }
+
+}
+
+template<typename SignalType>
 void GraphContainer<SignalType>::addSignal(SignalType* signal)
 {
     signal->setLayer(this->currentLayer());
