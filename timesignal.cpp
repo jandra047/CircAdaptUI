@@ -28,12 +28,11 @@ void TimeSignal::updateGraph(Buffer& buffer)
     m_xPos = fmod(tData.last(), keyAxis()->range().upper);
 }
 
-void TimeSignal::removeData(double const x0, double x1)
+void TimeSignal::removeData(double const x0, double const x1)
 {
     if (x1 > keyAxis()->range().upper)
     {
-        x1 = fmod(x1, keyAxis()->range().upper);
-        data()->remove(0, x1);
+        data()->remove(0, fmod(x1, keyAxis()->range().upper));
         data()->remove(x0, keyAxis()->range().upper);
     }
     else
