@@ -17,13 +17,15 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             {
                 if (i == 0)
                 {
-                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pLv", "t");
+                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pLv", "t", QColor(227, 26, 28));
+                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis, "pRv", "t", QColor(31, 120, 180));
                     plot->addSignal(sig);
+                    plot->addSignal(sig2);
                 }
                 if (i == 1)
                 {
-                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pRv", "t");
-                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis,"pRa", "t");
+                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "VLv", "t", QColor(227, 26, 28));
+                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis, "VRv", "t", QColor(31, 120, 180));
                     plot->addSignal(sig);
                     plot->addSignal(sig2);
                 }

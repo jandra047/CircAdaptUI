@@ -7,12 +7,12 @@ class TimeSignal : public QCPGraph
 {
 
 public:
-    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar = "t") :
+    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar = "t", QColor color = QColor(0,0,0)) :
         QCPGraph(xAxis, yAxis),
         m_yVar(yVar),
         m_xVar(xVar)
     {
-        setPen(QPen(Qt::black, 2));
+        setPen(QPen(color, 2));
     };
     void updateGraph(Buffer&);
     void removeData(double, double);
