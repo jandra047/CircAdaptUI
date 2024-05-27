@@ -1,5 +1,5 @@
 #include "graphgrid.h"
-#include "graphcontainer.h"
+#include "signalgraph.h"
 #include "timesignal.h"
 
 GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
@@ -12,7 +12,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     {
         for (int j = 0; j < cols; ++j)
         {
-            GraphContainer<TimeSignal>* plot = new GraphContainer<TimeSignal>(this);
+            SignalGraph* plot = new SignalGraph(this);
             if (j == ColType::CURRENT)
             {
                 if (i == 0)

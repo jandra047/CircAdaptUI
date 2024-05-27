@@ -2,7 +2,7 @@
 
 
 SignalGraph::SignalGraph(QWidget* parent) :
-    GraphContainer(parent)
+    GraphContainer<TimeSignal>(parent)
 {
     xAxis->setLabel("Time [s]");
     xAxis->setLabelFont(QFont("Mononoki", 14, QFont::Bold));
