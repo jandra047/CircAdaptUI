@@ -32,11 +32,15 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             }
             if (j > 0)
             {
-                // plot->yAxis->setTicks(false);
+                plot->yAxis->setTicks(false);
+                plot->yAxis->setTickLabels(false);
+                plot->yAxis->setLabel("");
             }
             if (i < (rows - 1))
             {
-                // plot->xAxis->setTicks(false);
+                plot->xAxis->setTicks(false);
+                plot->xAxis->setTickLabels(false);
+                plot->xAxis->setLabel("");
             }
             if (i == 0)
             {
