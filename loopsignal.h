@@ -6,12 +6,12 @@
 class LoopSignal : public QCPCurve
 {
 public:
-    LoopSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar) :
+    LoopSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar, QColor color = QColor(0,0,0)) :
         QCPCurve(xAxis, yAxis),
         m_yVar(yVar),
         m_xVar(xVar)
     {
-        setPen(QPen(Qt::black, 2));
+        setPen(QPen(color, 2));
     };
     void updateGraph(Buffer& buffer);
     void removeData(double const, double);

@@ -7,31 +7,31 @@ namespace {
 
 void LoopSignal::updateGraph(Buffer& buffer)
 {
-    // TODO: Implement loop graph drawing logic
 
     QVector<double> yData = buffer.get(m_yVar, 1000/((double)Settings::instance().fps() * 1000));
     QVector<double> xData = buffer.get(m_xVar, 1000/((double)Settings::instance().fps() * 1000));
     QVector<double> tData = buffer.get("t", 1000/((double)Settings::instance().fps() * 1000));
 
 
-    data()->remove(tData.last(), tData.last() + m_dt);
-
     addData(tData, xData, yData);
-    addData(tData.last() + m_dt, tData.last() + m_dt, quiet_nan);
+    if (!data()->isEmpty())
+    {
+        removeData(tData.last(), tData.last() + m_dt);
+    }
 
 }
 
-void LoopSignal::removeData(double const x0, double x1)
+void LoopSignal::removeData(double const x0, double const x1)
 {
-    if (x1 > keyAxis()->range().upper)
+    double last = data()->constEnd()->sortKey();
+    if (x1 > last)
     {
-        x1 = fmod(x1, keyAxis()->range().upper);
-        data()->remove(0, x1);
-        data()->remove(x0, keyAxis()->range().upper);
+        data()->remove(0, fmod(x1, last));
+        data()->remove(x0, last);
     }
     else
     {
         data()->remove(x0, x1);
     }
-    addData(x1, quiet_nan);
+    addData(x1, x1, quiet_nan);
 }

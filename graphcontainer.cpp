@@ -14,6 +14,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 {
     setOpenGl(true);
     currentLayer()->setMode(QCPLayer::lmBuffered);
+    setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(5);
     xAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));
     xAxis->grid()->setPen(QPen(QColor(0xd0d0d0), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
@@ -26,6 +27,16 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     xAxis->setRange(0,3);
 
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
+}
+
+template<typename SignalType>
+GraphContainer<SignalType>::~GraphContainer()
+{
+    while (mSignals.count())
+    {
+        delete mSignals.takeLast();
+    }
+
 }
 
 template<typename SignalType>
@@ -43,12 +54,7 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
-        xAxis->setRange(0, xAxis->range().upper * zoomFactor);
-    }
-    else if (event->modifiers() & Qt::ControlModifier)
-    {
-        // TODO: Make dependent on current ranges
-        yAxis->setRangeLower(yAxis->range().lower - 15 * zoomFactor * sign(event->angleDelta().y()));
+        xAxis->setRangeUpper(xAxis->range().upper * zoomFactor);
     }
     else
     {

@@ -1,5 +1,5 @@
 #include "graphgrid.h"
-#include "graphcontainer.h"
+#include "signalgraph.h"
 #include "timesignal.h"
 
 GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
@@ -12,29 +12,35 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     {
         for (int j = 0; j < cols; ++j)
         {
-            GraphContainer<TimeSignal>* plot = new GraphContainer<TimeSignal>(this);
+            SignalGraph* plot = new SignalGraph(this);
             if (j == ColType::CURRENT)
             {
                 if (i == 0)
                 {
-                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pLv", "t");
+                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pLv", "t", QColor(227, 26, 28));
+                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis, "pRv", "t", QColor(31, 120, 180));
                     plot->addSignal(sig);
+                    plot->addSignal(sig2);
                 }
                 if (i == 1)
                 {
-                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pRv", "t");
-                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis,"pRa", "t");
+                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "VLv", "t", QColor(227, 26, 28));
+                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis, "VRv", "t", QColor(31, 120, 180));
                     plot->addSignal(sig);
                     plot->addSignal(sig2);
                 }
             }
             if (j > 0)
             {
-                // plot->yAxis->setTicks(false);
+                plot->yAxis->setTicks(false);
+                plot->yAxis->setTickLabels(false);
+                plot->yAxis->setLabel("");
             }
             if (i < (rows - 1))
             {
-                // plot->xAxis->setTicks(false);
+                plot->xAxis->setTicks(false);
+                plot->xAxis->setTickLabels(false);
+                plot->xAxis->setLabel("");
             }
             if (i == 0)
             {
