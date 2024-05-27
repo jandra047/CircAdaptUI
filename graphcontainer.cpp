@@ -57,8 +57,7 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
     }
     else if (event->modifiers() & Qt::ControlModifier)
     {
-        // TODO: Make dependent on current ranges
-        yAxis->setRangeLower(yAxis->range().lower - 15 * zoomFactor * sign(event->angleDelta().y()));
+        yAxis->setRangeLower(yAxis->range().lower - yAxis->range().size()*0.5 * zoomFactor * sign(event->angleDelta().y()));
     }
     else
     {
