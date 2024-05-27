@@ -174,6 +174,13 @@ void ModelWrapper::run_single_step() {
     emit timestep_done();
 }
 
+void ModelWrapper::changeParam(int val)
+{
+    double Sf_act;
+    get_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", Sf_act);
+    set_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", 120000 * val / 100);
+}
+
 void ModelWrapper::updateBuffer()
 {
     double pLv;

@@ -25,9 +25,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ssGraph->addSignal(sig3);
     ui->ssGraph->addSignal(sig4);
     ui->ssGraph->addSignal(sig5);
+    QSlider* s = new QSlider(Qt::Horizontal, ui->widget);
+    s->setMinimum(50);
+    s->setMaximum(150);
+    s->setSingleStep(10);
+    s->setSliderPosition(100);
+    s->setTickPosition(QSlider::TicksBelow);
+    s->setTickInterval(10);
+
 
     connect(this, &MainWindow::updateDone, mw, &ModelWrapper::run_steps);
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
+    connect(s, &QSlider::valueChanged, mw, &ModelWrapper::changeParam, Qt::QueuedConnection);
 
     buffertimer->setSingleShot(true);
     buffertimer->start(2000);
@@ -39,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(buffertimer, &QTimer::timeout, this, &MainWindow::changetext);
 
 }
+
 
 MainWindow::~MainWindow()
 {
