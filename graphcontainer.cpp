@@ -14,6 +14,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 {
     setOpenGl(true);
     currentLayer()->setMode(QCPLayer::lmBuffered);
+    setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(5);
     xAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));
     xAxis->grid()->setPen(QPen(QColor(0xd0d0d0), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
@@ -53,11 +54,7 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
-        xAxis->setRange(0, xAxis->range().upper * zoomFactor);
-    }
-    else if (event->modifiers() & Qt::ControlModifier)
-    {
-        yAxis->setRangeLower(yAxis->range().lower - yAxis->range().size()*0.5 * zoomFactor * sign(event->angleDelta().y()));
+        xAxis->setRangeUpper(xAxis->range().upper * zoomFactor);
     }
     else
     {
