@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , buffer()
 {
+    QThread::currentThread()->setPriority(QThread::HighestPriority);
     ModelWrapper* mw = new ModelWrapper(buffer);
     ui->setupUi(this);
     ui->ssGraph->setVisible(false);
