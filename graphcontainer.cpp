@@ -2,12 +2,6 @@
 #include <loopsignal.h>
 #include <timesignal.h>
 
-namespace {
-    int sign(double const x) {
-        return (x > 0) ? 1 : -1;
-    }
-}
-
 template<typename SignalType>
 GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent)
