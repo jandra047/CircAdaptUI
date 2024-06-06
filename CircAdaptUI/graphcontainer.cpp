@@ -1,6 +1,6 @@
 #include "graphcontainer.h"
-#include <loopsignal.h>
-#include <timesignal.h>
+#include "loopsignal.h"
+#include "timesignal.h"
 
 template<typename SignalType>
 GraphContainer<SignalType>::GraphContainer(QWidget* parent) :

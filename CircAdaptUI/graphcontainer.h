@@ -1,6 +1,6 @@
 #ifndef GRAPHCONTAINER_H
 #define GRAPHCONTAINER_H
-#include <qcustomplot.h>
+#include "qcustomplot.h"
 #include "buffer.h"
 
 template<typename SignalType>

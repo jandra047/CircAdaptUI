@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTime>
-#include <modelwrapper.h>
+#include "modelwrapper.h"
 #include "settings.h"
 
 MainWindow::MainWindow(QWidget *parent)

@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <qcustomplot.h>
-#include <modelwrapper.h>
+#include <QLabel>
+#include <QTimer>
+#include "modelwrapper.h"
 #include "buffer.h"
 
 QT_BEGIN_NAMESPACE

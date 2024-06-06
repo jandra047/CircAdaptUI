@@ -1,6 +1,6 @@
 #ifndef TIMESIGNAL_H
 #define TIMESIGNAL_H
-#include <qcustomplot.h>
+#include "qcustomplot.h"
 #include "buffer.h"
 
 class TimeSignal : public QCPGraph

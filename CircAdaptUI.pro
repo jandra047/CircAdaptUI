@@ -10,34 +10,35 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    buffer.cpp \
-    graphgrid.cpp \
-    loopgraph.cpp \
-    loopsignal.cpp \
-    qcustomplot.cpp \
-    graphcontainer.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    modelwrapper.cpp \
-    settings.cpp \
-    signalgraph.cpp \
-    timesignal.cpp
+    CircAdaptUI/buffer.cpp \
+    CircAdaptUI/graphgrid.cpp \
+    CircAdaptUI/loopgraph.cpp \
+    CircAdaptUI/loopsignal.cpp \
+    dependencies/qcustomplot.cpp \
+    CircAdaptUI/graphcontainer.cpp \
+    CircAdaptUI/main.cpp \
+    CircAdaptUI/mainwindow.cpp \
+    CircAdaptUI/modelwrapper.cpp \
+    CircAdaptUI/settings.cpp \
+    CircAdaptUI/signalgraph.cpp \
+    CircAdaptUI/timesignal.cpp
 
 HEADERS += \
-    buffer.h \
-    graphgrid.h \
-    loopgraph.h \
-    loopsignal.h \
-    qcustomplot.h \
-    graphcontainer.h \
-    mainwindow.h \
-    modelwrapper.h \
-    settings.h \
-    signalgraph.h \
-    timesignal.h
+    CircAdaptUI/buffer.h \
+    CircAdaptUI/graphgrid.h \
+    CircAdaptUI/loopgraph.h \
+    CircAdaptUI/loopsignal.h \
+    dependencies/qcustomplot.h \
+    CircAdaptUI/graphcontainer.h \
+    CircAdaptUI/mainwindow.h \
+    CircAdaptUI/modelwrapper.h \
+    CircAdaptUI/settings.h \
+    CircAdaptUI/signalgraph.h \
+    CircAdaptUI/timesignal.h
 
 FORMS += \
-    mainwindow.ui
+    CircAdaptUI/mainwindow.ui
+
 
 # QMAKE_CXXFLAGS += -Werror -w -fsanitize=address -g
 # QMAKE_LFLAGS_DEBUG += -fsanitize=address

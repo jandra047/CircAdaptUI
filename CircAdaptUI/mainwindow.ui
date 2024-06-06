@@ -215,13 +215,13 @@
   <customwidget>
    <class>GraphGrid</class>
    <extends>QWidget</extends>
-   <header>graphgrid.h</header>
+   <header>CircAdaptUI/graphgrid.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>LoopGraph</class>
    <extends>QWidget</extends>
-   <header>loopgraph.h</header>
+   <header>CircAdaptUI/loopgraph.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

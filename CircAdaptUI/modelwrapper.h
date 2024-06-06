@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QThread>
 #include "Core.hpp"
-#include <buffer.h>
+#include "buffer.h"
 
 class ModelWrapper : public QObject, public CAcore::Core {
 
