@@ -11,10 +11,10 @@ public:
     GraphContainer(QWidget* parent = Q_NULLPTR);
     ~GraphContainer();
     void updateGraph(Buffer& buffer);
-    QVector<ptr_type> mSignals;
     void addSignal(ptr_type);
 private:
     void zoom(QWheelEvent*);
+    QVector<ptr_type> m_Signals;
 };
 
 #endif // GRAPHCONTAINER_H

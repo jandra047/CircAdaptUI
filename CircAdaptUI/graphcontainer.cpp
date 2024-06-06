@@ -26,9 +26,9 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 template<typename SignalType>
 GraphContainer<SignalType>::~GraphContainer()
 {
-    while (mSignals.count())
+    while (m_Signals.count())
     {
-        delete mSignals.takeLast();
+        delete m_Signals.takeLast();
     }
 
 }
@@ -37,7 +37,7 @@ template<typename SignalType>
 void GraphContainer<SignalType>::addSignal(SignalType* signal)
 {
     signal->setLayer(this->currentLayer());
-    mSignals.push_back(signal);
+    m_Signals.push_back(signal);
 }
 
 template<typename SignalType>
@@ -64,9 +64,9 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
 template<typename SignalType>
 void GraphContainer<SignalType>::updateGraph(Buffer& buffer)
 {
-    for (int i = 0; i < mSignals.size(); i++)
+    for (int i = 0; i < m_Signals.size(); i++)
     {
-        mSignals[i]->updateGraph(buffer);
+        m_Signals[i]->updateGraph(buffer);
     }
     currentLayer()->replot();
 }
