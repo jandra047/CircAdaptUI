@@ -1,0 +1,74 @@
+cmake_minimum_required(VERSION 3.16)
+project(CircAdaptUI VERSION 1.0 LANGUAGES C CXX)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui OpenGL)
+find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
+
+
+message(CHECK_START "Fetching CircAdapt_Library")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+include(FetchContent)
+FetchContent_Declare(
+  CircAdapt_Library
+  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/CircAdapt_Library.git
+  GIT_TAG 047d8d1ff6e6b57ef6da114c38da344cbe584208
+  GIT_SHALLOW TRUE
+  GIT_PROGRESS TRUE)
+FetchContent_MakeAvailable(CircAdapt_Library)
+
+list(POP_BACK CMAKE_MESSAGE_INDENT)
+message(CHECK_PASS "CircAdapt_Library fetched")
+
+qt_standard_project_setup()
+
+qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
+    CircAdaptUI/buffer.cpp CircAdaptUI/buffer.h
+    CircAdaptUI/graphcontainer.cpp CircAdaptUI/graphcontainer.h
+    CircAdaptUI/graphgrid.cpp CircAdaptUI/graphgrid.h
+    CircAdaptUI/loopgraph.cpp CircAdaptUI/loopgraph.h
+    CircAdaptUI/loopsignal.cpp CircAdaptUI/loopsignal.h
+    CircAdaptUI/main.cpp
+    CircAdaptUI/mainwindow.cpp CircAdaptUI/mainwindow.h CircAdaptUI/mainwindow.ui
+    CircAdaptUI/modelwrapper.cpp CircAdaptUI/modelwrapper.h
+    CircAdaptUI/settings.cpp CircAdaptUI/settings.h
+    CircAdaptUI/signalgraph.cpp CircAdaptUI/signalgraph.h
+    CircAdaptUI/timesignal.cpp CircAdaptUI/timesignal.h
+    dependencies/qcustomplot.cpp dependencies/qcustomplot.h
+)
+
+target_compile_definitions(CircAdaptUI PRIVATE
+    QCUSTOMPLOT_USE_OPENGL
+)
+
+target_link_libraries(CircAdaptUI PRIVATE
+    Qt::Core
+    Qt::Gui
+    Qt::OpenGL
+)
+
+if(${QT_VERSION_MAJOR} GREATER 4)
+    target_link_libraries(CircAdaptUI PRIVATE
+        Qt::PrintSupport
+        Qt::Widgets
+    )
+endif()
+
+target_link_libraries(CircAdaptUI PRIVATE
+    CircAdaptLib
+)
+
+install(TARGETS CircAdaptUI
+    BUNDLE DESTINATION .
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+qt_generate_deploy_app_script(
+    TARGET CircAdaptUI
+    FILENAME_VARIABLE deploy_script
+    NO_UNSUPPORTED_PLATFORM_ERROR
+)
+install(SCRIPT ${deploy_script})
