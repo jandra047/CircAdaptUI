@@ -3,14 +3,17 @@ project(CircAdaptUI VERSION 1.0 LANGUAGES C CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+set(BUILD_SHARED_LIBS ON)
 
 find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui OpenGL)
 find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
 
 
-message(CHECK_START "Fetching CircAdapt_Library")
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(CHECK_START "Fetching CircAdapt_Library")
+
 include(FetchContent)
 FetchContent_Declare(
   CircAdapt_Library
@@ -39,6 +42,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/timesignal.cpp CircAdaptUI/timesignal.h
     dependencies/qcustomplot.cpp dependencies/qcustomplot.h
 )
+include_directories(dependencies)
 
 target_compile_definitions(CircAdaptUI PRIVATE
     QCUSTOMPLOT_USE_OPENGL
@@ -55,6 +59,11 @@ if(${QT_VERSION_MAJOR} GREATER 4)
         Qt::PrintSupport
         Qt::Widgets
     )
+endif()
+
+if (WIN32)
+    target_link_libraries(CircAdaptUI PRIVATE
+        OpenGL32)
 endif()
 
 target_link_libraries(CircAdaptUI PRIVATE
