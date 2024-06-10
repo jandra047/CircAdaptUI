@@ -69,6 +69,7 @@ endif()
 target_link_libraries(CircAdaptUI PRIVATE
     CircAdaptLib
 )
+add_dependencies(CircAdaptUI CircAdaptLib)
 
 install(TARGETS CircAdaptUI
     BUNDLE DESTINATION .
