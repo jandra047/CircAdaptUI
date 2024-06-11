@@ -1,6 +1,6 @@
 # CircAdaptUI
 
-A front-end to the [CircAdapt_Library](https://gitlab.maastrichtuniversity.nl/circadapt/circadapt/CircAdapt_Library)
+A front-end to the [CircAdapt_Library](https://gitlab.maastrichtuniversity.nl/circadapt/CircAdapt_Library)
 
 ## Features
 
