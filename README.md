@@ -29,17 +29,19 @@ git clone git@gitlab.maastrichtuniversity.nl:circadapt/CircAdaptUI.git
 if you have SSH keys set up.
 
 ### Building
-
+**NOTE:** In order to resolve dependencies from protected gitlab server, your SSH key needs to be added to an ssh-agent.
 ```sh
 cd CircAdaptUI
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DQT_DIR=*/path/to/Qt/lib/cmake/Qt6* -DDMAKE_BUILD_TYPE=*/path/to/lib/cmake*
+cmake .. -DCMAKE_BUILD_TYPE=Release -DQT_DIR=_/path/to/Qt/lib/cmake/Qt6_ -DCMAKE_PREFIX_PATH=_/path/to/Qt/lib/cmake_
 cmake --build . --target CircAdaptUI --config Release
 ```
 
 ### Deploying (for Windows)
-In order to pack all the necessary libraries together with the executable, ```windeploy``` needs to be run.
+In order to run the executable, all the necessary Qt libraries need to be packed with the executable.
 
-```sh
-*path/to/Qt/bin*/windeploy --dir *path/to/deployment/dir* *path/to/CircAdaptUI.exe*
-```
+~~~sh
+path/to/Qt/bin/windeployqt --dir path/to/deployment/dir path/to/CircAdaptUI.exe
+~~~
+
+Copy the `CircAdaptLib.dll` (Windows) or `CircAdaptLib.so` (Linux) to the deployment directory.
