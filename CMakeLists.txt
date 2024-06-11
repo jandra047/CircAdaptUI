@@ -10,6 +10,9 @@ find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui OpenGL)
 find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
 
+enable_testing()
+add_subdirectory(tests)
+
 
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 message(CHECK_START "Fetching CircAdapt_Library")
