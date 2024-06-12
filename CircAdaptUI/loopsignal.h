@@ -14,13 +14,13 @@ public:
         setPen(QPen(color, 2));
     };
     void updateGraph(Buffer& buffer);
-    void removeData(double const, double);
+    void removeData(double const x0, double x1);
 
 private:
     QString m_yVar;
     QString m_xVar;
     int i{0};
-    double m_dt{0.1};
+    double m_dt{0.2};
 };
 
 #endif // LOOPSIGNAL_H
