@@ -53,6 +53,18 @@ public:
      */
     GraphContainer<TimeSignal>* getItem(int rowIdx, int colIdx);
 
+    /*!
+     * \brief Connects the y-axis ranges of all graphs in a row.
+     */
+    void connectRowYAxes();
+
+    /*!
+     * \brief Links y-axes of 2 \ref GraphContainers.
+     * \param gc1 First container
+     * \param gc2 Second container
+     */
+    void linkYAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2);
+
 public slots:
 
     /*!
