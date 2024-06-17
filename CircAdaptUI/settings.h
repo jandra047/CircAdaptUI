@@ -20,6 +20,10 @@ public:
         return m_settings.value("buffersize", 60).toInt();
     }
 
+    double paddingVertical() const {
+        return m_settings.value("paddingVertical", 0.05).toDouble();
+    }
+
     void setFps(int fps) {
         m_settings.setValue("fps", fps);
         emit fpsChanged(fps);
@@ -30,14 +34,21 @@ public:
         emit buffersizeChanged(buffersize);
     }
 
+    void paddingVertical(double paddingVertical) {
+        m_settings.setValue("paddingVertical", paddingVertical);
+        emit paddingVerticalChanged(paddingVertical);
+    }
+
 signals:
     void fpsChanged(int fps);
     void buffersizeChanged(int buffersize);
+    void paddingVerticalChanged(int paddingVertical);
 
 private:
     Settings() : m_settings("YourCompany", "YourApp") {
         m_settings.setValue("fps", 60);
         m_settings.setValue("buffersize", 20);
+        m_settings.setValue("paddingVertical", 0.05);
     }
     ~Settings() {}
 

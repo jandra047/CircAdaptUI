@@ -1,6 +1,7 @@
 #include "graphgrid.h"
 #include "signalgraph.h"
 #include "timesignal.h"
+#include "settings.h"
 
 GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     QWidget(parent),
@@ -157,7 +158,8 @@ void GraphGrid::rescaleAxes(bool onlyVisiblePlottables)
         for (int j = 0; j < cols; j++)
         {
             auto item = getItem(i, j);
-            item->yAxis->setRange(yMin, yMax);
+            double padding = (yMax - yMin) * Settings::instance().paddingVertical();
+            item->yAxis->setRange(yMin - padding, yMax + padding);
         }
     }
     replot();
