@@ -58,6 +58,12 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(2, 2);
 }
 
+
+GraphContainer<TimeSignal>* GraphGrid::getItem(int rowIdx, int colIdx)
+{
+    return dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(rowIdx, colIdx)->widget());
+}
+
 void GraphGrid::updateGraphs(Buffer& buffer)
 {
     for (int i = 0; i < rows; i++)
@@ -94,7 +100,7 @@ void GraphGrid::replot()
     {
         for (int j = 0; j < cols; j++)
         {
-            dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, j)->widget())->replot();
+            getItem(i, j)->replot();
         }
     }
 }

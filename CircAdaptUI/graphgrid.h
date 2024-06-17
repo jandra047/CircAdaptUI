@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QGridLayout>
 #include "buffer.h"
+#include "timesignal.h"
+#include "graphcontainer.h"
 
 /*!
  * \brief Contains a grid which holds \ref GraphContainer objects.
@@ -42,6 +44,14 @@ public:
      * be called in order to visualize these changes in the plots.
      */
     void replot();
+
+    /*!
+     * \brief Access an element of the grid.
+     * \param rowIdx Row index
+     * \param colIdx Column index
+     * \return An item in the grid
+     */
+    GraphContainer<TimeSignal>* getItem(int rowIdx, int colIdx);
 
 public slots:
 
