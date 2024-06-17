@@ -71,5 +71,38 @@ void GraphContainer<SignalType>::updateGraph(Buffer& buffer)
     currentLayer()->replot();
 }
 
+template<typename SignalType>
+QCPRange GraphContainer<SignalType>::getYDataRange()
+{
+    double yMax = std::numeric_limits<double>::lowest();
+    double yMin = std::numeric_limits<double>::max();
+
+    for (int i = 0; i < m_Signals.size(); i++)
+    {
+        bool isFound;
+        auto yRange = m_Signals[i]->data()->valueRange(isFound);
+        if (isFound)
+        {
+            if (yRange.upper > yMax)
+              yMax = yRange.upper;
+            if (yRange.lower < yMin)
+              yMin = yRange.lower;
+        }
+    }
+    return QCPRange(yMin, yMax);
+}
+
+template<typename SignalType>
+bool GraphContainer<SignalType>::containsSignals()
+{
+    if (m_Signals.size() > 0)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;

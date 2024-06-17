@@ -102,7 +102,7 @@ void GraphGrid::connectColXAxes()
     {
         for (int i = 0; i < rows; ++i) {
             for (int k = 0; k < rows; ++k) {
-                if (j != k) {
+                if (i != k) {
                     linkXAxis(getItem(i, j), getItem(k, j));
                 }
             }
@@ -129,14 +129,38 @@ void GraphGrid::setRowVisible(int row, bool isVisible)
 
 void GraphGrid::rescaleAxes(bool onlyVisiblePlottables)
 {
-
     for (int i = 0; i < rows; i++)
     {
+
+        double yMin = std::numeric_limits<double>::max();
+        double yMax = std::numeric_limits<double>::lowest();
+
         for (int j = 0; j < cols; j++)
         {
-            dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(i, j)->widget())->rescaleAxes(onlyVisiblePlottables);
+            auto item = getItem(i, j);
+
+            if (item->containsSignals())
+            {
+                QCPRange itemRange = item->getYDataRange();
+                    if (itemRange.lower < yMin)
+                        {
+                            yMin = itemRange.lower;
+                        }
+
+                        if (itemRange.upper > yMax)
+                        {
+                            yMax = itemRange.upper;
+                        }
+            }
+        }
+
+        for (int j = 0; j < cols; j++)
+        {
+            auto item = getItem(i, j);
+            item->yAxis->setRange(yMin, yMax);
         }
     }
+    replot();
 }
 
 void GraphGrid::replot()

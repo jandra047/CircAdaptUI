@@ -53,7 +53,6 @@ public:
      */
     void replot();
 
-
     /*!
      * \brief Connects the y-axis ranges of all graphs in a row.
      */

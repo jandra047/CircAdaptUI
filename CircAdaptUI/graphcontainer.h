@@ -29,6 +29,18 @@ public:
      * \brief Adds a signal to the container.
      */
     void addSignal(ptr_type);
+
+    /*!
+     * \brief Get the minimum and maximum value of signals plotted in graph container
+     * \return QCPRange containing min and max value of signals plotted in graph container
+     */
+    QCPRange getYDataRange();
+
+    /*!
+     * \brief Check if graph container contains any signals
+     * \return True if contains signals
+     */
+    bool containsSignals();
 private:
 
     /*!
