@@ -25,6 +25,14 @@ public:
     GraphGrid(QWidget*, int rows = 2, int cols = 3);
 
     /*!
+     * \brief Access an element of the grid.
+     * \param rowIdx Row index
+     * \param colIdx Column index
+     * \return An item in the grid
+     */
+    GraphContainer<TimeSignal>* getItem(int rowIdx, int colIdx);
+
+    /*!
      * \brief Hides or shows a row in a grid
      * \param rowIdx Index of the row
      * \param isVisible Show or hide the row
@@ -45,13 +53,6 @@ public:
      */
     void replot();
 
-    /*!
-     * \brief Access an element of the grid.
-     * \param rowIdx Row index
-     * \param colIdx Column index
-     * \return An item in the grid
-     */
-    GraphContainer<TimeSignal>* getItem(int rowIdx, int colIdx);
 
     /*!
      * \brief Connects the y-axis ranges of all graphs in a row.
@@ -59,11 +60,23 @@ public:
     void connectRowYAxes();
 
     /*!
+     * \brief Connects the x-axis (time) ranges of all graphs in a column.
+     */
+    void connectColXAxes();
+
+    /*!
      * \brief Links y-axes of 2 \ref GraphContainers.
      * \param gc1 First container
      * \param gc2 Second container
      */
     void linkYAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2);
+
+    /*!
+     * \brief Links x-axes of 2 \ref GraphContainers.
+     * \param gc1 First container
+     * \param gc2 Second container
+     */
+    void linkXAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2);
 
 public slots:
 

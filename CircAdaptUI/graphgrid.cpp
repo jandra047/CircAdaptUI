@@ -52,6 +52,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
         }
     }
     connectRowYAxes();
+    connectColXAxes();
     gridLayout.setContentsMargins(QMargins(0,0,0,0));
     gridLayout.setSpacing(0);
     gridLayout.setColumnStretch(0, 1);
@@ -73,6 +74,14 @@ void GraphGrid::linkYAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSi
     });
 }
 
+void GraphGrid::linkXAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2)
+{
+    QObject::connect(gc1->xAxis, SIGNAL(rangeChanged(QCPRange)), gc2->xAxis, SLOT(setRange(QCPRange)));
+    QObject::connect(gc1->xAxis, qOverload<const QCPRange& >(&QCPAxis::rangeChanged), gc2, [=](const QCPRange& range) {
+        gc2->xAxis->grid()->layer()->replot();
+    });
+}
+
 void GraphGrid::connectRowYAxes()
 {
     for (int i = 0; i < rows; ++i)
@@ -81,6 +90,20 @@ void GraphGrid::connectRowYAxes()
             for (int k = 0; k < cols; ++k) {
                 if (j != k) {
                     linkYAxis(getItem(i, j), getItem(i, k));
+                }
+            }
+        }
+    }
+}
+
+void GraphGrid::connectColXAxes()
+{
+    for (int j = 0; j < cols; ++j)
+    {
+        for (int i = 0; i < rows; ++i) {
+            for (int k = 0; k < rows; ++k) {
+                if (j != k) {
+                    linkXAxis(getItem(i, j), getItem(k, j));
                 }
             }
         }
