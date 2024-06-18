@@ -46,6 +46,12 @@ public:
     void rescaleAxes(bool onlyVisiblePlottables);
 
     /*!
+     * \brief Rescales y-axes in the grid based on signals which are currently visible.
+     * \param onlyVisiblePlottables
+     */
+    void rescaleYAxes(bool onlyVisiblePlottables);
+
+    /*!
      * \brief Calls a replot() function on all graphs within the grid.
      *
      * After modifying the data of the signals in graphs, replot() needs to
