@@ -18,25 +18,25 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent = nullptr);
     ~MainWindow();
+
 private:
     Ui::MainWindow *ui;
-    QTimer *timer = new QTimer(this);
-    QTimer *buffertimer = new QTimer(this);
-    Buffer buffer;
-    ModelWrapper* mw;
+    Buffer& buffer;
+    ModelWrapper& mw;
     QLabel* l = Q_NULLPTR;
-private slots:
-    void changetext()
+
+public: signals:
+    void updateDone();
+    void togglePlay(bool isPlay);
+
+public slots:
+    void updateGraphs();
+    void updateBufferLenText()
     {
         l->setText("Buffer size: " + QString::number(buffer.getLen()));
     }
-    void updateGraphs();
-    void on_actionPlay_triggered();
-    void on_actionStress_strain_toggled(bool arg1);
-    void on_actionAutoscale_triggered();
-public: signals:
-    int updateDone();
+
 };
 #endif // MAINWINDOW_H

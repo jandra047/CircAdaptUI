@@ -3,17 +3,18 @@
 #include <QTime>
 #include "modelwrapper.h"
 #include "settings.h"
+#include <QObject>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     : QMainWindow(parent)
+    , mw(mw)
+    , buffer(buffer)
     , ui(new Ui::MainWindow)
-    , buffer()
 {
-    QThread::currentThread()->setPriority(QThread::HighestPriority);
-    ModelWrapper* mw = new ModelWrapper(buffer);
     ui->setupUi(this);
     ui->ssGraph->setVisible(false);
     l = new QLabel(ui->graphGrid);
+
 
     LoopSignal* sig = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pLv", "VLv", QColor(227, 26, 28));
     LoopSignal* sig2 = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pRv", "VRv", QColor(31, 120, 180));
@@ -33,56 +34,26 @@ MainWindow::MainWindow(QWidget *parent)
     s->setTickPosition(QSlider::TicksBelow);
     s->setTickInterval(10);
 
-
-    connect(this, &MainWindow::updateDone, mw, &ModelWrapper::run_steps);
-    connect(buffertimer, &QTimer::timeout, this, &MainWindow::updateGraphs);
-    connect(s, &QSlider::valueChanged, mw, &ModelWrapper::changeParam, Qt::QueuedConnection);
-
-    buffertimer->setSingleShot(true);
-    buffertimer->start(2000);
-
-    connect(buffertimer, &QTimer::timeout, [&]() {
-        buffertimer->start(1000/(double)Settings::instance().fps());
-    });
-
-    connect(buffertimer, &QTimer::timeout, this, &MainWindow::changetext);
-
+    QObject::connect(ui->actionPlay, &QAction::toggled, this, [this](bool isPlay) { emit togglePlay(isPlay); });
+    QObject::connect(ui->actionStress_strain, &QAction::toggled, this, [this](bool isVisible) { ui->ssGraph->setVisible(isVisible); });
+    QObject::connect(ui->actionAutoscale, &QAction::triggered, this, [this]()
+                     {
+                        ui->graphGrid->rescaleAxes(true);
+                        ui->graphGrid->replot();
+                        ui->pvGraph->rescaleAxes(true);
+                        ui->pvGraph->replot();
+                        ui->ssGraph->rescaleAxes(true);
+                        ui->ssGraph->replot();
+                        }
+    );
+    QObject::connect(s, &QSlider::valueChanged, &mw, &ModelWrapper::changeParam, Qt::QueuedConnection);
 }
 
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete timer;
-    delete buffertimer;
-    delete mw;
-}
-
-void MainWindow::on_actionPlay_triggered()
-{
-    if (buffertimer->isActive())
-    {
-        buffertimer->stop();
-    }
-    else
-    {
-        buffertimer->start();
-    }
-}
-
-void MainWindow::on_actionStress_strain_toggled(bool isVisible)
-{
-    ui->ssGraph->setVisible(isVisible);
-}
-
-void MainWindow::on_actionAutoscale_triggered()
-{
-    ui->graphGrid->rescaleAxes(true);
-    ui->graphGrid->replot();
-    ui->pvGraph->rescaleAxes(true);
-    ui->pvGraph->replot();
-    ui->ssGraph->rescaleAxes(true);
-    ui->ssGraph->replot();
+    delete l;
 }
 
 void MainWindow::updateGraphs()

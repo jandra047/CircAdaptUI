@@ -32,12 +32,13 @@ message(CHECK_PASS "CircAdapt_Library fetched")
 qt_standard_project_setup()
 
 qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
+    CircAdaptUI/main.cpp
+    CircAdaptUI/circadaptui.cpp CircAdaptUI/circadaptui.h
     CircAdaptUI/buffer.cpp CircAdaptUI/buffer.h
     CircAdaptUI/graphcontainer.cpp CircAdaptUI/graphcontainer.h
     CircAdaptUI/graphgrid.cpp CircAdaptUI/graphgrid.h
     CircAdaptUI/loopgraph.cpp CircAdaptUI/loopgraph.h
     CircAdaptUI/loopsignal.cpp CircAdaptUI/loopsignal.h
-    CircAdaptUI/main.cpp
     CircAdaptUI/mainwindow.cpp CircAdaptUI/mainwindow.h CircAdaptUI/mainwindow.ui
     CircAdaptUI/modelwrapper.cpp CircAdaptUI/modelwrapper.h
     CircAdaptUI/settings.cpp CircAdaptUI/settings.h

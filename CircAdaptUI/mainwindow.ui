@@ -154,6 +154,12 @@
    <addaction name="actionParameter_Settings"/>
   </widget>
   <action name="actionPlay">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Play</string>
    </property>
