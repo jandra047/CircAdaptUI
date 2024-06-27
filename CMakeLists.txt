@@ -16,7 +16,6 @@ add_subdirectory(tests)
 
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 message(CHECK_START "Fetching CircAdapt_Library")
-
 include(FetchContent)
 FetchContent_Declare(
   CircAdapt_Library
@@ -25,7 +24,6 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(CircAdapt_Library)
-
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 message(CHECK_PASS "CircAdapt_Library fetched")
 
@@ -45,6 +43,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/signalgraph.cpp CircAdaptUI/signalgraph.h
     CircAdaptUI/timesignal.cpp CircAdaptUI/timesignal.h
     dependencies/qcustomplot.cpp dependencies/qcustomplot.h
+    CircAdaptUI/circadaptui.h CircAdaptUI/circadaptui.cpp
 )
 include_directories(dependencies)
 
