@@ -19,10 +19,20 @@ class GraphGrid : public QWidget
         SNAPSHOT,
         CURRENT
     };
-    const QVector<QString> types = {"REFERENCE", "SNAPSHOT", "CURRENT"};
+
+    enum RowType {
+        PRESSURES,
+        VOLUMES,
+        FLOWS
+    };
+    const QVector<QString> colTypes = {"REFERENCE", "SNAPSHOT", "CURRENT"};
+    const QVector<QString> rowTypes = {"PRESSURES", "VOLUMES", "FLOWS"};
+    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow [L/min]"};
 
 public:
-    GraphGrid(QWidget*, int rows = 2, int cols = 3);
+    GraphGrid(QWidget*, int rows = 3, int cols = 3);
+
+    void setupSignals();
 
     /*!
      * \brief Access an element of the grid.
@@ -82,6 +92,8 @@ public:
      * \param gc2 Second container
      */
     void linkXAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2);
+
+    double getReplottime() { return getItem(0,2)->replotTime(); };
 
 public slots:
 

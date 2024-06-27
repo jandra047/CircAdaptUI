@@ -181,42 +181,35 @@ void ModelWrapper::changeParam(int val)
     set_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", 120000 * val / 100);
 }
 
+void ModelWrapper::setup()
+{
+    setupSignals();
+    build("VanOsta2022", Settings::instance().MWSettings()["solver"].toString().toStdString());
+    set_model_state();
+    init_SVar();
+    m_thread.reset(new QThread);
+    m_thread->setObjectName("Simulation thread");
+    moveToThread(m_thread.get());
+    m_thread->start();
+    run_steps();
+}
+
+void ModelWrapper::setupSignals()
+{
+    QJsonArray signalArray = Settings::instance().ExportSignals();
+    for (auto s : signalArray)
+    {
+        signalmap[s.toObject()["name"].toString()] = s.toObject()["path"].toString();
+    }
+}
+
 void ModelWrapper::updateBuffer()
 {
-    double pLv;
-    double VLv;
-    double pRv;
-    double pRa;
-    double VRv;
-    double Sf_Lv;
-    double Ef_Lv;
-    double Sf_Sv;
-    double Ef_Sv;
-    double Sf_Rv;
-    double Ef_Rv;
-    double t = solver->get_t();
-    get_double("Model.Peri.TriSeg.cLv.p", pLv);
-    get_double("Model.Peri.TriSeg.cLv.V", VLv);
-    get_double("Model.Peri.TriSeg.cRv.p", pRv);
-    get_double("Model.Peri.TriSeg.cRv.V", VRv);
-    get_double("Model.Peri.TriSeg.wLv.pLv1.Sf", Sf_Lv);
-    get_double("Model.Peri.TriSeg.wLv.pLv1.Ef", Ef_Lv);
-    get_double("Model.Peri.TriSeg.wSv.pSv1.Sf", Sf_Sv);
-    get_double("Model.Peri.TriSeg.wSv.pSv1.Ef", Ef_Sv);
-    get_double("Model.Peri.TriSeg.wRv.pRv1.Sf", Sf_Rv);
-    get_double("Model.Peri.TriSeg.wRv.pRv1.Ef", Ef_Rv);
-    get_double("Model.Peri.Ra.p", pRa);
-    get_double("Solver.t", t);
-    buffer.append("pLv", pLv);
-    buffer.append("VLv", VLv);
-    buffer.append("pRv", pRv);
-    buffer.append("pRa", pRa);
-    buffer.append("VRv", VRv);
-    buffer.append("Sf_Lv", Sf_Lv);
-    buffer.append("Ef_Lv", Ef_Lv);
-    buffer.append("Sf_Sv", Sf_Sv);
-    buffer.append("Ef_Sv", Ef_Sv);
-    buffer.append("Sf_Rv", Sf_Rv);
-    buffer.append("Ef_Rv", Ef_Rv);
-    buffer.append("t", t);
+    double val{};
+    for (auto s = signalmap.cbegin(), end = signalmap.cend(); s != end; ++s)
+    {
+        get_double(s.value().toStdString(), val);
+        buffer.append(s.key(), val);
+    }
+    buffer.append("t", solver->get_t());
 }

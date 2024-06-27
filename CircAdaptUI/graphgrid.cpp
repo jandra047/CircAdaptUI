@@ -13,22 +13,22 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     {
         for (int j = 0; j < cols; ++j)
         {
-            SignalGraph* plot = new SignalGraph(this);
+            SignalGraph* plot = new SignalGraph(this, "Time [s]", yLabels[i]);
             if (j == ColType::CURRENT)
             {
-                if (i == 0)
+
+                auto sigs = Settings::instance().GraphGrid()[rowTypes[i]].toArray();
+                for (auto s = sigs.cbegin(), end = sigs.cend(); s != end; ++s)
                 {
-                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "pLv", "t", QColor(227, 26, 28));
-                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis, "pRv", "t", QColor(31, 120, 180));
+                    TimeSignal* sig = new TimeSignal
+                    (
+                        plot->xAxis,
+                        plot->yAxis,
+                        s->toObject()["name"].toString(),
+                        "t",
+                        QColor(s->toObject()["color"].toString())
+                    );
                     plot->addSignal(sig);
-                    plot->addSignal(sig2);
-                }
-                if (i == 1)
-                {
-                    TimeSignal* sig = new TimeSignal(plot->xAxis, plot->yAxis, "VLv", "t", QColor(227, 26, 28));
-                    TimeSignal* sig2 = new TimeSignal(plot->xAxis, plot->yAxis, "VRv", "t", QColor(31, 120, 180));
-                    plot->addSignal(sig);
-                    plot->addSignal(sig2);
                 }
             }
             if (j > 0)
@@ -46,7 +46,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             if (i == 0)
             {
                 plot->plotLayout()->insertRow(0);
-                QCPTextElement *title = new QCPTextElement(plot, types[j], QFont("Mononoki", 12, QFont::Bold));
+                QCPTextElement *title = new QCPTextElement(plot, colTypes[j], QFont("Mononoki", 12, QFont::Bold));
                 plot->plotLayout()->addElement(0,0, title);
             }
         gridLayout.addWidget(plot, i, j);
@@ -60,7 +60,6 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(1, 1);
     gridLayout.setColumnStretch(2, 2);
 }
-
 
 GraphContainer<TimeSignal>* GraphGrid::getItem(int rowIdx, int colIdx)
 {

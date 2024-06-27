@@ -6,7 +6,7 @@
 class SignalGraph : public GraphContainer<TimeSignal>
 {
 public:
-    SignalGraph(QWidget* parent);
+    SignalGraph(QWidget* parent, QString xLabel = "", QString yLabel = "");
 };
 
 #endif // SIGNALGRAPH_H

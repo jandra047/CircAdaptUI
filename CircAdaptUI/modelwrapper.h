@@ -5,6 +5,7 @@
 #include <QThread>
 #include "Core.hpp"
 #include "buffer.h"
+#include <QJsonObject>
 
 /*!
  * \brief A class which wraps the Core class of CircAdapt
@@ -29,14 +30,7 @@ public:
         CAcore::Core(new CAcore::Factory),
         buffer(buffer)
     {
-        build("VanOsta2022", "forward_euler");
-        set_model_state();
-        init_SVar();
-        m_thread.reset(new QThread);
-        m_thread->setObjectName("Simulation thread");
-        moveToThread(m_thread.get());
-        m_thread->start();
-        run_steps();
+        setup();
     };
 
     ~ModelWrapper()
@@ -47,6 +41,7 @@ public:
 
     void set_model_state();
     QThread* get_thread() { return m_thread.get(); };
+    void setup();
 
 private:
 
@@ -79,6 +74,10 @@ private:
      * \brief Holds a pointer to the thread which \ref ModelWrapper object lives in
      */
     std::unique_ptr<QThread> m_thread;
+
+    QMap<QString, QString> signalmap;
+
+    void setupSignals();
 
 public slots:
     /*!
