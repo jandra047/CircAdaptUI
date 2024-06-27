@@ -9,7 +9,7 @@ A front-end to the [CircAdapt_Library](https://gitlab.maastrichtuniversity.nl/ci
 ## Requirements
 
 - git (to clone this repository)
-- C++ compiler (e.g., g++, clang++, MSVC)
+- C++ compiler (e.g. g++, clang++, MSVC)
 - CMake 3.29 or higher
 - Qt6
 
@@ -33,7 +33,7 @@ if you have SSH keys set up.
 ```sh
 cd CircAdaptUI
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DQT_DIR=_/path/to/Qt/lib/cmake/Qt6_ -DCMAKE_PREFIX_PATH=_/path/to/Qt/lib/cmake_
+cmake .. -DCMAKE_BUILD_TYPE=Release -DQT_DIR=/path/to/Qt/lib/cmake/Qt6 -DCMAKE_PREFIX_PATH=/path/to/Qt/lib/cmake
 cmake --build . --target CircAdaptUI --config Release
 ```
 
