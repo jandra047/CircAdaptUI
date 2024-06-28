@@ -34,10 +34,11 @@ void TimeSignal::removeData(double const x0, double const x1)
     {
         data()->remove(0, fmod(x1, keyAxis()->range().upper));
         data()->remove(x0, keyAxis()->range().upper);
+        addData(keyAxis()->range().upper, quiet_nan);
     }
     else
     {
         data()->remove(x0, x1);
+        addData(x1, quiet_nan);
     }
-    addData(x1, quiet_nan);
 }
