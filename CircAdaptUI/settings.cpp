@@ -1,5 +1,4 @@
 #include "settings.h"
-#include <QDebug>
 #include <QJsonDocument>
 #include <QFile>
 #include <QJsonArray>
@@ -23,7 +22,6 @@ void Settings::load(QString filepath)
     if (configFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QByteArray jsonData = configFile.readAll();
         jsonDoc = QJsonDocument::fromJson(jsonData);
-        qDebug() << jsonDoc.object();
         parseJsonObject(jsonDoc.object());
     }
     else
@@ -105,7 +103,6 @@ void Settings::parseJsonObject(const QJsonObject &jsonObj, const QString &prefix
                 qWarning("Unsupported JSON value type for key: %s", qPrintable(key));
             }
     }
-    qDebug() << m_settings.value("GUI/framerate").toInt();
 }
 
 
