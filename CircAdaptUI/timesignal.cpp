@@ -8,8 +8,8 @@ namespace {
 void TimeSignal::updateGraph(Buffer& buffer)
 {
     // Get all the data from the buffer
-    QVector<double> yData = buffer.get(m_yVar, 1000/((double)Settings::instance().fps() * 1000));
-    QVector<double> tData = buffer.get(m_xVar, 1000/((double)Settings::instance().fps() * 1000));
+    QVector<double> yData = buffer.get(m_yVar, 1/(double)Settings::instance().fps());
+    QVector<double> tData = buffer.get(m_xVar, 1/(double)Settings::instance().fps());
 
     // Shift time data to start from current m_xPos
     double tOffset = m_xPos - tData[0];
@@ -22,7 +22,7 @@ void TimeSignal::updateGraph(Buffer& buffer)
     removeData(m_xPos, tData.last() + m_dt);
 
     // Plot the new data
-    addData(tData, yData);
+    addData(tData, yData, true);
 
     // Update m_xPos for the next segment
     m_xPos = fmod(tData.last(), keyAxis()->range().upper);
