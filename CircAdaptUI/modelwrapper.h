@@ -6,6 +6,7 @@
 #include "Core.hpp"
 #include "buffer.h"
 #include <QJsonObject>
+#include "datacontainer.h"
 
 /*!
  * \brief A class which wraps the Core class of CircAdapt
@@ -75,7 +76,7 @@ private:
      */
     std::unique_ptr<QThread> m_thread;
 
-    QMap<QString, QString> signalmap;
+    QVector<DataContainer*> mModelSignals;
 
     void setupSignals();
 

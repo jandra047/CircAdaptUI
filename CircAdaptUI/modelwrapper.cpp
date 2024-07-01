@@ -197,19 +197,21 @@ void ModelWrapper::setup()
 void ModelWrapper::setupSignals()
 {
     QJsonArray signalArray = Settings::instance().ExportSignals();
+    mModelSignals.reserve(signalArray.size());
     for (auto s : signalArray)
     {
-        signalmap[s.toObject()["name"].toString()] = s.toObject()["path"].toString();
+        mModelSignals.push_back(DataContainerFactory::createSignal(s.toObject()));
+
     }
 }
 
 void ModelWrapper::updateBuffer()
 {
     double val{};
-    for (auto s = signalmap.cbegin(), end = signalmap.cend(); s != end; ++s)
+    for (auto s : mModelSignals)
     {
-        get_double(s.value().toStdString(), val);
-        buffer.append(s.key(), val);
+        get_double(s->getPath().toStdString(), val);
+        buffer.append(s->getName(), s->convert(val));
     }
     buffer.append("t", solver->get_t());
 }
