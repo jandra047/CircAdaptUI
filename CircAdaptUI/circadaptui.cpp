@@ -7,8 +7,6 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
     m_mw(ModelWrapper(m_buffer))
 {
     QThread::currentThread()->setPriority(QThread::HighestPriority);
-
-    // ConfigManager& configManager = ConfigManager::instance("config.json");
     m_mainwindow = new MainWindow(m_mw, m_buffer);
 
     connect(m_mainwindow, &MainWindow::updateDone, &m_mw, &ModelWrapper::run_steps);
