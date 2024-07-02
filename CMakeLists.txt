@@ -27,6 +27,19 @@ FetchContent_MakeAvailable(CircAdapt_Library)
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 message(CHECK_PASS "CircAdapt_Library fetched")
 
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(CHECK_START "Fetching QtPropertyBrowser")
+include(FetchContent)
+FetchContent_Declare(
+  QtPropertyBrowser
+  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/qtpropertybrowser.git
+  GIT_TAG 6ccd3dbabc02dde763cfa0168bf23486b1e0fe55
+  GIT_SHALLOW TRUE
+  GIT_PROGRESS TRUE)
+FetchContent_MakeAvailable(QtPropertyBrowser)
+list(POP_BACK CMAKE_MESSAGE_INDENT)
+message(CHECK_PASS "QtPropertyBrowser fetched")
+
 qt_standard_project_setup()
 
 qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
@@ -46,7 +59,6 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/circadaptui.h CircAdaptUI/circadaptui.cpp
     CircAdaptUI/datacontainer.h
 )
-include_directories(dependencies)
 
 target_compile_definitions(CircAdaptUI PRIVATE
     QCUSTOMPLOT_USE_OPENGL
@@ -72,8 +84,10 @@ endif()
 
 target_link_libraries(CircAdaptUI PRIVATE
     CircAdaptLib
+    qtpropertybrowser
 )
-add_dependencies(CircAdaptUI CircAdaptLib)
+
+add_dependencies(CircAdaptUI CircAdaptLib qtpropertybrowser)
 
 install(TARGETS CircAdaptUI
     BUNDLE DESTINATION .
