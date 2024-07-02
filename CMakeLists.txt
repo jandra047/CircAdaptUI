@@ -32,7 +32,7 @@ message(CHECK_START "Fetching QtPropertyBrowser")
 include(FetchContent)
 FetchContent_Declare(
   QtPropertyBrowser
-  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/qtpropertybrowser.git
+  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:P70074313/qtpropertybrowser.git
   GIT_TAG 6ccd3dbabc02dde763cfa0168bf23486b1e0fe55
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
