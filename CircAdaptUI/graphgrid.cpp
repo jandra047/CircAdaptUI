@@ -52,6 +52,8 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
         gridLayout.addWidget(plot, i, j);
         }
     }
+    setRowVisible(3, false);
+    setRowVisible(4, false);
     connectRowYAxes();
     connectColXAxes();
     gridLayout.setContentsMargins(QMargins(0,0,0,0));

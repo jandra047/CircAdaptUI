@@ -114,6 +114,12 @@
       <string>Signals</string>
      </property>
      <addaction name="actionStress_strain"/>
+     <addaction name="separator"/>
+     <addaction name="actionPressures"/>
+     <addaction name="actionVolumes"/>
+     <addaction name="actionFlows"/>
+     <addaction name="actionStress"/>
+     <addaction name="actionStrain"/>
     </widget>
     <addaction name="menuSignals"/>
    </widget>
@@ -214,6 +220,55 @@
    </property>
    <property name="text">
     <string>Stress-strain</string>
+   </property>
+  </action>
+  <action name="actionPressures">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Pressure</string>
+   </property>
+  </action>
+  <action name="actionVolumes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Volume</string>
+   </property>
+  </action>
+  <action name="actionFlows">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Flow</string>
+   </property>
+  </action>
+  <action name="actionStress">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Stress</string>
+   </property>
+  </action>
+  <action name="actionStrain">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Strain</string>
    </property>
   </action>
  </widget>
