@@ -65,7 +65,7 @@
         <widget class="LoopGraph" name="pvGraph" native="true"/>
         <widget class="LoopGraph" name="ssGraph" native="true"/>
        </widget>
-       <widget class="QWidget" name="widget" native="true"/>
+       <widget class="ValueView" name="widget" native="true"/>
       </widget>
      </widget>
     </item>
@@ -228,6 +228,12 @@
    <class>LoopGraph</class>
    <extends>QWidget</extends>
    <header>CircAdaptUI/loopgraph.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ValueView</class>
+   <extends>QWidget</extends>
+   <header>CircAdaptUI/valueview.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

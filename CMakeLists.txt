@@ -58,6 +58,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     dependencies/qcustomplot.cpp dependencies/qcustomplot.h
     CircAdaptUI/circadaptui.h CircAdaptUI/circadaptui.cpp
     CircAdaptUI/datacontainer.h
+    CircAdaptUI/mainwindow.ui
+    CircAdaptUI/valueview.h CircAdaptUI/valueview.cpp
 )
 
 target_compile_definitions(CircAdaptUI PRIVATE
