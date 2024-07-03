@@ -21,12 +21,14 @@ class GraphGrid : public QWidget
     };
 
     enum RowType {
-        PRESSURES,
-        VOLUMES,
-        FLOWS
+        PRESSURE,
+        VOLUME,
+        FLOW,
+        STRESS,
+        STRAIN
     };
     const QVector<QString> colTypes = {"REFERENCE", "SNAPSHOT", "CURRENT"};
-    const QVector<QString> rowTypes = {"PRESSURES", "VOLUMES", "FLOWS"};
+    const QVector<QString> rowTypes = {"PRESSURE", "VOLUME", "FLOW"};
     const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow [L/min]"};
 
 public:

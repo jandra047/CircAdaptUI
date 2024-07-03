@@ -116,7 +116,7 @@
 
     "GraphGrid":
     {
-        "PRESSURES":
+        "PRESSURE":
         [
             {
                 "name": "pLa",
@@ -155,7 +155,7 @@
                 "column":"PRESSURES"
             }
         ],
-        "VOLUMES":
+        "VOLUME":
         [
             {
                 "name": "VLa",
@@ -178,7 +178,7 @@
                 "color": "#1F78B4"
             }
         ],
-        "FLOWS":
+        "FLOW":
         [
             {
                 "name": "qLaLv",
