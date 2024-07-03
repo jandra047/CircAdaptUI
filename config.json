@@ -1,0 +1,248 @@
+{
+    "ModelWrapper":
+    {
+        "solver": "forward_euler",
+        "export_signals":
+            [
+                {
+                    "name": "pLa",
+                    "path": "Model.Peri.La.p",
+                    "type": "pressure"
+                },
+                {
+                    "name": "pRa",
+                    "path": "Model.Peri.Ra.p",
+                    "type": "pressure"
+                },
+                {
+                    "name": "pLv",
+                    "path": "Model.Peri.TriSeg.cLv.p",
+                    "type": "pressure"
+                },
+                {
+                    "name": "pRv",
+                    "path": "Model.Peri.TriSeg.cRv.p",
+                    "type": "pressure"
+                },
+                {
+                    "name": "pAo",
+                    "path": "Model.SyArt.p",
+                    "type": "pressure"
+                },
+                {
+                    "name": "pPu",
+                    "path": "Model.PuArt.p",
+                    "type": "pressure"
+                },
+                {
+                    "name": "VLa",
+                    "path": "Model.Peri.La.V",
+                    "type": "volume"
+                },
+                {
+                    "name": "VRa",
+                    "path": "Model.Peri.Ra.V",
+                    "type": "volume"
+                },
+                {
+                    "name": "VLv",
+                    "path": "Model.Peri.TriSeg.cLv.V",
+                    "type": "volume"
+                },
+                {
+                    "name": "VRv",
+                    "path": "Model.Peri.TriSeg.cRv.V",
+                    "type": "volume"
+                },
+                {
+                    "name": "Sf_Lv",
+                    "path": "Model.Peri.TriSeg.wLv.pLv1.Sf",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Sf_Rv",
+                    "path": "Model.Peri.TriSeg.wRv.pRv1.Sf",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Sf_Sv",
+                    "path": "Model.Peri.TriSeg.wSv.pSv1.Sf",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv",
+                    "path": "Model.Peri.TriSeg.wLv.pLv1.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv",
+                    "path": "Model.Peri.TriSeg.wRv.pRv1.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Sv",
+                    "path": "Model.Peri.TriSeg.wSv.pSv1.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "qLaLv",
+                    "path": "Model.Peri.LaLv.q",
+                    "type": "flow"
+                },
+                {
+                    "name": "qRaRv",
+                    "path": "Model.Peri.RaRv.q",
+                    "type": "flow"
+                },
+                {
+                    "name": "qLvAo",
+                    "path": "Model.Peri.LvSyArt.q",
+                    "type": "flow"
+                },
+                {
+                    "name": "qRvPuArt",
+                    "path": "Model.Peri.RvPuArt.q",
+                    "type": "flow"
+                }
+            ]
+    },
+
+    "GUI":
+    {
+        "framerate": 60,
+        "buffersize": 50,
+        "paddingY": 0.05
+    },
+
+    "GraphGrid":
+    {
+        "PRESSURES":
+        [
+            {
+                "name": "pLa",
+                "unit": "mmHg",
+                "color": "#FB9A99",
+                "row":"PRESSURES"
+            },
+            {
+                "name": "pRa",
+                "unit": "mmHg",
+                "color": "#A6CEE3",
+                "column":"PRESSURES"
+            },
+            {
+                "name": "pLv",
+                "unit": "mmHg",
+                "color": "#E31A1C",
+                "column":"PRESSURES"
+            },
+            {
+                "name": "pRv",
+                "unit": "mmHg",
+                "color": "#1F78B4",
+                "column":"PRESSURES"
+            },
+            {
+                "name": "pAo",
+                "unit": "mmHg",
+                "color": "#6A3D9A",
+                "column":"PRESSURES"
+            },
+            {
+                "name": "pPu",
+                "unit": "mmHg",
+                "color": "#000000",
+                "column":"PRESSURES"
+            }
+        ],
+        "VOLUMES":
+        [
+            {
+                "name": "VLa",
+                "unit": "mL",
+                "color": "#FB9A99"
+            },
+            {
+                "name": "VRa",
+                "unit": "mL",
+                "color": "#A6CEE3"
+            },
+            {
+                "name": "VLv",
+                "unit": "mL",
+                "color": "#E31A1C"
+            },
+            {
+                "name": "VRv",
+                "unit": "mL",
+                "color": "#1F78B4"
+            }
+        ],
+        "FLOWS":
+        [
+            {
+                "name": "qLaLv",
+                "unit": "mL",
+                "color": "#FB9A99"
+            },
+            {
+                "name": "qLvAo",
+                "unit": "mL",
+                "color": "#E31A1C"
+            },
+            {
+                "name": "qRaRv",
+                "unit": "mL",
+                "color": "#A6CEE3"
+            },
+            {
+                "name": "qRvPuArt",
+                "unit": "mL",
+                "color": "#1F78B4"
+            }
+        ]
+    },
+    "ValueView":
+    [
+        {
+            "name": "CO",
+            "unit": "L/min"
+        },
+        {
+            "name": "Qs",
+            "unit": "L/min"
+        },
+        {
+            "name": "Qp",
+            "unit": "L/min"
+        },
+        {
+            "name": "Qp/Qs",
+            "unit": "-"
+        },
+        {
+            "name": "mLAP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "SBP/DBP/MAP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "PVR",
+            "unit": "WU"
+        },
+        {
+            "name": "PVP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "ASD flow",
+            "unit": "L/min"
+        },
+        {
+            "name": "VSD flow",
+            "unit": "L/min"
+        }
+    ]
+}
