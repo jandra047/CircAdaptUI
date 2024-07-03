@@ -3,7 +3,6 @@
 
 #include <QMap>
 #include <QString>
-#include <QDebug>
 #include <QMutex>
 
 /*!
@@ -46,6 +45,8 @@ public:
      */
     int getLen() { QMutexLocker l(&mutex); return m_data["t"].size(); }
 
+    void runAfterBeat();
+
 
 private:
 
@@ -53,6 +54,8 @@ private:
      * \brief Holds data.
      */
     QMap<QString, QVector<double>> m_data;
+    QVector<QMap<QString, QVector<double>>> m_beatData;
+    QMap<QString, QVector<double>> m_currentBeatData;
 
     QMutex mutex;
 

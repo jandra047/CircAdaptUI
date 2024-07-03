@@ -1,11 +1,15 @@
 #include "buffer.h"
 
-Buffer::Buffer() {}
+Buffer::Buffer()
+{
+    m_beatData.reserve(2);
+}
 
 void Buffer::append(const QString& string, double value)
 {
     QMutexLocker l(&mutex);
     m_data[string].append(value);
+    m_currentBeatData[string].append(value);
 }
 
 QVector<double> Buffer::get(const QString& string, double dt)
@@ -51,4 +55,14 @@ void Buffer::clear(double dt)
     {
         vec.erase(vec.begin(), vec.begin() + count);
     }
+}
+
+void Buffer::runAfterBeat()
+{
+    // Erase first beat
+    if (m_beatData.count() >= 2)
+        m_beatData.pop_front();
+    m_beatData.push_back(m_currentBeatData);
+    m_currentBeatData.clear();
+    //
 }

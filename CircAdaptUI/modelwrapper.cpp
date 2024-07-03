@@ -156,6 +156,7 @@ void ModelWrapper::run_single_step() {
         solver->pre_beat();
         solver->init_iteration();
         it++;
+        beatDone = false;
     }
     else {
         t_export = (it + 1) * solver->get_dt_export();
@@ -169,6 +170,7 @@ void ModelWrapper::run_single_step() {
     {
         solver->after_beat();
         it = 0;
+        beatDone = true;
     }
     updateBuffer();
     emit timestep_done();
@@ -214,4 +216,10 @@ void ModelWrapper::updateBuffer()
         buffer.append(s->getName(), s->convert(val));
     }
     buffer.append("t", solver->get_t());
+
+    if (beatDone)
+    {
+        buffer.runAfterBeat();
+    }
+
 }

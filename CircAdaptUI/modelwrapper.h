@@ -80,6 +80,8 @@ private:
 
     void setupSignals();
 
+    bool beatDone {false};
+
 public slots:
     /*!
      * \brief Runs a number of steps until \ref Buffer length reaches value specified at \ref Settings
