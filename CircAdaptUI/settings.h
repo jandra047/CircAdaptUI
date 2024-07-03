@@ -18,6 +18,7 @@ public:
     void load(QString filepath);
     QJsonObject GraphGrid() const {  return jsonDoc["GraphGrid"].toObject(); };
     QJsonArray ExportSignals() const {  return jsonDoc["ModelWrapper"]["export_signals"].toArray(); };
+    QJsonArray ValueView() const {  return jsonDoc["ValueView"].toArray(); };
     QJsonObject MWSettings() const { return jsonDoc["ModelWrapper"].toObject(); };
 
     int fps() const {

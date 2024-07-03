@@ -19,6 +19,7 @@ public:
     ~ValueView() {};
 
 private:
+    void setupTableItems();
 
     QTableWidget* m_valuesList;
 
