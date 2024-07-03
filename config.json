@@ -206,17 +206,17 @@
             {
                 "name": "Sf_Lv",
                 "unit": "Pa",
-                "color": "#FB9A99"
+                "color": "#E31A1C"
             },
             {
                 "name": "Sf_Sv",
                 "unit": "Pa",
-                "color": "#FB9A99"
+                "color": "#000000"
             },
             {
                 "name": "Sf_Rv",
                 "unit": "Pa",
-                "color": "#FB9A99"
+                "color": "#1F78B4"
             }
         ],
         "STRAIN":
@@ -224,17 +224,17 @@
             {
                 "name": "Ef_Lv",
                 "unit": "Pa",
-                "color": "#FB9A99"
+                "color": "#E31A1C"
             },
             {
                 "name": "Ef_Sv",
                 "unit": "Pa",
-                "color": "#FB9A99"
+                "color": "#000000"
             },
             {
                 "name": "Ef_Rv",
                 "unit": "Pa",
-                "color": "#FB9A99"
+                "color": "#1F78B4"
             }
         ]
     },
