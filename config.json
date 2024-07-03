@@ -200,6 +200,42 @@
                 "unit": "mL",
                 "color": "#1F78B4"
             }
+        ],
+        "STRESS":
+        [
+            {
+                "name": "Sf_Lv",
+                "unit": "Pa",
+                "color": "#FB9A99"
+            },
+            {
+                "name": "Sf_Sv",
+                "unit": "Pa",
+                "color": "#FB9A99"
+            },
+            {
+                "name": "Sf_Rv",
+                "unit": "Pa",
+                "color": "#FB9A99"
+            }
+        ],
+        "STRAIN":
+        [
+            {
+                "name": "Ef_Lv",
+                "unit": "Pa",
+                "color": "#FB9A99"
+            },
+            {
+                "name": "Ef_Sv",
+                "unit": "Pa",
+                "color": "#FB9A99"
+            },
+            {
+                "name": "Ef_Rv",
+                "unit": "Pa",
+                "color": "#FB9A99"
+            }
         ]
     },
     "ValueView":

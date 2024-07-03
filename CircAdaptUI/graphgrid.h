@@ -28,11 +28,11 @@ class GraphGrid : public QWidget
         STRAIN
     };
     const QVector<QString> colTypes = {"REFERENCE", "SNAPSHOT", "CURRENT"};
-    const QVector<QString> rowTypes = {"PRESSURE", "VOLUME", "FLOW"};
-    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow [L/min]"};
+    const QVector<QString> rowTypes = {"PRESSURE", "VOLUME", "FLOW", "STRESS", "STRAIN"};
+    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow [L/min]", "Stress [Pa]", "Strain [-]"};
 
 public:
-    GraphGrid(QWidget*, int rows = 3, int cols = 3);
+    GraphGrid(QWidget*, int rows = 5, int cols = 3);
 
     void setupSignals();
 
