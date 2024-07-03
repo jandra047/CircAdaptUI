@@ -17,7 +17,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     yAxis->grid()->setPen(QPen(QColor(0xaaaaaa), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     axisRect()->setBackground(QColor(0xededed));
     setBackground(QColor(0xaaaaaa));
-    yAxis->setRange(0,20000);
+    yAxis->setRange(0,200);
     xAxis->setRange(0,3);
 
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
