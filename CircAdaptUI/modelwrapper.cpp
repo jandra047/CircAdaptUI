@@ -152,7 +152,7 @@ void ModelWrapper::run_steps()
 
 void ModelWrapper::run_single_step() {
     size_t nt = ((size_t)(model->get_t_cycle() / solver->get_dt_export()));
-    if (it == 0) {
+    if (it == -1) {
         solver->pre_beat();
         solver->init_iteration();
         it++;
@@ -169,7 +169,7 @@ void ModelWrapper::run_single_step() {
     if (it >= nt)
     {
         solver->after_beat();
-        it = 0;
+        it = -1;
         beatDone = true;
     }
     updateBuffer();

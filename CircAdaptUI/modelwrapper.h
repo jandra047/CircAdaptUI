@@ -54,7 +54,7 @@ private:
     /*!
      * \brief Iteration step of the solver
      */
-    size_t it = 0;
+    size_t it = -1;
 
     /*!
      * \brief Number of iterations in one beat with current solver settings
