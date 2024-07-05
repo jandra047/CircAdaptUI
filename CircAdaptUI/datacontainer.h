@@ -40,7 +40,7 @@ class FlowContainer : public DataContainer
 public:
     FlowContainer(const QString& name, const QString& path, const QString& type):
         DataContainer(name, path, type) {};
-    double convert(double val) const override { return val * 60000; };
+    double convert(double val) const override { return val * 1e6; };
 };
 
 class DataContainerFactory
