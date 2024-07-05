@@ -52,6 +52,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
                         }
     );
     QObject::connect(s, &QSlider::valueChanged, &mw, &ModelWrapper::changeParam, Qt::QueuedConnection);
+    QObject::connect(&buffer, &Buffer::updateValueView, ui->widget, &ValueView::updateValues);
 }
 
 

@@ -3,6 +3,11 @@
 Buffer::Buffer()
 {
     m_beatData.reserve(2);
+    for (int i = 0; i < 2; i++)
+    {
+        m_beatData.push_back(new BeatData);
+    }
+
 }
 
 void Buffer::append(const QString& string, double value)
@@ -59,10 +64,10 @@ void Buffer::clear(double dt)
 
 void Buffer::runAfterBeat()
 {
-    // Erase first beat
     if (m_beatData.count() >= 2)
-        m_beatData.pop_front();
-    m_beatData.push_back(m_currentBeatData);
+        m_beatData.first()->clear();
+    m_beatData.last()->setData(m_currentBeatData);
     m_currentBeatData.clear();
-    //
+
+    emit updateValueView(m_beatData.last()->getStats());
 }

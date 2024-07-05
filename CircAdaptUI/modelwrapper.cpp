@@ -217,6 +217,9 @@ void ModelWrapper::updateBuffer()
     }
     buffer.append("t", solver->get_t());
 
+    get_double("Model.PFC.cumulative_flow_beat", val);
+    buffer.append("ven_ret", val*60000);
+
     if (beatDone)
     {
         buffer.runAfterBeat();

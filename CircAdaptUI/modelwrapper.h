@@ -102,6 +102,11 @@ signals:
      */
     void timestep_done();
 
+    /*!
+     * \brief Emits a signal after whole beat is done
+     */
+    void beat_done();
+
 private slots:
     void cleanup()
     {
