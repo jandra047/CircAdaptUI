@@ -20,7 +20,7 @@ include(FetchContent)
 FetchContent_Declare(
   CircAdapt_Library
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/CircAdapt_Library.git
-  GIT_TAG 047d8d1ff6e6b57ef6da114c38da344cbe584208
+  GIT_TAG fca151827ba9248058c0c708039bde6610ed8933
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(CircAdapt_Library)
@@ -60,6 +60,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/datacontainer.h
     CircAdaptUI/mainwindow.ui
     CircAdaptUI/valueview.h CircAdaptUI/valueview.cpp
+    CircAdaptUI/beatdata.h CircAdaptUI/beatdata.cpp
 )
 
 target_compile_definitions(CircAdaptUI PRIVATE
