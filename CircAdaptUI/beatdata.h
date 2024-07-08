@@ -11,8 +11,9 @@ public:
     BeatData();
     void clear();
     void setData(const QMap<QString, QVector<double>>& data);
-    double get(const QString& param);
+    QVector<double> get(const QString& param);
     QMap<QString, double> getStats() { analyzeData(); return m_beatStats; };
+    QMap<QString, QVector<double>> getData() { return m_data; };
 
 
 private:

@@ -12,9 +12,9 @@ void BeatData::setData(const QMap<QString, QVector<double>>& data)
     m_data = data;
 }
 
-double BeatData::get(const QString& param)
+QVector<double> BeatData::get(const QString& param)
 {
-    return m_beatStats[param];
+    return m_data[param];
 }
 
 void BeatData::analyzeData()

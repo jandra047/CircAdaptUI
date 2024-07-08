@@ -65,7 +65,7 @@ void Buffer::clear(double dt)
 void Buffer::runAfterBeat()
 {
     if (m_beatData.count() >= 2)
-        m_beatData.first()->clear();
+        m_beatData.first()->setData(m_beatData.last()->getData());
     m_beatData.last()->setData(m_currentBeatData);
     m_currentBeatData.clear();
 
