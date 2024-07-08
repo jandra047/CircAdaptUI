@@ -42,3 +42,10 @@ void TimeSignal::removeData(double const x0, double const x1)
         addData(x1, quiet_nan);
     }
 }
+
+void TimeSignal::displaySnapshot(const Buffer& buffer)
+{
+    QVector<double> yData = buffer.getSnapshot(m_yVar);
+    QVector<double> tData = buffer.getSnapshot(m_xVar);
+    setData(tData, yData);
+}

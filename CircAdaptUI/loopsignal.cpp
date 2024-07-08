@@ -34,4 +34,9 @@ void LoopSignal::removeData(double const x0, double const x1)
         data()->remove(x0, x1);
     }
     addData(x1, x1, quiet_nan);
+
+void LoopSignal::displaySnapshot(const Buffer& buffer)
+{
+    QVector<double> yData = buffer.getSnapshot(m_yVar);
+    QVector<double> tData = buffer.getSnapshot(m_xVar);
 }

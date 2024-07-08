@@ -41,6 +41,8 @@ public:
      * \return True if contains signals
      */
     bool containsSignals();
+
+    void displaySnapshot(Buffer& buffer);
 private:
 
     /*!

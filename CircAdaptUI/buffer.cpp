@@ -71,3 +71,33 @@ void Buffer::runAfterBeat()
 
     emit updateValueView(m_beatData.last()->getStats());
 }
+
+const QVector<double> Buffer::getSnapshot(const QString& key) const
+{
+    QVector<double> data;
+    if (key != "t")
+    {
+        for (auto elem : m_beatData)
+        {
+            data += elem->get(key);
+        }
+    }
+    else
+    {
+        for (auto elem : m_beatData)
+        {
+            if (data.isEmpty())
+            {
+                data += elem->get(key);
+            }
+            else {
+                double last = data.last();
+                for (auto x : elem->get(key))
+                {
+                    data.push_back(last + x);
+                }
+            }
+        }
+    }
+    return data;
+}

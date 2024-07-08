@@ -27,12 +27,14 @@ private:
     ModelWrapper& mw;
     QLabel* l = Q_NULLPTR;
 
+
 public: signals:
     void updateDone();
     void togglePlay(bool isPlay);
 
 public slots:
     void updateGraphs();
+    void takeSnapshot();
     void updateBufferLenText()
     {
         l->setText("Buffer size: " + QString::number(buffer.getLen()));

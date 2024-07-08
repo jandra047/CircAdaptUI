@@ -39,6 +39,8 @@ public:
      */
     void removeData(double const x0, double const x1);
 
+    void displaySnapshot(const Buffer& buffer);
+
 
 private:
 

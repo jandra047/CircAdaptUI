@@ -14,22 +14,19 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
         for (int j = 0; j < cols; ++j)
         {
             SignalGraph* plot = new SignalGraph(this, "Time [s]", yLabels[i]);
-            if (j == ColType::CURRENT)
-            {
 
-                auto sigs = Settings::instance().GraphGrid()[rowTypes[i]].toArray();
-                for (auto s = sigs.cbegin(), end = sigs.cend(); s != end; ++s)
-                {
-                    TimeSignal* sig = new TimeSignal
-                    (
-                        plot->xAxis,
-                        plot->yAxis,
-                        s->toObject()["name"].toString(),
-                        "t",
-                        QColor(s->toObject()["color"].toString())
-                    );
-                    plot->addSignal(sig);
-                }
+            auto sigs = Settings::instance().GraphGrid()[rowTypes[i]].toArray();
+            for (auto s = sigs.cbegin(), end = sigs.cend(); s != end; ++s)
+            {
+                TimeSignal* sig = new TimeSignal
+                (
+                    plot->xAxis,
+                    plot->yAxis,
+                    s->toObject()["name"].toString(),
+                    "t",
+                    QColor(s->toObject()["color"].toString())
+                );
+                plot->addSignal(sig);
             }
             if (j > 0)
             {
@@ -180,5 +177,15 @@ void GraphGrid::replot()
         {
             getItem(i, j)->replot();
         }
+    }
+}
+
+void GraphGrid::takeSnapshot(Buffer& buffer)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        auto item = getItem(i, 1);
+        item->displaySnapshot(buffer);
+        item->xAxis->rescale();
     }
 }

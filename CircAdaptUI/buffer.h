@@ -50,9 +50,11 @@ public:
 
     void runAfterBeat();
 
+    const QVector<double> getSnapshot(const QString& key) const;
+
 public:
 signals:
-    void updateValueView(const QMap<QString, double> lastBeatData);
+    void updateValueView(const QMap<QString, double>& lastBeatData);
 
 private:
 

@@ -105,6 +105,8 @@ public slots:
      */
     void updateGraphs(Buffer& buffer);
 
+    void takeSnapshot(Buffer& buffer);
+
 private:
     QGridLayout gridLayout;
 
