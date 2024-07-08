@@ -123,7 +123,10 @@ template class GraphContainer<TimeSignal>;
 
 template<typename SignalType>
 void GraphContainer<SignalType>::showToolTip(QMouseEvent *event) {
-    double x = xAxis->pixelToCoord(event->pos().x());
-    QString text = getPoint(event->pos());
-    QToolTip::showText(event->globalPosition().toPoint(), text, this);
+    if (containsSignals())
+    {
+        double x = xAxis->pixelToCoord(event->pos().x());
+        QString text = getPoint(event->pos());
+        QToolTip::showText(event->globalPosition().toPoint(), text, this);
+    }
 }
