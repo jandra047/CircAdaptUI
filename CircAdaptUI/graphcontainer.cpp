@@ -21,6 +21,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     xAxis->setRange(0,3);
 
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
+    connect(this, &QCustomPlot::mouseMove, this, &GraphContainer::showToolTip);
 }
 
 template<typename SignalType>
@@ -117,6 +118,12 @@ void GraphContainer<SignalType>::displaySnapshot(Buffer& buffer)
     }
     currentLayer()->replot();
 }
-
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;
+
+template<typename SignalType>
+void GraphContainer<SignalType>::showToolTip(QMouseEvent *event) {
+    double x = xAxis->pixelToCoord(event->pos().x());
+    QString text = getPoint(event->pos());
+    QToolTip::showText(event->globalPosition().toPoint(), text, this);
+}

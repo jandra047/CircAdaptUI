@@ -43,6 +43,10 @@ public:
     bool containsSignals();
 
     void displaySnapshot(Buffer& buffer);
+
+    void showToolTip(QMouseEvent *event);
+
+    virtual QString getPoint(const QPoint& pos) = 0;
 private:
 
     /*!
@@ -51,6 +55,7 @@ private:
      */
     void zoom(QWheelEvent* event);
 
+protected:
     /*!
      * \brief Contains signals which are plotted in this container.
      */
