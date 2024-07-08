@@ -71,3 +71,8 @@ void MainWindow::updateGraphs()
     buffer.clear(1000/((double)Settings::instance().fps() * 1000));
     emit updateDone();
 }
+
+void MainWindow::takeSnapshot()
+{
+    ui->graphGrid->takeSnapshot(buffer);
+}
