@@ -97,11 +97,15 @@ bool GraphContainer<SignalType>::containsSignals()
 {
     if (m_Signals.size() > 0)
     {
-        return true;
+        for (auto signal : m_Signals)
+        {
+            if (!signal->data()->isEmpty())
+            {
+                return true;
+            }
+        }
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 template<typename SignalType>
