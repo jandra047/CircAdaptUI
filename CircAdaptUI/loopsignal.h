@@ -16,6 +16,8 @@ public:
     void updateGraph(Buffer& buffer);
     void removeData(double const x0, double x1);
     void displaySnapshot(const Buffer& buffer);
+    QString getXVar() { return m_xVar; };
+    QString getYVar() { return m_yVar; };
 
 private:
     QString m_yVar;

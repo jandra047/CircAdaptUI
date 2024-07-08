@@ -41,6 +41,9 @@ public:
 
     void displaySnapshot(const Buffer& buffer);
 
+    QString getXVar() { return m_xVar; };
+    QString getYVar() { return m_yVar; };
+
 
 private:
 
