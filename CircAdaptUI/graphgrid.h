@@ -4,8 +4,7 @@
 #include <QWidget>
 #include <QGridLayout>
 #include "buffer.h"
-#include "timesignal.h"
-#include "graphcontainer.h"
+#include "signalgraph.h"
 
 /*!
  * \brief Contains a grid which holds \ref GraphContainer objects.
@@ -42,7 +41,7 @@ public:
      * \param colIdx Column index
      * \return An item in the grid
      */
-    GraphContainer<TimeSignal>* getItem(int rowIdx, int colIdx);
+    SignalGraph* getItem(int rowIdx, int colIdx);
 
     /*!
      * \brief Hides or shows a row in a grid
@@ -86,14 +85,14 @@ public:
      * \param gc1 First container
      * \param gc2 Second container
      */
-    void linkYAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2);
+    void linkYAxis(SignalGraph* gc1, SignalGraph* gc2);
 
     /*!
      * \brief Links x-axes of 2 \ref GraphContainers.
      * \param gc1 First container
      * \param gc2 Second container
      */
-    void linkXAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2);
+    void linkXAxis(SignalGraph* gc1, SignalGraph* gc2);
 
     double getReplottime() { return getItem(0,2)->replotTime(); };
 

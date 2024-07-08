@@ -60,12 +60,12 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(2, 2);
 }
 
-GraphContainer<TimeSignal>* GraphGrid::getItem(int rowIdx, int colIdx)
+SignalGraph* GraphGrid::getItem(int rowIdx, int colIdx)
 {
-    return dynamic_cast<GraphContainer<TimeSignal>*>(gridLayout.itemAtPosition(rowIdx, colIdx)->widget());
+    return dynamic_cast<SignalGraph*>(gridLayout.itemAtPosition(rowIdx, colIdx)->widget());
 }
 
-void GraphGrid::linkYAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2)
+void GraphGrid::linkYAxis(SignalGraph* gc1, SignalGraph* gc2)
 {
     QObject::connect(gc1->yAxis, SIGNAL(rangeChanged(QCPRange)), gc2->yAxis, SLOT(setRange(QCPRange)));
     QObject::connect(gc1->yAxis, qOverload<const QCPRange& >(&QCPAxis::rangeChanged), gc2, [=](const QCPRange& range) {
@@ -73,7 +73,7 @@ void GraphGrid::linkYAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSi
     });
 }
 
-void GraphGrid::linkXAxis(GraphContainer<TimeSignal>* gc1, GraphContainer<TimeSignal>* gc2)
+void GraphGrid::linkXAxis(SignalGraph* gc1, SignalGraph* gc2)
 {
     QObject::connect(gc1->xAxis, SIGNAL(rangeChanged(QCPRange)), gc2->xAxis, SLOT(setRange(QCPRange)));
     QObject::connect(gc1->xAxis, qOverload<const QCPRange& >(&QCPAxis::rangeChanged), gc2, [=](const QCPRange& range) {
