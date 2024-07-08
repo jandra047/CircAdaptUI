@@ -12,7 +12,7 @@ public:
     void clear();
     void setData(const QMap<QString, QVector<double>>& data);
     double get(const QString& param);
-    QMap<QString, double> getStats() { return m_beatStats; };
+    QMap<QString, double> getStats() { analyzeData(); return m_beatStats; };
 
 
 private:

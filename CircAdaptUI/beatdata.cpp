@@ -10,7 +10,6 @@ void BeatData::clear()
 void BeatData::setData(const QMap<QString, QVector<double>>& data)
 {
     m_data = data;
-    analyzeData();
 }
 
 double BeatData::get(const QString& param)
