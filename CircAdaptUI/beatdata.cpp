@@ -23,6 +23,7 @@ void BeatData::analyzeData()
     m_beatStats["CO"] = getCO();
     m_beatStats["Qs"] = getQs();
     m_beatStats["Qp"] = getQp();
+    m_beatStats["Qp/Qs"] = m_beatStats["Qp"]/m_beatStats["Qs"];
     m_beatStats["mLAP"] = get_mLAP();
     m_beatStats["SBP"] = getSBP();
     m_beatStats["DBP"] = getDBP();
@@ -36,17 +37,20 @@ void BeatData::analyzeData()
 
 double BeatData::getCO()
 {
-    return m_data["ven_ret"].last();
+    double tCycle = m_data["t"].last() - m_data["t"].first();
+    return calcIntegral(m_data["qSyVenRa"], m_data["t"]) * 60 / tCycle / 1000;
 }
 
 double BeatData::getQs()
 {
-    return m_data["ven_ret"].last();
+    double tCycle = m_data["t"].last() - m_data["t"].first();
+    return calcIntegral(m_data["qLvAo"], m_data["t"]) * 60 / tCycle / 1000;
 }
 
 double BeatData::getQp()
 {
-    return m_data["ven_ret"].last();
+    double tCycle = m_data["t"].last() - m_data["t"].first();
+    return calcIntegral(m_data["qRvPuArt"], m_data["t"]) * 60 / tCycle / 1000;
 }
 
 double BeatData::get_mLAP()
@@ -95,4 +99,24 @@ double BeatData::get_mPAP()
 {
     double mPAP = std::accumulate(m_data["pPu"].begin(), m_data["pPu"].end(), .0) / m_data["pLa"].size();
     return mPAP;
+}
+
+double BeatData::calcIntegral(const QVector<double>& vec1, const QVector<double>& vec2)
+{
+    // Check if the vectors are of the same size and have at least two elements
+    if (vec1.size() != vec2.size() || vec1.size() < 2)
+    {
+        throw std::invalid_argument("Vectors must have the same size and contain at least two elements.");
+    }
+
+    double integral = 0.0;
+
+    // Implement the trapezoidal rule
+    for (int i = 0; i < vec1.size() - 1; ++i) {
+        double deltaT = vec2[i + 1] - vec2[i];
+        double averageFlow = (vec1[i] + vec1[i + 1]) / 2.0;
+        integral += averageFlow * deltaT;
+    }
+
+    return integral;
 }

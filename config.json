@@ -103,6 +103,11 @@
                     "name": "qRvPuArt",
                     "path": "Model.Peri.RvPuArt.q",
                     "type": "flow"
+                },
+                {
+                    "name": "qSyVenRa",
+                    "path": "Model.Peri.SyVenRa.q",
+                    "type": "flow"
                 }
             ]
     },
@@ -261,7 +266,15 @@
             "unit": "mmHg"
         },
         {
-            "name": "SBP/DBP/MAP",
+            "name": "SBP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "DBP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "MAP",
             "unit": "mmHg"
         },
         {
