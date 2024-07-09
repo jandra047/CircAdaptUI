@@ -1,0 +1,6 @@
+[submodule "dependencies/qtpropertybrowser"]
+	path = dependencies/qtpropertybrowser
+	url = https://gitlab.maastrichtuniversity.nl/P70074313/qtpropertybrowser.git
+[submodule "dependencies/CircAdapt_Library"]
+	path = dependencies/CircAdapt_Library
+	url = https://gitlab.maastrichtuniversity.nl/circadapt/CircAdapt_Library.git

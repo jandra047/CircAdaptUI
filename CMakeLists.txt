@@ -13,32 +13,8 @@ find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
 enable_testing()
 add_subdirectory(tests)
 
-
-list(APPEND CMAKE_MESSAGE_INDENT "  ")
-message(CHECK_START "Fetching CircAdapt_Library")
-include(FetchContent)
-FetchContent_Declare(
-  CircAdapt_Library
-  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/CircAdapt_Library.git
-  GIT_TAG fca151827ba9248058c0c708039bde6610ed8933
-  GIT_SHALLOW TRUE
-  GIT_PROGRESS TRUE)
-FetchContent_MakeAvailable(CircAdapt_Library)
-list(POP_BACK CMAKE_MESSAGE_INDENT)
-message(CHECK_PASS "CircAdapt_Library fetched")
-
-list(APPEND CMAKE_MESSAGE_INDENT "  ")
-message(CHECK_START "Fetching QtPropertyBrowser")
-include(FetchContent)
-FetchContent_Declare(
-  QtPropertyBrowser
-  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:P70074313/qtpropertybrowser.git
-  GIT_TAG 9bb78923ff94ec148982e993806a22b1140b4844
-  GIT_SHALLOW TRUE
-  GIT_PROGRESS TRUE)
-FetchContent_MakeAvailable(QtPropertyBrowser)
-list(POP_BACK CMAKE_MESSAGE_INDENT)
-message(CHECK_PASS "QtPropertyBrowser fetched")
+add_subdirectory(dependencies/CircAdapt_Library)
+add_subdirectory(dependencies/qtpropertybrowser)
 
 qt_standard_project_setup()
 
@@ -60,6 +36,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/datacontainer.h
     CircAdaptUI/mainwindow.ui
     CircAdaptUI/valueview.h CircAdaptUI/valueview.cpp
+    CircAdaptUI/sliderwithtooltip.h
     CircAdaptUI/beatdata.h CircAdaptUI/beatdata.cpp
 )
 
