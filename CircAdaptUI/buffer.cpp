@@ -58,7 +58,7 @@ void Buffer::clear(double dt)
 
     for (auto [key, vec] : m_data.asKeyValueRange())
     {
-        vec.erase(vec.begin(), vec.begin() + count);
+        vec.erase(vec.cbegin(), vec.cbegin() + count);
     }
 }
 
