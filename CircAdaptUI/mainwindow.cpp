@@ -15,6 +15,8 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     ui->ssGraph->setVisible(false);
     l = new QLabel(ui->graphGrid);
 
+    mParamViewDockWidget = new ParamViewDockWidget(this);
+    mParamViewDockWidget->setVisible(false);
 
     LoopSignal* sig = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pLv", "VLv", QColor(227, 26, 28));
     LoopSignal* sig2 = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pRv", "VRv", QColor(31, 120, 180));

@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "modelwrapper.h"
 #include "buffer.h"
+#include "paramviewdockwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,6 +27,7 @@ private:
     Buffer& buffer;
     ModelWrapper& mw;
     QLabel* l = Q_NULLPTR;
+    ParamViewDockWidget* mParamViewDockWidget = Q_NULLPTR;
 
 
 public: signals:
