@@ -6,6 +6,9 @@ ParamViewDockWidget::ParamViewDockWidget(QWidget *parent)
     , ui(new Ui::ParamViewDockWidget)
 {
     ui->setupUi(this);
+    ui->splitter->setChildrenCollapsible( false );
+    // ui->circModelView->setMinimumWidth( 200 );
+    ui->systemPBrowser->setMinimumWidth( 200 );
 }
 
 ParamViewDockWidget::~ParamViewDockWidget()

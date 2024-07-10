@@ -27,7 +27,7 @@
       <widget class="QWidget" name="verticalLayoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QWidget" name="widget_2" native="true"/>
+         <widget class="SystemPropertyBrowser" name="systemPBrowser" native="true"/>
         </item>
         <item>
          <widget class="QWidget" name="widget_3" native="true"/>
@@ -39,6 +39,14 @@
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SystemPropertyBrowser</class>
+   <extends>QWidget</extends>
+   <header>CircAdaptUI/systempropertybrowser.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

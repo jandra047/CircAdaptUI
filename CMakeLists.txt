@@ -61,6 +61,10 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/mainwindow.ui
     CircAdaptUI/valueview.h CircAdaptUI/valueview.cpp
     CircAdaptUI/beatdata.h CircAdaptUI/beatdata.cpp
+    CircAdaptUI/paramviewdockwidget.h CircAdaptUI/paramviewdockwidget.cpp CircAdaptUI/paramviewdockwidget.ui
+    CircAdaptUI/propertybrowserbase.h CircAdaptUI/propertybrowserbase.cpp
+    CircAdaptUI/systempropertybrowser.h CircAdaptUI/systempropertybrowser.cpp
+    CircAdaptUI/propertyfactory.h CircAdaptUI/propertyfactory.cpp
 )
 
 target_compile_definitions(CircAdaptUI PRIVATE
