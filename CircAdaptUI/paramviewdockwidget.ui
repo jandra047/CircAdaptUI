@@ -23,7 +23,7 @@
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
       </property>
-      <widget class="QWidget" name="widget" native="true"/>
+      <widget class="ModelGraphicsView" name="graphicsView"/>
       <widget class="QWidget" name="verticalLayoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -45,6 +45,11 @@
    <extends>QWidget</extends>
    <header>CircAdaptUI/systempropertybrowser.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ModelGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>CircAdaptUI/modelgraphicsview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
