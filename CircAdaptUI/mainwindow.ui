@@ -280,15 +280,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>LoopGraph</class>
-   <extends>QWidget</extends>
-   <header>CircAdaptUI/loopgraph.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>ValueView</class>
    <extends>QWidget</extends>
    <header>CircAdaptUI/valueview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LoopGraph</class>
+   <extends>QWidget</extends>
+   <header>CircAdaptUI/Graphs/loopgraph.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

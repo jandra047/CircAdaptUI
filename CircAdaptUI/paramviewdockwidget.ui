@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>800</width>
+    <height>400</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>400</height>
+   </size>
   </property>
   <property name="floating">
    <bool>true</bool>
@@ -41,15 +47,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SystemPropertyBrowser</class>
-   <extends>QWidget</extends>
-   <header>CircAdaptUI/systempropertybrowser.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>ModelGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>CircAdaptUI/modelgraphicsview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SystemPropertyBrowser</class>
+   <extends>QWidget</extends>
+   <header>CircAdaptUI/PropertyBrowser/systempropertybrowser.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
