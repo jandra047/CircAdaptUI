@@ -28,13 +28,6 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     ui->ssGraph->addSignal(sig3);
     ui->ssGraph->addSignal(sig4);
     ui->ssGraph->addSignal(sig5);
-    QSlider* s = new QSlider(Qt::Horizontal, ui->widget);
-    s->setMinimum(50);
-    s->setMaximum(150);
-    s->setSingleStep(10);
-    s->setSliderPosition(100);
-    s->setTickPosition(QSlider::TicksBelow);
-    s->setTickInterval(10);
 
     QObject::connect(ui->actionPlay, &QAction::toggled, this, [this](bool isPlay) { emit togglePlay(isPlay); });
     QObject::connect(ui->actionParameter_Settings, &QAction::toggled, mParamViewDockWidget, &QWidget::setVisible);
@@ -54,7 +47,6 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
                         ui->ssGraph->replot();
                         }
     );
-    QObject::connect(s, &QSlider::valueChanged, &mw, &ModelWrapper::changeParam, Qt::QueuedConnection);
     QObject::connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(takeSnapshot()));
     QObject::connect(&buffer, &Buffer::updateValueView, ui->widget, &ValueView::updateValues);
 }
