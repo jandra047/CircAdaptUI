@@ -48,13 +48,13 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/buffer.cpp CircAdaptUI/buffer.h
     CircAdaptUI/graphcontainer.cpp CircAdaptUI/graphcontainer.h
     CircAdaptUI/graphgrid.cpp CircAdaptUI/graphgrid.h
-    CircAdaptUI/loopgraph.cpp CircAdaptUI/loopgraph.h
-    CircAdaptUI/loopsignal.cpp CircAdaptUI/loopsignal.h
+    CircAdaptUI/Graphs/loopgraph.cpp CircAdaptUI/Graphs/loopgraph.h
+    CircAdaptUI/Signals/loopsignal.cpp CircAdaptUI/Signals/loopsignal.h
     CircAdaptUI/mainwindow.cpp CircAdaptUI/mainwindow.h CircAdaptUI/mainwindow.ui
     CircAdaptUI/modelwrapper.cpp CircAdaptUI/modelwrapper.h
     CircAdaptUI/settings.cpp CircAdaptUI/settings.h
-    CircAdaptUI/signalgraph.cpp CircAdaptUI/signalgraph.h
-    CircAdaptUI/timesignal.cpp CircAdaptUI/timesignal.h
+    CircAdaptUI/Graphs/signalgraph.cpp CircAdaptUI/Graphs/signalgraph.h
+    CircAdaptUI/Signals/timesignal.cpp CircAdaptUI/Signals/timesignal.h
     dependencies/qcustomplot.cpp dependencies/qcustomplot.h
     CircAdaptUI/circadaptui.h CircAdaptUI/circadaptui.cpp
     CircAdaptUI/datacontainer.h
@@ -62,9 +62,10 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/valueview.h CircAdaptUI/valueview.cpp
     CircAdaptUI/beatdata.h CircAdaptUI/beatdata.cpp
     CircAdaptUI/paramviewdockwidget.h CircAdaptUI/paramviewdockwidget.cpp CircAdaptUI/paramviewdockwidget.ui
-    CircAdaptUI/propertybrowserbase.h CircAdaptUI/propertybrowserbase.cpp
-    CircAdaptUI/systempropertybrowser.h CircAdaptUI/systempropertybrowser.cpp
-    CircAdaptUI/propertyfactory.h CircAdaptUI/propertyfactory.cpp
+    CircAdaptUI/PropertyBrowser/propertybrowserbase.h CircAdaptUI/PropertyBrowser/propertybrowserbase.cpp
+    CircAdaptUI/PropertyBrowser/systempropertybrowser.h CircAdaptUI/PropertyBrowser/systempropertybrowser.cpp
+    CircAdaptUI/PropertyBrowser/propertyfactory.h CircAdaptUI/PropertyBrowser/propertyfactory.cpp
+    CircAdaptUI/modelgraphicsview.h CircAdaptUI/modelgraphicsview.cpp
 )
 
 target_compile_definitions(CircAdaptUI PRIVATE
