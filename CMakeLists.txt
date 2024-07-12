@@ -47,7 +47,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/circadaptui.cpp CircAdaptUI/circadaptui.h
     CircAdaptUI/buffer.cpp CircAdaptUI/buffer.h
     CircAdaptUI/graphcontainer.cpp CircAdaptUI/graphcontainer.h
-    CircAdaptUI/graphgrid.cpp CircAdaptUI/graphgrid.h
+    CircAdaptUI/Widgets/graphgrid.cpp CircAdaptUI/Widgets/graphgrid.h
     CircAdaptUI/Graphs/loopgraph.cpp CircAdaptUI/Graphs/loopgraph.h
     CircAdaptUI/Signals/loopsignal.cpp CircAdaptUI/Signals/loopsignal.h
     CircAdaptUI/mainwindow.cpp CircAdaptUI/mainwindow.h CircAdaptUI/mainwindow.ui
@@ -59,13 +59,13 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/circadaptui.h CircAdaptUI/circadaptui.cpp
     CircAdaptUI/datacontainer.h
     CircAdaptUI/mainwindow.ui
-    CircAdaptUI/valueview.h CircAdaptUI/valueview.cpp
+    CircAdaptUI/Widgets/valueview.h CircAdaptUI/Widgets/valueview.cpp
     CircAdaptUI/beatdata.h CircAdaptUI/beatdata.cpp
-    CircAdaptUI/paramviewdockwidget.h CircAdaptUI/paramviewdockwidget.cpp CircAdaptUI/paramviewdockwidget.ui
+    CircAdaptUI/Widgets/paramviewdockwidget.h CircAdaptUI/Widgets/paramviewdockwidget.cpp CircAdaptUI/Widgets/paramviewdockwidget.ui
     CircAdaptUI/PropertyBrowser/propertybrowserbase.h CircAdaptUI/PropertyBrowser/propertybrowserbase.cpp
     CircAdaptUI/PropertyBrowser/systempropertybrowser.h CircAdaptUI/PropertyBrowser/systempropertybrowser.cpp
     CircAdaptUI/PropertyBrowser/propertyfactory.h CircAdaptUI/PropertyBrowser/propertyfactory.cpp
-    CircAdaptUI/modelgraphicsview.h CircAdaptUI/modelgraphicsview.cpp
+    CircAdaptUI/Widgets/modelgraphicsview.h CircAdaptUI/Widgets/modelgraphicsview.cpp
 )
 
 target_compile_definitions(CircAdaptUI PRIVATE

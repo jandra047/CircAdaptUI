@@ -25,6 +25,7 @@ private:
 
     QVector<QTableWidgetItem*> m_tableItems;
 
+
 public slots:
     void updateValues(const QMap<QString, double>&);
 

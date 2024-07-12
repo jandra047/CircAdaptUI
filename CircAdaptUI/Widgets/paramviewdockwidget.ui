@@ -47,15 +47,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ModelGraphicsView</class>
-   <extends>QGraphicsView</extends>
-   <header>CircAdaptUI/modelgraphicsview.h</header>
-  </customwidget>
-  <customwidget>
    <class>SystemPropertyBrowser</class>
    <extends>QWidget</extends>
    <header>CircAdaptUI/PropertyBrowser/systempropertybrowser.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ModelGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>CircAdaptUI/Widgets/modelgraphicsview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

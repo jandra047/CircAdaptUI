@@ -1,6 +1,6 @@
 #include "valueview.h"
 #include <QHeaderView>
-#include "settings.h"
+#include "CircAdaptUI/settings.h"
 
 ValueView::ValueView(QWidget* parent) :
     QWidget( parent ),

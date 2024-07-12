@@ -6,7 +6,7 @@
 #include <QTimer>
 #include "modelwrapper.h"
 #include "buffer.h"
-#include "paramviewdockwidget.h"
+#include "CircAdaptUI/Widgets/paramviewdockwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
