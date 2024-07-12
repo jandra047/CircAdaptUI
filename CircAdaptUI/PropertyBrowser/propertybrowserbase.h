@@ -30,15 +30,18 @@ public:
                               double singleStep,
                               double setVal,
                               const QString& toolTip,
+                              const QString& path,
                               bool enabled = true);
     void createCheckboxProperty( QtProperty * property,
                                  const QString & pName,
                                  bool SetVal,
                                  const QString & toolTipVal );
-protected:
-    // virtual void handleDynPropertyChanged( QtProperty * property, QVariant & Val ) = 0;
+private:
+    QMap<QtProperty*, QString> m_paths;
+signals:
+    void changeModelParam(const QString& path, const QVariant& value);
 private slots:
-    virtual void propertyValueChanged( QtProperty * property, QVariant Val )  = 0; /*handleDynPropertyChanged( property, Val );*/
+    void propertyValueChanged( QtProperty * property, const QVariant& Val ); /*handleDynPropertyChanged( property, Val );*/
 };
 
 #endif // PROPERTYBROWSERBASE_H

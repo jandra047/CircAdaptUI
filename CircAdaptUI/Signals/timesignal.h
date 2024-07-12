@@ -1,7 +1,7 @@
 #ifndef TIMESIGNAL_H
 #define TIMESIGNAL_H
 #include "qcustomplot.h"
-#include "buffer.h"
+#include "CircAdaptUI/buffer.h"
 
 /*!
  * \brief Wraps a QCPGraph class which contains a time signal.

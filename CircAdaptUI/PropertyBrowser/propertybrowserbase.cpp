@@ -22,6 +22,7 @@ QtProperty* PropertyBrowserBase::addGroupProperty(const QString& name)
     mPBrowser->insertProperty(property, Q_NULLPTR);
     return property;
 }
+
 void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
                           const QString& pName,
                           double minVal,
@@ -29,6 +30,7 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
                           double singleStep,
                           double setVal,
                           const QString& toolTip,
+                          const QString& path,
                           bool enabled)
 {
     QtProperty * doubleProp = mDynPropertyManager->addProperty( QMetaType::Double, pName );
@@ -52,6 +54,7 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
         mDynPropertyManager->setValue( doubleProp, setVal );
 
         property->addSubProperty( doubleProp ) ;
+        m_paths[doubleProp] = path;
     }
 
 }
@@ -77,4 +80,9 @@ void PropertyBrowserBase::createCheckboxProperty( QtProperty * property,
 
         property->addSubProperty( ckeckboxProp );
     }
+}
+
+void PropertyBrowserBase::propertyValueChanged(QtProperty* property, const QVariant& value)
+{
+    emit changeModelParam(m_paths[property], value);
 }

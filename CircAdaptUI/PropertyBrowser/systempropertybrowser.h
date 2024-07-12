@@ -13,8 +13,9 @@ public:
     // void handleDynPropertyChanged( QtProperty * property, QVariant & Val ) override;
 private:
     QtProperty* mSystemProperties;
+    void setPropertiesFromConfig();
 private slots:
-    void propertyValueChanged( QtProperty * property, QVariant Val ) override; /*handleDynPropertyChanged( property, Val );*/
+    void propertyValueChanged( QtProperty * property, QVariant Val ); /*handleDynPropertyChanged( property, Val );*/
 };
 
 #endif // SYSTEMPROPERTYBROWSER_H

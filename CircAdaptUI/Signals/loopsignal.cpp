@@ -1,5 +1,5 @@
 #include "loopsignal.h"
-#include "settings.h"
+#include "CircAdaptUI/settings.h"
 
 namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
@@ -12,13 +12,14 @@ void LoopSignal::updateGraph(Buffer& buffer)
     QVector<double> xData = buffer.get(m_xVar, 1000/((double)Settings::instance().fps() * 1000));
     QVector<double> tData = buffer.get("t", 1000/((double)Settings::instance().fps() * 1000));
 
-
     addData(tData, xData, yData);
-    if (!data()->isEmpty())
+    if (Settings::instance().beatIdx() > 0)
     {
-        removeData(tData.last(), tData.last() + m_dt);
+        if (!data()->isEmpty())
+        {
+            removeData(tData.last(), tData.last() + m_dt);
+        }
     }
-
 }
 
 void LoopSignal::removeData(double const x0, double const x1)
@@ -33,7 +34,8 @@ void LoopSignal::removeData(double const x0, double const x1)
     {
         data()->remove(x0, x1);
     }
-    addData(x1, x1, quiet_nan);
+    addData(x1, quiet_nan, quiet_nan);
+}
 
 void LoopSignal::displaySnapshot(const Buffer& buffer)
 {

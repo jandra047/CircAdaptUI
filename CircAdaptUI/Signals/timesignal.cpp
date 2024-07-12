@@ -1,5 +1,5 @@
 #include "timesignal.h"
-#include "settings.h"
+#include "CircAdaptUI/settings.h"
 
 namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();

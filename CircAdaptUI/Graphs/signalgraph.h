@@ -1,7 +1,7 @@
 #ifndef SIGNALGRAPH_H
 #define SIGNALGRAPH_H
-#include "graphcontainer.h"
-#include "timesignal.h"
+#include "CircAdaptUI/graphcontainer.h"
+#include "CircAdaptUI/Signals/timesignal.h"
 
 class SignalGraph : public GraphContainer<TimeSignal>
 {

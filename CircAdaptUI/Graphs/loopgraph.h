@@ -1,7 +1,7 @@
 #ifndef LOOPGRAPH_H
 #define LOOPGRAPH_H
-#include "graphcontainer.h"
-#include "loopsignal.h"
+#include "CircAdaptUI/graphcontainer.h"
+#include "CircAdaptUI/Signals/loopsignal.h"
 
 class LoopGraph : public GraphContainer<LoopSignal>
 {
