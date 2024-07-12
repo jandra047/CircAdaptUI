@@ -1,4 +1,5 @@
 #include "systempropertybrowser.h"
+#include "CircAdaptUI/settings.h"
 
 SystemPropertyBrowser::SystemPropertyBrowser(QWidget* parent):
     PropertyBrowserBase(parent)

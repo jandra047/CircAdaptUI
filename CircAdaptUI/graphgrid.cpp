@@ -1,6 +1,6 @@
 #include "graphgrid.h"
-#include "signalgraph.h"
-#include "timesignal.h"
+#include "CircAdaptUI/Graphs/signalgraph.h"
+#include "CircAdaptUI/Signals/timesignal.h"
 #include "settings.h"
 
 GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :

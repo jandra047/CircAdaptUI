@@ -26,9 +26,8 @@ private:
     double getDBP();
     double getMAP();
     double getPVR();
-    double get_qASD();
-    double get_qVSD();
     double get_mPAP();
+    double getPVP();
 
     double calcIntegral(const QVector<double>& vec1, const QVector<double>& vec2);
     QMap<QString, QVector<double>> m_data;

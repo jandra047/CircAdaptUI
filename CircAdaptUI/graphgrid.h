@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QGridLayout>
 #include "buffer.h"
-#include "signalgraph.h"
+#include "CircAdaptUI/Graphs/signalgraph.h"
 
 /*!
  * \brief Contains a grid which holds \ref GraphContainer objects.

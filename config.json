@@ -35,6 +35,11 @@
                     "type": "pressure"
                 },
                 {
+                    "name": "pPuVen",
+                    "path": "Model.PuVen.p",
+                    "type": "pressure"
+                },
+                {
                     "name": "VLa",
                     "path": "Model.Peri.La.V",
                     "type": "volume"
@@ -286,12 +291,6 @@
             "unit": "mmHg"
         },
         {
-            "name": "ASD flow",
-            "unit": "L/min"
-        },
-        {
-            "name": "VSD flow",
-            "unit": "L/min"
         }
     ]
 }

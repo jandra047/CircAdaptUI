@@ -28,9 +28,8 @@ void BeatData::analyzeData()
     m_beatStats["DBP"] = getDBP();
     m_beatStats["MAP"] = getMAP();
     m_beatStats["PVR"] = getPVR();
-    m_beatStats["ASD flow"] = get_qASD();
-    m_beatStats["VSD flow"] = get_qVSD();
     m_beatStats["mPAP"] = get_mPAP();
+    m_beatStats["PVP"] = getPVP();
 
 }
 
@@ -72,7 +71,7 @@ double BeatData::getDBP()
 
 double BeatData::getMAP()
 {
-    double MAP = std::accumulate(m_data["pAo"].begin(), m_data["pAo"].end(), .0) / m_data["pLa"].size();
+    double MAP = std::accumulate(m_data["pAo"].begin(), m_data["pAo"].end(), .0) / m_data["pAo"].size();
     return MAP;
 }
 
@@ -84,20 +83,16 @@ double BeatData::getPVR()
     return (mPAP - mLAP)/CO;
 }
 
-double BeatData::get_qASD()
-{
-    return m_data["ven_ret"].last();
-}
-
-double BeatData::get_qVSD()
-{
-    return m_data["ven_ret"].last();
-}
-
 double BeatData::get_mPAP()
 {
-    double mPAP = std::accumulate(m_data["pPu"].begin(), m_data["pPu"].end(), .0) / m_data["pLa"].size();
+    double mPAP = std::accumulate(m_data["pPu"].begin(), m_data["pPu"].end(), .0) / m_data["pPu"].size();
     return mPAP;
+}
+
+double BeatData::getPVP()
+{
+    double PVP = std::accumulate(m_data["pPuVen"].begin(), m_data["pPuVen"].end(), .0) / m_data["pPuVen"].size();
+    return PVP;
 }
 
 double BeatData::calcIntegral(const QVector<double>& vec1, const QVector<double>& vec2)
