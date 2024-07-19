@@ -29,14 +29,11 @@ public:
                               double singleStep,
                               double setVal,
                               const QString& toolTip,
-                              const QString& path,
                               bool enabled = true);
     void createCheckboxProperty( QtProperty * property,
                                  const QString & pName,
                                  bool SetVal,
                                  const QString & toolTipVal );
-private:
-    QMap<QtProperty*, QString> m_paths;
 signals:
     void changeModelParam(const QString& path, const QVariant& value);
 private slots:

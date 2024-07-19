@@ -78,7 +78,10 @@ private:
 
     QVector<DataContainer*> mModelSignals;
 
+    QMap<QString, DataContainer*> mModelParameters;
+
     void setupSignals();
+    void setupParameters();
 
     bool beatDone {false};
 
@@ -94,6 +97,8 @@ public slots:
      * \brief Runs single solver step
      */
     void run_single_step();
+
+    void updateParam(const QString& path, const QVariant& value);
 
 signals:
 

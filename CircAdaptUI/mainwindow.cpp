@@ -5,6 +5,7 @@
 #include "settings.h"
 #include <QObject>
 
+
 MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     : QMainWindow(parent)
     , mw(mw)
@@ -17,6 +18,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
 
     mParamViewDockWidget = new ParamViewDockWidget(this);
     mParamViewDockWidget->setVisible(false);
+    QObject::connect(mParamViewDockWidget, &ParamViewDockWidget::paramChanged, &mw, &ModelWrapper::updateParam, Qt::QueuedConnection);
 
     LoopSignal* sig = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pLv", "VLv", QColor(227, 26, 28));
     LoopSignal* sig2 = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "pRv", "VRv", QColor(31, 120, 180));

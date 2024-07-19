@@ -114,7 +114,30 @@
                     "path": "Model.Peri.SyVenRa.q",
                     "type": "flow"
                 }
-            ]
+            ],
+        "parameters":
+        [
+            {
+                "name": "Heart rate",
+                "path": "Model.t_cycle",
+                "type": "HR"
+            },
+            {
+                "name": "Venous return",
+                "path": "Model.PFC.q0",
+                "type": "CO"
+            },
+            {
+                "name": "Mean arterial pressure",
+                "path": "Model.PFC.p0",
+                "type": "pressure"
+            },
+            {
+                "name": "Homeostatic pressure-flow control",
+                "path": "Model.PFC.is_active",
+                "type": "bool"
+            }
+        ]
     },
 
     "GUI":
@@ -289,8 +312,60 @@
         {
             "name": "PVP",
             "unit": "mmHg"
-        },
-        {
         }
-    ]
+    ],
+    "ModelParameters":
+    {
+        "Systemic":
+        {
+            "Homeostatic control":
+            [
+                {
+                    "name": "Heart rate",
+                    "min": 30,
+                    "max": 220,
+                    "default": 70,
+                    "stepsize": 5,
+                    "tooltip": "Beats per minute",
+                    "enabled": true
+                },
+                {
+                    "name": "AV delay",
+                    "min": 30,
+                    "max": 220,
+                    "default": 70,
+                    "stepsize": 5,
+                    "tooltip": "ms",
+                    "enabled": false
+                },
+                {
+                    "name": "AV delay offset",
+                    "min": -150,
+                    "max": 150,
+                    "default": 0.0,
+                    "stepsize": 10,
+                    "tooltip": "ms",
+                    "enabled": false
+                },
+                {
+                    "name": "Mean arterial pressure",
+                    "min": 40,
+                    "max": 150,
+                    "default": 91,
+                    "tooltip": "mmHg",
+                    "stepsize": 5,
+                    "enabled": true
+                },
+                {
+                    "name": "Venous return",
+                    "min": 2,
+                    "max": 10,
+                    "default": 5.1,
+                    "tooltip": "L/min",
+                    "stepsize": 0.2,
+                    "enabled": true
+                }
+            ]
+        }
+    }
 }

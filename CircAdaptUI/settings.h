@@ -18,8 +18,10 @@ public:
     void load(QString filepath);
     QJsonObject GraphGrid() const {  return jsonDoc["GraphGrid"].toObject(); };
     QJsonArray ExportSignals() const {  return jsonDoc["ModelWrapper"]["export_signals"].toArray(); };
+    QJsonArray ExportParameters() const {  return jsonDoc["ModelWrapper"]["parameters"].toArray(); };
     QJsonArray ValueView() const {  return jsonDoc["ValueView"].toArray(); };
     QJsonObject MWSettings() const { return jsonDoc["ModelWrapper"].toObject(); };
+    QJsonObject ModelParameters() const { return jsonDoc["ModelParameters"].toObject(); };
 
     int fps() const {
         return m_settings.value("GUI/framerate", 2).toInt();

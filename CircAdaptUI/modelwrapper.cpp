@@ -186,6 +186,7 @@ void ModelWrapper::changeParam(int val)
 void ModelWrapper::setup()
 {
     setupSignals();
+    setupParameters();
     build("VanOsta2022", Settings::instance().MWSettings()["solver"].toString().toStdString());
     set_model_state();
     init_SVar();
@@ -207,13 +208,43 @@ void ModelWrapper::setupSignals()
     }
 }
 
+void ModelWrapper::setupParameters()
+{
+    QJsonArray paramArray = Settings::instance().ExportParameters();
+    mModelSignals.reserve(paramArray.size());
+    for (auto s : paramArray)
+    {
+        // mModelParameters.push_back(DataContainerFactory::createSignal(s.toObject()));
+        mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(s.toObject());
+
+    }
+}
+
+
 void ModelWrapper::updateBuffer()
 {
+    // double val{};
+    // for (auto s : mModelSignals)
+    // {
+    //     get_double(s->getPath().toStdString(), val);
+    //     buffer.append(s->getName(), s->model_to_ui(val));
+    // }
+    // buffer.append("t", solver->get_t());
+
+    // get_double("Model.PFC.cumulative_flow_beat", val);
+    // buffer.append("ven_ret", val*60000);
+
+    // if (beatDone)
+    // {
+    //     buffer.runAfterBeat();
+    // }
     double val{};
     for (auto s : mModelSignals)
     {
         get_double(s->getPath().toStdString(), val);
-        buffer.append(s->getName(), s->convert(val));
+        // Cast the std::any back to double
+        double converted_val = std::any_cast<double>(s->model_to_ui(val));
+        buffer.append(s->getName(), converted_val);
     }
     buffer.append("t", solver->get_t());
 
@@ -225,4 +256,36 @@ void ModelWrapper::updateBuffer()
         buffer.runAfterBeat();
     }
 
+}
+
+void ModelWrapper::updateParam(const QString& name, const QVariant& value)
+{
+
+    // auto param = mModelParameters[name];
+
+    // qDebug() << value.typeName();
+    // set_double(param->getPath().toStdString(), param->ui_to_model(value.toDouble()));
+    auto param = mModelParameters[name];
+
+    // Convert QVariant to std::any
+    std::any any_value;
+    if (value.typeId() == QMetaType::Double) {
+        any_value = value.toDouble();
+    } else if (value.typeId() == QMetaType::Bool) {
+        any_value = value.toBool();
+    } else {
+        // Handle other types as needed
+        qDebug() << "Unsupported type: " << value.typeName();
+        return;
+    }
+
+    // Convert UI value to model value
+    std::any model_value = param->ui_to_model(any_value);
+
+    // Set the value in the model
+    if (param->getType() == "bool") {
+        set_bool(param->getPath().toStdString(), std::any_cast<bool>(model_value));
+    } else {
+        set_double(param->getPath().toStdString(), std::any_cast<double>(model_value));
+    }
 }

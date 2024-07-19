@@ -2,6 +2,7 @@
 #define DATACONTAINER_H
 
 #include <QJsonObject>
+#include <any>
 
 class DataContainer
 {
@@ -12,7 +13,8 @@ public:
     QString getType() { return mType; };
     QString getName() { return mName; };
     QString getPath() { return mPath; };
-    virtual double convert(double) const = 0;
+    virtual std::any model_to_ui(std::any value) const = 0;
+    virtual std::any ui_to_model(std::any value) const = 0;
 private:
     QString mName;
     QString mPath;
@@ -24,7 +26,15 @@ class PressureContainer : public DataContainer
 public:
     PressureContainer(const QString& name, const QString& path, const QString& type):
         DataContainer(name, path, type) {};
-    double convert(double val) const override { return val / 133; };
+    // double model_to_ui(double val) const override { return val / 133; };
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) / 133;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) * 133 ;
+    }
 };
 
 class VolumeContainer : public DataContainer
@@ -32,7 +42,14 @@ class VolumeContainer : public DataContainer
 public:
     VolumeContainer(const QString& name, const QString& path, const QString& type):
         DataContainer(name, path, type) {};
-    double convert(double val) const override { return val * 1e6; };
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) * 1e6 ;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) / 1e6 ;
+    }
 };
 
 class FlowContainer : public DataContainer
@@ -40,7 +57,59 @@ class FlowContainer : public DataContainer
 public:
     FlowContainer(const QString& name, const QString& path, const QString& type):
         DataContainer(name, path, type) {};
-    double convert(double val) const override { return val * 1e6; };
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) * 1e6 ;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) / 1e6 ;
+    }
+};
+
+class HRContainer : public DataContainer
+{
+public:
+    HRContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return 60 / std::any_cast<double>(value);
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return 60 / std::any_cast<double>(value);
+    }
+};
+
+class COContainer : public DataContainer
+{
+public:
+    COContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) * 60000;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) / 60000;
+    }
+};
+
+class BoolContainer : public DataContainer
+{
+public:
+    BoolContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<bool>(value);
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<bool>(value);
+    }
 };
 
 class DataContainerFactory
@@ -62,6 +131,18 @@ public:
         else if (type == "flow")
         {
             return new FlowContainer(name, path, type);
+        }
+        else if (type == "HR")
+        {
+            return new HRContainer(name, path, type);
+        }
+        else if (type == "CO")
+        {
+            return new COContainer(name, path, type);
+        }
+        else if (type == "bool")
+        {
+            return new BoolContainer(name, path, type);
         }
         else
         {
