@@ -1,0 +1,77 @@
+/* -- QSS styling for CircAdapt
+   -- See https://doc.qt.io/qt-5/stylesheet-reference.html for explenation on how to adjust
+*/
+
+QWidget
+{
+    background-color : #FFFFFF;
+    color: #666666;
+}
+
+/*
+QMenuBar,
+QMenuBar::item,
+QTreeWidget,
+QDialog,
+QDialogBox,
+QDockWidget,
+QDockWidget::item,
+QStatusBar,
+QFileDialog,
+QRadioButton,
+QTableView,
+QToolBar,
+QTreeWidget,
+QTreeWidget::item
+{
+    background-color : #141416;
+}
+*/
+
+/* Use to adust the total width per button on the toolbar */
+/*
+QToolButton
+{
+    width: 200px;
+}
+*/
+
+/*
+Use this to specify the fornt to use:
+
+font family,
+point Size,
+pixel Size, (-1 means use point Size. pixel size makes the font deevice dependent)
+style Hint, (font family style hint to find related fonts if the specified one isn't present on the system. 5 means any)
+font weight,
+style, (0=normal, 1=italic, 2=oblique
+underline on or off, (0=off, 1=on)
+strikeOut on or off,
+fixedPitch on or off,
+always 0
+*/
+
+#pvview,
+#signalsview
+{
+    /*margin: 10px;*/
+    border: none;
+    background-color: #AAAAAA;
+    qproperty-itembackgroundcolor: #EDEDED;
+    qproperty-graphgridlinewidth: 0.5;
+    qproperty-graphgridlinecolor: #D3D3D3;
+    qproperty-graphgridpointwidth: 0.5;
+    qproperty-graphgridpointcolor: #D3D3D3;
+    qproperty-graphzerolinewidth: 0.5;
+    qproperty-graphzerolinecolor: #D3D3D3;
+    qproperty-textitemcolor: #000000;
+    qproperty-graphtextitemfont: "Arial,10,-1,5,75,0,0,0,0,0";
+    qproperty-textcolor: #000000;
+    qproperty-labelcolor: #000000;
+    qproperty-scalecolor: #000000;
+    qproperty-graphtextfont: "Arial,10,-1,5,75,0,0,0,0,0";
+    qproperty-graphlabelfont: "Arial,10,-1,5,75,0,0,0,0,0";
+    qproperty-graphlabelfont: "Arial,10,-1,5,75,0,0,0,0,0";
+    /*qproperty-signalsproperty: "Aorta:#6A3D9A:|5.0;ThAo:#A68BC2:|5.0";*/
+    qproperty-markersproperty: "Timeline:#119745:|2.0";
+}

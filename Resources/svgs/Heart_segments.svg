@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg229"
+   sodipodi:docname="Heart_segments.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata235">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs233" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1740"
+     inkscape:window-height="929"
+     id="namedview231"
+     showgrid="false"
+     inkscape:zoom="2.36"
+     inkscape:cx="128.29699"
+     inkscape:cy="-98.108804"
+     inkscape:window-x="1957"
+     inkscape:window-y="33"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg229" />
+  <g
+     id="cvpage2_top"
+     width="310px"
+     height="370px">
+    <rect
+       x="0"
+       y="0"
+       width="310"
+       height="370"
+       id="rect2"
+       style="fill:#ffffff;stroke:none" />
+    <path
+       d="M 159.216,140.558 C 180.566,127.22 187.16,98.671 173.822,77.322 169.971,71.157 165.396,66.58 159.233,62.726 159.233,62.726 177.593,45.669 177.593,45.669 188.641,60.198 213.189,69.231 241.624,69.231 241.624,69.231 241.475,69.231 241.475,69.231 269.91,69.231 294.459,60.198 305.506,45.669 305.506,45.669 323.866,62.726 323.866,62.726 317.703,66.58 313.128,71.157 309.277,77.322 295.939,98.671 302.533,127.22 323.883,140.558 323.883,140.558 306.752,159.059 306.752,159.059 296.593,143.628 271.1,133.739 241.475,133.739 241.475,133.739 241.624,133.739 241.624,133.739 212,133.739 186.506,143.628 176.348,159.059 176.348,159.059 159.216,140.558 159.216,140.558"
+       id="path4"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <g
+       id="g1100_LA_WALL"
+       inkscape:label="#g1100" />
+    <path
+       d="M 209.201,202.413 C 209.201,202.413 224.238,228.32 224.238,228.32 224.238,228.32 224.4,228.619 224.4,228.619 229.285,225.77 234.948,224.133 240.963,224.133 247.036,224.133 252.75,225.802 257.668,228.702 257.668,228.702 257.701,228.725 257.701,228.725 257.701,228.725 272.498,202.272 272.498,202.272 272.498,202.272 272.396,202.158 272.396,202.158 263.104,196.809 252.363,193.74 240.963,193.74 229.403,193.74 218.521,196.896 209.14,202.385 209.14,202.385 209.201,202.413 209.201,202.413"
+       id="path14"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 272.847,202.395 C 263.461,196.9 252.573,193.74 241.006,193.74 229.491,193.74 218.649,196.871 209.293,202.32 209.293,202.32 209.199,202.196 209.199,202.196 209.199,202.196 193.66,175.146 193.66,175.146 193.66,175.146 193.635,175.04 193.635,175.04 207.615,166.912 223.809,162.243 241.006,162.243 258.181,162.243 274.355,166.9 288.323,175.009 288.323,175.009 288.238,175.177 288.238,175.177 288.238,175.177 272.926,202.239 272.926,202.239 272.926,202.239 272.847,202.395 272.847,202.395"
+       id="path16"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 209.201,312.055 C 209.201,312.055 224.238,286.149 224.238,286.149 224.238,286.149 224.4,285.849 224.4,285.849 229.285,288.698 234.948,290.336 240.963,290.336 247.036,290.336 252.75,288.666 257.668,285.766 257.668,285.766 257.701,285.743 257.701,285.743 257.701,285.743 272.498,312.196 272.498,312.196 272.498,312.196 272.396,312.31 272.396,312.31 263.104,317.659 252.363,320.728 240.963,320.728 229.403,320.728 218.521,317.573 209.14,312.084 209.14,312.084 209.201,312.055 209.201,312.055"
+       id="path18"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 272.847,312.073 C 263.461,317.569 252.573,320.728 241.006,320.728 229.491,320.728 218.649,317.597 209.293,312.148 209.293,312.148 209.199,312.272 209.199,312.272 209.199,312.272 193.66,339.323 193.66,339.323 193.66,339.323 193.635,339.428 193.635,339.428 207.615,347.557 223.809,352.225 241.006,352.225 258.181,352.225 274.355,347.569 288.323,339.46 288.323,339.46 288.238,339.291 288.238,339.291 288.238,339.291 272.926,312.229 272.926,312.229 272.926,312.229 272.847,312.073 272.847,312.073"
+       id="path20"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 217.481,234.09 C 217.481,234.09 241.08,257.373 241.08,257.373 241.08,257.373 264.449,233.86 264.449,233.86 264.419,233.83 264.393,233.804 264.362,233.774 251.417,221.002 230.252,221.145 217.481,234.09"
+       id="path22"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 264.448,233.858 C 264.448,233.858 241.08,257.373 241.08,257.373 241.08,257.373 264.25,281.082 264.25,281.082 264.371,280.963 264.475,280.861 264.594,280.741 277.412,267.842 277.346,246.677 264.448,233.858"
+       id="path24"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 264.377,280.957 C 264.377,280.957 241.08,257.373 241.08,257.373 241.08,257.373 217.769,280.943 217.769,280.943 230.602,293.635 251.536,293.642 264.377,280.957"
+       id="path26"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 217.572,280.747 C 217.572,280.747 241.08,257.373 241.08,257.373 241.08,257.373 217.61,233.959 217.61,233.959 204.8,246.8 204.783,267.885 217.572,280.747"
+       id="path28"
+       inkscape:connector-curvature="0"
+       style="fill:#fff0f0;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 272.555,202.297 C 272.555,202.297 257.643,228.276 257.643,228.276 257.643,228.276 257.464,228.565 257.464,228.565 262.376,231.371 266.626,235.456 269.634,240.664 272.672,245.923 274.085,251.706 274.033,257.415 274.033,257.415 274.029,257.455 274.029,257.455 274.029,257.455 304.337,257.037 304.337,257.037 304.337,257.037 304.385,256.892 304.385,256.892 304.369,246.169 301.654,235.334 295.952,225.463 290.17,215.452 281.995,207.608 272.549,202.23 272.549,202.23 272.555,202.297 272.555,202.297"
+       id="path30"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 304.405,257.401 C 304.469,246.524 301.759,235.516 295.973,225.5 290.214,215.529 282.08,207.707 272.682,202.33 272.682,202.33 272.742,202.186 272.742,202.186 272.742,202.186 288.394,175.201 288.394,175.201 288.394,175.201 288.472,175.126 288.472,175.126 302.503,183.167 314.646,194.854 323.247,209.745 331.838,224.618 335.895,240.952 335.86,257.103 335.86,257.103 335.672,257.114 335.672,257.114 335.672,257.114 304.579,257.391 304.579,257.391 304.579,257.391 304.405,257.401 304.405,257.401"
+       id="path32"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 177.613,257.137 C 177.613,257.137 207.568,257.2 207.568,257.2 207.568,257.2 207.908,257.19 207.908,257.19 207.884,262.846 209.299,268.569 212.308,273.777 215.345,279.036 219.649,283.149 224.62,285.957 224.62,285.957 224.656,285.974 224.656,285.974 224.656,285.974 209.151,312.018 209.151,312.018 209.151,312.018 209.002,311.987 209.002,311.987 199.721,306.616 191.692,298.85 185.99,288.979 180.208,278.968 177.498,267.967 177.558,257.098 177.558,257.098 177.613,257.137 177.613,257.137"
+       id="path34"
+       inkscape:connector-curvature="0"
+       style="fill:#fff0f0;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 209.432,312.259 C 199.979,306.88 191.797,299.032 186.012,289.016 180.252,279.045 177.54,268.091 177.579,257.263 177.579,257.263 177.424,257.244 177.424,257.244 177.424,257.244 146.229,257.319 146.229,257.319 146.229,257.319 146.125,257.349 146.125,257.349 146.079,273.521 150.136,289.878 158.737,304.77 167.328,319.642 179.45,331.318 193.458,339.358 193.458,339.358 193.561,339.2 193.561,339.2 193.561,339.2 209.337,312.405 209.337,312.405 209.337,312.405 209.432,312.259 209.432,312.259"
+       id="path36"
+       inkscape:connector-curvature="0"
+       style="fill:#fff0f0;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 304.344,257.366 C 304.344,257.366 274.39,257.321 274.39,257.321 274.39,257.321 274.049,257.31 274.049,257.31 274.053,262.966 272.617,268.683 269.59,273.88 266.533,279.128 262.215,283.226 257.234,286.016 257.234,286.016 257.197,286.032 257.197,286.032 257.197,286.032 272.609,312.132 272.609,312.132 272.609,312.132 272.758,312.102 272.758,312.102 282.058,306.764 290.115,299.028 295.852,289.177 301.671,279.187 304.421,268.196 304.399,257.327 304.399,257.327 304.344,257.366 304.344,257.366"
+       id="path38"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 272.327,312.372 C 281.799,307.028 290.009,299.209 295.831,289.214 301.626,279.264 304.378,268.32 304.378,257.492 304.378,257.492 304.533,257.473 304.533,257.473 304.533,257.473 335.728,257.66 335.728,257.66 335.728,257.66 335.832,257.691 335.832,257.691 335.819,273.863 331.704,290.206 323.048,305.066 314.404,319.907 302.24,331.54 288.203,339.529 288.203,339.529 288.1,339.371 288.1,339.371 288.1,339.371 272.422,312.519 272.422,312.519 272.422,312.519 272.327,312.372 272.327,312.372"
+       id="path40"
+       inkscape:connector-curvature="0"
+       style="fill:#ffc8c8;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 209.6,202.183 C 209.6,202.183 224.419,228.216 224.419,228.216 224.419,228.216 224.596,228.506 224.596,228.506 219.675,231.294 215.41,235.363 212.383,240.561 209.327,245.809 207.893,251.586 207.924,257.296 207.924,257.296 207.928,257.336 207.928,257.336 207.928,257.336 177.622,256.808 177.622,256.808 177.622,256.808 177.575,256.663 177.575,256.663 177.629,245.941 180.383,235.116 186.121,225.265 191.939,215.275 200.142,207.46 209.607,202.116 209.607,202.116 209.6,202.183 209.6,202.183"
+       id="path42"
+       inkscape:connector-curvature="0"
+       style="fill:#fff0f0;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 177.552,257.172 C 177.527,246.296 180.277,235.297 186.099,225.302 191.895,215.351 200.056,207.559 209.474,202.216 209.474,202.216 209.414,202.072 209.414,202.072 209.414,202.072 193.86,175.031 193.86,175.031 193.86,175.031 193.782,174.956 193.782,174.956 179.721,182.945 167.537,194.589 158.882,209.449 150.238,224.29 146.121,240.61 146.098,256.761 146.098,256.761 146.286,256.773 146.286,256.773 146.286,256.773 177.378,257.161 177.378,257.161 177.378,257.161 177.552,257.172 177.552,257.172"
+       id="path44"
+       inkscape:connector-curvature="0"
+       style="fill:#fff0f0;fill-rule:evenodd;stroke:none" />
+    <circle
+       cx="241.078"
+       cy="257.37701"
+       r="95.044998"
+       stroke-miterlimit="14.336"
+       id="circle46"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <circle
+       cx="241.078"
+       cy="257.37701"
+       r="63.547001"
+       stroke-miterlimit="14.336"
+       id="circle48"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="273.979"
+       y1="257.37701"
+       x2="336.12299"
+       y2="257.37701"
+       stroke-miterlimit="14.336"
+       id="line50"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="224.896"
+       y1="229.349"
+       x2="193.556"
+       y2="175.06599"
+       stroke-miterlimit="14.336"
+       id="line52"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="257.229"
+       y1="229.40401"
+       x2="288.60101"
+       y2="175.06599"
+       stroke-miterlimit="14.336"
+       id="line54"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <circle
+       cx="241.078"
+       cy="257.37701"
+       r="33.154999"
+       stroke-miterlimit="14.336"
+       id="circle56"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="217.317"
+       y1="233.616"
+       x2="264.83899"
+       y2="281.138"
+       stroke-miterlimit="14.336"
+       id="line58"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="264.83899"
+       y1="233.616"
+       x2="217.317"
+       y2="281.138"
+       stroke-miterlimit="14.336"
+       id="line60"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="193.556"
+       y1="339.68799"
+       x2="224.15401"
+       y2="286.69101"
+       stroke-miterlimit="14.336"
+       id="line62"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="288.60101"
+       y1="339.68799"
+       x2="257.49301"
+       y2="285.80801"
+       stroke-miterlimit="14.336"
+       id="line64"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="146.033"
+       y1="257.37701"
+       x2="208.479"
+       y2="257.37701"
+       stroke-miterlimit="14.336"
+       id="line66"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <text
+       transform="matrix(-0.673,0.74,-0.74,-0.673,766.73,315.622)"
+       x="311.33899"
+       y="327.33899"
+       font-size="16px"
+       id="text68"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.74,0.673,-0.673,-0.74,762.366,366.05)"
+       x="308.146"
+       y="330.474"
+       font-size="16px"
+       id="text70"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.74,0.673,-0.673,-0.74,758.629,373.525)"
+       x="304.832"
+       y="333.48801"
+       font-size="16px"
+       id="text72"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(143.1301,303.63067,336.37967)"
+       x="301.401"
+       y="336.36099"
+       font-size="16px"
+       id="text74"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(143.1301,300.046,339.067)"
+       x="297.81699"
+       y="339.04901"
+       font-size="16px"
+       id="text76"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.841,0.541,-0.541,-0.841,730.602,468.5)"
+       x="294.18201"
+       y="341.664"
+       font-size="16px"
+       id="text78"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.866,0.5,-0.5,-0.866,718.154,495.528)"
+       x="290.39499"
+       y="344.05701"
+       font-size="16px"
+       id="text80"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.889,0.458,-0.458,-0.889,704.03,521.858)"
+       x="286.50699"
+       y="346.28201"
+       font-size="16px"
+       id="text82"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.889,0.458,-0.458,-0.889,697.446,527.558)"
+       x="282.52499"
+       y="348.33401"
+       font-size="16px"
+       id="text84"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.91,0.414,-0.414,-0.91,681.24,552.622)"
+       x="278.448"
+       y="350.19199"
+       font-size="16px"
+       id="text86"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.929,0.369,-0.369,-0.929,663.463,576.739)"
+       x="274.29401"
+       y="351.867"
+       font-size="16px"
+       id="text88"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.946,0.323,-0.323,-0.946,644.169,599.799)"
+       x="270.07001"
+       y="353.35599"
+       font-size="16px"
+       id="text90"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.961,0.276,-0.276,-0.961,623.423,621.696)"
+       x="265.784"
+       y="354.65701"
+       font-size="16px"
+       id="text92"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.974,0.227,-0.227,-0.974,601.301,642.322)"
+       x="261.44501"
+       y="355.76599"
+       font-size="16px"
+       id="text94"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.984,0.178,-0.178,-0.984,577.893,661.571)"
+       x="257.061"
+       y="356.68201"
+       font-size="16px"
+       id="text96"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.992,0.128,-0.128,-0.992,553.302,679.341)"
+       x="252.64"
+       y="357.40201"
+       font-size="16px"
+       id="text98"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.997,0.077,-0.077,-0.997,527.644,695.539)"
+       x="248.192"
+       y="357.927"
+       font-size="16px"
+       id="text100"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-1,0.026,-0.026,-1,501.051,710.078)"
+       x="243.72501"
+       y="358.25699"
+       font-size="16px"
+       id="text102"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-1,0.026,-0.026,-1,492.098,710.423)"
+       x="239.246"
+       y="358.37201"
+       font-size="16px"
+       id="text104"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-1,-0.026,0.026,-1,464.762,722.508)"
+       x="234.76801"
+       y="358.27802"
+       font-size="16px"
+       id="text106"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.997,-0.077,0.077,-0.997,436.891,732.784)"
+       x="230.298"
+       y="357.98999"
+       font-size="16px"
+       id="text108"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.992,-0.128,0.128,-0.992,408.695,741.191)"
+       x="225.845"
+       y="357.50601"
+       font-size="16px"
+       id="text110"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.984,-0.178,0.178,-0.984,380.334,747.725)"
+       x="221.41901"
+       y="356.827"
+       font-size="16px"
+       id="text112"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.974,-0.227,0.227,-0.974,351.961,752.4)"
+       x="217.02699"
+       y="355.952"
+       font-size="16px"
+       id="text114"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.961,-0.276,0.276,-0.961,323.719,755.248)"
+       x="212.677"
+       y="354.88199"
+       font-size="16px"
+       id="text116"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.946,-0.323,0.323,-0.946,295.742,756.313)"
+       x="208.379"
+       y="353.62"
+       font-size="16px"
+       id="text118"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.929,-0.369,0.369,-0.929,268.151,755.653)"
+       x="204.14101"
+       y="352.168"
+       font-size="16px"
+       id="text120"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.929,-0.369,0.369,-0.929,260.729,750.924)"
+       x="199.978"
+       y="350.51401"
+       font-size="16px"
+       id="text122"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.91,-0.414,0.414,-0.91,234.036,748.1)"
+       x="195.89301"
+       y="348.67401"
+       font-size="16px"
+       id="text124"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.889,-0.458,0.458,-0.889,207.968,743.729)"
+       x="191.894"
+       y="346.65601"
+       font-size="16px"
+       id="text126"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.866,-0.5,0.5,-0.866,182.609,737.892)"
+       x="187.98801"
+       y="344.465"
+       font-size="16px"
+       id="text128"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.841,-0.541,0.541,-0.841,158.026,730.67)"
+       x="184.181"
+       y="342.10501"
+       font-size="16px"
+       id="text130"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(-143.1301,182.786,339.533)"
+       x="180.513"
+       y="339.539"
+       font-size="16px"
+       id="text132"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(-143.1301,179.20133,336.84567)"
+       x="176.92799"
+       y="336.85101"
+       font-size="16px"
+       id="text134"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.74,-0.673,0.673,-0.74,80.884,699.358)"
+       x="173.448"
+       y="334.03699"
+       font-size="16px"
+       id="text136"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.74,-0.673,0.673,-0.74,77.147,691.884)"
+       x="170.134"
+       y="331.02301"
+       font-size="16px"
+       id="text138"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.673,-0.74,0.74,-0.673,40.355,673.728)"
+       x="166.886"
+       y="327.94199"
+       font-size="16px"
+       id="text140"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.673,-0.74,0.74,-0.673,37.763,665.954)"
+       x="163.871"
+       y="324.62799"
+       font-size="16px"
+       id="text142"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(-126.8699,163.09275,321.3005)"
+       x="160.87399"
+       y="321.29999"
+       font-size="16px"
+       id="text144"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(-126.8699,160.405,317.71625)"
+       x="158.186"
+       y="317.716"
+       font-size="16px"
+       id="text146"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="rotate(-126.8699,157.71775,314.13175)"
+       x="155.49899"
+       y="314.13199"
+       font-size="16px"
+       id="text148"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.541,-0.841,0.841,-0.541,-21.647,608.957)"
+       x="153.047"
+       y="310.383"
+       font-size="16px"
+       id="text150"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.5,-0.866,0.866,-0.5,-35.838,592.373)"
+       x="150.76801"
+       y="306.52701"
+       font-size="16px"
+       id="text152"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.458,-0.889,0.889,-0.458,-48.964,575.297)"
+       x="148.66"
+       y="302.57501"
+       font-size="16px"
+       id="text154"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.414,-0.91,0.91,-0.414,-61.026,557.797)"
+       x="146.728"
+       y="298.535"
+       font-size="16px"
+       id="text156"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.369,-0.929,0.929,-0.369,-72.024,539.944)"
+       x="144.976"
+       y="294.41299"
+       font-size="16px"
+       id="text158"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.323,-0.946,0.946,-0.323,-81.963,521.806)"
+       x="143.408"
+       y="290.21799"
+       font-size="16px"
+       id="text160"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.276,-0.961,0.961,-0.276,-90.851,503.453)"
+       x="142.02699"
+       y="285.957"
+       font-size="16px"
+       id="text162"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000" />
+    <text
+       transform="matrix(-0.227,-0.974,0.974,-0.227,-97.198,481.783)"
+       x="138.08701"
+       y="279.45801"
+       font-size="16px"
+       id="text164"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000">s</text>
+    <text
+       transform="matrix(-0.128,-0.992,0.992,-0.128,-109.45,445.021)"
+       x="136.504"
+       y="270.64401"
+       font-size="16px"
+       id="text166"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000">e</text>
+    <text
+       transform="matrix(-0.026,-1,1,-0.026,-117.466,408.16)"
+       x="135.29401"
+       y="261.32401"
+       font-size="16px"
+       id="text168"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000">p</text>
+    <text
+       transform="matrix(0.026,-1,1,0.026,-117.151,387.42)"
+       x="137.524"
+       y="253.80701"
+       font-size="16px"
+       id="text170"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000">t</text>
+    <text
+       transform="matrix(0.128,-0.992,0.992,0.128,-121.548,354.43)"
+       x="135.821"
+       y="246.30901"
+       font-size="16px"
+       id="text172"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000">u</text>
+    <text
+       transform="matrix(0.227,-0.974,0.974,0.227,-118.036,320.255)"
+       x="135.634"
+       y="234.495"
+       font-size="16px"
+       id="text174"
+       style="font-size:16px;font-family:Arial, sans-serif;fill:#000000">m</text>
+    <path
+       d="M 93.298,320.576 C 93.298,320.576 93.208,290.665 93.208,290.665 93.208,290.665 93.221,290.325 93.221,290.325 85.88,290.35 78.452,288.939 71.691,285.936 64.864,282.904 59.524,278.607 55.878,273.644 55.878,273.644 55.856,273.608 55.856,273.608 55.856,273.608 22.055,289.095 22.055,289.095 22.055,289.095 22.095,289.245 22.095,289.245 29.069,298.51 39.151,306.526 51.966,312.217 64.961,317.989 79.241,320.693 93.349,320.631 93.349,320.631 93.298,320.576 93.298,320.576"
+       id="path176"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 21.742,288.815 C 28.726,298.253 38.915,306.421 51.918,312.196 64.862,317.945 79.08,320.651 93.135,320.61 93.135,320.61 93.16,320.764 93.16,320.764 93.16,320.764 93.071,351.914 93.071,351.914 93.071,351.914 93.031,352.018 93.031,352.018 72.04,352.067 50.808,348.02 31.476,339.434 12.17,330.859 -2.989,318.757 -13.428,304.771 -13.428,304.771 -13.224,304.668 -13.224,304.668 -13.224,304.668 21.553,288.91 21.553,288.91 21.553,288.91 21.742,288.815 21.742,288.815"
+       id="path178"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 93.738,224.276 C 93.738,224.276 92.952,257.373 92.952,257.373 92.952,257.373 93.299,290.474 93.299,290.474 92.903,290.476 92.562,290.475 92.166,290.469 68.567,290.138 49.499,274.923 49.93,256.768 50.361,238.613 70.139,223.944 93.738,224.276"
+       id="path180"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 93.315,194.031 C 93.315,194.031 93.217,223.941 93.217,223.941 93.217,223.941 93.23,224.281 93.23,224.281 85.889,224.255 78.46,225.666 71.698,228.668 64.871,231.699 59.529,235.994 55.883,240.957 55.883,240.957 55.86,240.993 55.86,240.993 55.86,240.993 22.063,225.5 22.063,225.5 22.063,225.5 22.104,225.351 22.104,225.351 29.08,216.087 39.164,208.073 51.98,202.383 64.977,196.613 79.257,193.911 93.366,193.976 93.366,193.976 93.315,194.031 93.315,194.031"
+       id="path182"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 21.75,225.781 C 28.737,216.344 38.928,208.177 51.932,202.404 64.878,196.657 79.097,193.954 93.151,193.997 93.151,193.997 93.177,193.842 93.177,193.842 93.177,193.842 93.096,162.693 93.096,162.693 93.096,162.693 93.056,162.589 93.056,162.589 72.066,162.536 50.832,166.581 31.498,175.164 12.189,183.735 -2.973,195.835 -13.415,209.819 -13.415,209.819 -13.211,209.923 -13.211,209.923 -13.211,209.923 21.561,225.685 21.561,225.685 21.561,225.685 21.75,225.781 21.75,225.781"
+       id="path184"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 21.841,225.781 C 21.841,225.781 55.542,240.697 55.542,240.697 55.542,240.697 55.932,240.858 55.932,240.858 52.258,245.747 50.161,251.408 50.191,257.414 50.221,263.478 52.415,269.177 56.205,274.077 56.205,274.077 56.234,274.109 56.234,274.109 56.234,274.109 21.972,288.985 21.972,288.985 21.972,288.985 21.823,288.884 21.823,288.884 14.834,279.625 10.798,268.913 10.742,257.529 10.685,245.986 14.726,235.109 21.805,225.72 21.805,225.72 21.841,225.781 21.841,225.781"
+       id="path186"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 22.133,289.333 C 14.954,279.982 10.799,269.122 10.742,257.572 10.685,246.074 14.695,235.237 21.722,225.873 21.722,225.873 21.56,225.779 21.56,225.779 21.56,225.779 -13.628,210.367 -13.628,210.367 -13.628,210.367 -13.765,210.342 -13.765,210.342 -24.246,224.333 -30.226,240.52 -30.141,257.692 -30.056,274.841 -23.932,290.974 -13.338,304.89 -13.338,304.89 -13.12,304.805 -13.12,304.805 -13.12,304.805 21.931,289.412 21.931,289.412 21.931,289.412 22.133,289.333 22.133,289.333"
+       id="path188"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <path
+       d="M 92.951,193.923 C 47.705,193.923 10.467,222.57 10.467,257.377 10.467,292.185 47.705,320.832 92.951,320.832"
+       stroke-miterlimit="14.336"
+       id="path190"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="55.967999"
+       y1="240.951"
+       x2="-13.889"
+       y2="209.925"
+       stroke-miterlimit="14.336"
+       id="line192"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <path
+       d="M 92.951,224.271 C 69.345,224.271 49.916,239.217 49.916,257.377 49.916,275.538 69.345,290.484 92.951,290.484"
+       stroke-miterlimit="14.336"
+       id="path194"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <line
+       x1="-13.889"
+       y1="304.82999"
+       x2="56.048"
+       y2="273.76801"
+       stroke-miterlimit="14.336"
+       id="line196"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <path
+       d="M 92.951,352.658 C 25.279,352.658 -30.417,309.437 -30.417,257.377 -30.417,205.318 25.279,162.472 92.951,162.472 92.951,162.472 92.951,162.472 92.951,162.472 92.951,162.472 92.951,353.659 92.951,353.659"
+       stroke-miterlimit="14.336"
+       id="path198"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-miterlimit:14.33600044" />
+    <path
+       d="M -14.807,163.44 C -14.807,154.74 -18.696,147.172 -26.775,140.152 -26.775,140.152 -26.791,140.17 -26.791,140.17 -38.496,129.854 -44.484,117.059 -44.484,102.371 -44.484,102.371 -44.484,102.357 -44.484,102.357 -44.484,87.668 -38.496,74.874 -26.791,64.557 -26.791,64.557 -26.775,64.575 -26.775,64.575 -18.696,57.556 -14.807,49.987 -14.807,41.287 -14.807,41.287 11.9,41.281 11.9,41.281 11.9,51.529 22.46,60.284 38.02,62.937 38.02,62.937 38.003,62.91 38.003,62.91 61.124,66.669 78.154,77.472 84.128,92.171 92.917,113.797 72.172,136.198 38.176,141.79 38.176,141.79 38.2,141.791 38.2,141.791 22.64,144.444 12.079,153.198 12.079,163.447 12.079,163.447 -14.807,163.44 -14.807,163.44"
+       id="path200"
+       inkscape:connector-curvature="0"
+       style="fill:#d7eef4;fill-rule:evenodd;stroke:none" />
+    <g
+       transform="translate(27.113,38.822)"
+       font-size="16px"
+       id="g206"
+       style="font-size:16px;font-family:Arial, sans-serif">
+      <text
+         x="44.98"
+         y="16"
+         font-weight="bold"
+         id="text204"
+         style="font-weight:bold;text-anchor:middle">right atrium</text>
+    </g>
+    <g
+       transform="translate(202.515,40.507)"
+       font-size="16px"
+       id="g210"
+       style="font-size:16px;font-family:Arial, sans-serif">
+      <text
+         x="38.98"
+         y="16"
+         font-weight="bold"
+         id="text208"
+         style="font-weight:bold;text-anchor:middle">left atrium</text>
+    </g>
+    <g
+       transform="translate(227.143,170.449)"
+       font-size="12px"
+       id="g214"
+       style="font-size:12px;font-family:Arial, sans-serif;fill:#646464" />
+    <g
+       transform="translate(227.143,228.949)"
+       font-size="12px"
+       id="g218"
+       style="font-size:12px;font-family:Arial, sans-serif;fill:#646464" />
+    <g
+       transform="translate(59.143,170.449)"
+       font-size="12px"
+       id="g222"
+       style="font-size:12px;font-family:Arial, sans-serif;fill:#646464" />
+    <g
+       transform="translate(59.143,248.207)"
+       font-size="12px"
+       id="g226"
+       style="font-size:12px;font-family:Arial, sans-serif;fill:#646464" />
+  </g>
+</svg>

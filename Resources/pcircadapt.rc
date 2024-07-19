@@ -1,0 +1,88 @@
+// -------------------------------------------------
+//
+// Project:              CircAdapt
+// Creation date:
+// Qt version:           4.6.3
+// Qt creator:           2.0.0
+// Compiler:             MinGW, gcc 4.4.0
+// Tatrget platforms:    WIndows, Mac OS-X
+//
+// This is the application resource file for windows needed to give the
+// application its meta data and icon.
+//
+// Subversion info:
+//
+// $Id:
+//
+// -------------------------------------------------
+
+
+#include "winver.h"     // Needed for version info defines
+
+#define QUOTE_STR(x) #x
+#define BUILD_COPYRIGHT_STR( x, y, z ) QUOTE_STR( x y z )
+
+#ifdef CIRCADAPT_YEAR_LOW_RC
+    #ifdef CIRCADAPT_YEAR_HIGH_RC
+        #define CIRCADAPT_YEAR_STR CIRCADAPT_YEAR_LOW_RC - CIRCADAPT_YEAR_HIGH_RC
+    #else
+        #define CIRCADAPT_YEAR_STR CIRCADAPT_YEAR_LOW_RC
+    #endif
+#else
+    #ifdef CIRCADAPT_YEAR_RC
+        #define CIRCADAPT_YEAR_STR CIRCADAPT_YEAR_RC
+    #else
+        #ifdef CIRCADAPT_YEAR_HIGH_RC
+            #define CIRCADAPT_YEAR_STR CIRCADAPT_YEAR_HIGH_RC
+        #else
+            #define CIRCADAPT_YEAR_STR
+        #endif
+    #endif
+#endif
+
+IDI_ICON1               ICON    DISCARDABLE     "./icons/circadapt.ico"
+
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION CIRCADAPT_VER_MAJ_RC, CIRCADAPT_VER_MIN_RC, CIRCADAPT_VER_PAT_RC, CIRCADAPT_VER_BLD_RC
+ PRODUCTVERSION CIRCADAPT_VER_MAJ_RC, CIRCADAPT_VER_MIN_RC, CIRCADAPT_VER_PAT_RC, CIRCADAPT_VER_BLD_RC
+#ifdef _DEBUG
+  FILEFLAGS (VS_FF_DEBUG | VS_FF_PRERELEASE | VS_FF_SPECIALBUILD)
+  #define EXTRA_BUILD_STR "This is a debug-build version"
+#else
+  #ifdef CIRCADAPT_PRERELEASE
+    // Only add this flag when distributing a pre-release of the application
+    FILEFLAGS (VS_FF_PRERELEASE | VS_FF_SPECIALBUILD)
+    #define EXTRA_BUILD_STR "This is a pre-release build version"
+  #else
+    FILEFLAGS 0x0L
+  #endif
+#endif
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "CompanyName", "Peacs BV"
+            VALUE "FileDescription", "Cardiovascular System Simulator"
+            VALUE "FileVersion", CIRCADAPT_VERSION_RC
+            VALUE "LegalCopyright", BUILD_COPYRIGHT_STR( Copyright ©, CIRCADAPT_YEAR_STR, Peacs BV. )
+            VALUE "InternalName", "CircAdapt"
+            VALUE "OriginalFilename", "CircAdapt.exe"
+            VALUE "ProductName", "CircAdapt"
+            VALUE "ProductVersion", CIRCADAPT_VERSION_RC
+            VALUE "Comments", "CircAdapt is developed for research and education of cardiovascular physiology. Development is done by Maastricht University and Peacs (see www.peacs.nl)."
+#ifdef EXTRA_BUILD_STR
+            VALUE "SpecialBuild", EXTRA_BUILD_STR
+#endif
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END

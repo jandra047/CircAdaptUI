@@ -7,7 +7,7 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 set(BUILD_SHARED_LIBS ON)
 
 find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui OpenGL)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui OpenGL Svg SvgWidgets)
 find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
 
 enable_testing()
@@ -66,6 +66,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/systempropertybrowser.h CircAdaptUI/PropertyBrowser/systempropertybrowser.cpp
     CircAdaptUI/PropertyBrowser/propertyfactory.h CircAdaptUI/PropertyBrowser/propertyfactory.cpp
     CircAdaptUI/Widgets/modelgraphicsview.h CircAdaptUI/Widgets/modelgraphicsview.cpp
+    Resources/pcircadapt.qrc
 )
 
 target_compile_definitions(CircAdaptUI PRIVATE
@@ -76,6 +77,8 @@ target_link_libraries(CircAdaptUI PRIVATE
     Qt::Core
     Qt::Gui
     Qt::OpenGL
+    Qt::Svg
+    Qt::SvgWidgets
 )
 
 if(${QT_VERSION_MAJOR} GREATER 4)

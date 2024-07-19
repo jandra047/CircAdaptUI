@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/CircAdapt">
+        <file>icons/BitRock.png</file>
+        <file>icons/config.png</file>
+        <file>icons/editcopy.png</file>
+        <file>icons/exit.png</file>
+        <file>icons/fileopen.png</file>
+        <file>icons/fileprint.png</file>
+        <file>icons/filesave.png</file>
+        <file>icons/peacs-logo.png</file>
+        <file>icons/greenStone.png</file>
+        <file>icons/redStone.png</file>
+        <file>icons/redo.png</file>
+        <file>icons/undo.png</file>
+        <file>icons/undoall.png</file>
+        <file>icons/circadapt.png</file>
+        <file>icons/media-pause-32.png</file>
+        <file>icons/media-play-32.png</file>
+        <file>icons/camera.png</file>
+        <file>icons/CircAdaptSplash.png</file>
+        <file>icons/reset.png</file>
+        <file>icons/autoscale.png</file>
+        <file>icons/circadaptStartpic.png</file>
+        <file>icons/torso.png</file>
+        <file>svgs/Heart.svg</file>
+        <file>svgs/Full_Body.svg</file>
+        <file>svgs/Heart_segments.svg</file>
+        <file>icons/settings_icon.png</file>
+        <file>style/CircAdapt.qss</file>
+        <file>default.CircAdaptcase</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>
