@@ -8,9 +8,11 @@ namespace {
 void LoopSignal::updateGraph(Buffer& buffer)
 {
 
+    buffer.lock();
     QVector<double> yData = buffer.get(m_yVar, 1000/((double)Settings::instance().fps() * 1000));
     QVector<double> xData = buffer.get(m_xVar, 1000/((double)Settings::instance().fps() * 1000));
     QVector<double> tData = buffer.get("t", 1000/((double)Settings::instance().fps() * 1000));
+    buffer.unlock();
 
     addData(tData, xData, yData);
     if (Settings::instance().beatIdx() > 0)

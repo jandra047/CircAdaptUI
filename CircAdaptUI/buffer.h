@@ -52,6 +52,9 @@ public:
 
     const QVector<double> getSnapshot(const QString& key) const;
 
+    void lock() { mutex.lock(); };
+    void unlock() { mutex.unlock(); };
+
 public:
 signals:
     void updateValueView(const QMap<QString, double>& lastBeatData);
