@@ -10,7 +10,7 @@ PropertyBrowserBase::PropertyBrowserBase(QWidget* parent):
     mGrid->addWidget(mPBrowser);
     mGroupManager = new QtGroupPropertyManager(mPBrowser);
     mDynPropertyManager = new QtVariantPropertyManager( mPBrowser );
-    mResetPropertyFactory = new PropertyFactory(mPBrowser);
+    mResetPropertyFactory = new QtVariantEditorFactory(mPBrowser);
     mPBrowser->setFactoryForManager(mDynPropertyManager, mResetPropertyFactory);
     connect( mDynPropertyManager, &QtVariantPropertyManager::valueChanged,
             this, &PropertyBrowserBase::propertyValueChanged );

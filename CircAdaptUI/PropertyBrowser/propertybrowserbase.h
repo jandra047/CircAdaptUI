@@ -6,7 +6,6 @@
 #include "qttreepropertybrowser.h"
 #include "qtpropertymanager.h"
 #include "qtvariantproperty.h"
-#include "propertyfactory.h"
 
 class PropertyBrowserBase : public QWidget
 {
@@ -20,7 +19,7 @@ public:
     QtTreePropertyBrowser* mPBrowser;
     QtGroupPropertyManager* mGroupManager;
     QtVariantPropertyManager* mDynPropertyManager;
-    PropertyFactory* mResetPropertyFactory;
+    QtVariantEditorFactory* mResetPropertyFactory;
 
     QtProperty* addGroupProperty(const QString& name);
     void createDoubleProperty(QtProperty* property,
