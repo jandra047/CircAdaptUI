@@ -327,7 +327,8 @@
                     "default": 70,
                     "stepsize": 5,
                     "tooltip": "Beats per minute",
-                    "enabled": true
+                    "enabled": true,
+                    "type": "double"
                 },
                 {
                     "name": "AV delay",
@@ -336,7 +337,8 @@
                     "default": 70,
                     "stepsize": 5,
                     "tooltip": "ms",
-                    "enabled": false
+                    "enabled": false,
+                    "type": "double"
                 },
                 {
                     "name": "AV delay offset",
@@ -345,7 +347,8 @@
                     "default": 0.0,
                     "stepsize": 10,
                     "tooltip": "ms",
-                    "enabled": false
+                    "enabled": false,
+                    "type": "double"
                 },
                 {
                     "name": "Mean arterial pressure",
@@ -354,7 +357,8 @@
                     "default": 91,
                     "tooltip": "mmHg",
                     "stepsize": 5,
-                    "enabled": true
+                    "enabled": true,
+                    "type": "double"
                 },
                 {
                     "name": "Venous return",
@@ -363,7 +367,14 @@
                     "default": 5.1,
                     "tooltip": "L/min",
                     "stepsize": 0.2,
-                    "enabled": true
+                    "enabled": true,
+                    "type": "double"
+                },
+                {
+                    "name": "Homeostatic pressure-flow control",
+                    "default": true,
+                    "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure",
+                    "type": "bool"
                 }
             ]
         }

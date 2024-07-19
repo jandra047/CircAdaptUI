@@ -18,19 +18,27 @@ void SystemPropertyBrowser::setPropertiesFromConfig()
         for (auto array_elem : s[key].toArray())
         {
             const QJsonObject obj = array_elem.toObject();
-            createDoubleProperty(mSystemProperties,
-                                 obj["name"].toString(),
-                                 obj["min"].toDouble(),
-                                 obj["max"].toDouble(),
-                                 obj["stepsize"].toDouble(),
-                                 obj["default"].toDouble(),
-                                 tr(obj["tooltip"].toString().toStdString().c_str()));
+
+            if (obj["type"].toString() == "double")
+            {
+                createDoubleProperty(mSystemProperties,
+                                     obj["name"].toString(),
+                                     obj["min"].toDouble(),
+                                     obj["max"].toDouble(),
+                                     obj["stepsize"].toDouble(),
+                                     obj["default"].toDouble(),
+                                     tr(obj["tooltip"].toString().toStdString().c_str()));
+            }
+            else if (obj["type"].toString() == "bool")
+            {
+                createCheckboxProperty( mSystemProperties,
+                                        obj["name"].toString(),
+                                        obj["default"].toBool(),
+                                        tr(obj["tooltip"].toString().toStdString().c_str()));
+
+            }
         }
     }
-    createCheckboxProperty( mSystemProperties,
-                            "Homeostatic pressure-flow control",
-                            true,
-                            tr("Enables the pressure flow control, maintaining a constant mean blood pressure") );
 }
 
 void SystemPropertyBrowser::propertyValueChanged( QtProperty * property, QVariant val )
