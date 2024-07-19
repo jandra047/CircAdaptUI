@@ -373,7 +373,7 @@
                 {
                     "name": "Homeostatic pressure-flow control",
                     "default": true,
-                    "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure",
+                    "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
                     "type": "bool"
                 }
             ]
