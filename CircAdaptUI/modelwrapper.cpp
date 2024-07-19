@@ -194,6 +194,9 @@ void ModelWrapper::setup()
     m_thread->setObjectName("Simulation thread");
     moveToThread(m_thread.get());
     m_thread->start();
+#ifdef QT_NO_DEBUG
+    run_stable();
+#endif
     run_steps();
 }
 
