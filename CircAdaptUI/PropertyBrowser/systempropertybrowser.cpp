@@ -12,8 +12,6 @@ void SystemPropertyBrowser::setPropertiesFromConfig()
     auto s = Settings::instance().ModelParameters()["Systemic"].toObject();
     for (const QString& key : s.keys())
     {
-        qDebug() << key << "\n";
-        qDebug() << s[key].toArray();
         mSystemProperties = addGroupProperty( tr(key.toStdString().c_str()) );
         for (auto array_elem : s[key].toArray())
         {
