@@ -136,6 +136,11 @@
                 "name": "Homeostatic pressure-flow control",
                 "path": "Model.PFC.is_active",
                 "type": "bool"
+            },
+            {
+                "name": "Arterial stiffness coefficient",
+                "path": "Model.SyArt.p0",
+                "type": "pressure"
             }
         ]
     },
@@ -377,6 +382,22 @@
                     "type": "bool"
                 }
             ]
-        }
+        },
+        "Systemic circulation":
+            {
+                "Systemic circulation":
+                    [
+                        {
+                            "name": "Arterial stiffness coefficient",
+                            "min": 75,
+                            "max": 300,
+                            "default": 100,
+                            "tooltip": "%",
+                            "stepsize": 5,
+                            "enabled": true,
+                            "type": "double"
+                        }
+                    ]
+            }
     }
 }

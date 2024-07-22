@@ -7,8 +7,9 @@ ParamViewDockWidget::ParamViewDockWidget(QWidget *parent)
 {
     ui->setupUi(this);
     ui->splitter->setChildrenCollapsible( false );
-    // ui->circModelView->setMinimumWidth( 200 );
-    ui->systemPBrowser->setMinimumWidth( 200 );
+    ui->graphicsView->setMinimumWidth(400);
+    ui->systemPBrowser->setMinimumWidth( 300 );
+
     // QObject::connect(ui->systemPBrowser->mDynPropertyManager, &QtVariantPropertyManager::valueChanged,
     //                  this, [=](QtProperty* p, const QVariant& v) { emit paramChanged(p,v); } );
     QObject::connect(ui->systemPBrowser, &PropertyBrowserBase::changeModelParam,
