@@ -6,7 +6,8 @@ ModelGraphicsView::ModelGraphicsView(QWidget* parent):
 {
     setRenderHint(QPainter::Antialiasing, true);
 
-    m_SVGViewScene = new QGraphicsScene(this);
+    m_SVGViewScene = new ModelGraphicsScene(this);
     setScene(m_SVGViewScene);
     setSceneRect(0, 0, size().width(), size().height());
+    m_SVGViewScene->setSceneRect(m_SVGViewScene->itemsBoundingRect());
 }

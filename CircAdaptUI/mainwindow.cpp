@@ -65,7 +65,7 @@ void MainWindow::updateGraphs()
     ui->graphGrid->updateGraphs(buffer);
     ui->pvGraph->updateGraph(buffer);
     ui->ssGraph->updateGraph(buffer);
-    buffer.clear(1000/((double)Settings::instance().fps() * 1000));
+    buffer.clear((double)Settings::instance().fps());
     emit updateDone();
 }
 
