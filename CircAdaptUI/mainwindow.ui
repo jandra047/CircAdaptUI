@@ -144,6 +144,9 @@
    <property name="movable">
     <bool>false</bool>
    </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+   </property>
    <property name="floatable">
     <bool>false</bool>
    </property>
@@ -166,6 +169,11 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../Resources/resources.qrc">
+     <normaloff>:/CircAdapt/icons/media-play-32.png</normaloff>
+     <normalon>:/CircAdapt/icons/media-pause-32.png</normalon>:/CircAdapt/icons/media-play-32.png</iconset>
+   </property>
    <property name="text">
     <string>Play</string>
    </property>
@@ -174,6 +182,10 @@
    </property>
   </action>
   <action name="actionSnapshot">
+   <property name="icon">
+    <iconset resource="../Resources/resources.qrc">
+     <normaloff>:/CircAdapt/icons/camera.png</normaloff>:/CircAdapt/icons/camera.png</iconset>
+   </property>
    <property name="text">
     <string>Snapshot</string>
    </property>
@@ -182,6 +194,10 @@
    </property>
   </action>
   <action name="actionReset">
+   <property name="icon">
+    <iconset resource="../Resources/resources.qrc">
+     <normaloff>:/CircAdapt/icons/reset.png</normaloff>:/CircAdapt/icons/reset.png</iconset>
+   </property>
    <property name="text">
     <string>Reset</string>
    </property>
@@ -190,6 +206,10 @@
    </property>
   </action>
   <action name="actionAutoscale">
+   <property name="icon">
+    <iconset resource="../Resources/resources.qrc">
+     <normaloff>:/CircAdapt/icons/autoscale.png</normaloff>:/CircAdapt/icons/autoscale.png</iconset>
+   </property>
    <property name="text">
     <string>Autoscale</string>
    </property>
@@ -204,11 +224,15 @@
    <property name="checked">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../Resources/resources.qrc">
+     <normaloff>:/CircAdapt/icons/settings_icon.png</normaloff>:/CircAdapt/icons/settings_icon.png</iconset>
+   </property>
    <property name="text">
     <string>Parameter Settings</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
    </property>
   </action>
   <action name="actionStress_strain">
@@ -292,6 +316,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

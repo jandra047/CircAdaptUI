@@ -66,8 +66,11 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/systempropertybrowser.h CircAdaptUI/PropertyBrowser/systempropertybrowser.cpp
     CircAdaptUI/PropertyBrowser/propertyfactory.h CircAdaptUI/PropertyBrowser/propertyfactory.cpp
     CircAdaptUI/Widgets/modelgraphicsview.h CircAdaptUI/Widgets/modelgraphicsview.cpp
-    Resources/pcircadapt.qrc
+    Resources/resources.qrc
 )
+
+qt_add_resources(CircAdaptUI
+    Resources/resources.qrc)
 
 target_compile_definitions(CircAdaptUI PRIVATE
     QCUSTOMPLOT_USE_OPENGL
