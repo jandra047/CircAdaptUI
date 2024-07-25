@@ -1,6 +1,6 @@
 #ifndef TIMESIGNAL_H
 #define TIMESIGNAL_H
-#include "qcustomplot.h"
+#include "dependencies/qcustomplot.h"
 #include "CircAdaptUI/buffer.h"
 
 /*!

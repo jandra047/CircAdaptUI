@@ -1,6 +1,6 @@
 #ifndef GRAPHCONTAINER_H
 #define GRAPHCONTAINER_H
-#include "qcustomplot.h"
+#include "dependencies/qcustomplot.h"
 #include "buffer.h"
 
 /*!

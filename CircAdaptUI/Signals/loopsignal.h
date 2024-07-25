@@ -1,6 +1,6 @@
 #ifndef LOOPSIGNAL_H
 #define LOOPSIGNAL_H
-#include "qcustomplot.h"
+#include "dependencies/qcustomplot.h"
 #include "CircAdaptUI/buffer.h"
 
 class LoopSignal : public QCPCurve
