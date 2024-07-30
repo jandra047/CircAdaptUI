@@ -22,7 +22,7 @@ include(FetchContent)
 FetchContent_Declare(
   CircAdapt_Library
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/CircAdapt_Library.git
-  GIT_TAG 008d6666827a12b9569ab8479e0c809663825aba
+  GIT_TAG 1609ffe0b26d76a167f7a60bf60ee88f2c67c640
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(CircAdapt_Library)
