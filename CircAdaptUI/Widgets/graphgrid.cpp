@@ -46,7 +46,8 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 QCPTextElement *title = new QCPTextElement(plot, colTypes[j], QFont("Mononoki", 12, QFont::Bold));
                 plot->plotLayout()->addElement(0,0, title);
             }
-        gridLayout.addWidget(plot, i, j);
+            gridLayout.addWidget(plot, i, j);
+            plot->buildMenu();
         }
     }
     setRowVisible(3, false);

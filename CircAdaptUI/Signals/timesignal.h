@@ -20,6 +20,7 @@ public:
      */
     TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar = "t", QColor color = QColor(0,0,0)) :
         QCPGraph(xAxis, yAxis),
+        color(color),
         m_yVar(yVar),
         m_xVar(xVar)
     {
@@ -43,6 +44,7 @@ public:
 
     QString getXVar() { return m_xVar; };
     QString getYVar() { return m_yVar; };
+    QColor getColor() { return color; }
 
 
 private:
@@ -56,6 +58,8 @@ private:
      * \brief Name of the variable plotted on the x-axis.
      */
     QString m_xVar;
+
+    QColor color;
 
     double m_xPos{0};
     int i{0};

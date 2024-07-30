@@ -47,6 +47,7 @@ public:
     void showToolTip(QMouseEvent *event);
 
     virtual QString getPoint(const QPoint& pos) = 0;
+    void buildMenu();
 private:
 
     /*!
@@ -55,11 +56,19 @@ private:
      */
     void zoom(QWheelEvent* event);
 
+    QMenu* contextMenu;
+    QActionGroup* actionGroup;
+
 protected:
     /*!
      * \brief Contains signals which are plotted in this container.
      */
     QVector<ptr_type> m_Signals;
+
+
+public slots:
+    void on_contextMenu(QAction* action);
+
 };
 
 #endif // GRAPHCONTAINER_H
