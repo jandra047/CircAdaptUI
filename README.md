@@ -9,11 +9,32 @@ A front-end to the [CircAdapt_Library](https://gitlab.maastrichtuniversity.nl/ci
 ## Requirements
 
 - git (to clone this repository)
-- C++ compiler (e.g. g++, clang++, MSVC)
+- C++ compiler
+    - **Supported compilers:** g++, MSVC
 - CMake 3.29 or higher
 - Qt6
 
 ## Getting Started
+
+### Setting up `ssh-agent`
+To be able to resolve the dependencies an ssh server needs to be started and set-up. 
+#### Starting the server and adding an ssh-key
+- **Windows:**
+
+1. Open Services from the start menu
+
+2. Scroll down to `OpenSSH Authentication Agent` > right click > properties
+
+3. Change the Startup type from Disabled to any of the other 3 options, eg. `Automatic (Delayed Start)`
+
+4. Run `ssh-add` in cmd to add your ssh key to the agent. If you're using more than one ssh key, make sure that you append the path to the key you're using for authentication with gitlab.maastrichtuniversity.nl.
+
+- **Linux:**
+
+1. open terminal and run `systemctl start ssh-agent --user`
+
+2. Run `ssh-add`.
+
 
 ### Downloading
 
@@ -29,7 +50,7 @@ git clone git@gitlab.maastrichtuniversity.nl:circadapt/CircAdaptUI.git
 if you have SSH keys set up.
 
 ### Building
-**NOTE:** In order to resolve dependencies from protected gitlab server, your SSH key needs to be added to an ssh-agent.
+**NOTE:** In order to resolve dependencies from protected gitlab server, your SSH key needs to be added to a running ssh-agent.
 ```sh
 cd CircAdaptUI
 mkdir build && cd build
