@@ -129,14 +129,17 @@ QCPRange GraphContainer<SignalType>::getYDataRange()
 
     for (int i = 0; i < m_Signals.size(); i++)
     {
-        bool isFound;
-        auto yRange = m_Signals[i]->data()->valueRange(isFound);
-        if (isFound)
+        if (m_Signals[i]->visible())
         {
-            if (yRange.upper > yMax)
-              yMax = yRange.upper;
-            if (yRange.lower < yMin)
-              yMin = yRange.lower;
+            bool isFound;
+            auto yRange = m_Signals[i]->data()->valueRange(isFound);
+            if (isFound)
+            {
+                if (yRange.upper > yMax)
+                  yMax = yRange.upper;
+                if (yRange.lower < yMin)
+                  yMin = yRange.lower;
+            }
         }
     }
     return QCPRange(yMin, yMax);
