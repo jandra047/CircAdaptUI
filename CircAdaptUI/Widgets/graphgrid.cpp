@@ -127,12 +127,12 @@ void GraphGrid::setRowVisible(int row, bool isVisible)
     }
 }
 
-void GraphGrid::rescaleAxes(bool onlyVisiblePlottables)
+void GraphGrid::rescaleAxes()
 {
-    rescaleYAxes(onlyVisiblePlottables);
+    rescaleYAxes();
 }
 
-void GraphGrid::rescaleYAxes(bool onlyVisiblePlottables)
+void GraphGrid::rescaleYAxes()
 {
     for (int i = 0; i < rows; i++)
     {

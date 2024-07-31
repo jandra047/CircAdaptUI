@@ -52,15 +52,14 @@ public:
 
     /*!
      * \brief Rescales all axes in the grid based on signals which are currently visible.
-     * \param onlyVisiblePlottables
      */
-    void rescaleAxes(bool onlyVisiblePlottables);
+    void rescaleAxes();
 
     /*!
      * \brief Rescales y-axes in the grid based on signals which are currently visible.
      * \param onlyVisiblePlottables
      */
-    void rescaleYAxes(bool onlyVisiblePlottables);
+    void rescaleYAxes();
 
     /*!
      * \brief Calls a replot() function on all graphs within the grid.

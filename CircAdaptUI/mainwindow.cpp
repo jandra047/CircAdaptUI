@@ -41,11 +41,11 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(ui->actionStrain, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(4, isVisible); });
     QObject::connect(ui->actionAutoscale, &QAction::triggered, this, [this]()
                      {
-                        ui->graphGrid->rescaleAxes(true);
+                        ui->graphGrid->rescaleAxes();
                         ui->graphGrid->replot();
-                        ui->pvGraph->rescaleAxes(true);
+                        ui->pvGraph->rescaleAxes();
                         ui->pvGraph->replot();
-                        ui->ssGraph->rescaleAxes(true);
+                        ui->ssGraph->rescaleAxes();
                         ui->ssGraph->replot();
                         }
     );
