@@ -2,6 +2,17 @@
 #define GRAPHCONTAINER_H
 #include "dependencies/qcustomplot.h"
 #include "buffer.h"
+// #include "signalslothelper.h"
+
+class SignalSlotHelper : public QObject {
+    Q_OBJECT
+
+public:
+    SignalSlotHelper(QObject* parent = nullptr) : QObject(parent) {}
+
+signals:
+    void actionTriggered(QAction*);
+};
 
 /*!
  * \brief Contains signals.
@@ -48,6 +59,8 @@ public:
 
     virtual QString getPoint(const QPoint& pos) = 0;
     void buildMenu();
+    SignalSlotHelper* helper;
+    void showSignal(QAction* action);
 private:
 
     /*!
@@ -64,11 +77,6 @@ protected:
      * \brief Contains signals which are plotted in this container.
      */
     QVector<ptr_type> m_Signals;
-
-
-public slots:
-    void on_contextMenu(QAction* action);
-
 };
 
 #endif // GRAPHCONTAINER_H

@@ -50,6 +50,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             }
             gridLayout.addWidget(plot, i, j);
             plot->buildMenu();
+            QObject::connect(plot->helper, &SignalSlotHelper::actionTriggered, this, &GraphGrid::handleAction);
         }
     }
     setRowVisible(3, false);
@@ -61,6 +62,18 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(0, 1);
     gridLayout.setColumnStretch(1, 1);
     gridLayout.setColumnStretch(2, 2);
+}
+
+GraphGrid::~GraphGrid()
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            delete getItem(i,j);
+        }
+    }
+
 }
 
 SignalGraph* GraphGrid::getItem(int rowIdx, int colIdx)
@@ -190,5 +203,19 @@ void GraphGrid::takeSnapshot(Buffer& buffer)
         auto item = getItem(i, 1);
         item->displaySnapshot(buffer);
         item->xAxis->rescale();
+    }
+}
+
+void GraphGrid::handleAction(QAction* a)
+{
+    auto pos = findGridIndex(a->parent());
+    int row = pos.first;
+
+    if (pos != std::pair<int, int>(-1, -1))
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            getItem(row, j)->showSignal(a);
+        }
     }
 }

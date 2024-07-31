@@ -32,6 +32,7 @@ class GraphGrid : public QWidget
 
 public:
     GraphGrid(QWidget*, int rows = 5, int cols = 3);
+    ~GraphGrid();
 
     void setupSignals();
 
@@ -115,10 +116,26 @@ public slots:
     void updateGraphs(Buffer& buffer);
 
     void takeSnapshot(Buffer& buffer);
+    void handleAction(QAction* a);
 
 private:
     QGridLayout gridLayout;
 
+    std::pair<int, int> findGridIndex(QObject* target) {
+
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                QLayoutItem* item = gridLayout.itemAtPosition(i, j);
+                if (item) {
+                    QWidget* widget = item->widget();
+                    if (widget == target) {
+                        return {i, j};
+                    }
+                }
+            }
+        }
+        return {-1, -1}; // Not found
+    }
     /*!
      * \brief Number of rows in a grid.
      */

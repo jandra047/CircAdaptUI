@@ -6,7 +6,8 @@ template<typename SignalType>
 GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent),
     contextMenu(new QMenu(this)),
-    actionGroup(new QActionGroup(this))
+    actionGroup(new QActionGroup(this)),
+    helper(new SignalSlotHelper(this))
 {
     setOpenGl(true);
     currentLayer()->setMode(QCPLayer::lmBuffered);
@@ -69,7 +70,7 @@ void GraphContainer<SignalType>::buildMenu()
         actionFont.setBold(action->isChecked());
         action->setFont(actionFont);
     }
-    QObject::connect(actionGroup, &QActionGroup::triggered, this, &GraphContainer::on_contextMenu);
+    QObject::connect(actionGroup, &QActionGroup::triggered, helper, &SignalSlotHelper::actionTriggered);
 }
 
 template<typename SignalType>
@@ -80,7 +81,7 @@ void GraphContainer<SignalType>::addSignal(SignalType* signal)
 }
 
 template<typename SignalType>
-void GraphContainer<SignalType>::on_contextMenu(QAction* action)
+void GraphContainer<SignalType>::showSignal(QAction* action)
 {
     QFont actionFont = action->font();
     actionFont.setBold(action->isChecked());
