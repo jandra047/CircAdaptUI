@@ -18,15 +18,23 @@ public:
      * \param xVar 	Name of variable from buffer to be plotted on x-axis
      * \param color Line color
      */
-    TimeSignal(QCPAxis* xAxis, QCPAxis* yAxis, QString yVar, QString xVar = "t", QColor color = QColor(0,0,0)) :
+    TimeSignal(QCPAxis* xAxis,
+               QCPAxis* yAxis,
+               QString displayName,
+               QString yVar,
+               QString xVar = "t",
+               QColor color = QColor(0,0,0),
+               bool isVisible = true) :
         QCPGraph(xAxis, yAxis),
         color(color),
         m_yVar(yVar),
-        m_xVar(xVar)
+        m_xVar(xVar),
+        m_displayName(displayName)
     {
         setPen(QPen(color, 2));
+        setVisible(isVisible);
     };
-
+    ~TimeSignal() {};
     /*!
      * \brief Update graph with datapoints from buffer based on current FPS
      * \param buffer Buffer object that holds the data
@@ -45,6 +53,7 @@ public:
     QString getXVar() { return m_xVar; };
     QString getYVar() { return m_yVar; };
     QColor getColor() { return color; }
+    QString getDisplayName() { return m_displayName; }
 
 
 private:
@@ -58,6 +67,9 @@ private:
      * \brief Name of the variable plotted on the x-axis.
      */
     QString m_xVar;
+
+
+    QString m_displayName;
 
     QColor color;
 

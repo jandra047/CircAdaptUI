@@ -22,9 +22,11 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 (
                     plot->xAxis,
                     plot->yAxis,
+                    s->toObject()["displayName"].toString(),
                     s->toObject()["name"].toString(),
                     "t",
-                    QColor(s->toObject()["color"].toString())
+                    QColor(s->toObject()["color"].toString()),
+                    s->toObject()["isVisible"].toBool()
                 );
                 plot->addSignal(sig);
             }

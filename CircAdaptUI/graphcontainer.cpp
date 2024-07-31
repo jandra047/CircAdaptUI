@@ -48,7 +48,7 @@ void GraphContainer<SignalType>::buildMenu()
     actionGroup->setExclusive(false); // Allow multiple actions to be checked/unchecked
 
     for (int i = 0; i < m_Signals.size(); ++i) {
-        QAction *action = new QAction(m_Signals[i]->getYVar(), this);
+        QAction *action = new QAction(m_Signals[i]->getDisplayName(), this);
         QPixmap pixmap(16, 16);
         QPixmap     disabledPixmap( 8, 8 );     // Used for the wall patched when all signals for the whole wall are being shown
         QIcon icon;
