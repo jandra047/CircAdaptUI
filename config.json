@@ -158,36 +158,48 @@
         [
             {
                 "name": "pLa",
+                "displayName": "Left atrium",
+                "isVisible": false,
                 "unit": "mmHg",
                 "color": "#FB9A99",
                 "row":"PRESSURES"
             },
             {
                 "name": "pRa",
+                "displayName": "Right atrium",
+                "isVisible": false,
                 "unit": "mmHg",
                 "color": "#A6CEE3",
                 "column":"PRESSURES"
             },
             {
                 "name": "pLv",
+                "displayName": "Left ventricle",
+                "isVisible": true,
                 "unit": "mmHg",
                 "color": "#E31A1C",
                 "column":"PRESSURES"
             },
             {
                 "name": "pRv",
+                "displayName": "Right ventricle",
+                "isVisible": true,
                 "unit": "mmHg",
                 "color": "#1F78B4",
                 "column":"PRESSURES"
             },
             {
                 "name": "pAo",
+                "displayName": "Aorta",
+                "isVisible": true,
                 "unit": "mmHg",
                 "color": "#6A3D9A",
                 "column":"PRESSURES"
             },
             {
                 "name": "pPu",
+                "displayName": "Pulmonary artery",
+                "isVisible": true,
                 "unit": "mmHg",
                 "color": "#000000",
                 "column":"PRESSURES"
@@ -197,21 +209,29 @@
         [
             {
                 "name": "VLa",
+                "displayName": "Left atrium",
+                "isVisible": false,
                 "unit": "mL",
                 "color": "#FB9A99"
             },
             {
                 "name": "VRa",
+                "displayName": "Right atrium",
+                "isVisible": false,
                 "unit": "mL",
                 "color": "#A6CEE3"
             },
             {
                 "name": "VLv",
+                "displayName": "Left ventricle",
+                "isVisible": true,
                 "unit": "mL",
                 "color": "#E31A1C"
             },
             {
                 "name": "VRv",
+                "displayName": "Right ventricle",
+                "isVisible": true,
                 "unit": "mL",
                 "color": "#1F78B4"
             }
@@ -220,21 +240,29 @@
         [
             {
                 "name": "qLaLv",
+                "displayName": "Mitral valve",
+                "isVisible": true,
                 "unit": "mL",
                 "color": "#FB9A99"
             },
             {
                 "name": "qLvAo",
+                "displayName": "Aortic valve",
+                "isVisible": true,
                 "unit": "mL",
                 "color": "#E31A1C"
             },
             {
                 "name": "qRaRv",
+                "displayName": "Tricuspid valve",
+                "isVisible": false,
                 "unit": "mL",
                 "color": "#A6CEE3"
             },
             {
                 "name": "qRvPuArt",
+                "displayName": "Pulmonary valve",
+                "isVisible": false,
                 "unit": "mL",
                 "color": "#1F78B4"
             }
@@ -243,16 +271,21 @@
         [
             {
                 "name": "Sf_Lv",
+                "displayName": "Left ventricular free wall",
+                "isVisible": true,
                 "unit": "Pa",
                 "color": "#E31A1C"
             },
             {
                 "name": "Sf_Sv",
+                "displayName": "Septal wall",
                 "unit": "Pa",
                 "color": "#000000"
             },
             {
                 "name": "Sf_Rv",
+                "displayName": "Right ventricular free wall",
+                "isVisible": true,
                 "unit": "Pa",
                 "color": "#1F78B4"
             }
@@ -261,16 +294,22 @@
         [
             {
                 "name": "Ef_Lv",
+                "displayName": "Left ventricular free wall",
+                "isVisible": true,
                 "unit": "Pa",
                 "color": "#E31A1C"
             },
             {
                 "name": "Ef_Sv",
+                "displayName": "Septal wall",
+                "isVisible": true,
                 "unit": "Pa",
                 "color": "#000000"
             },
             {
                 "name": "Ef_Rv",
+                "displayName": "Right ventricular free wall",
+                "isVisible": true,
                 "unit": "Pa",
                 "color": "#1F78B4"
             }
