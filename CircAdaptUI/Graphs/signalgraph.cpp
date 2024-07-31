@@ -26,7 +26,7 @@ QString SignalGraph::getPoint(const QPoint& pos)
             if (dataPoints.dataPointCount() > 0)
                 it = signal->data()->at(dataPoints.dataRange().begin());
         }
-        string += QString("<b>%1:</b> %2<br>").arg(signal->getYVar()).arg((*it).value, 0, 'f', 2);
+        string += QString("<b>%1:</b> %2<br>").arg(signal->getDisplayName()).arg((*it).value, 0, 'f', 2);
     }
     string = QString("<b>Time:</b> %1<hr>").arg((*it).key, 0, 'f', 2) + string;
     return string;
