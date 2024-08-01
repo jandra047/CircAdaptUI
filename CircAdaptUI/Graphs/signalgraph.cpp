@@ -35,6 +35,6 @@ QString SignalGraph::getPoint(const QPoint& pos)
                           .arg(signal->getUnit());
         }
     }
-    string = QString("<b>Time:</b> %1<hr>").arg((*it).key, 0, 'f', 2) + string;
+    string = QString("<b>Time:</b> %1 s<hr>").arg((*it).key, 0, 'f', 2) + string;
     return string;
 }
