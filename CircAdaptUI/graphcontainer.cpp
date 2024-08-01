@@ -178,7 +178,7 @@ void GraphContainer<SignalType>::showToolTip(QMouseEvent *event) {
     {
         double x = xAxis->pixelToCoord(event->pos().x());
         QString text = getPoint(event->pos());
-        QToolTip::showText(event->globalPosition().toPoint(), text, this);
+        setToolTip(text);
     }
 }
 
