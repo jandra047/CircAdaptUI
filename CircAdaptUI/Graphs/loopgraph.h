@@ -8,7 +8,7 @@ class LoopGraph : public GraphContainer<LoopSignal>
 public:
     LoopGraph(QWidget* parent);
 
-    QString getPoint(const QPoint& pos) override { return QString(); };
+    QString getPoint(const QPoint& pos) override;
 };
 
 #endif // LOOPGRAPH_H
