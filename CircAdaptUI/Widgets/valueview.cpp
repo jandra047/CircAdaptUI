@@ -43,6 +43,6 @@ void ValueView::updateValues(const QMap<QString, double>& lastBeatData)
     for (int rowIdx = 0; rowIdx < m_valuesList->rowCount(); rowIdx++)
     {
         QTableWidgetItem* item = m_valuesList->item(rowIdx, 0);
-        m_valuesList->item(rowIdx, 1)->setText(QString::number(lastBeatData[item->text()], 'f', 2));
+        m_valuesList->item(rowIdx, 1)->setText(QString::number(lastBeatData[item->text()], 'f', 1));
     }
 }

@@ -31,7 +31,7 @@ QString SignalGraph::getPoint(const QPoint& pos)
             string += QString("<span style=\"color: %1\"><b>%2:</b></span> %3 %4<br>")
                           .arg(signal->getColor().name())
                           .arg(signal->getDisplayName())
-                          .arg((*it).value, 0, 'f', 2)
+                          .arg((*it).value, 0, 'f', 1)
                           .arg(signal->getUnit());
         }
     }
