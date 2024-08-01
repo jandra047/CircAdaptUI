@@ -116,6 +116,7 @@ public slots:
     void updateGraphs(Buffer& buffer);
 
     void takeSnapshot(Buffer& buffer);
+    void displayReference(Buffer& buffer);
     void handleAction(QAction* a);
 
 private:

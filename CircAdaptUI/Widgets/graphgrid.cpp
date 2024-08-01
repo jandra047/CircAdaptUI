@@ -206,6 +206,16 @@ void GraphGrid::takeSnapshot(Buffer& buffer)
     }
 }
 
+void GraphGrid::displayReference(Buffer& buffer)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        auto item = getItem(i, 0);
+        item->displaySnapshot(buffer);
+        item->xAxis->rescale();
+    }
+}
+
 void GraphGrid::handleAction(QAction* a)
 {
     auto pos = findGridIndex(a->parent());
