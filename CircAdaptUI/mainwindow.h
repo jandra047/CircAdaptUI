@@ -37,6 +37,8 @@ public: signals:
 public slots:
     void updateGraphs();
     void takeSnapshot();
+    void displayReference();
+    void autoscaleAll();
     void updateBufferLenText()
     {
         l->setText("Buffer size: " + QString::number(buffer.getLen()));

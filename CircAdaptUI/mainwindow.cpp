@@ -39,16 +39,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(ui->actionFlows, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(2, isVisible); });
     QObject::connect(ui->actionStress, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(3, isVisible); });
     QObject::connect(ui->actionStrain, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(4, isVisible); });
-    QObject::connect(ui->actionAutoscale, &QAction::triggered, this, [this]()
-                     {
-                        ui->graphGrid->rescaleAxes();
-                        ui->graphGrid->replot();
-                        ui->pvGraph->rescaleAxes();
-                        ui->pvGraph->replot();
-                        ui->ssGraph->rescaleAxes();
-                        ui->ssGraph->replot();
-                        }
-    );
+    QObject::connect(ui->actionAutoscale, &QAction::triggered, this, &MainWindow::autoscaleAll);
     QObject::connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(takeSnapshot()));
     QObject::connect(&buffer, &Buffer::updateValueView, ui->widget, &ValueView::updateValues);
 }
@@ -73,3 +64,21 @@ void MainWindow::takeSnapshot()
 {
     ui->graphGrid->takeSnapshot(buffer);
 }
+
+void MainWindow::displayReference()
+{
+    qDebug() << "here";
+    ui->graphGrid->displayReference(buffer);
+}
+
+void MainWindow::autoscaleAll()
+{
+    ui->graphGrid->rescaleAxes();
+    ui->graphGrid->replot();
+    ui->pvGraph->rescaleAxes();
+    ui->pvGraph->replot();
+    ui->ssGraph->rescaleAxes();
+    ui->ssGraph->replot();
+
+}
+

@@ -31,7 +31,6 @@ public:
         CAcore::Core(new CAcore::Factory),
         buffer(buffer)
     {
-        setup();
     };
 
     ~ModelWrapper()
@@ -82,6 +81,7 @@ private:
 
     void setupSignals();
     void setupParameters();
+    void run_beats(int N_beats);
 
     bool beatDone {false};
 
@@ -111,6 +111,8 @@ signals:
      * \brief Emits a signal after whole beat is done
      */
     void beat_done();
+
+    void setup_done();
 
 private slots:
     void cleanup()

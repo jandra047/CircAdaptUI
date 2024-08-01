@@ -150,6 +150,22 @@ void ModelWrapper::run_steps()
     }
 }
 
+void ModelWrapper::run_beats(int N_beats)
+{
+    int beat_idx = 0;
+    do
+    {
+        run_single_step();
+
+        if (beatDone == true)
+        {
+            beat_idx += 1;
+        }
+
+    } while (beat_idx < N_beats);
+
+}
+
 void ModelWrapper::run_single_step() {
     size_t nt = ((size_t)(model->get_t_cycle() / solver->get_dt_export()));
     if (it == -1) {
@@ -197,7 +213,8 @@ void ModelWrapper::setup()
 #ifdef QT_NO_DEBUG
     run_stable();
 #endif
-    run_steps();
+    run_beats(2);
+    emit setup_done();
 }
 
 void ModelWrapper::setupSignals()
