@@ -5,6 +5,7 @@ ParamViewDockWidget::ParamViewDockWidget(QWidget *parent)
     : QDockWidget(parent)
     , ui(new Ui::ParamViewDockWidget)
 {
+    setVisible(false);
     ui->setupUi(this);
     ui->splitter->setChildrenCollapsible( false );
     ui->graphicsView->setMinimumWidth(400);
