@@ -4,16 +4,6 @@
 #include "buffer.h"
 // #include "signalslothelper.h"
 
-class SignalSlotHelper : public QObject {
-    Q_OBJECT
-
-public:
-    SignalSlotHelper(QObject* parent = nullptr) : QObject(parent) {}
-
-signals:
-    void actionTriggered(QAction*);
-};
-
 /*!
  * \brief Contains signals.
  * \tparam SignalType Type of signals which GraphContainer contains.
@@ -59,7 +49,6 @@ public:
 
     virtual QString getPoint(const QPoint& pos) = 0;
     std::pair<QMenu*, QActionGroup*> buildMenu(QWidget* parent);
-    SignalSlotHelper* helper;
     void showSignal(QAction* action);
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
 private:

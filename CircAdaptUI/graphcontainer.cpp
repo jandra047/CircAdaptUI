@@ -6,8 +6,7 @@ template<typename SignalType>
 GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent),
     contextMenu(Q_NULLPTR),
-    actionGroup(Q_NULLPTR),
-    helper(new SignalSlotHelper(this))
+    actionGroup(Q_NULLPTR)
 {
     setOpenGl(true);
     currentLayer()->setMode(QCPLayer::lmBuffered);
