@@ -24,12 +24,14 @@ public:
                QString yVar,
                QString xVar = "t",
                QColor color = QColor(0,0,0),
-               bool isVisible = true) :
+               bool isVisible = true,
+               QString unit = "") :
         QCPGraph(xAxis, yAxis),
         color(color),
         m_yVar(yVar),
         m_xVar(xVar),
-        m_displayName(displayName)
+        m_displayName(displayName),
+        m_unit(unit)
     {
         setPen(QPen(color, 2));
         setVisible(isVisible);
@@ -54,6 +56,7 @@ public:
     QString getYVar() { return m_yVar; };
     QColor getColor() { return color; }
     QString getDisplayName() { return m_displayName; }
+    QString getUnit() { return m_unit; }
 
 
 private:
@@ -70,6 +73,8 @@ private:
 
 
     QString m_displayName;
+
+    QString m_unit;
 
     QColor color;
 
