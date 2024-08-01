@@ -146,5 +146,8 @@ private:
      * \brief Number of columns in the grid.
      */
     int cols;
+
+    QVector<std::pair<QMenu*, QActionGroup*>> contextMenus;
+    void buildMenus();
 };
 #endif // GRAPHGRID_H

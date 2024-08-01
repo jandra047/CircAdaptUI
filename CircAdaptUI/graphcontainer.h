@@ -58,9 +58,10 @@ public:
     void showToolTip(QMouseEvent *event);
 
     virtual QString getPoint(const QPoint& pos) = 0;
-    void buildMenu();
+    std::pair<QMenu*, QActionGroup*> buildMenu(QWidget* parent);
     SignalSlotHelper* helper;
     void showSignal(QAction* action);
+    void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
 private:
 
     /*!

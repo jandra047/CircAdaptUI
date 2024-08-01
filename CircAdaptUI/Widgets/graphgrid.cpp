@@ -49,8 +49,6 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 plot->plotLayout()->addElement(0,0, title);
             }
             gridLayout.addWidget(plot, i, j);
-            plot->buildMenu();
-            QObject::connect(plot->helper, &SignalSlotHelper::actionTriggered, this, &GraphGrid::handleAction);
         }
     }
     setRowVisible(3, false);
@@ -62,6 +60,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(0, 1);
     gridLayout.setColumnStretch(1, 1);
     gridLayout.setColumnStretch(2, 2);
+    buildMenus();
 }
 
 GraphGrid::~GraphGrid()
@@ -74,6 +73,20 @@ GraphGrid::~GraphGrid()
         }
     }
 
+}
+
+void GraphGrid::buildMenus()
+{
+    for (int i = 0; i < rows; i++)
+    {
+        auto pair = getItem(i, 0)->buildMenu(this);
+        QObject::connect(pair.second, &QActionGroup::triggered, this, &GraphGrid::handleAction);
+        for (int j = 0; j < cols; j++)
+        {
+            getItem(i, j)->setContextMenu(pair);
+        }
+
+    }
 }
 
 SignalGraph* GraphGrid::getItem(int rowIdx, int colIdx)

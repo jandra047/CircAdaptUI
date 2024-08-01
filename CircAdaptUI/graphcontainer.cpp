@@ -5,8 +5,8 @@
 template<typename SignalType>
 GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent),
-    contextMenu(new QMenu(this)),
-    actionGroup(new QActionGroup(this)),
+    contextMenu(Q_NULLPTR),
+    actionGroup(Q_NULLPTR),
     helper(new SignalSlotHelper(this))
 {
     setOpenGl(true);
@@ -24,7 +24,6 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     xAxis->setRange(0,3);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
-    // connect(this, &QCustomPlot::customContextMenuRequested, this, &GraphContainer::menu);
     connect(this, &QCustomPlot::customContextMenuRequested, this, [=](const QPoint& p) {
         contextMenu->exec(mapToGlobal(p));
     });
@@ -43,15 +42,16 @@ GraphContainer<SignalType>::~GraphContainer()
 }
 
 template<typename SignalType>
-void GraphContainer<SignalType>::buildMenu()
+std::pair<QMenu*, QActionGroup*> GraphContainer<SignalType>::buildMenu(QWidget* parent)
 {
-    contextMenu->clear();
+    QMenu* menu = new QMenu(parent);
+    QActionGroup* actionGroup = new QActionGroup(parent);
     actionGroup->setExclusive(false); // Allow multiple actions to be checked/unchecked
 
     for (int i = 0; i < m_Signals.size(); ++i) {
         QAction *action = new QAction(m_Signals[i]->getDisplayName(), this);
         QPixmap pixmap(16, 16);
-        QPixmap     disabledPixmap( 8, 8 );     // Used for the wall patched when all signals for the whole wall are being shown
+        QPixmap disabledPixmap( 8, 8 );     // Used for the wall patched when all signals for the whole wall are being shown
         QIcon icon;
         pixmap.fill(m_Signals[i]->getColor());
         disabledPixmap.fill( m_Signals.at( i )->getColor() );
@@ -64,13 +64,13 @@ void GraphContainer<SignalType>::buildMenu()
         action->setChecked(m_Signals[i]->visible());
         action->setData(i); // Store the index of the signal in the action
         // connect(action, &QAction::triggered, this, &GraphContainer::showHideSignal);
-        contextMenu->addAction(action);
+        menu->addAction(action);
         actionGroup->addAction(action);
         QFont actionFont = action->font();
         actionFont.setBold(action->isChecked());
         action->setFont(actionFont);
     }
-    QObject::connect(actionGroup, &QActionGroup::triggered, helper, &SignalSlotHelper::actionTriggered);
+    return std::pair<QMenu*, QActionGroup*> {menu, actionGroup};
 }
 
 template<typename SignalType>
@@ -180,6 +180,13 @@ void GraphContainer<SignalType>::showToolTip(QMouseEvent *event) {
         QString text = getPoint(event->pos());
         QToolTip::showText(event->globalPosition().toPoint(), text, this);
     }
+}
+
+template<typename SignalType>
+void GraphContainer<SignalType>::setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu)
+{
+    contextMenu = menu.first;
+    actionGroup = menu.second;
 }
 
 template class GraphContainer<LoopSignal>;
