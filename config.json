@@ -62,17 +62,17 @@
                 {
                     "name": "Sf_Lv",
                     "path": "Model.Peri.TriSeg.wLv.pLv1.Sf",
-                    "type": "pressure"
+                    "type": "stress"
                 },
                 {
                     "name": "Sf_Rv",
                     "path": "Model.Peri.TriSeg.wRv.pRv1.Sf",
-                    "type": "pressure"
+                    "type": "stress"
                 },
                 {
                     "name": "Sf_Sv",
                     "path": "Model.Peri.TriSeg.wSv.pSv1.Sf",
-                    "type": "pressure"
+                    "type": "stress"
                 },
                 {
                     "name": "Ef_Lv",

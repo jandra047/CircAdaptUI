@@ -37,6 +37,22 @@ public:
     }
 };
 
+class StressContainer : public DataContainer
+{
+public:
+    StressContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    // double model_to_ui(double val) const override { return val / 133; };
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value);
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value);
+    }
+};
+
 class VolumeContainer : public DataContainer
 {
 public:
@@ -123,6 +139,10 @@ public:
         if (type == "pressure")
         {
             return new PressureContainer(name, path, type);
+        }
+        if (type == "stress")
+        {
+            return new StressContainer(name, path, type);
         }
         else if (type == "volume")
         {
