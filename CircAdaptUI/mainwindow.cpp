@@ -67,7 +67,6 @@ void MainWindow::takeSnapshot()
 
 void MainWindow::displayReference()
 {
-    qDebug() << "here";
     ui->graphGrid->displayReference(buffer);
 }
 

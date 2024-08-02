@@ -37,12 +37,12 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 plot->yAxis->setTickLabels(false);
                 plot->yAxis->setLabel("");
             }
-            if (i < (rows - 1))
-            {
-                plot->xAxis->setTicks(false);
-                plot->xAxis->setTickLabels(false);
-                plot->xAxis->setLabel("");
-            }
+            // if (i < (rows - 1))
+            // {
+            //     plot->xAxis->setTicks(false);
+            //     plot->xAxis->setTickLabels(false);
+            //     plot->xAxis->setLabel("");
+            // }
             if (i == 0)
             {
                 plot->plotLayout()->insertRow(0);
@@ -63,6 +63,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(2, 2);
     buildMenus();
     connectLineMarkers();
+    updateLastRowTicksAndLabels();
 }
 
 GraphGrid::~GraphGrid()
@@ -153,8 +154,11 @@ void GraphGrid::setRowVisible(int row, bool isVisible)
 {
     for (int i = 0; i < cols; i++)
     {
+
         gridLayout.itemAtPosition(row, i)->widget()->setVisible(isVisible);
     }
+    rowVisibility[row] = isVisible;
+    updateLastRowTicksAndLabels();
 }
 
 void GraphGrid::rescaleAxes()
@@ -258,6 +262,40 @@ void GraphGrid::connectLineMarkers()
                     connect(itemB->getLineMarker(), &LineMarker::xPosChanged, itemA->getLineMarker(), &LineMarker::setXPos);
                 }
             }
+        }
+    }
+}
+void GraphGrid::updateLastRowTicksAndLabels() {
+    // Hide ticks and labels for all rows
+    for (int i = 0; i < rows; i++)
+    {
+        if (rowVisibility[i])
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                auto item = getItem(i, j);
+                item->xAxis->setTicks(false);
+                item->xAxis->setTickLabels(false);
+                item->xAxis->setLabel("");
+                item->layer("axes")->replot();
+            }
+        }
+    }
+
+    // Find the last visible row and show ticks and labels
+    for (int i = rows - 1; i >= 0; i--)
+    {
+        if (rowVisibility[i])
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                auto item = getItem(i, j);
+                item->xAxis->setTicks(true);
+                item->xAxis->setTickLabels(true);
+                item->xAxis->setLabel("Time [s]");
+                item->layer("axes")->replot();
+            }
+            break; // Exit loop after updating the last visible row
         }
     }
 }

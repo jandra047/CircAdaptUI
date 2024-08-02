@@ -121,6 +121,7 @@ public slots:
 
 private:
     QGridLayout gridLayout;
+    QVector<bool> rowVisibility = {true, true, true, false, false};
 
     std::pair<int, int> findGridIndex(QObject* target) {
 
@@ -150,5 +151,6 @@ private:
     QVector<std::pair<QMenu*, QActionGroup*>> contextMenus;
     void buildMenus();
     void connectLineMarkers();
+    void updateLastRowTicksAndLabels();
 };
 #endif // GRAPHGRID_H
