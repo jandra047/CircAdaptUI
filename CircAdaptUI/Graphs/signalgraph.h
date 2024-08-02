@@ -12,6 +12,10 @@ public:
 
     void drawVerticalLine(const QPoint& pos);
     void mousePressEvent(QMouseEvent *event) override;
+
+public slots:
+    void onMouseMove(QMouseEvent* event);
+    void onMouseRelease(QMouseEvent* event);
 };
 
 #endif // SIGNALGRAPH_H

@@ -10,6 +10,8 @@ SignalGraph::SignalGraph(QWidget* parent, QString xLabel, QString yLabel) :
     yAxis->setLabelFont(QFont("Mononoki", 14, QFont::Bold));
     yAxis->grid()->setZeroLinePen(QPen(QColor(0,0,0), 1, Qt::DashLine, Qt::RoundCap, Qt::RoundJoin));
     axisRect()->setRangeDrag(Qt::Vertical);
+    connect(this, &QCustomPlot::mouseMove, this, &SignalGraph::onMouseMove);
+    connect(this, &QCustomPlot::mouseRelease, this, &SignalGraph::onMouseRelease);
 }
 
 QString SignalGraph::getPoint(const QPoint& pos)
@@ -51,6 +53,7 @@ void SignalGraph::drawVerticalLine(const QPoint& pos)
     m_lineMarker.point2->setCoords(key, 1); // Top point (x, y) in plot coordinates
 
     m_lineMarker.setVisible(true);
+    m_lineMarker.setXPos(key);
     emit m_lineMarker.xPosChanged(key);
     // Update the plot to show the new line
     currentLayer()->replot();
@@ -60,6 +63,42 @@ void SignalGraph::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
+        double xCoord = xAxis->pixelToCoord(event->pos().x());
+        if (qAbs(xCoord - m_lineMarker.xPos()) < 0.1) // Threshold to detect click near the line
+        {
+            // m_dragging = true;
+            m_lineMarker.setDragging(true);
+            // m_dragStartX = xCoord;
+        }
+    }
+}
+
+void SignalGraph::onMouseMove(QMouseEvent* event)
+{
+    double xCoord = xAxis->pixelToCoord(event->pos().x());
+    if (m_lineMarker.getDragging())
+    {
+        // m_lineMarker.setXPos(xCoord);
+        drawVerticalLine(event->pos());
+    }
+    else
+    {
+        if (qAbs(xCoord - m_lineMarker.xPos()) < 0.1) // Threshold to detect hover near the line
+        {
+            setCursor(Qt::SizeHorCursor);
+        }
+        else
+        {
+            unsetCursor();
+        }
+    }
+}
+
+void SignalGraph::onMouseRelease(QMouseEvent* event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        m_lineMarker.setDragging(false);
         drawVerticalLine(event->pos());
     }
 }

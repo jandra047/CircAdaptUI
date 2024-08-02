@@ -8,6 +8,13 @@ class LineMarker : public QCPItemStraightLine
     Q_OBJECT
 public:
     LineMarker(QCustomPlot* parent);
+
+    const double& xPos() { return m_xPos; };
+    void setDragging(bool isDragging) { m_Dragging = isDragging; };
+    const bool& getDragging() { return m_Dragging; }
+private:
+    double m_xPos{0};
+    bool m_Dragging = false;
 signals:
     void xPosChanged(double x);
 public slots:
