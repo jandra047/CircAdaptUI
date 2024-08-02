@@ -15,26 +15,28 @@ SignalGraph::SignalGraph(QWidget* parent, QString xLabel, QString yLabel) :
 QString SignalGraph::getPoint(const QPoint& pos)
 {
     QString string{};
-    QCPGraphDataContainer::const_iterator it;
+    double xCoord = pos.x();
+
+    double key = xAxis->pixelToCoord(xCoord);
+
     for (auto signal : m_Signals)
     {
         if (signal->visible())
         {
-            it = signal->data()->constEnd();
-            QVariant details;
-            if (signal->selectTest(pos, false, &details)) // QPoint could be e.g. event->pos() of a mouse event
+            // Find the closest data point to the key (x-coordinate)
+            QCPGraphDataContainer::const_iterator it = signal->data()->findBegin(key, true);
+
+            if (it != signal->data()->constEnd())
             {
-                QCPDataSelection dataPoints = details.value<QCPDataSelection>();
-                if (dataPoints.dataPointCount() > 0)
-                    it = signal->data()->at(dataPoints.dataRange().begin());
+                string += QString("<span style=\"color: %1\"><b>%2:</b></span> %3 %4<br>")
+                              .arg(signal->getColor().name())
+                              .arg(signal->getDisplayName())
+                              .arg((*it).value, 0, 'f', 1)
+                              .arg(signal->getUnit());
             }
-            string += QString("<span style=\"color: %1\"><b>%2:</b></span> %3 %4<br>")
-                          .arg(signal->getColor().name())
-                          .arg(signal->getDisplayName())
-                          .arg((*it).value, 0, 'f', 1)
-                          .arg(signal->getUnit());
         }
     }
-    string = QString("<b>Time:</b> %1 s<hr>").arg((*it).key, 0, 'f', 2) + string;
+
+    string = QString("<b>Time:</b> %1 s<hr>").arg(key, 0, 'f', 2) + string;
     return string;
 }
