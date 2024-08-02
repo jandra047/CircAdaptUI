@@ -2,6 +2,7 @@
 #define GRAPHCONTAINER_H
 #include "dependencies/qcustomplot.h"
 #include "buffer.h"
+#include "CircAdaptUI/linemarker.h"
 // #include "signalslothelper.h"
 
 /*!
@@ -51,6 +52,7 @@ public:
     std::pair<QMenu*, QActionGroup*> buildMenu(QWidget* parent);
     void showSignal(QAction* action);
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
+    LineMarker* getLineMarker() { return &m_lineMarker; }
 private:
 
     /*!
@@ -67,6 +69,7 @@ protected:
      * \brief Contains signals which are plotted in this container.
      */
     QVector<ptr_type> m_Signals;
+    LineMarker m_lineMarker;
 };
 
 #endif // GRAPHCONTAINER_H

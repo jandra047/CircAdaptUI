@@ -10,6 +10,8 @@ public:
 
     QString getPoint(const QPoint& pos) override;
 
+    void drawVerticalLine(const QPoint& pos);
+    void mousePressEvent(QMouseEvent *event) override;
 };
 
 #endif // SIGNALGRAPH_H

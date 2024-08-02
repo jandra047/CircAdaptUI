@@ -62,6 +62,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     gridLayout.setColumnStretch(1, 1);
     gridLayout.setColumnStretch(2, 2);
     buildMenus();
+    connectLineMarkers();
 }
 
 GraphGrid::~GraphGrid()
@@ -240,6 +241,23 @@ void GraphGrid::handleAction(QAction* a)
         for (int j = 0; j < cols; j++)
         {
             getItem(row, j)->showSignal(a);
+        }
+    }
+}
+
+void GraphGrid::connectLineMarkers()
+{
+    for (int j = 0; j < cols; ++j)
+    {
+        for (int i = 0; i < rows; ++i) {
+            for (int k = 0; k < rows; ++k) {
+                if (i != k) {
+                    auto itemA = getItem(i, j);
+                    auto itemB = getItem(k, j);
+                    connect(itemA->getLineMarker(), &LineMarker::xPosChanged, itemB->getLineMarker(), &LineMarker::setXPos);
+                    connect(itemB->getLineMarker(), &LineMarker::xPosChanged, itemA->getLineMarker(), &LineMarker::setXPos);
+                }
+            }
         }
     }
 }

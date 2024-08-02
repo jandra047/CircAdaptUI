@@ -149,5 +149,6 @@ private:
 
     QVector<std::pair<QMenu*, QActionGroup*>> contextMenus;
     void buildMenus();
+    void connectLineMarkers();
 };
 #endif // GRAPHGRID_H

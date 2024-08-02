@@ -6,7 +6,8 @@ template<typename SignalType>
 GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent),
     contextMenu(Q_NULLPTR),
-    actionGroup(Q_NULLPTR)
+    actionGroup(Q_NULLPTR),
+    m_lineMarker(LineMarker(this))
 {
     setOpenGl(true);
     currentLayer()->setMode(QCPLayer::lmBuffered);

@@ -40,3 +40,26 @@ QString SignalGraph::getPoint(const QPoint& pos)
     string = QString("<b>Time:</b> %1 s<hr>").arg(key, 0, 'f', 2) + string;
     return string;
 }
+
+void SignalGraph::drawVerticalLine(const QPoint& pos)
+{
+    // Convert the pixel x-coordinate to the plot's x-coordinate
+    double key = xAxis->pixelToCoord(pos.x());
+
+    // Set the position of the line
+    m_lineMarker.point1->setCoords(key, 0); // Bottom point (x, y) in plot coordinates
+    m_lineMarker.point2->setCoords(key, 1); // Top point (x, y) in plot coordinates
+
+    m_lineMarker.setVisible(true);
+    emit m_lineMarker.xPosChanged(key);
+    // Update the plot to show the new line
+    currentLayer()->replot();
+}
+
+void SignalGraph::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        drawVerticalLine(event->pos());
+    }
+}
