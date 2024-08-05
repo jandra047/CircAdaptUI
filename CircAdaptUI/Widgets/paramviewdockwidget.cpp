@@ -21,3 +21,10 @@ ParamViewDockWidget::~ParamViewDockWidget()
 {
     delete ui;
 }
+
+void ParamViewDockWidget::closeEvent( QCloseEvent * event )
+{
+    emit aboutToClose();
+
+    QDockWidget::closeEvent( event );
+}

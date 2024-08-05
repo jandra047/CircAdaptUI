@@ -1,6 +1,7 @@
 #ifndef PARAMVIEWDOCKWIDGET_H
 #define PARAMVIEWDOCKWIDGET_H
 
+#include <QCloseEvent>
 #include <QDockWidget>
 
 class QtProperty;
@@ -19,9 +20,11 @@ public:
 
 private:
     Ui::ParamViewDockWidget *ui;
+    void closeEvent( QCloseEvent * event );
 public:
 signals:
     void paramChanged(const QString& path, const QVariant& value);
+    void aboutToClose();
 };
 
 #endif // PARAMVIEWDOCKWIDGET_H
