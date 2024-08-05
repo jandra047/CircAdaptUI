@@ -21,7 +21,8 @@ CircPropertyBrowser::CircPropertyBrowser(QWidget* parent):
                                      obj["max"].toDouble(),
                                      obj["stepsize"].toDouble(),
                                      obj["default"].toDouble(),
-                                     tr(obj["tooltip"].toString().toStdString().c_str()));
+                                     tr(obj["tooltip"].toString().toStdString().c_str()),
+                                     obj["enabled"].toBool());
             }
             else if (obj["type"].toString() == "bool")
             {

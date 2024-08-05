@@ -128,6 +128,22 @@ public:
     }
 };
 
+
+class MilliSecondsContainer : public DataContainer
+{
+public:
+    MilliSecondsContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) * 1e3;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) / 1e3;
+    }
+};
+
 class DataContainerFactory
 {
 public:
@@ -163,6 +179,10 @@ public:
         else if (type == "bool")
         {
             return new BoolContainer(name, path, type);
+        }
+        else if (type == "ms")
+        {
+            return new MilliSecondsContainer(name, path, type);
         }
         else
         {
