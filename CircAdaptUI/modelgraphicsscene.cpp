@@ -12,18 +12,11 @@ ModelGraphicsScene::ModelGraphicsScene(QObject* parent):
     // mSelectedType( PSceneSwitch::sTorso ),
     // mMouseDownDeteced( false ),
     // mSelectedElementPtr( nullptr )
+    // obj(new SVGObjectBase(":/CircAdapt/svgs/Full_Body.svg"))
 {
 
-    // mTorsoView = new PTorsoViewItem();
-    // mTorsoView->setVisible(true);
-    QString s( ":/CircAdapt/svgs/Full_Body.svg" );
-    QSvgRenderer* renderer = new QSvgRenderer(s, this);
-    mBackGroundItem = new QGraphicsSvgItem(s);
-    addItem(mBackGroundItem);
-    mBackGroundItem->setSharedRenderer(renderer);
-    mBackGroundItem->setActive(true);
-    mBackGroundItem->setVisible(true);
-    mBackGroundItem->show();
-    mBackGroundItem->setZValue( 1 );
+    m_torsoView = new SVGObjectBase(":/CircAdapt/svgs/Full_Body.svg");
+    m_torsoView->setVisible(true);
+    addItem(m_torsoView);
     update();
 }

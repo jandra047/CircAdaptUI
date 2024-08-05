@@ -28,3 +28,12 @@ void ParamViewDockWidget::closeEvent( QCloseEvent * event )
 
     QDockWidget::closeEvent( event );
 }
+
+void ParamViewDockWidget::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        this->close();
+    } else {
+        QDockWidget::keyPressEvent(event);  // Call base class implementation for other keys
+    }
+}

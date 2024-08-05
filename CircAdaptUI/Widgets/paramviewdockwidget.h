@@ -20,7 +20,11 @@ public:
 
 private:
     Ui::ParamViewDockWidget *ui;
-    void closeEvent( QCloseEvent * event );
+    void closeEvent( QCloseEvent * event ) override;
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 public:
 signals:
     void paramChanged(const QString& path, const QVariant& value);

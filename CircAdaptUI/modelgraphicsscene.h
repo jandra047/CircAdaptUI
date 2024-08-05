@@ -5,6 +5,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsSvgItem>
 
+#include "CircAdaptUI/SVGviews/svgobjectbase.h"
+
 class ModelGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -12,7 +14,9 @@ class ModelGraphicsScene : public QGraphicsScene
 public:
     ModelGraphicsScene(QObject* parent);
     QGraphicsSvgItem* mBackGroundItem;
-    QGraphicsObject* obj;
+    // QGraphicsObject* obj;
+    SVGObjectBase* m_torsoView;
+
 
 };
 
