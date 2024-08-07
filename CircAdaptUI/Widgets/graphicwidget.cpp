@@ -69,15 +69,12 @@ void GraphicWidget::createButtons()
 
 
 void GraphicWidget::handleButtonClick(QPushButton *button, ViewType viewType) {
-    if (currentButton && currentButton != button) {
-        currentButton->setChecked(false);  // Uncheck the previous button
-    }
-
     if (currentButton != button) {
+        currentButton->setChecked(false);  // Uncheck the previous button
         button->setChecked(true);  // Check the new button
         currentButton = button;  // Update the current button
         graphicsView->showView(viewType);
-    } else {
-        currentButton = nullptr;  // If the same button is clicked again, deselect it
     }
+    else
+        currentButton->setChecked(true);
 }
