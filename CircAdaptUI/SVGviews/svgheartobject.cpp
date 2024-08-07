@@ -3,7 +3,7 @@
 SVGHeartObject::SVGHeartObject(QGraphicsItem* parent) :
     SVGObjectBase(":/CircAdapt/svgs/Heart.svg", parent)
 {
-    createSceneSwitch("A");
-    createSceneSwitch("b");
-    createSceneSwitch("c");
+    createSceneSwitch("Valves");
+    createSceneSwitch("Shunts");
+    createSceneSwitch("Pericardium");
 }
