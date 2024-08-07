@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>400</height>
+    <width>1025</width>
+    <height>549</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -29,7 +29,7 @@
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
       </property>
-      <widget class="ModelGraphicsView" name="graphicsView"/>
+      <widget class="GraphicWidget" name="graphicsView" native="true"/>
       <widget class="QWidget" name="verticalLayoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -53,14 +53,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>ModelGraphicsView</class>
-   <extends>QGraphicsView</extends>
-   <header>CircAdaptUI/Widgets/modelgraphicsview.h</header>
-  </customwidget>
-  <customwidget>
    <class>CircPropertyBrowser</class>
    <extends>QWidget</extends>
    <header>CircAdaptUI/PropertyBrowser/circpropertybrowser.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GraphicWidget</class>
+   <extends>QWidget</extends>
+   <header>CircAdaptUI/Widgets/graphicwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

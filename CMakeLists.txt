@@ -72,6 +72,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/circpropertybrowser.h CircAdaptUI/PropertyBrowser/circpropertybrowser.cpp
     CircAdaptUI/linemarker.h CircAdaptUI/linemarker.cpp
     Resources/resources.qrc
+    CircAdaptUI/Widgets/graphicwidget.h CircAdaptUI/Widgets/graphicwidget.cpp
+    CircAdaptUI/Widgets/viewtypes.h
 )
 
 qt_add_resources(CircAdaptUI
