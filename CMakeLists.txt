@@ -78,6 +78,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/Widgets/viewtypes.h
     CircAdaptUI/SVGviews/svgheartobject.h CircAdaptUI/SVGviews/svgheartobject.cpp
     CircAdaptUI/SVGviews/svgtissueobject.h CircAdaptUI/SVGviews/svgtissueobject.cpp
+    CircAdaptUI/SVGviews/togglebuttongroup.h CircAdaptUI/SVGviews/togglebuttongroup.cpp
 )
 
 qt_add_resources(CircAdaptUI

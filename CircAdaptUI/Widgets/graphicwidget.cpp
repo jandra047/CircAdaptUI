@@ -5,8 +5,7 @@
 GraphicWidget::GraphicWidget(QWidget* parent) :
     QWidget(parent),
     graphicsView(new ModelGraphicsView(parent)),
-    topMenuContainer(new QWidget(parent)),
-    subMenuContainer(new QWidget(parent))
+    topMenuContainer(new QWidget(parent))
 {
     QVBoxLayout* mainLayout = new QVBoxLayout();
     createButtons();
@@ -19,6 +18,8 @@ GraphicWidget::GraphicWidget(QWidget* parent) :
     mainLayout->addWidget(graphicsView);
     // mainLayout->addWidget(subMenuContainer);
     subMenuLayout = new QHBoxLayout();
+    subMenuContainer = graphicsView->getSubMenu(ViewType::Torso);
+    subMenuLayout->addWidget(subMenuContainer);
     mainLayout->addLayout(subMenuLayout);
     setLayout(mainLayout);
 }
@@ -80,9 +81,10 @@ void GraphicWidget::topMenuSwitch(QPushButton *button, ViewType viewType) {
 
         if (subMenuContainer) {
             subMenuLayout->removeWidget(subMenuContainer);
+            subMenuContainer->hide();
         }
 
-        QWidget* newSubMenu = graphicsView->getSubMenu(viewType);
+        ToggleButtonGroup* newSubMenu = graphicsView->getSubMenu(viewType);
         if (newSubMenu) {
             subMenuLayout->addWidget(newSubMenu);
             newSubMenu->show();

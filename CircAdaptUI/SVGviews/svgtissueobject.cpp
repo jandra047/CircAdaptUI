@@ -3,10 +3,10 @@
 SVGTissueObject::SVGTissueObject(QGraphicsItem* parent) :
     SVGObjectBase(":/CircAdapt/svgs/Heart_segments.svg", parent)
 {
-    createSceneSwitch("Right atrium");
-    createSceneSwitch("Left atrium");
-    createSceneSwitch("Rv free wall");
-    createSceneSwitch("Septal wall");
-    createSceneSwitch("Lv free wall");
+    subMenuContainer->addButton("Right atrium");
+    subMenuContainer->addButton("Left atrium");
+    subMenuContainer->addButton("Rv free wall");
+    subMenuContainer->addButton("Septal wall");
+    subMenuContainer->addButton("Lv free wall");
 
 }

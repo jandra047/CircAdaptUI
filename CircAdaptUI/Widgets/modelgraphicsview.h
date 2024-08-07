@@ -20,7 +20,7 @@ public:
     ModelGraphicsView(QWidget *parent = nullptr);
     ~ModelGraphicsView();
     void showView(ViewType viewType);
-    QWidget* getSubMenu(ViewType viewType);
+    ToggleButtonGroup* getSubMenu(ViewType viewType);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

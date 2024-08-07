@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include "CircAdaptUI/Widgets/modelgraphicsview.h"
 #include "viewtypes.h"
+#include "CircAdaptUI/SVGviews/togglebuttongroup.h"
 
 class GraphicWidget : public QWidget
 {
@@ -21,7 +22,7 @@ public:
 private:
     ModelGraphicsView* graphicsView;
     QWidget* topMenuContainer;
-    QWidget* subMenuContainer;
+    ToggleButtonGroup* subMenuContainer;
     QHBoxLayout* subMenuLayout;
 
     void createButtons();

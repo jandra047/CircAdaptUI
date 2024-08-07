@@ -3,6 +3,8 @@
 
 #include <QGraphicsObject>
 #include <QGraphicsSvgItem>
+#include <QPushButton>
+#include "togglebuttongroup.h"
 
 class SVGObjectBase : public QGraphicsObject
 {
@@ -29,12 +31,17 @@ public:
      */
     virtual void paint( QPainter *, const QStyleOptionGraphicsItem *, QWidget * ) override;
 
-    QWidget* getSubMenuContainer() { return subMenuContainer; }
+    ToggleButtonGroup* getSubMenuContainer() { return subMenuContainer; }
 
 protected:
     QGraphicsSvgItem m_bgItem;
     void createSceneSwitch(const QString& text);
-    QWidget* subMenuContainer;
+    ToggleButtonGroup* subMenuContainer;
+
+private:
+    // QList<QPushButton* > m_subMenuItems;
+private slots:
+    void buttonClicked(QPushButton* button);
 };
 
 #endif // SVGOBJECTBASE_H

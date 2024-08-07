@@ -3,12 +3,11 @@
 
 #include <QWidget>
 #include <QHBoxLayout>
-#include <QPushButton>
 
 SVGObjectBase::SVGObjectBase(const QString& bgImg, QGraphicsItem* parent) :
     QGraphicsObject(parent),
     m_bgItem(QGraphicsSvgItem(bgImg, this)),
-    subMenuContainer(new QWidget())
+    subMenuContainer(new ToggleButtonGroup())
 {
     QSvgRenderer* renderer = new QSvgRenderer(bgImg, this);
     m_bgItem.setSharedRenderer(renderer);
@@ -44,4 +43,20 @@ void SVGObjectBase::createSceneSwitch(const QString& text)
                                "QPushButton:checked { background-color: #FFFFFF; }");
     button->setFixedHeight(30);
     subMenuContainer->layout()->addWidget(button);
+    connect(button, &QPushButton::clicked, [=] () { buttonClicked(button); });
+}
+
+void SVGObjectBase::buttonClicked(QPushButton* button)
+{
+    // if (currentButton != button) {
+    //     currentButton->setChecked(false);
+    //     button->setChecked(true);
+    //     currentButton = button;
+
+    //     update();
+    // }
+    // else {
+    //     currentButton->setChecked(true);
+    // }
+
 }

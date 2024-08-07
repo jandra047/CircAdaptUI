@@ -61,7 +61,7 @@ void ModelGraphicsView::resizeEvent(QResizeEvent *event)
     fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
-QWidget* ModelGraphicsView::getSubMenu(ViewType viewType)
+ToggleButtonGroup* ModelGraphicsView::getSubMenu(ViewType viewType)
 {
     switch (viewType) {
     case ViewType::Torso:
