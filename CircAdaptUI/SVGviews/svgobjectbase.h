@@ -18,7 +18,7 @@ public:
      * a vaid dummy rectangle
      * @return A dummy rectangle
      */
-    virtual QRectF boundingRect( void ) const;
+    virtual QRectF boundingRect( void ) const override;
 
 
     /**
@@ -27,10 +27,14 @@ public:
      * graph elements, so this function does not paint anything and is only present because
      * it is required.
      */
-    virtual void paint( QPainter *, const QStyleOptionGraphicsItem *, QWidget * );
+    virtual void paint( QPainter *, const QStyleOptionGraphicsItem *, QWidget * ) override;
+
+    QWidget* getSubMenuContainer() { return subMenuContainer; }
 
 protected:
     QGraphicsSvgItem m_bgItem;
+    void createSceneSwitch(const QString& text);
+    QWidget* subMenuContainer;
 };
 
 #endif // SVGOBJECTBASE_H

@@ -24,7 +24,7 @@ private:
     QWidget* subMenuContainer;
 
     void createButtons();
-    void handleButtonClick(QPushButton *button, ViewType viewType);
+    void topMenuSwitch(QPushButton *button, ViewType viewType);
 };
 
 #endif // GRAPHICWIDGET_H

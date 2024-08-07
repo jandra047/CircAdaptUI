@@ -72,8 +72,12 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/circpropertybrowser.h CircAdaptUI/PropertyBrowser/circpropertybrowser.cpp
     CircAdaptUI/linemarker.h CircAdaptUI/linemarker.cpp
     Resources/resources.qrc
+    CircAdaptUI/SVGviews/svgobjectbase.h CircAdaptUI/SVGviews/svgobjectbase.cpp
+    CircAdaptUI/SVGviews/svgtorsoobject.h CircAdaptUI/SVGviews/svgtorsoobject.cpp
     CircAdaptUI/Widgets/graphicwidget.h CircAdaptUI/Widgets/graphicwidget.cpp
     CircAdaptUI/Widgets/viewtypes.h
+    CircAdaptUI/SVGviews/svgheartobject.h CircAdaptUI/SVGviews/svgheartobject.cpp
+    CircAdaptUI/SVGviews/svgtissueobject.h CircAdaptUI/SVGviews/svgtissueobject.cpp
 )
 
 qt_add_resources(CircAdaptUI

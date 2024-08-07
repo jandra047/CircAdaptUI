@@ -62,18 +62,19 @@ void GraphicWidget::createButtons()
     buttonLayout->setSpacing(0);
 
     // Connect signals and slots
-    connect(torsoButton, &QPushButton::clicked, [this] () { handleButtonClick(torsoButton, ViewType::Torso); });
-    connect(heartButton, &QPushButton::clicked, [this] () { handleButtonClick(heartButton, ViewType::Heart); });
-    connect(tissueButton, &QPushButton::clicked, [this] () { handleButtonClick(tissueButton, ViewType::Tissue); });
+    connect(torsoButton, &QPushButton::clicked, [this] () { topMenuSwitch(torsoButton, ViewType::Torso); });
+    connect(heartButton, &QPushButton::clicked, [this] () { topMenuSwitch(heartButton, ViewType::Heart); });
+    connect(tissueButton, &QPushButton::clicked, [this] () { topMenuSwitch(tissueButton, ViewType::Tissue); });
 }
 
 
-void GraphicWidget::handleButtonClick(QPushButton *button, ViewType viewType) {
+void GraphicWidget::topMenuSwitch(QPushButton *button, ViewType viewType) {
     if (currentButton != button) {
         currentButton->setChecked(false);  // Uncheck the previous button
         button->setChecked(true);  // Check the new button
         currentButton = button;  // Update the current button
         graphicsView->showView(viewType);
+        subMenuContainer = graphicsView->getSubMenu(viewType);
     }
     else
         currentButton->setChecked(true);

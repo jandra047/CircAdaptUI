@@ -5,9 +5,9 @@
 ModelGraphicsView::ModelGraphicsView(QWidget *parent) :
     QGraphicsView(parent),
     scene(new QGraphicsScene(this)),
-    torsoSvg(new QGraphicsSvgItem(":/CircAdapt/svgs/Full_Body.svg")),
-    heartSvg(new QGraphicsSvgItem(":/CircAdapt/svgs/Heart.svg")),
-    tissueSvg(new QGraphicsSvgItem(":/CircAdapt/svgs/Heart_segments.svg"))
+    torsoSvg(new SVGTorsoObject()),
+    heartSvg(new SVGHeartObject()),
+    tissueSvg(new SVGTissueObject())
 {
     setScene(scene);
 
@@ -46,7 +46,7 @@ void ModelGraphicsView::showView(ViewType viewType)
     }
 }
 
-void ModelGraphicsView::updateView(QGraphicsItem *item)
+void ModelGraphicsView::updateView(SVGObjectBase *item)
 {
     torsoSvg->setVisible(item == torsoSvg);
     heartSvg->setVisible(item == heartSvg);
@@ -59,4 +59,17 @@ void ModelGraphicsView::resizeEvent(QResizeEvent *event)
 {
     QGraphicsView::resizeEvent(event);
     fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
+}
+
+QWidget* ModelGraphicsView::getSubMenu(ViewType viewType)
+{
+    switch (viewType) {
+    case ViewType::Torso:
+        return torsoSvg->getSubMenuContainer();
+    case ViewType::Heart:
+        return heartSvg->getSubMenuContainer();
+    case ViewType::Tissue:
+        return tissueSvg->getSubMenuContainer();
+    }
+
 }
