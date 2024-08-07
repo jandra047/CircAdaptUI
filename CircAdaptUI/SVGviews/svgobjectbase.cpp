@@ -19,10 +19,6 @@ SVGObjectBase::SVGObjectBase(const QString& bgImg, QGraphicsItem* parent) :
     m_bgItem.setVisible( true );
     m_bgItem.show();
     m_bgItem.setZValue( 1 );
-
-    subMenuContainer->setLayout(new QHBoxLayout(subMenuContainer));
-    subMenuContainer->layout()->setContentsMargins(0,0, 0, 0);
-    subMenuContainer->layout()->setSpacing(0);
 }
 
 QRectF SVGObjectBase::boundingRect() const

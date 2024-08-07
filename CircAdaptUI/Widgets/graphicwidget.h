@@ -21,7 +21,7 @@ public:
 
 private:
     ModelGraphicsView* graphicsView;
-    QWidget* topMenuContainer;
+    ToggleButtonGroup* topMenuContainer;
     ToggleButtonGroup* subMenuContainer;
     QHBoxLayout* subMenuLayout;
 

@@ -11,10 +11,10 @@ class ToggleButtonGroup : public QWidget {
 
 public:
     explicit ToggleButtonGroup(QWidget *parent = nullptr);
-    void addButton(const QString &text);
+    QPushButton* addButton(const QString &text);
 
-private:
     QButtonGroup *buttonGroup;
+private:
     QHBoxLayout *mainLayout;
 };
 

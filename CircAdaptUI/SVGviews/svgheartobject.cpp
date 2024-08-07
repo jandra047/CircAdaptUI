@@ -6,4 +6,6 @@ SVGHeartObject::SVGHeartObject(QGraphicsItem* parent) :
     subMenuContainer->addButton("Valves");
     subMenuContainer->addButton("Shunts");
     subMenuContainer->addButton("Pericardium");
+
+    subMenuContainer->buttonGroup->buttons()[0]->setChecked(true);
 }

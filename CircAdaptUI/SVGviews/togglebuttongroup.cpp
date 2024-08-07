@@ -2,12 +2,15 @@
 
 ToggleButtonGroup::ToggleButtonGroup(QWidget *parent)
     : QWidget(parent), buttonGroup(new QButtonGroup(this)),
-    mainLayout(new QHBoxLayout(this)) {
+    mainLayout(new QHBoxLayout(this))
+{
+    mainLayout->setContentsMargins(0,0,0,0);
+    mainLayout->setSpacing(0);
     buttonGroup->setExclusive(true);
     setLayout(mainLayout);
 }
 
-void ToggleButtonGroup::addButton(const QString &text) {
+QPushButton* ToggleButtonGroup::addButton(const QString &text) {
     QPushButton *button = new QPushButton(text, this);
     button->setFixedHeight(30);
     button->setCheckable(true);
@@ -15,4 +18,5 @@ void ToggleButtonGroup::addButton(const QString &text) {
                                "QPushButton:checked { background-color: #FFFFFF; }");
     buttonGroup->addButton(button);
     mainLayout->addWidget(button);
+    return button;
 }

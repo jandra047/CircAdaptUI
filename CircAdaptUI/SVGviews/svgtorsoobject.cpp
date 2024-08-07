@@ -6,4 +6,6 @@ SVGTorsoObject::SVGTorsoObject(QGraphicsItem* parent):
 {
     subMenuContainer->addButton("Systemic circulation");
     subMenuContainer->addButton("Pulmonary circulation");
+
+    subMenuContainer->buttonGroup->buttons()[0]->setChecked(true);
 }
