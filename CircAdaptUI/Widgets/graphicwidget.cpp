@@ -17,7 +17,9 @@ GraphicWidget::GraphicWidget(QWidget* parent) :
     mainLayout->setSpacing(0);
     mainLayout->addWidget(topMenuContainer);
     mainLayout->addWidget(graphicsView);
-    mainLayout->addWidget(subMenuContainer);
+    // mainLayout->addWidget(subMenuContainer);
+    subMenuLayout = new QHBoxLayout();
+    mainLayout->addLayout(subMenuLayout);
     setLayout(mainLayout);
 }
 
@@ -69,13 +71,28 @@ void GraphicWidget::createButtons()
 
 
 void GraphicWidget::topMenuSwitch(QPushButton *button, ViewType viewType) {
+
     if (currentButton != button) {
-        currentButton->setChecked(false);  // Uncheck the previous button
-        button->setChecked(true);  // Check the new button
-        currentButton = button;  // Update the current button
+        currentButton->setChecked(false);
+        button->setChecked(true);
+        currentButton = button;
         graphicsView->showView(viewType);
-        subMenuContainer = graphicsView->getSubMenu(viewType);
+
+        if (subMenuContainer) {
+            subMenuLayout->removeWidget(subMenuContainer);
+        }
+
+        QWidget* newSubMenu = graphicsView->getSubMenu(viewType);
+        if (newSubMenu) {
+            subMenuLayout->addWidget(newSubMenu);
+            newSubMenu->show();
+        }
+
+        subMenuContainer = newSubMenu;
+
+        update();
     }
-    else
+    else {
         currentButton->setChecked(true);
+    }
 }

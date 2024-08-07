@@ -22,6 +22,7 @@ private:
     ModelGraphicsView* graphicsView;
     QWidget* topMenuContainer;
     QWidget* subMenuContainer;
+    QHBoxLayout* subMenuLayout;
 
     void createButtons();
     void topMenuSwitch(QPushButton *button, ViewType viewType);
