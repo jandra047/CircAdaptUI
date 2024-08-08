@@ -9,6 +9,6 @@ SVGTissueObject::SVGTissueObject(QGraphicsItem* parent) :
     subMenuContainer->addButton("Septal wall");
     subMenuContainer->addButton("Lv free wall");
 
-    subMenuContainer->buttonGroup->buttons()[0]->setChecked(true);
+    subMenuContainer->buttonGroup->buttons().at(0)->setChecked(true);
 
 }

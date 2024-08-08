@@ -1,6 +1,6 @@
-#include "valve.h"
+#include "valveelement.h"
 
-Valve::Valve(QPointF center, QGraphicsObject* parent):
+ValveElement::ValveElement(QPointF center, QGraphicsObject* parent):
     GraphicElement(parent),
     mCenter(center)
 {

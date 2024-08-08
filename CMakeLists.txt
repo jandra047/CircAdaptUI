@@ -81,7 +81,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/svgtissueobject.h CircAdaptUI/SVGviews/svgtissueobject.cpp
     CircAdaptUI/SVGviews/togglebuttongroup.h CircAdaptUI/SVGviews/togglebuttongroup.cpp
     CircAdaptUI/SVGviews/DrawingElements/graphicelement.h CircAdaptUI/SVGviews/DrawingElements/graphicelement.cpp
-    CircAdaptUI/SVGviews/DrawingElements/valve.h CircAdaptUI/SVGviews/DrawingElements/valve.cpp
+    CircAdaptUI/SVGviews/DrawingElements/valveelement.h CircAdaptUI/SVGviews/DrawingElements/valveelement.cpp
+    CircAdaptUI/SVGviews/DrawingElements/shuntelement.h CircAdaptUI/SVGviews/DrawingElements/shuntelement.cpp
 
 )
 
