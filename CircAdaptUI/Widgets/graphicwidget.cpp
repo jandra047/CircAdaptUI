@@ -37,7 +37,7 @@ GraphicWidget::~GraphicWidget()
 
 void GraphicWidget::createButtons()
 {
-    torsoButton = topMenuContainer->addButton("Torso");
+    torsoButton = topMenuContainer->addButton("System");
     heartButton = topMenuContainer->addButton("Heart");
     tissueButton = topMenuContainer->addButton("Tissue");
 

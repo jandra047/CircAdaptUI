@@ -35,13 +35,10 @@ public:
 
 protected:
     QGraphicsSvgItem m_bgItem;
-    void createSceneSwitch(const QString& text);
     ToggleButtonGroup* subMenuContainer;
 
-private:
-    // QList<QPushButton* > m_subMenuItems;
-private slots:
-    void buttonClicked(QPushButton* button);
+public slots:
+    virtual void handleSubMenuSwitch(QAbstractButton* button) {};
 };
 
 #endif // SVGOBJECTBASE_H

@@ -30,29 +30,3 @@ void SVGObjectBase::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 {
     m_bgItem.paint(painter, option, widget);
 }
-
-void SVGObjectBase::createSceneSwitch(const QString& text)
-{
-    QPushButton* button = new QPushButton(text, subMenuContainer);
-    button->setCheckable(true);
-    button->setStyleSheet("QPushButton { background-color: #a0a0a4; border: 1px solid #000000; }"
-                               "QPushButton:checked { background-color: #FFFFFF; }");
-    button->setFixedHeight(30);
-    subMenuContainer->layout()->addWidget(button);
-    connect(button, &QPushButton::clicked, [=] () { buttonClicked(button); });
-}
-
-void SVGObjectBase::buttonClicked(QPushButton* button)
-{
-    // if (currentButton != button) {
-    //     currentButton->setChecked(false);
-    //     button->setChecked(true);
-    //     currentButton = button;
-
-    //     update();
-    // }
-    // else {
-    //     currentButton->setChecked(true);
-    // }
-
-}
