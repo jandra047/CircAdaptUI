@@ -1,5 +1,4 @@
 #include "modelgraphicsview.h"
-#include <QGraphicsProxyWidget>
 
 
 ModelGraphicsView::ModelGraphicsView(QWidget *parent) :
@@ -20,6 +19,7 @@ ModelGraphicsView::ModelGraphicsView(QWidget *parent) :
     heartSvg->setVisible(false);
     tissueSvg->setVisible(false);
 
+    setRenderHint(QPainter::Antialiasing, true);
     scene->setSceneRect(scene->itemsBoundingRect());
 }
 

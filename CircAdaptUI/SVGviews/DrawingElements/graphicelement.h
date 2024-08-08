@@ -12,10 +12,15 @@ class GraphicElement : public QObject, public QGraphicsPathItem
 
 public:
     GraphicElement(QGraphicsObject* parent);
+    void setSelected(bool isSelected);
 
 protected:
-    QPen m_Pen;
+    QPen m_penDefault;
+    QPen m_penSelected;
     QBrush m_Brush;
+    bool m_isSelected;
+
+    void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 };
 
 #endif // GRAPHICELEMENT_H
