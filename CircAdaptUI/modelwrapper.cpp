@@ -185,6 +185,7 @@ void ModelWrapper::run_single_step() {
     if (it >= nt)
     {
         solver->after_beat();
+        Settings::instance().beatIdxIncrement();
         it = -1;
         beatDone = true;
     }
