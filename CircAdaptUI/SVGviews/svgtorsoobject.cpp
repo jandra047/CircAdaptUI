@@ -3,7 +3,7 @@
 #include <QPen>
 
 SVGTorsoObject::SVGTorsoObject(QGraphicsItem* parent):
-    SVGObjectBase(":/CircAdapt/svgs/Full_Body.svg", parent)
+    SVGObjectBase(":/CircAdapt/svgs/Full_Body.svg", "", parent)
 {
     subMenuContainer->addButton("Systemic circulation");
     subMenuContainer->addButton("Pulmonary circulation");
@@ -17,7 +17,6 @@ SVGTorsoObject::SVGTorsoObject(QGraphicsItem* parent):
 
 void SVGTorsoObject::handleSubMenuSwitch(QAbstractButton* button)
 {
-    qDebug() << button->text();
     if (button->text() == "Systemic circulation")
     {
         showSystemic();

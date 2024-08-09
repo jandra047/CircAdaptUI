@@ -11,7 +11,7 @@ class SVGObjectBase : public QGraphicsObject
     Q_OBJECT
 
 public:
-    SVGObjectBase(const QString& bgImg, QGraphicsItem* parent = Q_NULLPTR);
+    SVGObjectBase(const QString& bgImg, const QString& elementId = "", QGraphicsItem* parent = Q_NULLPTR);
     ~SVGObjectBase() {};
     /**
      * @brief Returns the required bounding rectangle for this graph item

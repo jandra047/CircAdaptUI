@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
-SVGObjectBase::SVGObjectBase(const QString& bgImg, QGraphicsItem* parent) :
+SVGObjectBase::SVGObjectBase(const QString& bgImg, const QString& elementId, QGraphicsItem* parent) :
     QGraphicsObject(parent),
     m_bgItem(QGraphicsSvgItem(bgImg, this)),
     subMenuContainer(new ToggleButtonGroup())
@@ -19,6 +19,11 @@ SVGObjectBase::SVGObjectBase(const QString& bgImg, QGraphicsItem* parent) :
     m_bgItem.setVisible( true );
     m_bgItem.show();
     m_bgItem.setZValue( 1 );
+
+    if (!elementId.isEmpty())
+    {
+        m_bgItem.setElementId(elementId);
+    }
 }
 
 QRectF SVGObjectBase::boundingRect() const
