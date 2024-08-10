@@ -32,8 +32,6 @@ void GraphicElement::setSelected(bool isSelected)
 
 void GraphicElement::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
-    setSelected(true);
-
     QGraphicsPathItem::mousePressEvent(event);
 }
 
