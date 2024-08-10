@@ -8,7 +8,7 @@
 
 class SVGObjectBase : public QGraphicsObject
 {
-    Q_OBJECT
+
 
 public:
     SVGObjectBase(const QString& bgImg, const QString& elementId = "", QGraphicsItem* parent = Q_NULLPTR);

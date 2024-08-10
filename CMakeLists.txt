@@ -83,6 +83,12 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/DrawingElements/graphicelement.h CircAdaptUI/SVGviews/DrawingElements/graphicelement.cpp
     CircAdaptUI/SVGviews/DrawingElements/valveelement.h CircAdaptUI/SVGviews/DrawingElements/valveelement.cpp
     CircAdaptUI/SVGviews/DrawingElements/shuntelement.h CircAdaptUI/SVGviews/DrawingElements/shuntelement.cpp
+    CircAdaptUI/SVGviews/DrawingElements/rightatrium.h CircAdaptUI/SVGviews/DrawingElements/rightatrium.cpp
+    CircAdaptUI/SVGviews/DrawingElements/leftatrium.h CircAdaptUI/SVGviews/DrawingElements/leftatrium.cpp
+    CircAdaptUI/SVGviews/DrawingElements/rightventricle.h CircAdaptUI/SVGviews/DrawingElements/rightventricle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/septum.h CircAdaptUI/SVGviews/DrawingElements/septum.cpp
+    CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
+
 
 )
 

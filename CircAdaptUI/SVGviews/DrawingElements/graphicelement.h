@@ -6,13 +6,13 @@
 #include <QPen>
 #include <QObject>
 
-class GraphicElement : public QObject, public QGraphicsPathItem
+class GraphicElement : public QGraphicsPathItem
 {
-    Q_OBJECT
 
 public:
     GraphicElement(QGraphicsObject* parent);
     void setSelected(bool isSelected);
+
 
 protected:
     QPen m_penDefault;
@@ -21,6 +21,8 @@ protected:
     bool m_isSelected;
 
     void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+
+    static bool parsePathDataFast( QStringView dataStr, QPainterPath & path );
 };
 
 #endif // GRAPHICELEMENT_H

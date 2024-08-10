@@ -11,12 +11,15 @@
 #include "CircAdaptUI/SVGviews/svgtorsoobject.h"
 #include "CircAdaptUI/SVGviews/svgheartobject.h"
 #include "CircAdaptUI/SVGviews/svgtissueobject.h"
+// #include "graphicwidget.h"
 
 class ModelGraphicsView : public QGraphicsView
 {
     Q_OBJECT
 
 public:
+    using ViewType = vt::ViewType;
+
     ModelGraphicsView(QWidget *parent = nullptr);
     ~ModelGraphicsView();
     void showView(ViewType viewType);

@@ -4,13 +4,15 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QHBoxLayout>
-#include "CircAdaptUI/Widgets/modelgraphicsview.h"
 #include "viewtypes.h"
 #include "CircAdaptUI/SVGviews/togglebuttongroup.h"
+#include "CircAdaptUI/Widgets/modelgraphicsview.h"
 
 class GraphicWidget : public QWidget
 {
 public:
+    using ViewType = vt::ViewType;
+
     GraphicWidget(QWidget* parent);
     ~GraphicWidget();
 
