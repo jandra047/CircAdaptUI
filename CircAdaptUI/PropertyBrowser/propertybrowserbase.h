@@ -34,6 +34,7 @@ public:
                                  const QString & pName,
                                  bool SetVal,
                                  const QString & toolTipVal );
+    QtProperty* findProperty(const QString& name);
 signals:
     void changeModelParam(const QString& path, const QVariant& value);
 private slots:

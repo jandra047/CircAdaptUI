@@ -38,9 +38,16 @@ void SystemPropertyBrowser::setPropertiesFromConfig()
             }
         }
     }
+
+    QObject::connect(mDynPropertyManager, &QtVariantPropertyManager::valueChanged, this, &SystemPropertyBrowser::propertyValueChanged);
 }
 
 void SystemPropertyBrowser::propertyValueChanged( QtProperty * property, QVariant val )
 {
     // Update model parameter with new value
+    if (property->propertyName() == "Homeostatic pressure-flow control")
+    {
+        findProperty("Venous return")->setEnabled(val.toBool());
+        findProperty("Mean arterial pressure")->setEnabled(val.toBool());
+    }
 }
