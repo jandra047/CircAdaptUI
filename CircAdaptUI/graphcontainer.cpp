@@ -27,7 +27,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     xAxis->setRange(0,3);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
-    plotLayout()->setMargins(QMargins(0, 5, 0, 0));
+    plotLayout()->setMargins(QMargins(0, 5, 5, 0));
     plotLayout()->setOuterRect(QRect(0,0,0,0));
     plotLayout()->setColumnSpacing(0);
     plotLayout()->setRowSpacing(0);
@@ -35,7 +35,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setMinimumSize(0,0);
     axisRect()->setMinimumMargins(QMargins(0,0,0,0));
-    axisRect()->setMargins(QMargins(0,0,5,0));
+    axisRect()->setMargins(QMargins(0,0,0,0));
 
     connect(this, &QCustomPlot::customContextMenuRequested, this, [=](const QPoint& p) {
         contextMenu->exec(mapToGlobal(p));

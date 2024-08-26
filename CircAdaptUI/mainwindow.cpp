@@ -33,6 +33,8 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     ui->ssGraph->addSignal(sig5);
     ui->ssGraph->setTitle("Stress-strain loops", QFont("Mononoki", 12, QFont::Bold));
 
+    ui->valueView->layout()->setContentsMargins(QMargins(0,0,0,5));
+
     QObject::connect(ui->actionPlay, &QAction::toggled, this, [this](bool isPlay) { emit togglePlay(isPlay); });
     QObject::connect(ui->actionParameter_Settings, &QAction::toggled, mParamViewDockWidget, &QWidget::setVisible);
     QObject::connect(ui->actionStress_strain, &QAction::toggled, this, [this](bool isVisible) { ui->ssGraph->setVisible(isVisible); });
