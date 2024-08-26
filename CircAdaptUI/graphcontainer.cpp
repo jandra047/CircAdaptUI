@@ -19,15 +19,14 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     labelFont.setBold(true);
     labelFont.setPointSize(12);
 
-
     setPlottingHint(QCP::phCacheLabels, false);
     currentLayer()->setMode(QCPLayer::lmBuffered);
     setInteraction(QCP::iRangeDrag);
-    xAxis->ticker()->setTickCount(5);
+    xAxis->ticker()->setTickCount(4);
     xAxis->setTickLabelFont(tickLabelFont);
     xAxis->setLabelFont(labelFont);
     xAxis->grid()->setPen(QPen(QColor(0xcccccc), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-    yAxis->ticker()->setTickCount(5);
+    yAxis->ticker()->setTickCount(3);
     yAxis->setTickLabelFont(tickLabelFont);
     yAxis->setLabelFont(labelFont);
     yAxis->grid()->setPen(QPen(QColor(0xcccccc), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
