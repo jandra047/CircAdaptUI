@@ -24,12 +24,14 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     LoopSignal* sig2 = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "Right ventricle", "pRv", "VRv", QColor(31, 120, 180));
     ui->pvGraph->addSignal(sig);
     ui->pvGraph->addSignal(sig2);
+    ui->pvGraph->setTitle("Pressure-volume loops", QFont("Mononoki", 12, QFont::Bold));
     LoopSignal* sig3 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "LV", "Sf_Lv", "Ef_Lv", QColor(227, 26, 28));
     LoopSignal* sig4 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "Septum", "Sf_Sv", "Ef_Sv", QColor(0,0,0));
     LoopSignal* sig5 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "RV", "Sf_Rv", "Ef_Rv", QColor(31, 120, 180));
     ui->ssGraph->addSignal(sig3);
     ui->ssGraph->addSignal(sig4);
     ui->ssGraph->addSignal(sig5);
+    ui->ssGraph->setTitle("Stress-strain loops", QFont("Mononoki", 12, QFont::Bold));
 
     QObject::connect(ui->actionPlay, &QAction::toggled, this, [this](bool isPlay) { emit togglePlay(isPlay); });
     QObject::connect(ui->actionParameter_Settings, &QAction::toggled, mParamViewDockWidget, &QWidget::setVisible);
@@ -41,7 +43,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(ui->actionStrain, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(4, isVisible); });
     QObject::connect(ui->actionAutoscale, &QAction::triggered, this, &MainWindow::autoscaleAll);
     QObject::connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(takeSnapshot()));
-    QObject::connect(&buffer, &Buffer::updateValueView, ui->widget, &ValueView::updateValues);
+    QObject::connect(&buffer, &Buffer::updateValueView, ui->valueView, &ValueView::updateValues);
     QObject::connect(mParamViewDockWidget, &ParamViewDockWidget::aboutToClose, this, [this]() { ui->actionParameter_Settings->setChecked(false); } );
 }
 

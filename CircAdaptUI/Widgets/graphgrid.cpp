@@ -31,23 +31,17 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 );
                 plot->addSignal(sig);
             }
+
             if (j > 0)
             {
                 plot->yAxis->setTicks(false);
                 plot->yAxis->setTickLabels(false);
                 plot->yAxis->setLabel("");
             }
-            // if (i < (rows - 1))
-            // {
-            //     plot->xAxis->setTicks(false);
-            //     plot->xAxis->setTickLabels(false);
-            //     plot->xAxis->setLabel("");
-            // }
+
             if (i == 0)
             {
-                plot->plotLayout()->insertRow(0);
-                QCPTextElement *title = new QCPTextElement(plot, colTypes[j], QFont("Mononoki", 12, QFont::Bold));
-                plot->plotLayout()->addElement(0,0, title);
+                plot->setTitle(colTypes[j], QFont("Mononoki", 12, QFont::Bold));
             }
             gridLayout.addWidget(plot, i, j);
         }
@@ -64,6 +58,10 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     buildMenus();
     connectLineMarkers();
     updateLastRowTicksAndLabels();
+    for (int i = 0; i < rows; i++)
+    {
+        getItem(i, ColType::CURRENT)->axisRect()->setMinimumMargins(QMargins(0,0,5,0));
+    }
 }
 
 GraphGrid::~GraphGrid()

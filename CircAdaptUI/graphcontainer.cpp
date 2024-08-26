@@ -7,9 +7,12 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent),
     contextMenu(Q_NULLPTR),
     actionGroup(Q_NULLPTR),
-    m_lineMarker(LineMarker(this))
+    m_lineMarker(LineMarker(this)),
+    title(Q_NULLPTR)
 {
     setOpenGl(true);
+
+    setPlottingHint(QCP::phCacheLabels, false);
     currentLayer()->setMode(QCPLayer::lmBuffered);
     setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(5);
@@ -23,6 +26,16 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     yAxis->setRange(0,200);
     xAxis->setRange(0,3);
     setContextMenuPolicy(Qt::CustomContextMenu);
+
+    plotLayout()->setMargins(QMargins(0, 5, 0, 0));
+    plotLayout()->setOuterRect(QRect(0,0,0,0));
+    plotLayout()->setColumnSpacing(0);
+    plotLayout()->setRowSpacing(0);
+    setContentsMargins(QMargins(0,0,0,0));
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setMinimumSize(0,0);
+    axisRect()->setMinimumMargins(QMargins(0,0,0,0));
+    axisRect()->setMargins(QMargins(0,0,5,0));
 
     connect(this, &QCustomPlot::customContextMenuRequested, this, [=](const QPoint& p) {
         contextMenu->exec(mapToGlobal(p));
@@ -189,5 +202,19 @@ void GraphContainer<SignalType>::setContextMenu(const std::pair<QMenu*, QActionG
     actionGroup = menu.second;
 }
 
+template<typename SignalType>
+void GraphContainer<SignalType>::setTitle(QString titleString, QFont font)
+{
+    if (!title)
+    {
+        plotLayout()->insertRow(0);
+        title = new QCPTextElement(this, titleString, font);
+        plotLayout()->addElement(0, 0, title);
+    }
+    else
+    {
+        title->setText(titleString);
+    }
+}
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;

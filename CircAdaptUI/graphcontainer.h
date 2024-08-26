@@ -53,6 +53,7 @@ public:
     void showSignal(QAction* action);
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
     LineMarker* getLineMarker() { return &m_lineMarker; }
+    void setTitle(QString title, QFont font);
 private:
 
     /*!
@@ -70,6 +71,7 @@ protected:
      */
     QVector<ptr_type> m_Signals;
     LineMarker m_lineMarker;
+    QCPTextElement* title;
 };
 
 #endif // GRAPHCONTAINER_H
