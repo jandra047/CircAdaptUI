@@ -25,6 +25,9 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     ui->pvGraph->addSignal(sig);
     ui->pvGraph->addSignal(sig2);
     ui->pvGraph->setTitle("Pressure-volume loops", QFont("Liberation Sans", 12, QFont::Bold));
+    auto pvMenu = ui->pvGraph->buildMenu(ui->pvGraph);
+    ui->pvGraph->setContextMenu(pvMenu);
+    QObject::connect(pvMenu.second, &QActionGroup::triggered, this, [=](QAction* action) { ui->pvGraph->showSignal(action); });
     LoopSignal* sig3 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "LV", "Sf_Lv", "Ef_Lv", QColor(227, 26, 28));
     LoopSignal* sig4 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "Septum", "Sf_Sv", "Ef_Sv", QColor(0,0,0));
     LoopSignal* sig5 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "RV", "Sf_Rv", "Ef_Rv", QColor(31, 120, 180));
@@ -32,6 +35,9 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     ui->ssGraph->addSignal(sig4);
     ui->ssGraph->addSignal(sig5);
     ui->ssGraph->setTitle("Stress-strain loops", QFont("Liberation Sans", 12, QFont::Bold));
+    auto ssMenu = ui->ssGraph->buildMenu(ui->ssGraph);
+    ui->ssGraph->setContextMenu(ssMenu);
+    QObject::connect(ssMenu.second, &QActionGroup::triggered, this, [=](QAction* action) { ui->ssGraph->showSignal(action); });
 
     ui->valueView->layout()->setContentsMargins(QMargins(0,0,0,5));
 
