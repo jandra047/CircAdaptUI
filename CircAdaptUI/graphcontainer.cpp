@@ -14,10 +14,10 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(5);
     xAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));
-    xAxis->grid()->setPen(QPen(QColor(0xd0d0d0), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    xAxis->grid()->setPen(QPen(QColor(0xcccccc), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     yAxis->ticker()->setTickCount(5);
     yAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));
-    yAxis->grid()->setPen(QPen(QColor(0xaaaaaa), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    yAxis->grid()->setPen(QPen(QColor(0xcccccc), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     axisRect()->setBackground(QColor(0xededed));
     setBackground(QColor(0xaaaaaa));
     yAxis->setRange(0,200);
