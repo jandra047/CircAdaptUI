@@ -24,14 +24,14 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     LoopSignal* sig2 = new LoopSignal(ui->pvGraph->xAxis, ui->pvGraph->yAxis, "Right ventricle", "pRv", "VRv", QColor(31, 120, 180));
     ui->pvGraph->addSignal(sig);
     ui->pvGraph->addSignal(sig2);
-    ui->pvGraph->setTitle("Pressure-volume loops", QFont("Mononoki", 12, QFont::Bold));
+    ui->pvGraph->setTitle("Pressure-volume loops", QFont("Liberation Sans", 12, QFont::Bold));
     LoopSignal* sig3 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "LV", "Sf_Lv", "Ef_Lv", QColor(227, 26, 28));
     LoopSignal* sig4 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "Septum", "Sf_Sv", "Ef_Sv", QColor(0,0,0));
     LoopSignal* sig5 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "RV", "Sf_Rv", "Ef_Rv", QColor(31, 120, 180));
     ui->ssGraph->addSignal(sig3);
     ui->ssGraph->addSignal(sig4);
     ui->ssGraph->addSignal(sig5);
-    ui->ssGraph->setTitle("Stress-strain loops", QFont("Mononoki", 12, QFont::Bold));
+    ui->ssGraph->setTitle("Stress-strain loops", QFont("Liberation Sans", 12, QFont::Bold));
 
     ui->valueView->layout()->setContentsMargins(QMargins(0,0,0,5));
 

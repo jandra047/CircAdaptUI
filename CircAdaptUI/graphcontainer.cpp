@@ -12,14 +12,24 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 {
     setOpenGl(true);
 
+    QFont tickLabelFont = xAxis->labelFont();
+    tickLabelFont.setPointSize(11);
+
+    QFont labelFont = xAxis->labelFont();
+    labelFont.setBold(true);
+    labelFont.setPointSize(12);
+
+
     setPlottingHint(QCP::phCacheLabels, false);
     currentLayer()->setMode(QCPLayer::lmBuffered);
     setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(5);
-    xAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));
+    xAxis->setTickLabelFont(tickLabelFont);
+    xAxis->setLabelFont(labelFont);
     xAxis->grid()->setPen(QPen(QColor(0xcccccc), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     yAxis->ticker()->setTickCount(5);
-    yAxis->setTickLabelFont(QFont("Times", 12, QFont::Bold));
+    yAxis->setTickLabelFont(tickLabelFont);
+    yAxis->setLabelFont(labelFont);
     yAxis->grid()->setPen(QPen(QColor(0xcccccc), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     axisRect()->setBackground(QColor(0xededed));
     setBackground(QColor(0xaaaaaa));

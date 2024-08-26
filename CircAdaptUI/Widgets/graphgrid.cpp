@@ -41,7 +41,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
 
             if (i == 0)
             {
-                plot->setTitle(colTypes[j], QFont("Mononoki", 12, QFont::Bold));
+                plot->setTitle(colTypes[j], QFont("Liberation Sans", 12, QFont::Bold));
             }
             gridLayout.addWidget(plot, i, j);
         }
