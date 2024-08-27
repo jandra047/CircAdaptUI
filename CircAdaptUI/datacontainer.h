@@ -45,11 +45,11 @@ public:
     // double model_to_ui(double val) const override { return val / 133; };
     std::any model_to_ui(std::any value) const override
     {
-        return std::any_cast<double>(value);
+        return std::any_cast<double>(value) / 1000;
     }
     std::any ui_to_model(std::any value) const override
     {
-        return std::any_cast<double>(value);
+        return std::any_cast<double>(value) / 1000;
     }
 };
 
