@@ -153,5 +153,6 @@ private:
     void connectLineMarkers();
     void updateLastRowTicksAndLabels();
     void connectLeftMargins();
+    QCPMarginGroup* leftMarginGroup;
 };
 #endif // GRAPHGRID_H

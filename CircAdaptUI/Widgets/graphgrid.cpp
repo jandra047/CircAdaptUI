@@ -7,7 +7,8 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     QWidget(parent),
     gridLayout(this),
     rows(rows),
-    cols(cols)
+    cols(cols),
+    leftMarginGroup(Q_NULLPTR)
 {
     for (int i = 0; i < rows; ++i)
     {
@@ -301,10 +302,10 @@ void GraphGrid::updateLastRowTicksAndLabels() {
 
 void GraphGrid::connectLeftMargins()
 {
-    QCPMarginGroup* group = new QCPMarginGroup(getItem(0,0));
+    leftMarginGroup = new QCPMarginGroup(getItem(0,0));
     for (int i = 0; i < rows; i++)
     {
-        getItem(i, ColType::REFERENCE)->axisRect()->setMarginGroup(QCP::msLeft, group);
+        getItem(i, ColType::REFERENCE)->axisRect()->setMarginGroup(QCP::msLeft, leftMarginGroup);
     }
 
 }
