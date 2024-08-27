@@ -62,6 +62,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     {
         getItem(i, ColType::CURRENT)->axisRect()->setMinimumMargins(QMargins(0,0,5,0));
     }
+    connectLeftMargins();
 }
 
 GraphGrid::~GraphGrid()
@@ -296,4 +297,14 @@ void GraphGrid::updateLastRowTicksAndLabels() {
             break; // Exit loop after updating the last visible row
         }
     }
+}
+
+void GraphGrid::connectLeftMargins()
+{
+    QCPMarginGroup* group = new QCPMarginGroup(getItem(0,0));
+    for (int i = 0; i < rows; i++)
+    {
+        getItem(i, ColType::REFERENCE)->axisRect()->setMarginGroup(QCP::msLeft, group);
+    }
+
 }

@@ -152,5 +152,6 @@ private:
     void buildMenus();
     void connectLineMarkers();
     void updateLastRowTicksAndLabels();
+    void connectLeftMargins();
 };
 #endif // GRAPHGRID_H
