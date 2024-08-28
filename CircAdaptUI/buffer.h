@@ -54,6 +54,7 @@ public:
 
     void lock() { mutex.lock(); };
     void unlock() { mutex.unlock(); };
+    BeatData* getLastBeat() { return m_beatData.last(); };
 
 public:
 signals:

@@ -108,3 +108,15 @@ void SignalGraph::onMouseRelease(QMouseEvent* event)
         }
     }
 }
+
+void SignalGraph::displaySnapshot(Buffer& buffer)
+{
+    for (int i = 0; i < m_Signals.size(); i++)
+    {
+        TimeSignal* signal = m_Signals.at(i);
+        QVector<double> yData = buffer.getSnapshot(signal->getYVar());
+        QVector<double> tData = buffer.getSnapshot(signal->getXVar());
+        signal->setData(tData, yData);
+    }
+    currentLayer()->replot();
+}

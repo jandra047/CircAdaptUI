@@ -12,6 +12,7 @@ public:
 
     void drawVerticalLine(const QPoint& pos);
     void mousePressEvent(QMouseEvent *event) override;
+    void displaySnapshot(Buffer& buffer) override;
 
 public slots:
     void onMouseMove(QMouseEvent* event);

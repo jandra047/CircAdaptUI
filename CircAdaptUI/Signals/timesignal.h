@@ -50,8 +50,6 @@ public:
      */
     void removeData(double const x0, double const x1);
 
-    void displaySnapshot(const Buffer& buffer);
-
     QString getXVar() { return m_xVar; };
     QString getYVar() { return m_yVar; };
     QColor getColor() { return color; }

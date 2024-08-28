@@ -74,6 +74,8 @@ void MainWindow::updateGraphs()
 void MainWindow::takeSnapshot()
 {
     ui->graphGrid->takeSnapshot(buffer);
+    ui->pvGraph->displaySnapshot(buffer);
+    ui->ssGraph->displaySnapshot(buffer);
 }
 
 void MainWindow::displayReference()

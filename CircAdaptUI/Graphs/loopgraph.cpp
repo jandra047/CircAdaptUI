@@ -20,3 +20,7 @@ QString LoopGraph::getPoint(const QPoint& pos)
                          .arg(yAxis->pixelToCoord(pos.y()), 0, 'f', 1);
     return string;
 }
+
+void LoopGraph::displaySnapshot(Buffer& buffer)
+{
+}

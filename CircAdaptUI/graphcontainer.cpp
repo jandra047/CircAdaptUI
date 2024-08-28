@@ -190,16 +190,6 @@ bool GraphContainer<SignalType>::containsSignals()
 }
 
 template<typename SignalType>
-void GraphContainer<SignalType>::displaySnapshot(Buffer& buffer)
-{
-    for (int i = 0; i < m_Signals.size(); i++)
-    {
-        m_Signals[i]->displaySnapshot(buffer);
-    }
-    currentLayer()->replot();
-}
-
-template<typename SignalType>
 void GraphContainer<SignalType>::showToolTip(QMouseEvent *event) {
     if (containsSignals())
     {

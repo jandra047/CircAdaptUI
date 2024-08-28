@@ -44,7 +44,7 @@ public:
      */
     bool containsSignals();
 
-    void displaySnapshot(Buffer& buffer);
+    virtual void displaySnapshot(Buffer& buffer) = 0;
 
     void showToolTip(QMouseEvent *event);
 
