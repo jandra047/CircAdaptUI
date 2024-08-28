@@ -45,6 +45,10 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 plot->setTitle(colTypes[j], QFont("Liberation Sans", 12, QFont::Bold));
             }
             gridLayout.addWidget(plot, i, j);
+            if (j < ColType::CURRENT)
+            {
+                plot->setZoomPastX(false);
+            }
         }
     }
     setRowVisible(3, false);
@@ -75,7 +79,7 @@ GraphGrid::~GraphGrid()
             delete getItem(i,j);
         }
     }
-
+    delete leftMarginGroup;
 }
 
 void GraphGrid::buildMenus()
@@ -305,7 +309,7 @@ void GraphGrid::connectLeftMargins()
     leftMarginGroup = new QCPMarginGroup(getItem(0,0));
     for (int i = 0; i < rows; i++)
     {
-        getItem(i, ColType::REFERENCE)->axisRect()->setMarginGroup(QCP::msLeft, leftMarginGroup);
+        auto item = getItem(i, ColType::REFERENCE);
+        item->axisRect()->setMarginGroup(QCP::msLeft, leftMarginGroup);
     }
-
 }

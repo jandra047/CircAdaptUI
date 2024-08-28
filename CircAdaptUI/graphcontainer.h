@@ -54,7 +54,9 @@ public:
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
     LineMarker* getLineMarker() { return &m_lineMarker; }
     void setTitle(QString title, QFont font);
-    bool zoomPastX;
+    void setZoomPastX(bool zoomPastX) { m_zoomPastX = zoomPastX; };
+    bool getZoomPastX() { return m_zoomPastX; };
+    bool isEmpty();
 private:
 
     /*!
@@ -74,6 +76,7 @@ protected:
     QVector<ptr_type> m_Signals;
     LineMarker m_lineMarker;
     QCPTextElement* title;
+    bool m_zoomPastX;
 };
 
 #endif // GRAPHCONTAINER_H

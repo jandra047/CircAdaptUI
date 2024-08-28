@@ -9,7 +9,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     actionGroup(Q_NULLPTR),
     m_lineMarker(LineMarker(this)),
     title(Q_NULLPTR),
-    zoomPastX(false)
+    m_zoomPastX(true)
 {
     setOpenGl(true);
 
@@ -120,10 +120,11 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
     // Calculate the zoom factor based on the wheel angle delta
     double zoomFactor = 1 - event->angleDelta().y() / 1200.0; // Adjust as needed
 
-    if (event->modifiers() & Qt::ShiftModifier)
+    if (event->modifiers() && Qt::ShiftModifier)
     {
-        if (xAxis->range().upper * zoomFactor > getMaxX() && !zoomPastX)
-            xAxis->setRangeUpper(getMaxX());
+        double max_X = getMaxX();
+        if (xAxis->range().upper * zoomFactor > max_X && !m_zoomPastX && !isEmpty())
+            xAxis->setRangeUpper(max_X);
         else
             xAxis->setRangeUpper(xAxis->range().upper * zoomFactor);
     }
@@ -252,6 +253,17 @@ double GraphContainer<SignalType>::getMaxX()
         }
 
     return maxX;
+}
+
+template<typename SignalType>
+bool GraphContainer<SignalType>::isEmpty()
+{
+    for (int i = 0; i < graphCount(); i++)
+    {
+        if (!graph(i)->data()->isEmpty())
+            return false;
+    }
+    return true;
 }
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;
