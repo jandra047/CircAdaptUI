@@ -8,7 +8,8 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     contextMenu(Q_NULLPTR),
     actionGroup(Q_NULLPTR),
     m_lineMarker(LineMarker(this)),
-    title(Q_NULLPTR)
+    title(Q_NULLPTR),
+    zoomPastX(false)
 {
     setOpenGl(true);
 
@@ -121,7 +122,10 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
-        xAxis->setRangeUpper(xAxis->range().upper * zoomFactor);
+        if (xAxis->range().upper * zoomFactor > getMaxX() && !zoomPastX)
+            xAxis->setRangeUpper(getMaxX());
+        else
+            xAxis->setRangeUpper(xAxis->range().upper * zoomFactor);
     }
     else
     {
@@ -219,11 +223,35 @@ void GraphContainer<SignalType>::setTitle(QString titleString, QFont font)
         plotLayout()->insertRow(0);
         title = new QCPTextElement(this, titleString, font);
         plotLayout()->addElement(0, 0, title);
+        rescaleAxes();
     }
     else
     {
         title->setText(titleString);
     }
+}
+
+template<typename SignalType>
+double GraphContainer<SignalType>::getMaxX()
+{
+    double maxX = -std::numeric_limits<double>::infinity(); // Initialize with the lowest possible value
+
+    // Iterate through all graphs in the QCustomPlot
+    for (int i = 0; i < graphCount(); ++i)
+    {
+        QCPGraph* g = graph(i);
+        if (g)
+        {
+            bool f;
+            QCPRange range = g->getKeyRange(f);
+
+                // Update maxX if the current graph's max x is larger
+                if (range.upper > maxX)
+                    maxX = range.upper;
+            }
+        }
+
+    return maxX;
 }
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;

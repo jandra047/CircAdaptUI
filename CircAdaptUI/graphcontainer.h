@@ -54,6 +54,7 @@ public:
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
     LineMarker* getLineMarker() { return &m_lineMarker; }
     void setTitle(QString title, QFont font);
+    bool zoomPastX;
 private:
 
     /*!
@@ -64,6 +65,7 @@ private:
 
     QMenu* contextMenu;
     QActionGroup* actionGroup;
+    double getMaxX();
 
 protected:
     /*!
