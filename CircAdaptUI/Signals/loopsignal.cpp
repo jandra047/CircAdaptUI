@@ -19,18 +19,19 @@ void LoopSignal::updateGraph(Buffer& buffer)
     {
         if (!data()->isEmpty())
         {
-            removeData(tData.last(), tData.last() + m_dt);
+            removeData(tData.last(), tData.last() + m_dt, buffer);
         }
     }
 }
 
-void LoopSignal::removeData(double const x0, double const x1)
+void LoopSignal::removeData(double const x0, double const x1, Buffer& buffer)
 {
-    double last = data()->constEnd()->sortKey();
+    // double last = data()->constEnd()->sortKey();
+    double last = buffer.getLastBeat()->get("t").last();
     if (x1 > last)
     {
         data()->remove(0, fmod(x1, last));
-        data()->remove(x0, last);
+        data()->removeAfter(x0);
     }
     else
     {
