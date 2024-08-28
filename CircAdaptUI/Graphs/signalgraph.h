@@ -16,6 +16,10 @@ public:
 public slots:
     void onMouseMove(QMouseEvent* event);
     void onMouseRelease(QMouseEvent* event);
+
+private:
+    double m_verticalLineDistanceTreshold = 0.05;
+    double m_dragStartX = 0;
 };
 
 #endif // SIGNALGRAPH_H

@@ -62,11 +62,15 @@ void SignalGraph::mousePressEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton)
     {
         double xCoord = xAxis->pixelToCoord(event->pos().x());
-        if (qAbs(xCoord - m_lineMarker.xPos()) < 0.1) // Threshold to detect click near the line
+        m_dragStartX = xCoord;
+        if (qAbs(xCoord - m_lineMarker.xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect click near the line
         {
             // m_dragging = true;
             m_lineMarker.setDragging(true);
-            // m_dragStartX = xCoord;
+        }
+        else
+        {
+            GraphContainer<TimeSignal>::mousePressEvent(event);
         }
     }
 }
@@ -81,7 +85,7 @@ void SignalGraph::onMouseMove(QMouseEvent* event)
     }
     else
     {
-        if (qAbs(xCoord - m_lineMarker.xPos()) < 0.1) // Threshold to detect hover near the line
+        if (qAbs(xCoord - m_lineMarker.xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect hover near the line
         {
             setCursor(Qt::SizeHorCursor);
         }
@@ -96,7 +100,11 @@ void SignalGraph::onMouseRelease(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
     {
+        double xCoord = xAxis->pixelToCoord(event->pos().x());
         m_lineMarker.setDragging(false);
-        drawVerticalLine(event->pos());
+        if (qAbs(xCoord - m_dragStartX) < 1e-5)
+        {
+            drawVerticalLine(event->pos());
+        }
     }
 }
