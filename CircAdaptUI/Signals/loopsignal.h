@@ -24,7 +24,41 @@ public:
         setVisible(isVisible);
         setPen(QPen(color, 2));
     };
+
     ~LoopSignal() {};
+
+    LoopSignal(const LoopSignal& other)
+        : QCPCurve(other.parentPlot()->xAxis, other.parentPlot()->yAxis),
+        m_yVar(other.m_yVar),
+        m_xVar(other.m_xVar),
+        m_displayName(other.m_displayName),
+        color(other.color),
+        m_unit(other.m_unit),
+        i(other.i),
+        m_dt(other.m_dt)
+    {
+        setVisible(other.visible());
+        setPen(QPen(color, 2));
+    }
+
+    LoopSignal& operator=(const LoopSignal& other)
+    {
+        if (this != &other)
+        {
+            m_yVar = other.m_yVar;
+            m_xVar = other.m_xVar;
+            m_displayName = other.m_displayName;
+            color = other.color;
+            m_unit = other.m_unit;
+            i = other.i;
+            m_dt = other.m_dt;
+
+            setVisible(other.visible());
+            setPen(QPen(color, 2));
+        }
+        return *this;
+    }
+
     void updateGraph(Buffer& buffer);
     void removeData(double const x0, double x1, Buffer& buffer);
     QString getXVar() { return m_xVar; };
