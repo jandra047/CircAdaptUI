@@ -30,7 +30,7 @@ public:
     /*!
      * \brief Adds a signal to the container.
      */
-    void addSignal(ptr_type);
+    virtual void addSignal(ptr_type);
 
     /*!
      * \brief Get the minimum and maximum value of signals plotted in graph container
