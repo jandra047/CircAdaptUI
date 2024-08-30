@@ -28,7 +28,7 @@ void LoopGraph::addSignal(LoopSignal* signal)
     GraphContainer<LoopSignal>::addSignal(signal);
 
     addSnapshotSignal(signal);
-
+    addReferenceSignal(signal);
 }
 
 void LoopGraph::addSnapshotSignal(LoopSignal* signal)
@@ -39,14 +39,30 @@ void LoopGraph::addSnapshotSignal(LoopSignal* signal)
     QColor color = pen.color();
     color.setAlphaF(0.5);
 
+    pen.setColor(color);
+    pen.setStyle(Qt::DashLine);
+    snapshotSignal->setPen(pen);
+    snapshotSignal->setLayer("snapshot");
+    m_Snapshots.push_back(snapshotSignal);
+}
+
+void LoopGraph::addReferenceSignal(LoopSignal* signal)
+{
+    // Implement deepcopy!!
+    LoopSignal* referenceSignal = new LoopSignal(*signal);
+    QPen pen = referenceSignal->pen();
+    QColor color = pen.color();
+    color.setAlphaF(0.5);
+
     int currentSaturation = color.saturation();
     int reducedSaturation = currentSaturation * 0.4;  // Reduce saturation by 20%
     color.setHsv(color.hue(), reducedSaturation, color.value(), color.alpha());
 
     pen.setColor(color);
-    pen.setStyle(Qt::DashLine);
-    snapshotSignal->setPen(pen);
-    m_Snapshots.push_back(snapshotSignal);
+    pen.setStyle(Qt::DotLine);
+    referenceSignal->setPen(pen);
+    referenceSignal->setLayer("reference");
+    m_References.push_back(referenceSignal);
 }
 
 void LoopGraph::displaySnapshot(Buffer& buffer)
@@ -62,9 +78,24 @@ void LoopGraph::displaySnapshot(Buffer& buffer)
     layer("snapshot")->replot();
 }
 
+void LoopGraph::displayReference(Buffer& buffer)
+{
+    for (int i = 0; i < m_References.size(); i++)
+    {
+        LoopSignal* signal = m_References.at(i);
+        QVector<double> yData = buffer.getLastBeat()->get(signal->getYVar());
+        QVector<double> xData = buffer.getLastBeat()->get(signal->getXVar());
+        signal->setData(xData, yData);
+    }
+
+    layer("reference")->replot();
+}
+
 void LoopGraph::showSignal(QAction* action)
 {
     GraphContainer<LoopSignal>::showSignal(action);
     m_Snapshots[action->data().toInt()]->setVisible(action->isChecked());
     layer("snapshot")->replot();
+    m_References[action->data().toInt()]->setVisible(action->isChecked());
+    layer("reference")->replot();
 }

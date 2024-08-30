@@ -81,6 +81,8 @@ void MainWindow::takeSnapshot()
 void MainWindow::displayReference()
 {
     ui->graphGrid->displayReference(buffer);
+    ui->ssGraph->displayReference(buffer);
+    ui->pvGraph->displayReference(buffer);
 }
 
 void MainWindow::autoscaleAll()
