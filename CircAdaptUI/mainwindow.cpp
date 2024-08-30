@@ -28,6 +28,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     auto pvMenu = ui->pvGraph->buildMenu(ui->pvGraph);
     ui->pvGraph->setContextMenu(pvMenu);
     QObject::connect(pvMenu.second, &QActionGroup::triggered, this, [=](QAction* action) { ui->pvGraph->showSignal(action); });
+
     LoopSignal* sig3 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "Left ventricular free wall", "Sf_Lv", "Ef_Lv", QColor(227, 26, 28));
     LoopSignal* sig4 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "Septal wall", "Sf_Sv", "Ef_Sv", QColor(0,0,0));
     LoopSignal* sig5 = new LoopSignal(ui->ssGraph->xAxis, ui->ssGraph->yAxis, "Right ventricular free wall", "Sf_Rv", "Ef_Rv", QColor(31, 120, 180));

@@ -47,12 +47,12 @@ void SignalGraph::drawVerticalLine(const QPoint& pos)
     double key = xAxis->pixelToCoord(pos.x());
 
     // Set the position of the line
-    m_lineMarker.point1->setCoords(key, 0); // Bottom point (x, y) in plot coordinates
-    m_lineMarker.point2->setCoords(key, 1); // Top point (x, y) in plot coordinates
+    m_lineMarker->point1->setCoords(key, 0); // Bottom point (x, y) in plot coordinates
+    m_lineMarker->point2->setCoords(key, 1); // Top point (x, y) in plot coordinates
 
-    m_lineMarker.setVisible(true);
-    m_lineMarker.setXPos(key);
-    emit m_lineMarker.xPosChanged(key);
+    m_lineMarker->setVisible(true);
+    m_lineMarker->setXPos(key);
+    emit m_lineMarker->xPosChanged(key);
     // Update the plot to show the new line
     currentLayer()->replot();
 }
@@ -61,12 +61,19 @@ void SignalGraph::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
-        double xCoord = xAxis->pixelToCoord(event->pos().x());
-        m_dragStartX = xCoord;
-        if (qAbs(xCoord - m_lineMarker.xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect click near the line
+        if (m_lineMarker)
         {
-            // m_dragging = true;
-            m_lineMarker.setDragging(true);
+            double xCoord = xAxis->pixelToCoord(event->pos().x());
+            m_dragStartX = xCoord;
+            if (qAbs(xCoord - m_lineMarker->xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect click near the line
+            {
+                // m_dragging = true;
+                m_lineMarker->setDragging(true);
+            }
+            else
+            {
+                GraphContainer<TimeSignal>::mousePressEvent(event);
+            }
         }
         else
         {
@@ -77,21 +84,24 @@ void SignalGraph::mousePressEvent(QMouseEvent *event)
 
 void SignalGraph::onMouseMove(QMouseEvent* event)
 {
-    double xCoord = xAxis->pixelToCoord(event->pos().x());
-    if (m_lineMarker.getDragging())
+    if (m_lineMarker)
     {
-        // m_lineMarker.setXPos(xCoord);
-        drawVerticalLine(event->pos());
-    }
-    else
-    {
-        if (qAbs(xCoord - m_lineMarker.xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect hover near the line
+        double xCoord = xAxis->pixelToCoord(event->pos().x());
+        if (m_lineMarker->getDragging())
         {
-            setCursor(Qt::SizeHorCursor);
+            // m_lineMarker.setXPos(xCoord);
+            drawVerticalLine(event->pos());
         }
         else
         {
-            unsetCursor();
+            if (qAbs(xCoord - m_lineMarker->xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect hover near the line
+            {
+                setCursor(Qt::SizeHorCursor);
+            }
+            else
+            {
+                unsetCursor();
+            }
         }
     }
 }
@@ -100,11 +110,14 @@ void SignalGraph::onMouseRelease(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
     {
-        double xCoord = xAxis->pixelToCoord(event->pos().x());
-        m_lineMarker.setDragging(false);
-        if (qAbs(xCoord - m_dragStartX) < 1e-5)
+        if (m_lineMarker)
         {
-            drawVerticalLine(event->pos());
+            double xCoord = xAxis->pixelToCoord(event->pos().x());
+            m_lineMarker->setDragging(false);
+            if (qAbs(xCoord - m_dragStartX) < 1e-5)
+            {
+                drawVerticalLine(event->pos());
+            }
         }
     }
 }
