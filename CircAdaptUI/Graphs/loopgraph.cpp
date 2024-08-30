@@ -61,3 +61,10 @@ void LoopGraph::displaySnapshot(Buffer& buffer)
 
     layer("snapshot")->replot();
 }
+
+void LoopGraph::showSignal(QAction* action)
+{
+    GraphContainer<LoopSignal>::showSignal(action);
+    m_Snapshots[action->data().toInt()]->setVisible(action->isChecked());
+    layer("snapshot")->replot();
+}

@@ -11,6 +11,7 @@ public:
     QString getPoint(const QPoint& pos) override;
     void addSignal(LoopSignal* signal) override;
     void displaySnapshot(Buffer& buffer) override;
+    void showSignal(QAction* signal) override;
 
 private:
     QVector<LoopSignal*> m_Snapshots;

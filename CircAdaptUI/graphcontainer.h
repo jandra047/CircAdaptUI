@@ -50,7 +50,7 @@ public:
 
     virtual QString getPoint(const QPoint& pos) = 0;
     std::pair<QMenu*, QActionGroup*> buildMenu(QWidget* parent);
-    void showSignal(QAction* action);
+    virtual void showSignal(QAction* action);
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
     LineMarker* getLineMarker() { return &m_lineMarker; }
     void setTitle(QString title, QFont font);
