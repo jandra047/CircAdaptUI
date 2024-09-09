@@ -13,6 +13,7 @@ class GraphGrid : public QWidget
 {
     Q_OBJECT
 
+public:
     enum ColType {
         REFERENCE,
         SNAPSHOT,
@@ -106,6 +107,9 @@ public:
         }
         qDebug() << "\n";
     }
+
+signals:
+    void verticalLineDrawn(ColType colType, double x);
 
 public slots:
 

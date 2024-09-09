@@ -89,6 +89,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/DrawingElements/rightventricle.h CircAdaptUI/SVGviews/DrawingElements/rightventricle.cpp
     CircAdaptUI/SVGviews/DrawingElements/septum.h CircAdaptUI/SVGviews/DrawingElements/septum.cpp
     CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
+    CircAdaptUI/loopmarker.h CircAdaptUI/loopmarker.cpp
 
 
 )

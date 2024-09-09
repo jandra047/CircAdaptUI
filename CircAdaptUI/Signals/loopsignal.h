@@ -2,6 +2,7 @@
 #define LOOPSIGNAL_H
 #include "dependencies/qcustomplot.h"
 #include "CircAdaptUI/buffer.h"
+#include "CircAdaptUI/loopmarker.h"
 
 class LoopSignal : public QCPCurve
 {
@@ -19,8 +20,10 @@ public:
         m_xVar(xVar),
         m_displayName(displayName),
         color(color),
-        m_unit(unit)
+        m_unit(unit),
+        m_marker(LoopMarker(this->parentPlot()))
     {
+        m_marker.setVisible(false);
         setVisible(isVisible);
         setPen(QPen(color, 2));
     };
@@ -35,7 +38,8 @@ public:
         color(other.color),
         m_unit(other.m_unit),
         i(other.i),
-        m_dt(other.m_dt)
+        m_dt(other.m_dt),
+        m_marker(other.m_marker)
     {
         setVisible(other.visible());
         setPen(QPen(color, 2));
@@ -66,6 +70,8 @@ public:
     QColor getColor() { return color; }
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
+    LoopMarker* getMarker() { return &m_marker; }
+    void setVisible(bool on) { m_marker.setVisible(on); QCPCurve::setVisible(on); };
 
 private:
     QString m_yVar;
@@ -75,6 +81,7 @@ private:
     QColor color;
     QString m_displayName;
     QString m_unit;
+    LoopMarker m_marker;
 };
 
 #endif // LOOPSIGNAL_H

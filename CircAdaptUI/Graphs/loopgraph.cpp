@@ -1,7 +1,9 @@
 #include "loopgraph.h"
 
 LoopGraph::LoopGraph(QWidget* parent) :
-    GraphContainer<LoopSignal>(parent)
+    GraphContainer<LoopSignal>(parent),
+    m_referenceMarkerPos(-1),
+    m_snapshotMarkerPos(-1)
 {
     xAxis->setLabel("Volume [mL]");
     yAxis->setLabel("Pressure [mmHg]");
@@ -33,7 +35,6 @@ void LoopGraph::addSignal(LoopSignal* signal)
 
 void LoopGraph::addSnapshotSignal(LoopSignal* signal)
 {
-    // Implement deepcopy!!
     LoopSignal* snapshotSignal = new LoopSignal(*signal);
     QPen pen = snapshotSignal->pen();
     QColor color = pen.color();
@@ -48,7 +49,6 @@ void LoopGraph::addSnapshotSignal(LoopSignal* signal)
 
 void LoopGraph::addReferenceSignal(LoopSignal* signal)
 {
-    // Implement deepcopy!!
     LoopSignal* referenceSignal = new LoopSignal(*signal);
     QPen pen = referenceSignal->pen();
     QColor color = pen.color();
@@ -70,11 +70,12 @@ void LoopGraph::displaySnapshot(Buffer& buffer)
     for (int i = 0; i < m_Snapshots.size(); i++)
     {
         LoopSignal* signal = m_Snapshots.at(i);
-        QVector<double> yData = buffer.getLastBeat()->get(signal->getYVar());
-        QVector<double> xData = buffer.getLastBeat()->get(signal->getXVar());
-        signal->setData(xData, yData);
+        QVector<double> yData = buffer.getSnapshot(signal->getYVar());
+        QVector<double> xData = buffer.getSnapshot(signal->getXVar());
+        QVector<double> tData = buffer.getSnapshot("t");
+        signal->setData(tData, xData, yData);
     }
-
+    updateMarker(GraphGrid::ColType::SNAPSHOT, m_snapshotMarkerPos);
     layer("snapshot")->replot();
 }
 
@@ -83,19 +84,91 @@ void LoopGraph::displayReference(Buffer& buffer)
     for (int i = 0; i < m_References.size(); i++)
     {
         LoopSignal* signal = m_References.at(i);
-        QVector<double> yData = buffer.getLastBeat()->get(signal->getYVar());
-        QVector<double> xData = buffer.getLastBeat()->get(signal->getXVar());
-        signal->setData(xData, yData);
+        QVector<double> yData = buffer.getSnapshot(signal->getYVar());
+        QVector<double> xData = buffer.getSnapshot(signal->getXVar());
+        QVector<double> tData = buffer.getSnapshot("t");
+        signal->setData(tData, xData, yData);
     }
-
     layer("reference")->replot();
 }
 
 void LoopGraph::showSignal(QAction* action)
 {
     GraphContainer<LoopSignal>::showSignal(action);
-    m_Snapshots[action->data().toInt()]->setVisible(action->isChecked());
+    m_Snapshots.at(action->data().toInt())->setVisible(action->isChecked());
     layer("snapshot")->replot();
-    m_References[action->data().toInt()]->setVisible(action->isChecked());
+    m_References.at(action->data().toInt())->setVisible(action->isChecked());
     layer("reference")->replot();
+}
+
+void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
+{
+    if (colType == GraphGrid::REFERENCE)
+    {
+        m_referenceMarkerPos = x;
+        for (auto signal : m_References)
+        {
+            if (signal->visible())
+            {
+                int i = findClosestPointBySortKey(signal, x);
+                double xpos = signal->data()->at(i)->mainKey();
+                double ypos = signal->data()->at(i)->mainValue();
+                signal->getMarker()->topLeft->setCoords(xpos - 1, ypos - 1);
+                signal->getMarker()->bottomRight->setCoords(xpos + 1, ypos + 1);
+                signal->getMarker()->setVisible(true);
+            }
+        }
+        layer("reference")->replot();
+    }
+    if (colType == GraphGrid::SNAPSHOT)
+    {
+        m_snapshotMarkerPos = x;
+        if (!m_Snapshots.at(0)->data()->isEmpty())
+        {
+            for (auto signal : m_Snapshots)
+            {
+                if (signal->visible())
+                {
+                    int i = findClosestPointBySortKey(signal, x);
+                    double xpos = signal->data()->at(i)->mainKey();
+                    double ypos = signal->data()->at(i)->mainValue();
+                    signal->getMarker()->topLeft->setCoords(xpos - 1, ypos - 1);
+                    signal->getMarker()->bottomRight->setCoords(xpos + 1, ypos + 1);
+                    signal->getMarker()->setVisible(true);
+                }
+            }
+            layer("snapshot")->replot();
+        }
+    }
+}
+
+int LoopGraph::findClosestPointBySortKey(LoopSignal* signal, double targetSortKey) {
+    if (!signal || signal->data()->isEmpty()) {
+        return -1;  // Invalid curve or no data
+    }
+
+    // Access the data container of the curve
+    const QCPDataContainer<QCPCurveData>& dataContainer = *(signal->data());
+
+    // Use a lambda for binary search to find the closest point
+    auto lower = std::lower_bound(dataContainer.constBegin(), dataContainer.constEnd(), targetSortKey,
+                                  [](const QCPCurveData &data, double key) {
+                                      return data.sortKey() < key;
+                                  });
+
+    if (lower == dataContainer.constBegin()) {
+        // The closest point is the first one
+        return 0;
+    } else if (lower == dataContainer.constEnd()) {
+        // The closest point is the last one
+        return dataContainer.size() - 1;
+    }
+
+    // Check the two points around the lower bound to find the closest one
+    auto prev = std::prev(lower);
+    if (std::abs(prev->sortKey() - targetSortKey) < std::abs(lower->sortKey() - targetSortKey)) {
+        return std::distance(dataContainer.constBegin(), prev);
+    } else {
+        return std::distance(dataContainer.constBegin(), lower);
+    }
 }
