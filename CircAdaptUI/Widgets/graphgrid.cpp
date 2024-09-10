@@ -270,7 +270,6 @@ void GraphGrid::connectLineMarkers()
                         }
                     }
                     connect(itemA->getLineMarker(), &LineMarker::xPosChanged, itemB->getLineMarker(), &LineMarker::setXPos);
-                    connect(itemB->getLineMarker(), &LineMarker::xPosChanged, itemA->getLineMarker(), &LineMarker::setXPos);
 
                     connect(itemA->getLineMarker(), &LineMarker::xPosChanged, this, [=](double x){ emit verticalLineDrawn(static_cast<ColType>(j), x); } );
                 }
