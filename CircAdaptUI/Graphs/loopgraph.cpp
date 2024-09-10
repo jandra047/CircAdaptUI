@@ -27,6 +27,7 @@ QString LoopGraph::getPoint(const QPoint& pos)
 
 void LoopGraph::addSignal(LoopSignal* signal)
 {
+
     GraphContainer<LoopSignal>::addSignal(signal);
 
     addSnapshotSignal(signal);
@@ -113,9 +114,8 @@ void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
                 int i = findClosestPointBySortKey(signal, x);
                 double xpos = signal->data()->at(i)->mainKey();
                 double ypos = signal->data()->at(i)->mainValue();
-                signal->getMarker()->topLeft->setCoords(xpos - 1, ypos - 1);
-                signal->getMarker()->bottomRight->setCoords(xpos + 1, ypos + 1);
                 signal->getMarker()->setVisible(true);
+                signal->getMarker()->setPosition(xpos,ypos);
             }
         }
         layer("reference")->replot();
@@ -132,9 +132,8 @@ void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
                     int i = findClosestPointBySortKey(signal, x);
                     double xpos = signal->data()->at(i)->mainKey();
                     double ypos = signal->data()->at(i)->mainValue();
-                    signal->getMarker()->topLeft->setCoords(xpos - 1, ypos - 1);
-                    signal->getMarker()->bottomRight->setCoords(xpos + 1, ypos + 1);
                     signal->getMarker()->setVisible(true);
+                    signal->getMarker()->setPosition(xpos,ypos);
                 }
             }
             layer("snapshot")->replot();
