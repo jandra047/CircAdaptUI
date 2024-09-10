@@ -45,6 +45,7 @@ public:
     {
         setVisible(other.visible());
         m_marker = new LoopMarker(this->parentPlot());
+        m_marker->setLayer("markers");
         setPen(QPen(color, 2));
     }
 
@@ -63,6 +64,7 @@ public:
 
             setVisible(other.visible());
             m_marker->setVisible(false);
+            m_marker->setLayer("markers");
             setPen(QPen(color, 2));
         }
         return *this;

@@ -13,6 +13,7 @@ LoopGraph::LoopGraph(QWidget* parent) :
     xAxis->grid()->setZeroLinePen(QPen(QColor(0,0,0), 1, Qt::DashLine, Qt::RoundCap, Qt::RoundJoin));
     addLayer("snapshot", currentLayer(), QCustomPlot::limBelow);
     addLayer("reference", layer("snapshot"), QCustomPlot::limBelow);
+    addLayer("markers");
 }
 
 QString LoopGraph::getPoint(const QPoint& pos)
@@ -117,7 +118,6 @@ void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
                 signal->getMarker()->setPosition(xpos,ypos);
             }
         }
-        layer("reference")->replot();
     }
     if (colType == GraphGrid::SNAPSHOT)
     {
@@ -135,9 +135,10 @@ void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
                     signal->getMarker()->setPosition(xpos,ypos);
                 }
             }
-            layer("snapshot")->replot();
         }
     }
+
+    layer("markers")->replot();
 }
 
 int LoopGraph::findClosestPointBySortKey(LoopSignal* signal, double targetSortKey) {
