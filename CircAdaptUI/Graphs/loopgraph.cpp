@@ -27,7 +27,6 @@ QString LoopGraph::getPoint(const QPoint& pos)
 
 void LoopGraph::addSignal(LoopSignal* signal)
 {
-
     GraphContainer<LoopSignal>::addSignal(signal);
 
     addSnapshotSignal(signal);

@@ -21,14 +21,16 @@ public:
         m_displayName(displayName),
         color(color),
         m_unit(unit),
-        m_marker(LoopMarker(this->parentPlot()))
+        m_marker(Q_NULLPTR)
     {
         setVisible(isVisible);
-        m_marker.setVisible(false);
         setPen(QPen(color, 2));
     };
 
-    ~LoopSignal() {};
+    ~LoopSignal()
+    {
+        delete m_marker;
+    };
 
     LoopSignal(const LoopSignal& other)
         : QCPCurve(other.parentPlot()->xAxis, other.parentPlot()->yAxis),
@@ -42,7 +44,7 @@ public:
         m_marker(other.m_marker)
     {
         setVisible(other.visible());
-        m_marker.setVisible(false);
+        m_marker = new LoopMarker(this->parentPlot());
         setPen(QPen(color, 2));
     }
 
@@ -60,7 +62,7 @@ public:
             m_marker = other.m_marker;
 
             setVisible(other.visible());
-            m_marker.setVisible(false);
+            m_marker->setVisible(false);
             setPen(QPen(color, 2));
         }
         return *this;
@@ -73,8 +75,8 @@ public:
     QColor getColor() { return color; }
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
-    LoopMarker* getMarker() { return &m_marker; }
-    void setVisible(bool isVisible) { m_marker.setVisible(isVisible); QCPCurve::setVisible(isVisible); };
+    LoopMarker* getMarker() { return m_marker; }
+    void setVisible(bool isVisible);
 
 private:
     QString m_yVar;
@@ -84,7 +86,7 @@ private:
     QColor color;
     QString m_displayName;
     QString m_unit;
-    LoopMarker m_marker;
+    LoopMarker* m_marker;
 };
 
 #endif // LOOPSIGNAL_H

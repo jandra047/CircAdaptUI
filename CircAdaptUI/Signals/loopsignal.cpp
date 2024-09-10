@@ -39,3 +39,12 @@ void LoopSignal::removeData(double const x0, double const x1, Buffer& buffer)
     }
     addData(x1, quiet_nan, quiet_nan);
 }
+void LoopSignal::setVisible(bool isVisible)
+{
+
+    if (m_marker)
+    {
+        m_marker->setVisible(isVisible);
+    }
+    QCPCurve::setVisible(isVisible);
+};
