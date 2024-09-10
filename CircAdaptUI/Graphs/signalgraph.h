@@ -8,11 +8,19 @@ class SignalGraph : public GraphContainer<TimeSignal>
 public:
     SignalGraph(QWidget* parent, QString xLabel = "", QString yLabel = "");
 
+    ~SignalGraph()
+    {
+        delete m_lineMarker;
+        delete lineMarkerLayer;
+    }
+
     QString getPoint(const QPoint& pos) override;
 
     void drawVerticalLine(const QPoint& pos);
     void mousePressEvent(QMouseEvent *event) override;
     void displaySnapshot(Buffer& buffer) override;
+    LineMarker* getLineMarker() { return m_lineMarker; }
+    void setLineMarker(LineMarker* lineMarker) { m_lineMarker = lineMarker; m_lineMarker->setLayer(lineMarkerLayer); }
 
 public slots:
     void onMouseMove(QMouseEvent* event);
@@ -20,6 +28,8 @@ public slots:
 
 private:
     double m_verticalLineDistanceTreshold = 0.05;
+    QCPLayer* lineMarkerLayer;
+    LineMarker* m_lineMarker;
 };
 
 #endif // SIGNALGRAPH_H

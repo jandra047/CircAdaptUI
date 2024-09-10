@@ -52,8 +52,6 @@ public:
     std::pair<QMenu*, QActionGroup*> buildMenu(QWidget* parent);
     virtual void showSignal(QAction* action);
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
-    LineMarker* getLineMarker() { return m_lineMarker; }
-    void setLineMarker(LineMarker* lineMarker) { m_lineMarker = lineMarker; }
     void setTitle(QString title, QFont font);
     void setZoomPastX(bool zoomPastX) { m_zoomPastX = zoomPastX; };
     bool getZoomPastX() { return m_zoomPastX; };
@@ -75,7 +73,6 @@ protected:
      * \brief Contains signals which are plotted in this container.
      */
     QVector<ptr_type> m_Signals;
-    LineMarker* m_lineMarker;
     QCPTextElement* title;
     bool m_zoomPastX;
 };

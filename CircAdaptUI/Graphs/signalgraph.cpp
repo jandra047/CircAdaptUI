@@ -2,7 +2,8 @@
 
 
 SignalGraph::SignalGraph(QWidget* parent, QString xLabel, QString yLabel) :
-    GraphContainer<TimeSignal>(parent)
+    GraphContainer<TimeSignal>(parent),
+    m_lineMarker(Q_NULLPTR)
 {
     xAxis->setLabel(xLabel);
     yAxis->setLabel(yLabel);
@@ -10,6 +11,10 @@ SignalGraph::SignalGraph(QWidget* parent, QString xLabel, QString yLabel) :
     axisRect()->setRangeDrag(Qt::Vertical);
     connect(this, &QCustomPlot::mouseMove, this, &SignalGraph::onMouseMove);
     connect(this, &QCustomPlot::mouseRelease, this, &SignalGraph::onMouseRelease);
+
+    addLayer("lineMarker");
+    lineMarkerLayer = layer("lineMarker");
+    lineMarkerLayer->setMode(QCPLayer::lmBuffered);
 }
 
 QString SignalGraph::getPoint(const QPoint& pos)
@@ -46,15 +51,8 @@ void SignalGraph::drawVerticalLine(const QPoint& pos)
     // Convert the pixel x-coordinate to the plot's x-coordinate
     double key = xAxis->pixelToCoord(pos.x());
 
-    // Set the position of the line
-    m_lineMarker->point1->setCoords(key, 0); // Bottom point (x, y) in plot coordinates
-    m_lineMarker->point2->setCoords(key, 1); // Top point (x, y) in plot coordinates
-
-    m_lineMarker->setVisible(true);
     m_lineMarker->setXPos(key);
     emit m_lineMarker->xPosChanged(key);
-    // Update the plot to show the new line
-    currentLayer()->replot();
 }
 
 void SignalGraph::mousePressEvent(QMouseEvent *event)

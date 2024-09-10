@@ -7,7 +7,6 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     QCustomPlot(parent),
     contextMenu(Q_NULLPTR),
     actionGroup(Q_NULLPTR),
-    m_lineMarker(Q_NULLPTR),
     title(Q_NULLPTR),
     m_zoomPastX(true)
 {
