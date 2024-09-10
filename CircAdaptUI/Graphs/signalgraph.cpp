@@ -62,6 +62,7 @@ void SignalGraph::mousePressEvent(QMouseEvent *event)
         if (m_lineMarker)
         {
             double xCoord = xAxis->pixelToCoord(event->pos().x());
+            m_dragStartX = xCoord;
             if (qAbs(xCoord - m_lineMarker->xPos()) < m_verticalLineDistanceTreshold) // Threshold to detect click near the line
             {
                 m_lineMarker->setDragging(true);
@@ -109,15 +110,15 @@ void SignalGraph::onMouseRelease(QMouseEvent* event)
         {
             double xCoord = xAxis->pixelToCoord(event->pos().x());
             m_lineMarker->setDragging(false);
-            if (qAbs(xCoord - m_lineMarker->xPos()) < 1e-5)
+            if (qAbs(xCoord - m_dragStartX) < 1e-5)
             {
                 // TODO: hide lines and markers when line is clicked
                 // m_lineMarker->setVisible(false);
                 // currentLayer()->replot();
+                drawVerticalLine(event->pos());
             }
             else
             {
-                drawVerticalLine(event->pos());
             }
         }
     }

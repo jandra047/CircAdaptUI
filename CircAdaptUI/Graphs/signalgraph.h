@@ -28,6 +28,7 @@ public slots:
 
 private:
     double m_verticalLineDistanceTreshold = 0.05;
+    double m_dragStartX = 0;
     QCPLayer* lineMarkerLayer;
     LineMarker* m_lineMarker;
 };
