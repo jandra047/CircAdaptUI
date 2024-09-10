@@ -23,8 +23,8 @@ public:
         m_unit(unit),
         m_marker(LoopMarker(this->parentPlot()))
     {
-        m_marker.setVisible(false);
         setVisible(isVisible);
+        m_marker.setVisible(false);
         setPen(QPen(color, 2));
     };
 
@@ -42,6 +42,7 @@ public:
         m_marker(other.m_marker)
     {
         setVisible(other.visible());
+        m_marker.setVisible(false);
         setPen(QPen(color, 2));
     }
 
@@ -56,8 +57,10 @@ public:
             m_unit = other.m_unit;
             i = other.i;
             m_dt = other.m_dt;
+            m_marker = other.m_marker;
 
             setVisible(other.visible());
+            m_marker.setVisible(false);
             setPen(QPen(color, 2));
         }
         return *this;
@@ -71,7 +74,7 @@ public:
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
     LoopMarker* getMarker() { return &m_marker; }
-    void setVisible(bool on) { m_marker.setVisible(on); QCPCurve::setVisible(on); };
+    void setVisible(bool isVisible) { m_marker.setVisible(isVisible); QCPCurve::setVisible(isVisible); };
 
 private:
     QString m_yVar;
