@@ -1,9 +1,15 @@
 #include "loopsignal.h"
+#include "CircAdaptUI/loopmarker.h"
 #include "CircAdaptUI/settings.h"
 
 namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
 }
+
+LoopSignal::~LoopSignal()
+{
+    delete m_marker;
+};
 
 void LoopSignal::updateGraph(Buffer& buffer)
 {
@@ -48,3 +54,9 @@ void LoopSignal::setVisible(bool isVisible)
     }
     QCPCurve::setVisible(isVisible);
 };
+
+void LoopSignal::createMarker()
+{
+    m_marker = new LoopMarker(this);
+    m_marker->setLayer("markers");
+}

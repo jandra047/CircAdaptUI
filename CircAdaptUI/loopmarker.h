@@ -2,15 +2,22 @@
 #define LOOPMARKER_H
 
 #include "qcustomplot.h"
+#include "CircAdaptUI/Signals/loopsignal.h"
 
 class LoopMarker : public QCPItemEllipse
 {
 public:
-    LoopMarker(QCustomPlot* parent) :
-        QCPItemEllipse(parent),
+    LoopMarker(LoopSignal* signal) :
+        QCPItemEllipse(signal->parentPlot()),
+        m_signal(signal),
         m_circleRadius(8.0),
         m_circleThickness(2.5)
     {
+        QPen pen = m_signal->pen();
+        QColor color = pen.color();
+        color.setAlphaF(0.7);
+        pen.setColor(color);
+        setPen(pen);
         setVisible(false);
     }
 
@@ -38,17 +45,14 @@ public:
 
     void draw(QCPPainter* painter) override;
     void setPosition(double key, double value);
-    void setColor(QColor color) { m_color = color; }
-    void setThickness(double thickness) { m_thickness = thickness; }
 
 
 private:
+    LoopSignal* m_signal;
     double m_circleRadius;
     double m_circleThickness;
     double m_keyPos;
     double m_valuePos;
-    QColor m_color;
-    double m_thickness;
 };
 
 #endif // LOOPMARKER_H

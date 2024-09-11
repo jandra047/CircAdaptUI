@@ -1,4 +1,5 @@
 #include "loopgraph.h"
+#include "CircAdaptUI/loopmarker.h"
 
 LoopGraph::LoopGraph(QWidget* parent) :
     GraphContainer<LoopSignal>(parent),
@@ -44,9 +45,6 @@ void LoopGraph::addSnapshotSignal(LoopSignal* signal)
     pen.setColor(color);
     pen.setStyle(Qt::DashLine);
     snapshotSignal->setPen(pen);
-    color.setAlphaF(0.6);
-    pen.setColor(color);
-    snapshotSignal->getMarker()->setPen(pen);
     snapshotSignal->setLayer("snapshot");
     m_Snapshots.push_back(snapshotSignal);
 }
@@ -66,9 +64,6 @@ void LoopGraph::addReferenceSignal(LoopSignal* signal)
     pen.setStyle(Qt::DotLine);
     referenceSignal->setPen(pen);
 
-    color.setAlphaF(0.9);
-    pen.setColor(color);
-    referenceSignal->getMarker()->setPen(pen);
     referenceSignal->setLayer("reference");
     m_References.push_back(referenceSignal);
 }
@@ -78,6 +73,10 @@ void LoopGraph::displaySnapshot(Buffer& buffer)
     for (int i = 0; i < m_Snapshots.size(); i++)
     {
         LoopSignal* signal = m_Snapshots.at(i);
+        if (!signal->getMarker())
+        {
+            signal->createMarker();
+        }
         QVector<double> yData = buffer.getSnapshot(signal->getYVar());
         QVector<double> xData = buffer.getSnapshot(signal->getXVar());
         QVector<double> tData = buffer.getSnapshot("t");
@@ -92,6 +91,10 @@ void LoopGraph::displayReference(Buffer& buffer)
     for (int i = 0; i < m_References.size(); i++)
     {
         LoopSignal* signal = m_References.at(i);
+        if (!signal->getMarker())
+        {
+            signal->createMarker();
+        }
         QVector<double> yData = buffer.getSnapshot(signal->getYVar());
         QVector<double> xData = buffer.getSnapshot(signal->getXVar());
         QVector<double> tData = buffer.getSnapshot("t");
