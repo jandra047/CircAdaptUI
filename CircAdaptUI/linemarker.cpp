@@ -14,4 +14,5 @@ void LineMarker::setXPos(double x)
     point2->setCoords(x, 1);
     m_xPos = x;
     layer()->replot();
+
 }

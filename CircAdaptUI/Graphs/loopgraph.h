@@ -6,6 +6,7 @@
 
 class LoopGraph : public GraphContainer<LoopSignal>
 {
+    Q_OBJECT
 public:
     LoopGraph(QWidget* parent);
 

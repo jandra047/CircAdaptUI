@@ -44,6 +44,9 @@ void LoopGraph::addSnapshotSignal(LoopSignal* signal)
     pen.setColor(color);
     pen.setStyle(Qt::DashLine);
     snapshotSignal->setPen(pen);
+    color.setAlphaF(0.6);
+    pen.setColor(color);
+    snapshotSignal->getMarker()->setPen(pen);
     snapshotSignal->setLayer("snapshot");
     m_Snapshots.push_back(snapshotSignal);
 }
@@ -56,12 +59,16 @@ void LoopGraph::addReferenceSignal(LoopSignal* signal)
     color.setAlphaF(0.5);
 
     int currentSaturation = color.saturation();
-    int reducedSaturation = currentSaturation * 0.4;  // Reduce saturation by 20%
+    int reducedSaturation = currentSaturation * 0.4;
     color.setHsv(color.hue(), reducedSaturation, color.value(), color.alpha());
 
     pen.setColor(color);
     pen.setStyle(Qt::DotLine);
     referenceSignal->setPen(pen);
+
+    color.setAlphaF(0.9);
+    pen.setColor(color);
+    referenceSignal->getMarker()->setPen(pen);
     referenceSignal->setLayer("reference");
     m_References.push_back(referenceSignal);
 }

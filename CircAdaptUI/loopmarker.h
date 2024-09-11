@@ -8,7 +8,7 @@ class LoopMarker : public QCPItemEllipse
 public:
     LoopMarker(QCustomPlot* parent) :
         QCPItemEllipse(parent),
-        m_circleRadius(6.0),
+        m_circleRadius(8.0),
         m_circleThickness(2.5)
     {
         setVisible(false);
@@ -38,6 +38,8 @@ public:
 
     void draw(QCPPainter* painter) override;
     void setPosition(double key, double value);
+    void setColor(QColor color) { m_color = color; }
+    void setThickness(double thickness) { m_thickness = thickness; }
 
 
 private:
@@ -45,6 +47,8 @@ private:
     double m_circleThickness;
     double m_keyPos;
     double m_valuePos;
+    QColor m_color;
+    double m_thickness;
 };
 
 #endif // LOOPMARKER_H
