@@ -24,8 +24,15 @@ private:
     void addReferenceSignal(LoopSignal* signal);
     int findClosestPointBySortKey(LoopSignal* signal, double targetSortKey);
 
+    QString xVarName;
+    QString xUnit;
+    QString yVarName;
+    QString yUnit;
+
     double m_snapshotMarkerPos;
     double m_referenceMarkerPos;
+
+    std::pair<QString, QString> parseLabel(const QString& label);
 
 public slots:
     void updateMarker(GraphGrid::ColType colType, double x);

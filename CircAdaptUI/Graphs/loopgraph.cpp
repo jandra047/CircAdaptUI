@@ -19,11 +19,13 @@ LoopGraph::LoopGraph(QWidget* parent) :
 
 QString LoopGraph::getPoint(const QPoint& pos)
 {
-    QString string = QString("<b>%1:</b> %2 mL <br><b>%3:</b> %4 mmHg")
-                         .arg("Volume")
+    QString string = QString("<b>%1:</b> %2 %3 <br><b>%4:</b> %5 %6")
+                         .arg(xVarName)
                          .arg(xAxis->pixelToCoord(pos.x()), 0, 'f', 1)
-                         .arg("Pressure")
-                         .arg(yAxis->pixelToCoord(pos.y()), 0, 'f', 1);
+                         .arg(xUnit)
+                         .arg(yVarName)
+                         .arg(yAxis->pixelToCoord(pos.y()), 0, 'f', 1)
+                         .arg(yUnit);
     return string;
 }
 
@@ -204,13 +206,36 @@ void LoopGraph::setup(const QJsonObject& jsonObject)
     setTitle(title, QFont("Liberation Sans", 12, QFont::Bold));
 
     QString xLabel = jsonObject["xLabel"].toString();
+    auto xLabelPair = parseLabel(xLabel);
+    xVarName = xLabelPair.first;
+    xUnit = xLabelPair.second;
     xAxis->setLabel(xLabel);
 
     QString yLabel = jsonObject["yLabel"].toString();
+    auto yLabelPair = parseLabel(yLabel);
+    yVarName = yLabelPair.first;
+    yUnit = yLabelPair.second;
     yAxis->setLabel(yLabel);
 
     auto menu = buildMenu(this);
     setContextMenu(menu);
     QObject::connect(menu.second, &QActionGroup::triggered, this, [=](QAction* action) { showSignal(action); });
 
+}
+
+std::pair<QString, QString> LoopGraph::parseLabel(const QString& label)
+{
+    QString varName{};
+    QString unit{};
+
+    QRegularExpressionMatch match = QRegularExpression("\\[(.*)\\]").match(label);
+
+    if (match.hasMatch())
+    {
+        unit = match.captured(1);
+    }
+
+    varName = label.split(" ")[0];
+
+    return std::pair<QString, QString> {varName, unit};
 }
