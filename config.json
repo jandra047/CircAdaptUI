@@ -157,6 +157,66 @@
         "paddingY": 0.05
     },
 
+    "PVGraph":
+    {
+        "title": "Pressure-volume loops",
+        "xLabel": "Volume [mL]",
+        "yLabel": "Pressure [mmHg]",
+        "Signals":
+        [
+            {
+                "displayName": "Left ventricle",
+                "xVar": "VLv",
+                "yVar": "pLv",
+                "isVisible": true,
+                "unit": "mmHg/mL",
+                "color": "#E31A1D"
+            },
+            {
+                "displayName": "Right ventricle",
+                "xVar": "VRv",
+                "yVar": "pRv",
+                "isVisible": true,
+                "unit": "mmHg/mL",
+                "color": "#1F78B4"
+            }
+        ]
+    },
+
+    "SSGraph":
+    {
+        "title": "Stress-strain loops",
+        "xLabel": "Strain [-]",
+        "yLabel": "Stress [kPa]",
+        "Signals":
+        [
+            {
+                "displayName": "Left ventricular free wall",
+                "xVar": "Ef_Lv",
+                "yVar": "Sf_Lv",
+                "isVisible": true,
+                "unit": "mmHg/mL",
+                "color": "#E31A1D"
+            },
+            {
+                "displayName": "Septal wall",
+                "xVar": "Ef_Sv",
+                "yVar": "Sf_Sv",
+                "isVisible": true,
+                "unit": "mmHg/mL",
+                "color": "#000000"
+            },
+            {
+                "displayName": "Right ventricular free wall",
+                "xVar": "Ef_Rv",
+                "yVar": "Sf_Rv",
+                "isVisible": true,
+                "unit": "mmHg/mL",
+                "color": "#1F78B4"
+            }
+        ]
+    },
+
     "GraphGrid":
     {
         "PRESSURE":

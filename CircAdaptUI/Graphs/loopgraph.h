@@ -15,6 +15,7 @@ public:
     void displaySnapshot(Buffer& buffer) override;
     void showSignal(QAction* signal) override;
     void displayReference(Buffer& buffer);
+    void setup(const QJsonObject& jsonObject);
 
 private:
     QVector<LoopSignal*> m_References;

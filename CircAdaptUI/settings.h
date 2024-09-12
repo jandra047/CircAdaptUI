@@ -20,6 +20,8 @@ public:
     QJsonArray ExportSignals() const {  return jsonDoc["ModelWrapper"]["export_signals"].toArray(); };
     QJsonArray ExportParameters() const {  return jsonDoc["ModelWrapper"]["parameters"].toArray(); };
     QJsonArray ValueView() const {  return jsonDoc["ValueView"].toArray(); };
+    QJsonObject PVGraph() const {  return jsonDoc["PVGraph"].toObject(); };
+    QJsonObject SSGraph() const {  return jsonDoc["SSGraph"].toObject(); };
     QJsonObject MWSettings() const { return jsonDoc["ModelWrapper"].toObject(); };
     QJsonObject ModelParameters() const { return jsonDoc["ModelParameters"].toObject(); };
 

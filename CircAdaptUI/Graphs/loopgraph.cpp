@@ -181,3 +181,36 @@ int LoopGraph::findClosestPointBySortKey(LoopSignal* signal, double targetSortKe
         return std::distance(dataContainer.constBegin(), lower);
     }
 }
+
+void LoopGraph::setup(const QJsonObject& jsonObject)
+{
+    QJsonArray signalArray = jsonObject["Signals"].toArray();
+
+    for (auto item : signalArray)
+    {
+        QJsonObject itemObject = item.toObject();
+        LoopSignal* signal = new LoopSignal(
+            xAxis,
+            yAxis,
+            itemObject["displayName"].toString(),
+            itemObject["yVar"].toString(),
+            itemObject["xVar"].toString(),
+            QColor(itemObject["color"].toString()));
+
+        addSignal(signal);
+    }
+
+    QString title = jsonObject["title"].toString();
+    setTitle(title, QFont("Liberation Sans", 12, QFont::Bold));
+
+    QString xLabel = jsonObject["xLabel"].toString();
+    xAxis->setLabel(xLabel);
+
+    QString yLabel = jsonObject["yLabel"].toString();
+    yAxis->setLabel(yLabel);
+
+    auto menu = buildMenu(this);
+    setContextMenu(menu);
+    QObject::connect(menu.second, &QActionGroup::triggered, this, [=](QAction* action) { showSignal(action); });
+
+}
