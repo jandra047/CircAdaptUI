@@ -197,7 +197,8 @@ void LoopGraph::setup(const QJsonObject& jsonObject)
             itemObject["displayName"].toString(),
             itemObject["yVar"].toString(),
             itemObject["xVar"].toString(),
-            QColor(itemObject["color"].toString()));
+            QColor(itemObject["color"].toString()),
+            itemObject["isVisible"].toBool());
 
         addSignal(signal);
     }
