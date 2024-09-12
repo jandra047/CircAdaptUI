@@ -165,11 +165,24 @@
         "Signals":
         [
             {
+                "displayName": "Left atrium",
+                "xVar": "VLa",
+                "yVar": "pLa",
+                "isVisible": false,
+                "color": "#FB9A99"
+            },
+            {
+                "displayName": "Right atrium",
+                "xVar": "VRa",
+                "yVar": "pRa",
+                "isVisible": false,
+                "color": "#A6CEE3"
+            },
+            {
                 "displayName": "Left ventricle",
                 "xVar": "VLv",
                 "yVar": "pLv",
                 "isVisible": true,
-                "unit": "mmHg/mL",
                 "color": "#E31A1D"
             },
             {
@@ -177,7 +190,6 @@
                 "xVar": "VRv",
                 "yVar": "pRv",
                 "isVisible": true,
-                "unit": "mmHg/mL",
                 "color": "#1F78B4"
             }
         ]
