@@ -6,7 +6,7 @@
 class ShuntElement : public GraphicElement
 {
 public:
-    ShuntElement(const QPointF& point, QGraphicsObject* parent = Q_NULLPTR);
+    ShuntElement(QString name, const QPointF& point, SVGObjectBase* parent = Q_NULLPTR);
     QPainterPath mPath;
     bool parsePathDataFast( QStringView dataStr, QPainterPath & path );
 private:

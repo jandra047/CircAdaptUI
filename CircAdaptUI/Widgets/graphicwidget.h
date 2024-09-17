@@ -7,6 +7,7 @@
 #include "viewtypes.h"
 #include "CircAdaptUI/SVGviews/togglebuttongroup.h"
 #include "CircAdaptUI/Widgets/modelgraphicsview.h"
+#include "CircAdaptUI/PropertyBrowser/propertybrowserbase.h"
 
 class GraphicWidget : public QWidget
 {
@@ -21,8 +22,11 @@ public:
     QPushButton* tissueButton;
     QPushButton* currentButton;
 
-private:
     ModelGraphicsView* graphicsView;
+
+    void setup(PropertyBrowserBase* propertyBrowser);
+
+private:
     ToggleButtonGroup* topMenuContainer;
     ToggleButtonGroup* subMenuContainer;
     QHBoxLayout* subMenuLayout;

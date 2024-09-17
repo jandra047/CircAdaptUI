@@ -5,14 +5,19 @@
 #include <QBrush>
 #include <QPen>
 #include <QObject>
+#include "CircAdaptUI/SVGviews/svgobjectbase.h"
 
 class GraphicElement : public QGraphicsPathItem
 {
 
 public:
-    GraphicElement(QGraphicsObject* parent);
+    GraphicElement(QString name, SVGObjectBase* parent);
     void setSelected(bool isSelected);
+    const QString& name() { return m_Name; }
+    SVGObjectBase* SVGObject() { return m_SVGObject; }
 
+private:
+    SVGObjectBase* m_SVGObject;
 
 protected:
     QPen m_penDefault;
@@ -23,6 +28,8 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
     static bool parsePathDataFast( QStringView dataStr, QPainterPath & path );
+
+    QString m_Name;
 };
 
 #endif // GRAPHICELEMENT_H

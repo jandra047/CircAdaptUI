@@ -144,6 +144,35 @@ public:
     }
 };
 
+class AreaContainer : public DataContainer
+{
+public:
+    AreaContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) * 1e4;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) / 1e4;
+    }
+};
+
+class PercentageContainer : public DataContainer
+{
+public:
+    PercentageContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type) {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value);
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value);
+    }
+};
 class DataContainerFactory
 {
 public:
@@ -183,6 +212,14 @@ public:
         else if (type == "ms")
         {
             return new MilliSecondsContainer(name, path, type);
+        }
+        else if (type == "area")
+        {
+            return new AreaContainer(name, path, type);
+        }
+        else if (type == "percentage")
+        {
+            return new PercentageContainer(name, path, type);
         }
         else
         {

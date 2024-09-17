@@ -7,6 +7,7 @@
 #include "DrawingElements/rightventricle.h"
 #include "DrawingElements/septum.h"
 #include "DrawingElements/leftventricle.h"
+#include "drawingelementgroup.h"
 
 class SVGTissueObject : public SVGObjectBase
 {
@@ -22,7 +23,7 @@ public:
     };
 
 
-    SVGTissueObject(QGraphicsItem* parent = Q_NULLPTR);
+    SVGTissueObject(PropertyBrowserBase* propertyBrowser, QGraphicsItem* parent = Q_NULLPTR);
 
     void createCovers();
     RightAtrium* rightAtrium;

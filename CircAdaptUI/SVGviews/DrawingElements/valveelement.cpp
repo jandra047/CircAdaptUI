@@ -1,7 +1,8 @@
 #include "valveelement.h"
+#include <QGraphicsSceneMouseEvent>
 
-ValveElement::ValveElement(QPointF center, QGraphicsObject* parent):
-    GraphicElement(parent),
+ValveElement::ValveElement(QString name, QPointF center, SVGObjectBase* parent):
+    GraphicElement(name, parent),
     mCenter(center)
 {
     mPath.addEllipse(mCenter.x() - (6/2),
@@ -10,4 +11,5 @@ ValveElement::ValveElement(QPointF center, QGraphicsObject* parent):
                      6);
 
     setPath(mPath);
+    m_penSelected.setWidthF(1.5);
 }

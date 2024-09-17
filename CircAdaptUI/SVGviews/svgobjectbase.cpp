@@ -4,10 +4,16 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
-SVGObjectBase::SVGObjectBase(const QString& bgImg, const QString& elementId, QGraphicsItem* parent) :
+SVGObjectBase::SVGObjectBase(const QString& bgImg,
+                             PropertyBrowserBase* propertyBrowser,
+                             const QString& elementId,
+                             QGraphicsItem* parent) :
     QGraphicsObject(parent),
     m_bgItem(QGraphicsSvgItem(bgImg, this)),
-    subMenuContainer(new ToggleButtonGroup())
+    subMenuContainer(new ToggleButtonGroup()),
+    mPropertyBrowser(propertyBrowser),
+    mProperties(Q_NULLPTR),
+    m_VisibleProperties()
 {
     QSvgRenderer* renderer = new QSvgRenderer(bgImg, this);
     m_bgItem.setSharedRenderer(renderer);

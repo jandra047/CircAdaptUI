@@ -35,10 +35,14 @@ public:
                                  bool SetVal,
                                  const QString & toolTipVal );
     QtProperty* findProperty(const QString& name);
+
+    QMap<QString, QList<QtBrowserItem*>> createProperties(const QJsonObject& jsonObject);
 signals:
     void changeModelParam(const QString& path, const QVariant& value);
 private slots:
     void propertyValueChanged( QtProperty * property, const QVariant& Val ); /*handleDynPropertyChanged( property, Val );*/
+public slots:
+        void showProperties(QList<QtBrowserItem*> browserItems);
 };
 
 #endif // PROPERTYBROWSERBASE_H

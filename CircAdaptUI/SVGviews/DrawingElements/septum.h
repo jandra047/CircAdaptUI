@@ -6,7 +6,7 @@
 class Septum : public GraphicElement
 {
 public:
-    Septum(QGraphicsObject* parent);
+    Septum(SVGObjectBase* parent);
 
 private:
     QPainterPath m_path;

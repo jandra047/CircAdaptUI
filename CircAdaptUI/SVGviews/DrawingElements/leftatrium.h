@@ -6,7 +6,7 @@
 class LeftAtrium : public GraphicElement
 {
 public:
-    LeftAtrium(QGraphicsObject* parent);
+    LeftAtrium(SVGObjectBase* parent);
 
 private:
     QString m_pathString;

@@ -1,7 +1,8 @@
 #include "svgtissueobject.h"
+#include "CircAdaptUI/settings.h"
 
-SVGTissueObject::SVGTissueObject(QGraphicsItem* parent) :
-    SVGObjectBase(":/CircAdapt/svgs/Heart_segments.svg", "", parent),
+SVGTissueObject::SVGTissueObject(PropertyBrowserBase* propertyBrowser, QGraphicsItem* parent) :
+    SVGObjectBase(":/CircAdapt/svgs/Heart_segments.svg", propertyBrowser, "", parent),
     rightAtrium(new RightAtrium(this)),
     leftAtrium(new LeftAtrium(this)),
     rightVentricle(new RightVentricle(this)),
@@ -15,6 +16,8 @@ SVGTissueObject::SVGTissueObject(QGraphicsItem* parent) :
     subMenuContainer->addButton("Lv free wall");
 
     subMenuContainer->buttonGroup->buttons().at(0)->setChecked(true);
+
+    propertyMap = propertyBrowser->createProperties(Settings::instance().ModelParameters()["Tissue"].toObject());
 
     m_CoverElement = new QGraphicsRectItem(m_bgItem.boundingRect(), this);
     QColor  coverColor( 255, 255, 255, 200 );

@@ -6,11 +6,10 @@
 class ValveElement : public GraphicElement
 {
 public:
-    ValveElement(QPointF center, QGraphicsObject* parent = Q_NULLPTR);
+    ValveElement(QString name, QPointF center, SVGObjectBase* parent = Q_NULLPTR);
 
     QPointF mCenter;
     QPainterPath mPath;
-
 };
 
 #endif // VALVEELEMENT_H

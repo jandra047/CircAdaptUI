@@ -4,14 +4,19 @@
 #include <QGraphicsObject>
 #include <QGraphicsSvgItem>
 #include <QPushButton>
+#include "CircAdaptUI/PropertyBrowser/propertybrowserbase.h"
 #include "togglebuttongroup.h"
+#include <QObject>
 
 class SVGObjectBase : public QGraphicsObject
 {
-
+    Q_OBJECT
 
 public:
-    SVGObjectBase(const QString& bgImg, const QString& elementId = "", QGraphicsItem* parent = Q_NULLPTR);
+    SVGObjectBase(const QString& bgImg,
+                  PropertyBrowserBase* propertyBrowser,
+                  const QString& elementId = "",
+                  QGraphicsItem* parent = Q_NULLPTR);
     ~SVGObjectBase() {};
     /**
      * @brief Returns the required bounding rectangle for this graph item
@@ -33,9 +38,23 @@ public:
 
     ToggleButtonGroup* getSubMenuContainer() { return subMenuContainer; }
 
+    QtProperty* mProperties;
+    PropertyBrowserBase* mPropertyBrowser;
+    QMap<QString, QList<QtBrowserItem*>> propertyMap;
+
+    void setVisibleProperties(QList<QtBrowserItem*> visibleProperties)
+    {
+        m_VisibleProperties = visibleProperties;
+        mPropertyBrowser->showProperties(m_VisibleProperties);
+    };
+
+    QList<QtBrowserItem*>& getVisibleProperties() { return m_VisibleProperties; }
+
+
 protected:
     QGraphicsSvgItem m_bgItem;
     ToggleButtonGroup* subMenuContainer;
+    QList<QtBrowserItem*> m_VisibleProperties;
 
 public slots:
     virtual void handleSubMenuSwitch(QAbstractButton* button) {};

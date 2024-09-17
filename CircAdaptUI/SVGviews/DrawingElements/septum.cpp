@@ -1,7 +1,7 @@
 #include "septum.h"
 
-Septum::Septum(QGraphicsObject* parent):
-    GraphicElement(parent)
+Septum::Septum(SVGObjectBase* parent):
+    GraphicElement("Septal wall", parent)
 {
     QPainterPath m_path1;
     QPainterPath m_path2;

@@ -11,7 +11,6 @@
 #include "CircAdaptUI/SVGviews/svgtorsoobject.h"
 #include "CircAdaptUI/SVGviews/svgheartobject.h"
 #include "CircAdaptUI/SVGviews/svgtissueobject.h"
-// #include "graphicwidget.h"
 
 class ModelGraphicsView : public QGraphicsView
 {
@@ -20,7 +19,7 @@ class ModelGraphicsView : public QGraphicsView
 public:
     using ViewType = vt::ViewType;
 
-    ModelGraphicsView(QWidget *parent = nullptr);
+    ModelGraphicsView(PropertyBrowserBase* propertyBrowser, QWidget *parent = nullptr);
     ~ModelGraphicsView();
     void showView(ViewType viewType);
     ToggleButtonGroup* getSubMenu(ViewType viewType);
@@ -34,6 +33,9 @@ private:
     SVGTissueObject *tissueSvg;
 
     void updateView(SVGObjectBase* item);
+
+public: signals:
+    void showProperties(QList<QtBrowserItem*> browserItems);
 };
 
 

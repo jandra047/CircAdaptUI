@@ -70,7 +70,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/propertyfactory.h CircAdaptUI/PropertyBrowser/propertyfactory.cpp
     CircAdaptUI/Widgets/modelgraphicsview.h CircAdaptUI/Widgets/modelgraphicsview.cpp
     CircAdaptUI/modelgraphicsscene.h CircAdaptUI/modelgraphicsscene.cpp
-    CircAdaptUI/PropertyBrowser/circpropertybrowser.h CircAdaptUI/PropertyBrowser/circpropertybrowser.cpp
+
     CircAdaptUI/linemarker.h CircAdaptUI/linemarker.cpp
     Resources/resources.qrc
     CircAdaptUI/SVGviews/svgobjectbase.h CircAdaptUI/SVGviews/svgobjectbase.cpp
@@ -90,6 +90,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/DrawingElements/septum.h CircAdaptUI/SVGviews/DrawingElements/septum.cpp
     CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
     CircAdaptUI/loopmarker.h CircAdaptUI/loopmarker.cpp
+    CircAdaptUI/SVGviews/drawingelementgroup.h CircAdaptUI/SVGviews/drawingelementgroup.cpp
 
 
 )

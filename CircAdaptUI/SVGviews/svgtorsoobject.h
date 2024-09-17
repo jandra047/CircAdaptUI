@@ -6,7 +6,7 @@
 class SVGTorsoObject : public SVGObjectBase
 {
 public:
-    SVGTorsoObject(QGraphicsItem* parent = Q_NULLPTR) ;
+    SVGTorsoObject(PropertyBrowserBase* propertyBrowser, QGraphicsItem* parent = Q_NULLPTR) ;
     void handleSubMenuSwitch(QAbstractButton* button) override;
 
 private:

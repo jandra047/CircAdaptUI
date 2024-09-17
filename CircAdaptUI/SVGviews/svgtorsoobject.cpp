@@ -1,18 +1,19 @@
 #include "svgtorsoobject.h"
 #include <QWidget>
 #include <QPen>
+#include "CircAdaptUI/settings.h"
 
-SVGTorsoObject::SVGTorsoObject(QGraphicsItem* parent):
-    SVGObjectBase(":/CircAdapt/svgs/Full_Body.svg", "", parent)
+SVGTorsoObject::SVGTorsoObject(PropertyBrowserBase* propertyBrowser, QGraphicsItem* parent):
+    SVGObjectBase(":/CircAdapt/svgs/Full_Body.svg", propertyBrowser, "", parent)
 {
     subMenuContainer->addButton("Systemic circulation");
     subMenuContainer->addButton("Pulmonary circulation");
 
-    subMenuContainer->buttonGroup->buttons().at(0)->setChecked(true);
+    propertyMap = propertyBrowser->createProperties(Settings::instance().ModelParameters()["Torso"].toObject());
 
     createCovers();
-    showSystemic();
     connect(subMenuContainer->buttonGroup, &QButtonGroup::buttonClicked, this, &SVGTorsoObject::handleSubMenuSwitch);
+    subMenuContainer->buttonGroup->buttons().at(0)->click();
 }
 
 void SVGTorsoObject::handleSubMenuSwitch(QAbstractButton* button)
@@ -25,7 +26,7 @@ void SVGTorsoObject::handleSubMenuSwitch(QAbstractButton* button)
     {
         showPulmonary();
     }
-
+    setVisibleProperties(propertyMap[button->text()]);
 }
 
 void SVGTorsoObject::showSystemic()

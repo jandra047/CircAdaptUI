@@ -7,14 +7,18 @@ ParamViewDockWidget::ParamViewDockWidget(QWidget *parent)
 {
     setVisible(false);
     ui->setupUi(this);
+    ui->graphicsView->setup(ui->circPBrowser);
     ui->splitter->setChildrenCollapsible( false );
     ui->graphicsView->setMinimumWidth(400);
     ui->systemPBrowser->setMinimumWidth( 300 );
 
-    // QObject::connect(ui->systemPBrowser->mDynPropertyManager, &QtVariantPropertyManager::valueChanged,
-    //                  this, [=](QtProperty* p, const QVariant& v) { emit paramChanged(p,v); } );
     QObject::connect(ui->systemPBrowser, &PropertyBrowserBase::changeModelParam,
                      this, [=](const QString& path, const QVariant& val) { emit paramChanged(path,val); } );
+    QObject::connect(ui->circPBrowser, &PropertyBrowserBase::changeModelParam,
+                     this, [=](const QString& path, const QVariant& val) { emit paramChanged(path,val); } );
+    // TODO:
+    QObject::connect(ui->graphicsView->graphicsView, &ModelGraphicsView::showProperties,
+                     ui->circPBrowser, &PropertyBrowserBase::showProperties);
 }
 
 ParamViewDockWidget::~ParamViewDockWidget()

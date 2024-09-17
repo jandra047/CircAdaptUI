@@ -36,7 +36,7 @@
          <widget class="SystemPropertyBrowser" name="systemPBrowser" native="true"/>
         </item>
         <item>
-         <widget class="CircPropertyBrowser" name="circPBrowser" native="true"/>
+         <widget class="PropertyBrowserBase" name="circPBrowser" native="true"/>
         </item>
        </layout>
       </widget>
@@ -53,15 +53,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>CircPropertyBrowser</class>
-   <extends>QWidget</extends>
-   <header>CircAdaptUI/PropertyBrowser/circpropertybrowser.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>GraphicWidget</class>
    <extends>QWidget</extends>
    <header>CircAdaptUI/Widgets/graphicwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PropertyBrowserBase</class>
+   <extends>QWidget</extends>
+   <header>CircAdaptUI/PropertyBrowser/propertybrowserbase.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

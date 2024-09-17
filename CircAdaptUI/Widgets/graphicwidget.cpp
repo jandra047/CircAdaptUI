@@ -4,9 +4,26 @@
 
 GraphicWidget::GraphicWidget(QWidget* parent) :
     QWidget(parent),
-    graphicsView(new ModelGraphicsView(parent)),
+    graphicsView(Q_NULLPTR),
     topMenuContainer(new ToggleButtonGroup(parent))
 {
+}
+
+GraphicWidget::~GraphicWidget()
+{
+    delete graphicsView;
+    delete topMenuContainer;
+    delete subMenuContainer;
+    delete torsoButton;
+    delete heartButton;
+    delete tissueButton;
+    delete currentButton;
+}
+
+void GraphicWidget::setup(PropertyBrowserBase* propertyBrowser)
+{
+    graphicsView = new ModelGraphicsView(propertyBrowser, static_cast<QWidget*> (parent()));
+
     QVBoxLayout* mainLayout = new QVBoxLayout();
     createButtons();
 
@@ -22,17 +39,6 @@ GraphicWidget::GraphicWidget(QWidget* parent) :
     subMenuLayout->addWidget(subMenuContainer);
     mainLayout->addLayout(subMenuLayout);
     setLayout(mainLayout);
-}
-
-GraphicWidget::~GraphicWidget()
-{
-    delete graphicsView;
-    delete topMenuContainer;
-    delete subMenuContainer;
-    delete torsoButton;
-    delete heartButton;
-    delete tissueButton;
-    delete currentButton;
 }
 
 void GraphicWidget::createButtons()

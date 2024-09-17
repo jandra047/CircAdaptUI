@@ -1,4 +1,6 @@
 #include "propertybrowserbase.h"
+#include <QJsonObject>
+#include <QJsonArray>
 
 PropertyBrowserBase::PropertyBrowserBase(QWidget* parent):
     QWidget(parent),
@@ -14,6 +16,7 @@ PropertyBrowserBase::PropertyBrowserBase(QWidget* parent):
     mPBrowser->setFactoryForManager(mDynPropertyManager, mResetPropertyFactory);
     connect( mDynPropertyManager, &QtVariantPropertyManager::valueChanged,
             this, &PropertyBrowserBase::propertyValueChanged );
+    mPBrowser->setResizeMode(QtTreePropertyBrowser::ResizeToContents);
 }
 
 QtProperty* PropertyBrowserBase::addGroupProperty(const QString& name)
@@ -96,4 +99,52 @@ QtProperty* PropertyBrowserBase::findProperty(const QString& name)
         }
     }
     return Q_NULLPTR;
+}
+
+QMap<QString, QList<QtBrowserItem*>> PropertyBrowserBase::createProperties(const QJsonObject& jsonObject)
+{
+    QMap<QString, QList<QtBrowserItem*>> propertyMap {};
+    for (const QString& key : jsonObject.keys())
+    {
+        QList<QtBrowserItem*> list {};
+        // QtProperty* properties = addGroupProperty( tr(key.toStdString().c_str()) );
+        QtProperty* properties = mGroupManager->addProperty( tr(key.toStdString().c_str()) );
+        list.append(mPBrowser->insertProperty(properties, Q_NULLPTR));
+        for (auto array_elem : jsonObject[key].toArray())
+        {
+            const QJsonObject obj = array_elem.toObject();
+
+            if (obj["type"].toString() == "double")
+            {
+                createDoubleProperty(properties,
+                                     obj["name"].toString(),
+                                     obj["min"].toDouble(),
+                                     obj["max"].toDouble(),
+                                     obj["stepsize"].toDouble(),
+                                     obj["default"].toDouble(),
+                                     tr(obj["tooltip"].toString().toStdString().c_str()),
+                                     obj["enabled"].toBool());
+            }
+            else if (obj["type"].toString() == "bool")
+            {
+                createCheckboxProperty( properties,
+                                        obj["name"].toString(),
+                                        obj["default"].toBool(),
+                                        tr(obj["tooltip"].toString().toStdString().c_str()));
+
+            }
+        }
+        propertyMap[key] = list;
+    }
+
+    return propertyMap;
+
+}
+
+void PropertyBrowserBase::showProperties(QList<QtBrowserItem*> browserItems)
+{
+    for (auto item : mPBrowser->topLevelItems())
+    {
+        mPBrowser->setItemVisible(item, browserItems.contains(item));
+    }
 }

@@ -1,7 +1,7 @@
 #include "rightventricle.h"
 
-RightVentricle::RightVentricle(QGraphicsObject* parent):
-    GraphicElement(parent)
+RightVentricle::RightVentricle(SVGObjectBase* parent):
+    GraphicElement("Right ventricular wall", parent)
 {
     QPainterPath m_path1;
     QPainterPath m_path2;

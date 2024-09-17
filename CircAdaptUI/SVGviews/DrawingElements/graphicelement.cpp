@@ -1,18 +1,19 @@
 #include "graphicelement.h"
 
-GraphicElement::GraphicElement(QGraphicsObject* parent):
+GraphicElement::GraphicElement(QString name, SVGObjectBase* parent):
     QGraphicsPathItem(parent),
     m_penDefault(Qt::black),
     m_penSelected(Qt::black),
     m_Brush(Qt::gray),
-    m_isSelected(false)
+    m_isSelected(false),
+    m_Name(name),
+    m_SVGObject(parent)
 {
     m_penDefault.setWidthF(0.5);
-    m_penSelected.setWidthF(3);
+    m_penSelected.setWidthF(5);
     setPen(m_penDefault);
     setBrush(m_Brush);
     setZValue(1);
-
 }
 
 void GraphicElement::setSelected(bool isSelected)
@@ -22,12 +23,14 @@ void GraphicElement::setSelected(bool isSelected)
     if (m_isSelected) {
         setPen(m_penSelected);
         setZValue(10);
+        m_SVGObject->setVisibleProperties(m_SVGObject->propertyMap[name()]);
     }
     else
     {
         setPen(m_penDefault);
         setZValue(1);
     }
+
 }
 
 void GraphicElement::mousePressEvent(QGraphicsSceneMouseEvent* event)

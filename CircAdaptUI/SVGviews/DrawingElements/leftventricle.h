@@ -6,7 +6,7 @@
 class LeftVentricle : public GraphicElement
 {
 public:
-    LeftVentricle(QGraphicsObject* parent);
+    LeftVentricle(SVGObjectBase* parent);
 private:
     QPainterPath m_path;
 

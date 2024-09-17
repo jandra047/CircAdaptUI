@@ -1,12 +1,12 @@
 #include "modelgraphicsview.h"
 
 
-ModelGraphicsView::ModelGraphicsView(QWidget *parent) :
+ModelGraphicsView::ModelGraphicsView(PropertyBrowserBase* propertyBrowser, QWidget *parent) :
     QGraphicsView(parent),
     scene(new QGraphicsScene(this)),
-    torsoSvg(new SVGTorsoObject()),
-    heartSvg(new SVGHeartObject()),
-    tissueSvg(new SVGTissueObject())
+    torsoSvg(new SVGTorsoObject(propertyBrowser)),
+    heartSvg(new SVGHeartObject(propertyBrowser)),
+    tissueSvg(new SVGTissueObject(propertyBrowser))
 {
     setScene(scene);
 
@@ -15,9 +15,9 @@ ModelGraphicsView::ModelGraphicsView(QWidget *parent) :
     scene->addItem(heartSvg);
     scene->addItem(tissueSvg);
 
-    // Initially, only show torso
-    heartSvg->setVisible(false);
-    tissueSvg->setVisible(false);
+    heartSvg->afterSetup();
+
+    showView(ViewType::Torso);
 
     setRenderHint(QPainter::Antialiasing, true);
     scene->setSceneRect(scene->itemsBoundingRect());
@@ -53,6 +53,8 @@ void ModelGraphicsView::updateView(SVGObjectBase *item)
     tissueSvg->setVisible(item == tissueSvg);
     scene->setSceneRect(item->boundingRect());
     fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
+
+    item->mPropertyBrowser->showProperties(item->getVisibleProperties());
 }
 
 void ModelGraphicsView::resizeEvent(QResizeEvent *event)

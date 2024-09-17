@@ -6,7 +6,7 @@
 class RightVentricle : public GraphicElement
 {
 public:
-    RightVentricle(QGraphicsObject* parent);
+    RightVentricle(SVGObjectBase* parent);
 
     QString m_pathString;
     QPainterPath m_path;
