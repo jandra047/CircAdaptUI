@@ -91,8 +91,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
     CircAdaptUI/loopmarker.h CircAdaptUI/loopmarker.cpp
     CircAdaptUI/SVGviews/drawingelementgroup.h CircAdaptUI/SVGviews/drawingelementgroup.cpp
-
-
+    CircAdaptUI/PropertyBrowser/propertymanager.h CircAdaptUI/PropertyBrowser/propertymanager.cpp
+    CircAdaptUI/PropertyBrowser/resbutton.h CircAdaptUI/PropertyBrowser/resbutton.cpp
 )
 
 qt_add_resources(CircAdaptUI

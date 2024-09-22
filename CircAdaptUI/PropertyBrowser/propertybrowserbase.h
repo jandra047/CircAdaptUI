@@ -5,7 +5,8 @@
 #include <QGridLayout>
 #include "qttreepropertybrowser.h"
 #include "qtpropertymanager.h"
-#include "qtvariantproperty.h"
+#include "propertyfactory.h"
+#include "propertymanager.h"
 
 class PropertyBrowserBase : public QWidget
 {
@@ -18,8 +19,8 @@ public:
     QGridLayout* mGrid;
     QtTreePropertyBrowser* mPBrowser;
     QtGroupPropertyManager* mGroupManager;
-    QtVariantPropertyManager* mDynPropertyManager;
-    QtVariantEditorFactory* mResetPropertyFactory;
+    CustomPropertyManager* mDynPropertyManager;
+    PropertyFactory* mResetPropertyFactory;
 
     QtProperty* addGroupProperty(const QString& name);
     void createDoubleProperty(QtProperty* property,

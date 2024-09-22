@@ -11,9 +11,9 @@ PropertyBrowserBase::PropertyBrowserBase(QWidget* parent):
     mPBrowser->setResizeMode(QtTreePropertyBrowser::Interactive);
     mGrid->addWidget(mPBrowser);
     mGroupManager = new QtGroupPropertyManager(mPBrowser);
-    mDynPropertyManager = new QtVariantPropertyManager( mPBrowser );
-    mResetPropertyFactory = new QtVariantEditorFactory(mPBrowser);
-    mPBrowser->setFactoryForManager(mDynPropertyManager, mResetPropertyFactory);
+    mDynPropertyManager = new CustomPropertyManager( mPBrowser );
+    mResetPropertyFactory = new PropertyFactory(mDynPropertyManager, mPBrowser);
+    mPBrowser->setFactoryForManager((QtVariantPropertyManager*)mDynPropertyManager, mResetPropertyFactory);
     connect( mDynPropertyManager, &QtVariantPropertyManager::valueChanged,
             this, &PropertyBrowserBase::propertyValueChanged );
     mPBrowser->setResizeMode(QtTreePropertyBrowser::ResizeToContents);
@@ -36,6 +36,7 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
                           bool enabled)
 {
     QtProperty * doubleProp = mDynPropertyManager->addProperty( QMetaType::Double, pName );
+    mDynPropertyManager->setDefaultValue(doubleProp, setVal);
 
     if ( doubleProp )
     {
@@ -67,6 +68,7 @@ void PropertyBrowserBase::createCheckboxProperty( QtProperty * property,
 {
     // in this function,, the given property will be created and filled with data.
     QtProperty * ckeckboxProp = mDynPropertyManager->addProperty( QMetaType::Bool, pName );
+    mDynPropertyManager->setDefaultValue(ckeckboxProp, SetVal);
 
     if ( ckeckboxProp )
     {
@@ -85,6 +87,7 @@ void PropertyBrowserBase::createCheckboxProperty( QtProperty * property,
 
 void PropertyBrowserBase::propertyValueChanged(QtProperty* property, const QVariant& value)
 {
+    property->setModified(value != mDynPropertyManager->defaultValue(property));
     emit changeModelParam(property->propertyName(), value);
 }
 
