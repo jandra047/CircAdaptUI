@@ -65,25 +65,27 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
 
 void PropertyBrowserBase::createCheckboxProperty( QtProperty * property,
                                                    const QString & pName,
+                                                   const QString & key,
                                                    bool SetVal,
                                                    const QString & toolTipVal )
 {
     // in this function,, the given property will be created and filled with data.
-    QtProperty * ckeckboxProp = mDynPropertyManager->addProperty( QMetaType::Bool, pName );
-    mDynPropertyManager->setDefaultValue(ckeckboxProp, SetVal);
+    QtProperty * checkboxProp = mDynPropertyManager->addProperty( QMetaType::Bool, pName );
+    mDynPropertyManager->setDefaultValue(checkboxProp, SetVal);
+    mDynPropertyManager->setPropertyKey(checkboxProp, key);
 
-    if ( ckeckboxProp )
+    if ( checkboxProp )
     {
-        ckeckboxProp->setPropertyName( pName );   // Create a user interface readable name
+        checkboxProp->setPropertyName( pName );   // Create a user interface readable name
 
         if ( !toolTipVal.isEmpty() )
         {
-            ckeckboxProp->setToolTip( toolTipVal );
+            checkboxProp->setToolTip( toolTipVal );
         }
 
-        mDynPropertyManager->setValue( ckeckboxProp, SetVal );
+        mDynPropertyManager->setValue( checkboxProp, SetVal );
 
-        property->addSubProperty( ckeckboxProp );
+        property->addSubProperty( checkboxProp );
     }
 }
 
@@ -135,6 +137,7 @@ QMap<QString, QList<QtBrowserItem*>> PropertyBrowserBase::createProperties(const
             {
                 createCheckboxProperty( properties,
                                         obj["name"].toString(),
+                                        obj["key"].toString(),
                                         obj["default"].toBool(),
                                         tr(obj["tooltip"].toString().toStdString().c_str()));
 

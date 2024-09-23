@@ -33,6 +33,7 @@ void SystemPropertyBrowser::setPropertiesFromConfig()
             {
                 createCheckboxProperty( mSystemProperties,
                                         obj["name"].toString(),
+                                        obj["key"].toString(),
                                         obj["default"].toBool(),
                                         tr(obj["tooltip"].toString().toStdString().c_str()));
 

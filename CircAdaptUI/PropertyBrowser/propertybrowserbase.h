@@ -34,6 +34,7 @@ public:
                               bool enabled = true);
     void createCheckboxProperty( QtProperty * property,
                                  const QString & pName,
+                                 const QString & key,
                                  bool SetVal,
                                  const QString & toolTipVal );
     QtProperty* findProperty(const QString& name);
