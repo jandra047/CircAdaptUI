@@ -226,8 +226,157 @@
                 "name": "Ventricular septal defect",
                 "path": "Model.Peri.LvRv.A_open",
                 "type": "diameter"
+            },
+            {
+                "name": "Right atrial wall contractility",
+                "path": "Model.Peri.Ra.wRa.pRa1.Sf_act",
+                "type": "percentage"
+            },
+            {
+                "name": "Right atrial wall passive stiffness",
+                "path": "Model.Peri.Ra.wRa.pRa1.Sf_pas",
+                "type": "percentage"
+            },
+            {
+                "name": "Right atrial wall mass",
+                "path": "Model.Peri.Ra.wRa.pRa1.V_wall",
+                "type": "percentage"
+            },
+            {
+                "name": "Right atrial wall dilatation",
+                "path": "Model.Peri.Ra.wRa.pRa1.Am_ref",
+                "type": "percentage"
+            },
+            {
+                "name": "Right atrial wall mechanical activation delay",
+                "path": "Model.Peri.Ra.wRa.pRa1.dt",
+                "type": "ms"
+            },
+            {
+                "name": "Right atrial wall relaxation rate",
+                "path": "Model.Peri.Ra.wRa.pRa1.td",
+                "type": "percentage"
+            },
+            {
+                "name": "Left atrial wall contractility",
+                "path": "Model.Peri.La.wLa.pLa1.Sf_act",
+                "type": "percentage"
+            },
+            {
+                "name": "Left atrial wall passive stiffness",
+                "path": "Model.Peri.La.wLa.pLa1.Sf_pas",
+                "type": "percentage"
+            },
+            {
+                "name": "Left atrial wall mass",
+                "path": "Model.Peri.La.wLa.pLa1.V_wall",
+                "type": "percentage"
+            },
+            {
+                "name": "Left atrial wall dilatation",
+                "path": "Model.Peri.La.wLa.pLa1.Am_ref",
+                "type": "percentage"
+            },
+            {
+                "name": "Left atrial wall mechanical activation delay",
+                "path": "Model.Peri.La.wLa.pLa1.dt",
+                "type": "ms"
+            },
+            {
+                "name": "Left atrial wall relaxation rate",
+                "path": "Model.Peri.La.wLa.pLa1.td",
+                "type": "percentage"
+            },
+            {
+                "name": "Left ventricular wall contractility",
+                "path": "Model.Peri.TriSeg.wLv.pLv1.Sf_act",
+                "type": "percentage"
+            },
+            {
+                "name": "Left ventricular wall passive stiffness",
+                "path": "Model.Peri.TriSeg.wLv.pLv1.Sf_pas",
+                "type": "percentage"
+            },
+            {
+                "name": "Left ventricular wall mass",
+                "path": "Model.Peri.TriSeg.wLv.pLv1.V_wall",
+                "type": "percentage"
+            },
+            {
+                "name": "Left ventricular wall dilatation",
+                "path": "Model.Peri.TriSeg.wLv.pLv1.Am_ref",
+                "type": "percentage"
+            },
+            {
+                "name": "Left ventricular wall mechanical activation delay",
+                "path": "Model.Peri.TriSeg.wLv.pLv1.dt",
+                "type": "percentage"
+            },
+            {
+                "name": "Left ventricular wall relaxation rate",
+                "path": "Model.Peri.TriSeg.wLv.pLv1.td",
+                "type": "percentage"
+            },
+            {
+                "name": "Septal wall contractility",
+                "path": "Model.Peri.TriSeg.wSv.pSv1.Sf_act",
+                "type": "percentage"
+            },
+            {
+                "name": "Septal wall passive stiffness",
+                "path": "Model.Peri.TriSeg.wSv.pSv1.Sf_pas",
+                "type": "percentage"
+            },
+            {
+                "name": "Septal wall mass",
+                "path": "Model.Peri.TriSeg.wSv.pSv1.V_wall",
+                "type": "percentage"
+            },
+            {
+                "name": "Septal wall dilatation",
+                "path": "Model.Peri.TriSeg.wSv.pSv1.Am_ref",
+                "type": "percentage"
+            },
+            {
+                "name": "Septal wall mechanical activation delay",
+                "path": "Model.Peri.TriSeg.wSv.pSv1.dt",
+                "type": "percentage"
+            },
+            {
+                "name": "Septal wall relaxation rate",
+                "path": "Model.Peri.TriSeg.wSv.pSv1.td",
+                "type": "percentage"
+            },
+            {
+                "name": "Right ventricular wall contractility",
+                "path": "Model.Peri.TriSeg.wRv.pRv1.Sf_act",
+                "type": "percentage"
+            },
+            {
+                "name": "Right ventricular wall passive stiffness",
+                "path": "Model.Peri.TriSeg.wRv.pRv1.Sf_pas",
+                "type": "percentage"
+            },
+            {
+                "name": "Right ventricular wall mass",
+                "path": "Model.Peri.TriSeg.wRv.pRv1.V_wall",
+                "type": "percentage"
+            },
+            {
+                "name": "Right ventricular wall dilatation",
+                "path": "Model.Peri.TriSeg.wRv.pRv1.Am_ref",
+                "type": "percentage"
+            },
+            {
+                "name": "Right ventricular wall mechanical activation delay",
+                "path": "Model.Peri.TriSeg.wRv.pRv1.dt",
+                "type": "percentage"
+            },
+            {
+                "name": "Right ventricular wall relaxation rate",
+                "path": "Model.Peri.TriSeg.wRv.pRv1.td",
+                "type": "percentage"
             }
-
         ]
     },
 
@@ -674,7 +823,7 @@
                             "key": "Tricuspid effective regurgitant orifice area",
                             "min": 1e-9,
                             "max": 2.0,
-                            "default": 0.0,
+                            "default": 1e-9,
                             "tooltip": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
@@ -699,7 +848,7 @@
                             "key": "Pulmonary effective regurgitant orifice area",
                             "min": 1e-9,
                             "max": 2.0,
-                            "default": 0.0,
+                            "default": 1e-9,
                             "tooltip": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
@@ -724,7 +873,7 @@
                             "key": "Mitral effective regurgitant orifice area",
                             "min": 1e-9,
                             "max": 2.0,
-                            "default": 0.0,
+                            "default": 1e-9,
                             "tooltip": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
@@ -749,7 +898,7 @@
                             "key": "Aortic effective regurgitant orifice area",
                             "min": 1e-9,
                             "max": 1.2,
-                            "default": 0.0,
+                            "default": 1e-9,
                             "tooltip": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
@@ -816,6 +965,7 @@
                     [
                         {
                             "name": "Contractility",
+                            "key": "Right atrial wall contractility",
                             "min": 1,
                             "max": 250,
                             "default": 100,
@@ -826,6 +976,7 @@
                         },
                         {
                             "name": "Passive stiffness",
+                            "key": "Right atrial wall passive stiffness",
                             "min": 20,
                             "max": 4000,
                             "default": 100,
@@ -836,6 +987,7 @@
                         },
                         {
                             "name": "Mass",
+                            "key": "Right atrial wall mass",
                             "min": 50,
                             "max": 200,
                             "default": 100,
@@ -846,9 +998,10 @@
                         },
                         {
                             "name": "Dilatation",
-                            "min": 0.0,
-                            "max": 200,
-                            "default": 0,
+                            "key": "Right atrial wall dilatation",
+                            "min": 100,
+                            "max": 300,
+                            "default": 100,
                             "tooltip": "%",
                             "stepsize": 5,
                             "enabled": true,
@@ -856,6 +1009,7 @@
                         },
                         {
                             "name": "Mechanical activation delay",
+                            "key": "Right atrial wall mechanical activation delay",
                             "min": -50,
                             "max": 250,
                             "default": 0,
@@ -866,6 +1020,7 @@
                         },
                         {
                             "name": "Relaxation rate",
+                            "key": "Right atrial wall relaxation rate",
                             "min": 40,
                             "max": 250,
                             "default": 100,
@@ -879,6 +1034,7 @@
                     [
                         {
                             "name": "Contractility",
+                            "key": "Left atrial wall contractility",
                             "min": 1,
                             "max": 250,
                             "default": 100,
@@ -889,6 +1045,7 @@
                         },
                         {
                             "name": "Passive stiffness",
+                            "key": "Left atrial wall passive stiffness",
                             "min": 20,
                             "max": 4000,
                             "default": 100,
@@ -899,6 +1056,7 @@
                         },
                         {
                             "name": "Mass",
+                            "key": "Left atrial wall mass",
                             "min": 50,
                             "max": 200,
                             "default": 100,
@@ -909,9 +1067,10 @@
                         },
                         {
                             "name": "Dilatation",
-                            "min": 0.0,
-                            "max": 200,
-                            "default": 0,
+                            "key": "Left atrial wall dilatation",
+                            "min": 100,
+                            "max": 300,
+                            "default": 100,
                             "tooltip": "%",
                             "stepsize": 5,
                             "enabled": true,
@@ -919,6 +1078,7 @@
                         },
                         {
                             "name": "Mechanical activation delay",
+                            "key": "Left atrial wall mechanical activation delay",
                             "min": -50,
                             "max": 250,
                             "default": 0,
@@ -929,6 +1089,7 @@
                         },
                         {
                             "name": "Relaxation rate",
+                            "key": "Left atrial wall relaxation rate",
                             "min": 40,
                             "max": 250,
                             "default": 100,
@@ -942,6 +1103,7 @@
                     [
                         {
                             "name": "Contractility",
+                            "key": "Right ventricular wall contractility",
                             "min": 1,
                             "max": 250,
                             "default": 100,
@@ -952,6 +1114,7 @@
                         },
                         {
                             "name": "Passive stiffness",
+                            "key": "Right ventricular wall passive stiffness",
                             "min": 20,
                             "max": 4000,
                             "default": 100,
@@ -962,6 +1125,7 @@
                         },
                         {
                             "name": "Mass",
+                            "key": "Right ventricular wall mass",
                             "min": 50,
                             "max": 200,
                             "default": 100,
@@ -972,9 +1136,10 @@
                         },
                         {
                             "name": "Dilatation",
-                            "min": 0.0,
-                            "max": 200,
-                            "default": 0,
+                            "key": "Right ventricular wall dilatation",
+                            "min": 100,
+                            "max": 300,
+                            "default": 100,
                             "tooltip": "%",
                             "stepsize": 5,
                             "enabled": true,
@@ -982,6 +1147,7 @@
                         },
                         {
                             "name": "Mechanical activation delay",
+                            "key": "Right ventricular wall mechanical activation delay",
                             "min": -50,
                             "max": 250,
                             "default": 0,
@@ -992,6 +1158,7 @@
                         },
                         {
                             "name": "Relaxation rate",
+                            "key": "Right ventricular wall relaxation rate",
                             "min": 40,
                             "max": 250,
                             "default": 100,
@@ -1005,6 +1172,7 @@
                     [
                         {
                             "name": "Contractility",
+                            "key": "Septal wall relaxation rate",
                             "min": 1,
                             "max": 250,
                             "default": 100,
@@ -1015,6 +1183,7 @@
                         },
                         {
                             "name": "Passive stiffness",
+                            "key": "Septal wall passive stiffness",
                             "min": 20,
                             "max": 4000,
                             "default": 100,
@@ -1025,6 +1194,7 @@
                         },
                         {
                             "name": "Mass",
+                            "key": "Septal wall mass",
                             "min": 50,
                             "max": 200,
                             "default": 100,
@@ -1035,9 +1205,10 @@
                         },
                         {
                             "name": "Dilatation",
-                            "min": 0.0,
-                            "max": 200,
-                            "default": 0,
+                            "key": "Septal wall dilatation",
+                            "min": 100,
+                            "max": 300,
+                            "default": 100,
                             "tooltip": "%",
                             "stepsize": 5,
                             "enabled": true,
@@ -1045,6 +1216,7 @@
                         },
                         {
                             "name": "Mechanical activation delay",
+                            "key": "Septal wall mechanical activation delay",
                             "min": -50,
                             "max": 250,
                             "default": 0,
@@ -1055,6 +1227,7 @@
                         },
                         {
                             "name": "Relaxation rate",
+                            "key": "Septal wall relaxation rate",
                             "min": 40,
                             "max": 250,
                             "default": 100,
@@ -1068,6 +1241,7 @@
                     [
                         {
                             "name": "Contractility",
+                            "key": "Left ventricular wall contractility",
                             "min": 1,
                             "max": 250,
                             "default": 100,
@@ -1078,6 +1252,7 @@
                         },
                         {
                             "name": "Passive stiffness",
+                            "key": "Left ventricular wall passive stiffness",
                             "min": 20,
                             "max": 4000,
                             "default": 100,
@@ -1088,6 +1263,7 @@
                         },
                         {
                             "name": "Mass",
+                            "key": "Left ventricular wall mass",
                             "min": 50,
                             "max": 200,
                             "default": 100,
@@ -1098,9 +1274,10 @@
                         },
                         {
                             "name": "Dilatation",
-                            "min": 0.0,
-                            "max": 200,
-                            "default": 0,
+                            "key": "Left ventricular wall dilatation",
+                            "min": 100,
+                            "max": 300,
+                            "default": 100,
                             "tooltip": "%",
                             "stepsize": 5,
                             "enabled": true,
@@ -1108,6 +1285,7 @@
                         },
                         {
                             "name": "Mechanical activation delay",
+                            "key": "Left ventricular wall mechanical activation delay",
                             "min": -50,
                             "max": 250,
                             "default": 0,
@@ -1118,6 +1296,7 @@
                         },
                         {
                             "name": "Relaxation rate",
+                            "key": "Left ventricular wall relaxation rate",
                             "min": 40,
                             "max": 250,
                             "default": 100,

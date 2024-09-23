@@ -5,8 +5,8 @@
 #include <QGridLayout>
 #include "qttreepropertybrowser.h"
 #include "qtpropertymanager.h"
-#include "propertyfactory.h"
-#include "propertymanager.h"
+#include "customeditorfactory.h"
+#include "custompropertymanager.h"
 
 class PropertyBrowserBase : public QWidget
 {

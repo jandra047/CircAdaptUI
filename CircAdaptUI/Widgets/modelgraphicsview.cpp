@@ -72,6 +72,8 @@ ToggleButtonGroup* ModelGraphicsView::getSubMenu(ViewType viewType)
         return heartSvg->getSubMenuContainer();
     case ViewType::Tissue:
         return tissueSvg->getSubMenuContainer();
+    default:
+        return torsoSvg->getSubMenuContainer();
     }
 
 }
