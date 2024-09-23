@@ -322,3 +322,13 @@ void GraphGrid::connectLeftMargins()
         item->axisRect()->setMarginGroup(QCP::msLeft, leftMarginGroup);
     }
 }
+
+void GraphGrid::removeSnapshot()
+{
+    for (int i = 0; i < rows; i++)
+    {
+        auto item = getItem(i, ColType::SNAPSHOT);
+        item->clearSignals();
+    }
+
+}

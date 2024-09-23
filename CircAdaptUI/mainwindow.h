@@ -39,6 +39,7 @@ public slots:
     void takeSnapshot();
     void displayReference();
     void autoscaleAll();
+    void clearSnapshots();
     void updateBufferLenText()
     {
         l->setText("Buffer size: " + QString::number(buffer.getLen()));

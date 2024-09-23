@@ -254,5 +254,18 @@ bool GraphContainer<SignalType>::isEmpty()
     }
     return true;
 }
+
+
+template<typename SignalType>
+void GraphContainer<SignalType>::clearSignals()
+{
+    for (int i = 0; i < m_Signals.size(); i++)
+    {
+        SignalType* signal = m_Signals.at(i);
+        signal->data()->clear();
+        currentLayer()->replot();
+    }
+}
+
 template class GraphContainer<LoopSignal>;
 template class GraphContainer<TimeSignal>;

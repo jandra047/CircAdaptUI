@@ -240,3 +240,13 @@ std::pair<QString, QString> LoopGraph::parseLabel(const QString& label)
 
     return std::pair<QString, QString> {varName, unit};
 }
+
+void LoopGraph::removeSnapshot()
+{
+    for (auto item : m_Snapshots)
+    {
+        item->clear();
+    }
+    layer("snapshot")->replot();
+    layer("markers")->replot();
+}

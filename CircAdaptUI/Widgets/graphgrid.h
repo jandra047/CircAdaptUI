@@ -122,6 +122,7 @@ public slots:
     void takeSnapshot(Buffer& buffer);
     void displayReference(Buffer& buffer);
     void handleAction(QAction* a);
+    void removeSnapshot();
 
 private:
     QGridLayout gridLayout;

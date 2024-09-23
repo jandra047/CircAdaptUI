@@ -113,8 +113,6 @@ void SignalGraph::onMouseRelease(QMouseEvent* event)
             if (qAbs(xCoord - m_dragStartX) < 1e-5)
             {
                 // TODO: hide lines and markers when line is clicked
-                // m_lineMarker->setVisible(false);
-                // currentLayer()->replot();
                 drawVerticalLine(event->pos());
             }
             else

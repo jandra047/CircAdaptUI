@@ -60,3 +60,9 @@ void LoopSignal::createMarker()
     m_marker = new LoopMarker(this);
     m_marker->setLayer("markers");
 }
+
+void LoopSignal::clear()
+{
+    data()->clear();
+    m_marker->setVisible(false);
+}

@@ -75,6 +75,9 @@ protected:
     QVector<ptr_type> m_Signals;
     QCPTextElement* title;
     bool m_zoomPastX;
+
+public slots:
+    void clearSignals();
 };
 
 #endif // GRAPHCONTAINER_H
