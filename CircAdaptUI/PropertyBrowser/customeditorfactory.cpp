@@ -1,5 +1,5 @@
-#include "propertyfactory.h"
-#include "resbutton.h"
+#include "customeditorfactory.h"
+#include "resetbutton.h"
 #include <QHBoxLayout>
 
 PropertyFactory::PropertyFactory( CustomPropertyManager* manager, QWidget * parent ) :  // QWidget *subEditor, bool resettable, QtAbstractPropertyManager *manager, QtProperty *property, QWidget *parent
@@ -17,7 +17,7 @@ QWidget * PropertyFactory::createEditor( QtVariantPropertyManager * manager, QtP
     // Create a container widget to hold the layout
     QWidget *container = new QWidget(parent);
     // Create a reset button
-    ResButton *resetButton = createToolButton(property, editor);
+    ResetButton *resetButton = createToolButton(property, editor);
     // Create a layout to hold the editor and button side by side
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(editor);
@@ -43,9 +43,9 @@ void PropertyFactory::handleResetButtonClick(QtProperty *property, QToolButton* 
     }
 }
 
-ResButton* PropertyFactory::createToolButton(QtProperty* property, QWidget* widget)
+ResetButton* PropertyFactory::createToolButton(QtProperty* property, QWidget* widget)
 {
-    ResButton* resetButton = new ResButton(widget);
+    ResetButton* resetButton = new ResetButton(widget);
     resetButton->setEnabled(property->isModified());
     QPixmap pixmap( ":/CircAdapt/icons/undo.png");
     resetButton->setIcon(pixmap);
@@ -61,7 +61,7 @@ ResButton* PropertyFactory::createToolButton(QtProperty* property, QWidget* widg
     connect(resetButton, &QToolButton::destroyed, resetButton, &QToolButton::deleteLater);
 
     connect( property->propertyManager(), &QtVariantPropertyManager::propertyChanged,
-            resetButton, &ResButton::handlePropertyChanged);
+            resetButton, &ResetButton::handlePropertyChanged);
 
     return resetButton;
 }

@@ -1,5 +1,5 @@
-#ifndef PROPERTYMANAGER_H
-#define PROPERTYMANAGER_H
+#ifndef CUSTOMPROPERTYMANAGER_H
+#define CUSTOMPROPERTYMANAGER_H
 
 #include "qtvariantproperty.h"
 
@@ -29,4 +29,4 @@ private:
     // QMap<QtProperty*, ModelParameter*> m_modelParameters;
 };
 
-#endif // PROPERTYMANAGER_H
+#endif // CUSTOMPROPERTYMANAGER_H

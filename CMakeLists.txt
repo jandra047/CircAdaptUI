@@ -67,7 +67,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/Widgets/paramviewdockwidget.h CircAdaptUI/Widgets/paramviewdockwidget.cpp CircAdaptUI/Widgets/paramviewdockwidget.ui
     CircAdaptUI/PropertyBrowser/propertybrowserbase.h CircAdaptUI/PropertyBrowser/propertybrowserbase.cpp
     CircAdaptUI/PropertyBrowser/systempropertybrowser.h CircAdaptUI/PropertyBrowser/systempropertybrowser.cpp
-    CircAdaptUI/PropertyBrowser/propertyfactory.h CircAdaptUI/PropertyBrowser/propertyfactory.cpp
+    CircAdaptUI/PropertyBrowser/customeditorfactory.h CircAdaptUI/PropertyBrowser/customeditorfactory.cpp
     CircAdaptUI/Widgets/modelgraphicsview.h CircAdaptUI/Widgets/modelgraphicsview.cpp
     CircAdaptUI/modelgraphicsscene.h CircAdaptUI/modelgraphicsscene.cpp
 
@@ -91,8 +91,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
     CircAdaptUI/loopmarker.h CircAdaptUI/loopmarker.cpp
     CircAdaptUI/SVGviews/drawingelementgroup.h CircAdaptUI/SVGviews/drawingelementgroup.cpp
-    CircAdaptUI/PropertyBrowser/propertymanager.h CircAdaptUI/PropertyBrowser/propertymanager.cpp
-    CircAdaptUI/PropertyBrowser/resbutton.h CircAdaptUI/PropertyBrowser/resbutton.cpp
+    CircAdaptUI/PropertyBrowser/custompropertymanager.h CircAdaptUI/PropertyBrowser/custompropertymanager.cpp
+    CircAdaptUI/PropertyBrowser/resetbutton.h CircAdaptUI/PropertyBrowser/resetbutton.cpp
 
 )
 
