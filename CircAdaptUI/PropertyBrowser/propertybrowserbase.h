@@ -29,6 +29,7 @@ public:
                               double maxVal,
                               double singleStep,
                               double setVal,
+                              const QString& key,
                               const QString& toolTip,
                               bool enabled = true);
     void createCheckboxProperty( QtProperty * property,

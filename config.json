@@ -138,19 +138,34 @@
                 "type": "bool"
             },
             {
-                "name": "Arterial stiffness coefficient",
-                "path": "Model.SyArt.p0",
-                "type": "pressure"
-            },
-            {
-                "name": "Venous stiffness coefficient",
-                "path": "Model.SyVen.p0",
-                "type": "pressure"
-            },
-            {
                 "name": "AV delay offset",
                 "path": "Model.Timings.dtau_av",
                 "type": "ms"
+            },
+            {
+                "name": "Systemic arterial stiffness coefficient",
+                "path": "Model.SyArt.p0",
+                "type": "percentage"
+            },
+            {
+                "name": "Systemic venous stiffness coefficient",
+                "path": "Model.SyVen.p0",
+                "type": "percentage"
+            },
+            {
+                "name": "Pulmonary arterial stiffness coefficient",
+                "path": "Model.PuArt.p0",
+                "type": "percentage"
+            },
+            {
+                "name": "Pulmonary venous stiffness coefficient",
+                "path": "Model.PuVen.p0",
+                "type": "percentage"
+            },
+            {
+                "name": "Pulmonary arteriovenous pressure drop",
+                "path": "Model.CiPu.p0",
+                "type": "pressure"
             },
             {
                 "name": "Tricuspid effective orifice area",
@@ -195,22 +210,22 @@
             {
                 "name": "Pericardial stiffness exponent",
                 "path": "Model.Peri.k",
+                "type": "coefficient"
+            },
+            {
+                "name": "Pericardial dilatation",
+                "path": "Model.Peri.V_ref",
                 "type": "percentage"
             },
             {
-                "name": "Pericardial dilatation",
-                "path": "Model.Peri.V_ref",
-                "type": "area"
-            },
-            {
                 "name": "Atrial septal defect",
-                "path": "Model.Peri.LaLv",
-                "type": "area"
+                "path": "Model.Peri.LaRa.A_open",
+                "type": "diameter"
             },
             {
-                "name": "Pericardial dilatation",
-                "path": "Model.Peri.V_ref",
-                "type": "area"
+                "name": "Ventricular septal defect",
+                "path": "Model.Peri.LvRv.A_open",
+                "type": "diameter"
             }
 
         ]
@@ -493,6 +508,10 @@
             "unit": "mmHg"
         },
         {
+            "name": "mPAP",
+            "unit": "mmHg"
+        },
+        {
             "name": "PVR",
             "unit": "WU"
         },
@@ -509,6 +528,7 @@
             [
                 {
                     "name": "Heart rate",
+                    "key": "Heart rate",
                     "min": 30,
                     "max": 220,
                     "default": 70,
@@ -519,6 +539,7 @@
                 },
                 {
                     "name": "AV delay",
+                    "key": "AV delay",
                     "min": 30,
                     "max": 220,
                     "default": 155,
@@ -529,6 +550,7 @@
                 },
                 {
                     "name": "AV delay offset",
+                    "key": "AV delay offset",
                     "min": -150,
                     "max": 150,
                     "default": 0.0,
@@ -539,6 +561,7 @@
                 },
                 {
                     "name": "Mean arterial pressure",
+                    "key": "Mean arterial pressure",
                     "min": 40,
                     "max": 150,
                     "default": 91,
@@ -549,6 +572,7 @@
                 },
                 {
                     "name": "Venous return",
+                    "key": "Venous return",
                     "min": 2,
                     "max": 10,
                     "default": 5.1,
@@ -559,6 +583,7 @@
                 },
                 {
                     "name": "Homeostatic pressure-flow control",
+                    "key": "Homeostatic pressure-flow control",
                     "default": true,
                     "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
                     "type": "bool"
@@ -571,6 +596,7 @@
                     [
                         {
                             "name": "Arterial stiffness coefficient",
+                            "key": "Systemic arterial stiffness coefficient",
                             "min": 75,
                             "max": 300,
                             "default": 100,
@@ -581,6 +607,7 @@
                         },
                         {
                             "name": "Venous stiffness coefficient",
+                            "key": "Systemic venous stiffness coefficient",
                             "min": 75,
                             "max": 300,
                             "default": 100,
@@ -594,6 +621,7 @@
                     [
                         {
                             "name": "Arterial stiffness coefficient",
+                            "key": "Pulmonary arterial stiffness coefficient",
                             "min": 75,
                             "max": 300,
                             "default": 100,
@@ -604,6 +632,7 @@
                         },
                         {
                             "name": "Venous stiffness coefficient",
+                            "key": "Pulmonary venous stiffness coefficient",
                             "min": 75,
                             "max": 300,
                             "default": 100,
@@ -614,6 +643,7 @@
                         },
                         {
                             "name": "Arteriovenous pressure drop",
+                            "key": "Pulmonary arteriovenous pressure drop",
                             "min": 5,
                             "max": 100,
                             "default": 9,
@@ -630,6 +660,7 @@
                     [
                         {
                             "name": "Effective orifice area",
+                            "key": "Tricuspid effective orifice area",
                             "min": 0.1,
                             "max": 8,
                             "default": 7.5,
@@ -640,7 +671,8 @@
                         },
                         {
                             "name": "Effective regurgitant orifice area",
-                            "min": 0.0,
+                            "key": "Tricuspid effective regurgitant orifice area",
+                            "min": 1e-9,
                             "max": 2.0,
                             "default": 0.0,
                             "tooltip": "cm^2",
@@ -653,6 +685,7 @@
                     [
                         {
                             "name": "Effective orifice area",
+                            "key": "Pulmonary effective orifice area",
                             "min": 0.1,
                             "max": 6.0,
                             "default": 5.0,
@@ -663,7 +696,8 @@
                         },
                         {
                             "name": "Effective regurgitant orifice area",
-                            "min": 0.0,
+                            "key": "Pulmonary effective regurgitant orifice area",
+                            "min": 1e-9,
                             "max": 2.0,
                             "default": 0.0,
                             "tooltip": "cm^2",
@@ -676,6 +710,7 @@
                     [
                         {
                             "name": "Effective orifice area",
+                            "key": "Mitral effective orifice area",
                             "min": 0.1,
                             "max": 8.0,
                             "default": 7.5,
@@ -686,7 +721,8 @@
                         },
                         {
                             "name": "Effective regurgitant orifice area",
-                            "min": 0.0,
+                            "key": "Mitral effective regurgitant orifice area",
+                            "min": 1e-9,
                             "max": 2.0,
                             "default": 0.0,
                             "tooltip": "cm^2",
@@ -699,6 +735,7 @@
                     [
                         {
                             "name": "Effective orifice area",
+                            "key": "Aortic effective orifice area",
                             "min": 0.1,
                             "max": 6.0,
                             "default": 5.0,
@@ -709,7 +746,8 @@
                         },
                         {
                             "name": "Effective regurgitant orifice area",
-                            "min": 0.0,
+                            "key": "Aortic effective regurgitant orifice area",
+                            "min": 1e-9,
                             "max": 1.2,
                             "default": 0.0,
                             "tooltip": "cm^2",
@@ -722,6 +760,7 @@
                 [
                     {
                             "name": "Pericardial stiffness exponent",
+                            "key": "Pericardial stiffness exponent",
                             "min": 1.0,
                             "max": 35,
                             "default": 10.0,
@@ -732,9 +771,10 @@
                     },
                     {
                             "name": "Dilatation",
-                            "min": -50,
+                            "key": "Pericardial dilatation",
+                            "min": 50,
                             "max": 500,
-                            "default": 0,
+                            "default": 100,
                             "tooltip": "%",
                             "stepsize": 5,
                             "enabled": true,
@@ -745,9 +785,10 @@
                     [
                         {
                             "name": "Diameter",
+                            "key": "Atrial septal defect",
                             "min": 0,
                             "max": 10,
-                            "default": 0,
+                            "default": 1e-9,
                             "tooltip": "%",
                             "stepsize": 0.1,
                             "enabled": true,
@@ -758,9 +799,10 @@
                     [
                         {
                             "name": "Diameter",
+                            "key": "Ventricular septal defect",
                             "min": 0,
                             "max": 10,
-                            "default": 0,
+                            "default": 1e-9,
                             "tooltip": "%",
                             "stepsize": 0.1,
                             "enabled": true,

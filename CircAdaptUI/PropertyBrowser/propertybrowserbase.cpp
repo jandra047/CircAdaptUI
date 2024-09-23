@@ -32,11 +32,13 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
                           double maxVal,
                           double singleStep,
                           double setVal,
+                          const QString& key,
                           const QString& toolTip,
                           bool enabled)
 {
     QtProperty * doubleProp = mDynPropertyManager->addProperty( QMetaType::Double, pName );
     mDynPropertyManager->setDefaultValue(doubleProp, setVal);
+    mDynPropertyManager->setPropertyKey(doubleProp, key);
 
     if ( doubleProp )
     {
@@ -88,7 +90,7 @@ void PropertyBrowserBase::createCheckboxProperty( QtProperty * property,
 void PropertyBrowserBase::propertyValueChanged(QtProperty* property, const QVariant& value)
 {
     property->setModified(value != mDynPropertyManager->defaultValue(property));
-    emit changeModelParam(property->propertyName(), value);
+    emit changeModelParam(mDynPropertyManager->propertyKey(property), value);
 }
 
 QtProperty* PropertyBrowserBase::findProperty(const QString& name)
@@ -125,6 +127,7 @@ QMap<QString, QList<QtBrowserItem*>> PropertyBrowserBase::createProperties(const
                                      obj["max"].toDouble(),
                                      obj["stepsize"].toDouble(),
                                      obj["default"].toDouble(),
+                                     tr(obj["key"].toString().toStdString().c_str()),
                                      tr(obj["tooltip"].toString().toStdString().c_str()),
                                      obj["enabled"].toBool());
             }

@@ -85,16 +85,16 @@ void ModelWrapper::set_model_state() {
     }
 
 
-    strings = {"SyVenRa", "RaRv", "RvPuArt", "PuVenLa", "LaLv", "LvSyArt"};
+    strings = {"SyVenRa", "RaRv", "RvPuArt", "PuVenLa", "LaLv", "LvSyArt", "LaRa", "LvRv"};
     params = {"adaptation_A_open_fac", "A_open", "A_leak", "l", "rho_b", "papillary_muscles_slope", "papillary_muscles_min", "papillary_muscles_A_open_fac"};
-    std::vector<double> adaptation_A_open_fac = {1, 1.12, 1, 1, 1.12, 1};
-    std::vector<double> A_open = {0.00050044, 0.00052598, 0.00046962, 0.00050745, 0.0005583 ,0.00049849};
-    std::vector<double> A_leak = {2.64705882e-04, 2.64705882e-10, 2.64705882e-10, 2.64705882e-04,2.64705882e-10, 2.64705882e-10};
-    l = {0.01626978, 0.01626978, 0.01626978, 0.01626978, 0.01626978, 0.01626978};
-    std::vector<double> rho_b = {1050, 1050, 1050, 1050, 1050, 1050};
-    std::vector<double> papillary_muscles_slope = {100, 100, 100, 100, 100, 100};
-    std::vector<double> papillary_muscles_min = {0.1, 0.1, 0.1, 0.1, 0.1, 0.1};
-    std::vector<double> papillary_muscles_A_open_fac = {0.1, 0.1, 0.1, 0.1, 0.1, 0.1};
+    std::vector<double> adaptation_A_open_fac = {1, 1.12, 1, 1, 1.12, 1, 1, 1};
+    std::vector<double> A_open = {0.00050044, 0.00052598, 0.00046962, 0.00050745, 0.0005583 ,0.00049849, 2.64705882e-10, 2.64705882e-10};
+    std::vector<double> A_leak = {2.64705882e-04, 2.64705882e-10, 2.64705882e-10, 2.64705882e-04,2.64705882e-10, 2.64705882e-10, 2.64705882e-10, 2.64705882e-10};
+    l = {0.01626978, 0.01626978, 0.01626978, 0.01626978, 0.01626978, 0.01626978, 0.01626978, 0.01626978};
+    std::vector<double> rho_b = {1050, 1050, 1050, 1050, 1050, 1050, 1050, 1050};
+    std::vector<double> papillary_muscles_slope = {100, 100, 100, 100, 100, 100, 100, 100};
+    std::vector<double> papillary_muscles_min = {0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1};
+    std::vector<double> papillary_muscles_A_open_fac = {0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1};
     vectors = {adaptation_A_open_fac, A_open, A_leak, l, rho_b, papillary_muscles_slope, papillary_muscles_min, papillary_muscles_A_open_fac};
 
     for (size_t j = 0; j < params.size(); j++) {
@@ -104,8 +104,12 @@ void ModelWrapper::set_model_state() {
         }
     }
 
-    std::vector<bool> papillary_muscles = {true, true, true, true, true, true};
-    std::vector<bool> soft_closure = {true, true, true, true, true, true};
+    double d;
+    get_double("Model.Peri.LaRa.A_open", d);
+    qDebug() << d;
+
+    std::vector<bool> papillary_muscles = {true, true, true, true, true, true, true, true};
+    std::vector<bool> soft_closure = {true, true, true, true, true, true, true, true};
     params = {"papillary_muscles", "soft_closure"};
     std::vector<std::vector<bool>> vectors_bool = {papillary_muscles, soft_closure};
     for (size_t j = 0; j < params.size(); j++) {
@@ -195,17 +199,19 @@ void ModelWrapper::run_single_step() {
 
 void ModelWrapper::changeParam(int val)
 {
-    double Sf_act;
-    get_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", Sf_act);
-    set_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", 120000 * val / 100);
+    // double Sf_act;
+    // get_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", Sf_act);
+    // set_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", 120000 * val / 100);
+    double x = (double)val/10;
+    set_double("Model.PFC.q0", x/60000);
 }
 
 void ModelWrapper::setup()
 {
-    setupSignals();
-    setupParameters();
     build("VanOsta2022", Settings::instance().MWSettings()["solver"].toString().toStdString());
     set_model_state();
+    setupSignals();
+    setupParameters();
     init_SVar();
     m_thread.reset(new QThread);
     m_thread->setObjectName("Simulation thread");
@@ -235,8 +241,13 @@ void ModelWrapper::setupParameters()
     mModelSignals.reserve(paramArray.size());
     for (auto s : paramArray)
     {
-        // mModelParameters.push_back(DataContainerFactory::createSignal(s.toObject()));
-        mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(s.toObject());
+        QJsonObject obj = s.toObject();
+        double d = 0;
+        if (obj["type"].toString() != "bool")
+            get_double(obj["path"].toString().toStdString(), d);
+        obj["default"] = d;
+        qDebug() << obj;
+        mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(obj);
 
     }
 }
@@ -244,21 +255,6 @@ void ModelWrapper::setupParameters()
 
 void ModelWrapper::updateBuffer()
 {
-    // double val{};
-    // for (auto s : mModelSignals)
-    // {
-    //     get_double(s->getPath().toStdString(), val);
-    //     buffer.append(s->getName(), s->model_to_ui(val));
-    // }
-    // buffer.append("t", solver->get_t());
-
-    // get_double("Model.PFC.cumulative_flow_beat", val);
-    // buffer.append("ven_ret", val*60000);
-
-    // if (beatDone)
-    // {
-    //     buffer.runAfterBeat();
-    // }
     double val{};
     for (auto s : mModelSignals)
     {
@@ -279,10 +275,6 @@ void ModelWrapper::updateBuffer()
 void ModelWrapper::updateParam(const QString& name, const QVariant& value)
 {
 
-    // auto param = mModelParameters[name];
-
-    // qDebug() << value.typeName();
-    // set_double(param->getPath().toStdString(), param->ui_to_model(value.toDouble()));
     auto param = mModelParameters[name];
 
     // Convert QVariant to std::any
@@ -300,6 +292,7 @@ void ModelWrapper::updateParam(const QString& name, const QVariant& value)
     // Convert UI value to model value
     std::any model_value = param->ui_to_model(any_value);
 
+    qDebug() << param->getPath() << " " << std::any_cast<double>(model_value);
     // Set the value in the model
     if (param->getType() == "bool") {
         set_bool(param->getPath().toStdString(), std::any_cast<bool>(model_value));

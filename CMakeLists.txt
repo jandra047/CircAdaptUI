@@ -23,7 +23,7 @@ include(FetchContent)
 FetchContent_Declare(
   CircAdapt_Library
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/CircAdapt_Library.git
-  GIT_TAG 1609ffe0b26d76a167f7a60bf60ee88f2c67c640
+  GIT_TAG 34fd6905107f0a6d575affa5907910003e6ca6d2
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(CircAdapt_Library)
@@ -93,6 +93,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/drawingelementgroup.h CircAdaptUI/SVGviews/drawingelementgroup.cpp
     CircAdaptUI/PropertyBrowser/propertymanager.h CircAdaptUI/PropertyBrowser/propertymanager.cpp
     CircAdaptUI/PropertyBrowser/resbutton.h CircAdaptUI/PropertyBrowser/resbutton.cpp
+
 )
 
 qt_add_resources(CircAdaptUI

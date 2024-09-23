@@ -159,11 +159,47 @@ public:
     }
 };
 
+class DiameterContainer : public DataContainer
+{
+public:
+    DiameterContainer(const QString& name, const QString& path, const QString& type):
+        DataContainer(name, path, type)
+        {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return sqrt(std::any_cast<double>(value) / M_PI) / 1e-6;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return pow(std::any_cast<double>(value), 2) * M_PI * 1e-6;
+    }
+};
+
 class PercentageContainer : public DataContainer
 {
 public:
-    PercentageContainer(const QString& name, const QString& path, const QString& type):
+    PercentageContainer(const QString& name, const QString& path, const QString& type, const double defaultValue):
+        DataContainer(name, path, type),
+        m_defaultValue(defaultValue)
+        {};
+    std::any model_to_ui(std::any value) const override
+    {
+        return std::any_cast<double>(value) / m_defaultValue * 100;
+    }
+    std::any ui_to_model(std::any value) const override
+    {
+        return std::any_cast<double>(value) * m_defaultValue / 100;
+    }
+private:
+    double m_defaultValue;
+};
+
+class CoefficientContainer : public DataContainer
+{
+public:
+    CoefficientContainer(const QString& name, const QString& path, const QString& type):
         DataContainer(name, path, type) {};
+    // double model_to_ui(double val) const override { return val / 133; };
     std::any model_to_ui(std::any value) const override
     {
         return std::any_cast<double>(value);
@@ -173,6 +209,7 @@ public:
         return std::any_cast<double>(value);
     }
 };
+
 class DataContainerFactory
 {
 public:
@@ -181,6 +218,7 @@ public:
         QString const name = json["name"].toString();
         QString const path = json["path"].toString();
         QString const type = json["type"].toString();
+        double const defaultValue = json["default"].toDouble();
         if (type == "pressure")
         {
             return new PressureContainer(name, path, type);
@@ -217,9 +255,17 @@ public:
         {
             return new AreaContainer(name, path, type);
         }
+        else if (type == "diameter")
+        {
+            return new DiameterContainer(name, path, type);
+        }
         else if (type == "percentage")
         {
-            return new PercentageContainer(name, path, type);
+            return new PercentageContainer(name, path, type, defaultValue);
+        }
+        else if (type == "coefficient")
+        {
+            return new CoefficientContainer(name, path, type);
         }
         else
         {
