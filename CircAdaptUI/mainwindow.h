@@ -40,10 +40,5 @@ public slots:
     void displayReference();
     void autoscaleAll();
     void clearSnapshots();
-    void updateBufferLenText()
-    {
-        l->setText("Buffer size: " + QString::number(buffer.getLen()));
-    }
-
 };
 #endif // MAINWINDOW_H

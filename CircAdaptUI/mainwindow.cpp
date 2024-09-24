@@ -14,12 +14,10 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
 {
     ui->setupUi(this);
     ui->ssGraph->setVisible(false);
-    l = new QLabel(ui->graphGrid);
 
     mParamViewDockWidget = new ParamViewDockWidget(this);
     mParamViewDockWidget->setVisible(false);
     QObject::connect(mParamViewDockWidget, &ParamViewDockWidget::paramChanged, &mw, &ModelWrapper::updateParam, Qt::QueuedConnection);
-
 
     ui->pvGraph->setup(Settings::instance().PVGraph());
     QObject::connect(ui->graphGrid, &GraphGrid::verticalLineDrawn, ui->pvGraph, &LoopGraph::updateMarker);
