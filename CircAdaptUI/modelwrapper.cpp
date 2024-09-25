@@ -230,7 +230,7 @@ void ModelWrapper::setupSignals()
     mModelSignals.reserve(signalArray.size());
     for (auto s : signalArray)
     {
-        mModelSignals.push_back(DataContainerFactory::createSignal(s.toObject()));
+        mModelSignals.push_back(DataContainerFactory::createSignal(s.toObject(), this));
 
     }
 }
@@ -247,7 +247,7 @@ void ModelWrapper::setupParameters()
             get_double(obj["path"].toString().toStdString(), d);
         obj["default"] = d;
         qDebug() << obj;
-        mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(obj);
+        mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(obj, this);
 
     }
 }

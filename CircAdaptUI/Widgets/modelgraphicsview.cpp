@@ -25,7 +25,6 @@ ModelGraphicsView::ModelGraphicsView(PropertyBrowserBase* propertyBrowser, QWidg
 
 ModelGraphicsView::~ModelGraphicsView()
 {
-    delete scene;
     delete torsoSvg;
     delete heartSvg;
     delete tissueSvg;

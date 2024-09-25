@@ -4,11 +4,13 @@
 #include <QMap>
 #include <QString>
 #include <QMutex>
+#include <QObject>
 
-class BeatData
+class BeatData: public QObject
 {
+    Q_OBJECT
 public:
-    BeatData();
+    BeatData(QObject* parent = Q_NULLPTR);
     void clear();
     void setData(const QMap<QString, QVector<double>>& data);
     QVector<double> get(const QString& param);

@@ -14,7 +14,7 @@ class PropertyBrowserBase : public QWidget
 
 public:
     PropertyBrowserBase(QWidget* parent = Q_NULLPTR);
-    ~PropertyBrowserBase() {};
+    ~PropertyBrowserBase();
 
     QGridLayout* mGrid;
     QtTreePropertyBrowser* mPBrowser;

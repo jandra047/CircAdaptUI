@@ -5,7 +5,7 @@ Buffer::Buffer()
     m_beatData.reserve(2);
     for (int i = 0; i < 2; i++)
     {
-        m_beatData.push_back(new BeatData);
+        m_beatData.push_back(new BeatData(this));
     }
 
 }

@@ -117,7 +117,7 @@ signals:
 private slots:
     void cleanup()
     {
-        // delete members...
+        delete factory;
         m_thread->quit();
     }
 };

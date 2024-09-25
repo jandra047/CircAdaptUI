@@ -1,6 +1,8 @@
 #include "beatdata.h"
 
-BeatData::BeatData() {}
+BeatData::BeatData(QObject* parent):
+    QObject(parent)
+{}
 
 void BeatData::clear()
 {

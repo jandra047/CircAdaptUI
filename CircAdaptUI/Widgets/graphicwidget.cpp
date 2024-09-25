@@ -11,12 +11,7 @@ GraphicWidget::GraphicWidget(QWidget* parent) :
 
 GraphicWidget::~GraphicWidget()
 {
-    delete graphicsView;
-    delete topMenuContainer;
-    delete subMenuContainer;
-    delete torsoButton;
-    delete heartButton;
-    delete tissueButton;
+    // delete graphicsView;
     delete currentButton;
 }
 

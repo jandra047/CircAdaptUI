@@ -54,16 +54,6 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 }
 
 template<typename SignalType>
-GraphContainer<SignalType>::~GraphContainer()
-{
-    while (m_Signals.count())
-    {
-        delete m_Signals.takeLast();
-    }
-
-}
-
-template<typename SignalType>
 std::pair<QMenu*, QActionGroup*> GraphContainer<SignalType>::buildMenu(QWidget* parent)
 {
     QMenu* menu = new QMenu(parent);

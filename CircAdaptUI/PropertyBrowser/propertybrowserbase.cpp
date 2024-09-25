@@ -7,16 +7,24 @@ PropertyBrowserBase::PropertyBrowserBase(QWidget* parent):
     mGrid(Q_NULLPTR)
 {
     mGrid = new QGridLayout(this);
-    mPBrowser = new QtTreePropertyBrowser(this);
+    mPBrowser = new QtTreePropertyBrowser();
     mPBrowser->setResizeMode(QtTreePropertyBrowser::Interactive);
     mGrid->addWidget(mPBrowser);
-    mGroupManager = new QtGroupPropertyManager(mPBrowser);
-    mDynPropertyManager = new CustomPropertyManager( mPBrowser );
-    mResetPropertyFactory = new PropertyFactory(mDynPropertyManager, mPBrowser);
-    mPBrowser->setFactoryForManager((QtVariantPropertyManager*)mDynPropertyManager, mResetPropertyFactory);
+    mGroupManager = new QtGroupPropertyManager();
+    mDynPropertyManager = new CustomPropertyManager();
+    mResetPropertyFactory = new PropertyFactory(mDynPropertyManager);
+    mPBrowser->setFactoryForManager((QtVariantPropertyManager*) mDynPropertyManager, mResetPropertyFactory);
     connect( mDynPropertyManager, &QtVariantPropertyManager::valueChanged,
             this, &PropertyBrowserBase::propertyValueChanged );
     mPBrowser->setResizeMode(QtTreePropertyBrowser::ResizeToContents);
+}
+
+PropertyBrowserBase::~PropertyBrowserBase()
+{
+    delete mPBrowser;
+    delete mGroupManager;
+    delete mDynPropertyManager;
+    delete mResetPropertyFactory;
 }
 
 QtProperty* PropertyBrowserBase::addGroupProperty(const QString& name)
@@ -93,6 +101,7 @@ void PropertyBrowserBase::propertyValueChanged(QtProperty* property, const QVari
 {
     property->setModified(value != mDynPropertyManager->defaultValue(property));
     emit changeModelParam(mDynPropertyManager->propertyKey(property), value);
+    // emit changeModelParam(property->propertyName(), value);
 }
 
 QtProperty* PropertyBrowserBase::findProperty(const QString& name)
