@@ -19,7 +19,7 @@ class GraphContainer : public QCustomPlot
 public:
     using ptr_type = SignalType*;
     GraphContainer(QWidget* parent = Q_NULLPTR);
-    ~GraphContainer();
+    ~GraphContainer() = default;
 
     /*!
      * \brief Updates the signals plotted on the graph container from the data from the buffer.

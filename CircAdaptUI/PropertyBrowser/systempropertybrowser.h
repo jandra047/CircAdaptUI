@@ -8,8 +8,7 @@ class SystemPropertyBrowser : public PropertyBrowserBase
     Q_OBJECT
 public:
     SystemPropertyBrowser(QWidget* parent);
-    ~SystemPropertyBrowser() {};
-
+    ~SystemPropertyBrowser() = default;
     // void handleDynPropertyChanged( QtProperty * property, QVariant & Val ) override;
 private:
     QtProperty* mSystemProperties;

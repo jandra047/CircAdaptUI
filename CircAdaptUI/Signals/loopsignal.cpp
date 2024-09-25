@@ -6,11 +6,6 @@ namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
 }
 
-LoopSignal::~LoopSignal()
-{
-    delete m_marker;
-};
-
 void LoopSignal::updateGraph(Buffer& buffer)
 {
 

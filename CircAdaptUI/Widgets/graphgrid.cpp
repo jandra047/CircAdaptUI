@@ -72,13 +72,6 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
 
 GraphGrid::~GraphGrid()
 {
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            delete getItem(i,j);
-        }
-    }
     delete leftMarginGroup;
 }
 

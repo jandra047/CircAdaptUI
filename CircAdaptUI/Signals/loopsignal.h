@@ -28,7 +28,7 @@ public:
         setPen(QPen(color, 2));
     };
 
-    ~LoopSignal();
+    ~LoopSignal() = default;
 
     LoopSignal(const LoopSignal& other)
         : QCPCurve(other.parentPlot()->xAxis, other.parentPlot()->yAxis),

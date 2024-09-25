@@ -7,12 +7,7 @@ class SignalGraph : public GraphContainer<TimeSignal>
 {
 public:
     SignalGraph(QWidget* parent, QString xLabel = "", QString yLabel = "");
-
-    ~SignalGraph()
-    {
-        delete m_lineMarker;
-        delete lineMarkerLayer;
-    }
+    ~SignalGraph() = default;
 
     QString getPoint(const QPoint& pos) override;
 
