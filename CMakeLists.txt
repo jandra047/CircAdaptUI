@@ -69,7 +69,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/systempropertybrowser.h CircAdaptUI/PropertyBrowser/systempropertybrowser.cpp
     CircAdaptUI/PropertyBrowser/customeditorfactory.h CircAdaptUI/PropertyBrowser/customeditorfactory.cpp
     CircAdaptUI/Widgets/modelgraphicsview.h CircAdaptUI/Widgets/modelgraphicsview.cpp
-    CircAdaptUI/modelgraphicsscene.h CircAdaptUI/modelgraphicsscene.cpp
+
 
     CircAdaptUI/linemarker.h CircAdaptUI/linemarker.cpp
     Resources/resources.qrc
