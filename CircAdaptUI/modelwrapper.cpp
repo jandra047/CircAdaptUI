@@ -104,10 +104,6 @@ void ModelWrapper::set_model_state() {
         }
     }
 
-    double d;
-    get_double("Model.Peri.LaRa.A_open", d);
-    qDebug() << d;
-
     std::vector<bool> papillary_muscles = {true, true, true, true, true, true, true, true};
     std::vector<bool> soft_closure = {true, true, true, true, true, true, true, true};
     params = {"papillary_muscles", "soft_closure"};
@@ -246,7 +242,6 @@ void ModelWrapper::setupParameters()
         if (obj["type"].toString() != "bool")
             get_double(obj["path"].toString().toStdString(), d);
         obj["default"] = d;
-        qDebug() << obj;
         mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(obj, this);
 
     }
@@ -292,7 +287,6 @@ void ModelWrapper::updateParam(const QString& name, const QVariant& value)
     // Convert UI value to model value
     std::any model_value = param->ui_to_model(any_value);
 
-    qDebug() << param->getPath() << " " << std::any_cast<double>(model_value);
     // Set the value in the model
     if (param->getType() == "bool") {
         set_bool(param->getPath().toStdString(), std::any_cast<bool>(model_value));
