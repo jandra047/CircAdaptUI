@@ -34,8 +34,8 @@ void TimeSignal::removeData(double const x0, double const x1)
 {
     if (x1 > keyAxis()->range().upper)
     {
-        data()->remove(0, fmod(x1, keyAxis()->range().upper));
-        data()->remove(x0, keyAxis()->range().upper);
+        data()->removeBefore(fmod(x1, keyAxis()->range().upper));
+        data()->removeAfter(x0);
         addData(keyAxis()->range().upper, quiet_nan);
     }
     else
