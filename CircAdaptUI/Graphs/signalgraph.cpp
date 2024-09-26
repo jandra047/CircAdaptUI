@@ -12,6 +12,7 @@ SignalGraph::SignalGraph(QWidget* parent, QString xLabel, QString yLabel) :
     connect(this, &QCustomPlot::mouseMove, this, &SignalGraph::onMouseMove);
     connect(this, &QCustomPlot::mouseRelease, this, &SignalGraph::onMouseRelease);
 
+    setNoAntialiasingOnDrag(true);
     addLayer("lineMarker");
     lineMarkerLayer = layer("lineMarker");
     lineMarkerLayer->setMode(QCPLayer::lmBuffered);
