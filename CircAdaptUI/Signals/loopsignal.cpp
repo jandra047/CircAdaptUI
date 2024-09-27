@@ -59,5 +59,6 @@ void LoopSignal::createMarker()
 void LoopSignal::clear()
 {
     data()->clear();
-    m_marker->setVisible(false);
+    if (m_marker)
+        m_marker->setVisible(false);
 }
