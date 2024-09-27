@@ -10,7 +10,11 @@ int main(int argc, char *argv[])
 
     CircAdaptUI circadaptui(argc, argv);
 
-    circadaptui.setFont(QFont("Liberation Sans", 11));
+    QFont font = QFont("Liberation Sans", 11);
+    font.setStyleStrategy(QFont::PreferAntialias);
+    font.setHintingPreference(QFont::PreferNoHinting);
+
+    circadaptui.setFont(font);
 
     return circadaptui.exec();
 }
