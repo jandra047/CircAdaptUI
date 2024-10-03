@@ -1,11 +1,14 @@
 #include "circadaptui.h"
 #include "modelwrapper.h"
 #include "settings.h"
+#include <QStyleFactory>
 
 CircAdaptUI::CircAdaptUI(int &argc, char **argv):
     QApplication(argc, argv),
     m_mw(ModelWrapper(m_buffer))
 {
+    setStyle(QStyleFactory::create("Fusion"));
+
     Settings::instance().load(qApp->applicationDirPath().append("/config.json"));
     QThread::currentThread()->setPriority(QThread::HighestPriority);
     m_mainwindow = new MainWindow(m_mw, m_buffer);
