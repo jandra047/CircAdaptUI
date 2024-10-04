@@ -143,8 +143,9 @@ void ModelWrapper::set_model_state() {
 
 void ModelWrapper::run_steps()
 {
-
-    for (int i = buffer.getLen(); i < Settings::instance().buffersize(); i++)
+    int bufferLen = buffer.getLen();
+    int bufferSize = Settings::instance().buffersize();
+    for (int i = bufferLen; i < bufferSize; i++)
     {
         run_single_step();
     }
