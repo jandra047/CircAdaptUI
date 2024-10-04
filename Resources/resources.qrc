@@ -40,5 +40,6 @@
         <file>fonts/LiberationSerif-BoldItalic.ttf</file>
         <file>fonts/LiberationSerif-Italic.ttf</file>
         <file>fonts/LiberationSerif-Regular.ttf</file>
+        <file>icons/logofiles/apicon.ico</file>
     </qresource>
 </RCC>
