@@ -60,7 +60,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/Signals/timesignal.cpp CircAdaptUI/Signals/timesignal.h
     dependencies/qcustomplot.cpp dependencies/qcustomplot.h
     CircAdaptUI/circadaptui.h CircAdaptUI/circadaptui.cpp
-    CircAdaptUI/datacontainer.h
+    CircAdaptUI/datacontainer.h CircAdaptUI/datacontainer.cpp
     CircAdaptUI/mainwindow.ui
     CircAdaptUI/Widgets/valueview.h CircAdaptUI/Widgets/valueview.cpp
     CircAdaptUI/beatdata.h CircAdaptUI/beatdata.cpp

@@ -92,27 +92,27 @@
                 {
                     "name": "qLaLv",
                     "path": "Model.Peri.LaLv.q",
-                    "type": "flow"
+                    "type": "flowvelocity"
                 },
                 {
                     "name": "qRaRv",
                     "path": "Model.Peri.RaRv.q",
-                    "type": "flow"
+                    "type": "flowvelocity"
                 },
                 {
                     "name": "qLvAo",
                     "path": "Model.Peri.LvSyArt.q",
-                    "type": "flow"
+                    "type": "flowvelocity"
                 },
                 {
                     "name": "qRvPuArt",
                     "path": "Model.Peri.RvPuArt.q",
-                    "type": "flow"
+                    "type": "flowvelocity"
                 },
                 {
                     "name": "qSyVenRa",
                     "path": "Model.Peri.SyVenRa.q",
-                    "type": "flow"
+                    "type": "flowvelocity"
                 }
             ],
         "parameters":
