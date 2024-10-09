@@ -97,7 +97,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
 )
 
 qt_add_resources(CircAdaptUI
-    Resources/resources.qrc)
+    Resources/resources.qrc
+    PREFIX "/")
 
 target_compile_definitions(CircAdaptUI PRIVATE
     QCUSTOMPLOT_USE_OPENGL
