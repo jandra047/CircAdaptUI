@@ -92,25 +92,50 @@
                 {
                     "name": "qLaLv",
                     "path": "Model.Peri.LaLv.q",
-                    "type": "flowvelocity"
+                    "type": "flow"
                 },
                 {
                     "name": "qRaRv",
                     "path": "Model.Peri.RaRv.q",
-                    "type": "flowvelocity"
+                    "type": "flow"
                 },
                 {
                     "name": "qLvAo",
                     "path": "Model.Peri.LvSyArt.q",
-                    "type": "flowvelocity"
+                    "type": "flow"
                 },
                 {
                     "name": "qRvPuArt",
                     "path": "Model.Peri.RvPuArt.q",
-                    "type": "flowvelocity"
+                    "type": "flow"
                 },
                 {
                     "name": "qSyVenRa",
+                    "path": "Model.Peri.SyVenRa.q",
+                    "type": "flow"
+                },
+                {
+                    "name": "vLaLv",
+                    "path": "Model.Peri.LaLv.q",
+                    "type": "flowvelocity"
+                },
+                {
+                    "name": "vRaRv",
+                    "path": "Model.Peri.RaRv.q",
+                    "type": "flowvelocity"
+                },
+                {
+                    "name": "vLvAo",
+                    "path": "Model.Peri.LvSyArt.q",
+                    "type": "flowvelocity"
+                },
+                {
+                    "name": "vRvPuArt",
+                    "path": "Model.Peri.RvPuArt.q",
+                    "type": "flowvelocity"
+                },
+                {
+                    "name": "vSyVenRa",
                     "path": "Model.Peri.SyVenRa.q",
                     "type": "flowvelocity"
                 }
@@ -546,28 +571,28 @@
         "FLOW":
         [
             {
-                "name": "qLaLv",
+                "name": "vLaLv",
                 "displayName": "Mitral valve",
                 "isVisible": true,
                 "unit": "mL",
                 "color": "#FB9A99"
             },
             {
-                "name": "qLvAo",
+                "name": "vLvAo",
                 "displayName": "Aortic valve",
                 "isVisible": true,
                 "unit": "mL",
                 "color": "#E31A1C"
             },
             {
-                "name": "qRaRv",
+                "name": "vRaRv",
                 "displayName": "Tricuspid valve",
                 "isVisible": false,
                 "unit": "mL",
                 "color": "#A6CEE3"
             },
             {
-                "name": "qRvPuArt",
+                "name": "vRvPuArt",
                 "displayName": "Pulmonary valve",
                 "isVisible": false,
                 "unit": "mL",

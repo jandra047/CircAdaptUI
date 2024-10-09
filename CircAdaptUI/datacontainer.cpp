@@ -233,6 +233,10 @@ DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, Model
     {
         return new VolumeContainer(name, path, type, parent);
     }
+    else if (type == "flow")
+    {
+        return new FlowContainer(name, path, type, parent);
+    }
     else if (type == "flowvelocity")
     {
         return new FlowVelocityContainer(name, path, type, parent);
