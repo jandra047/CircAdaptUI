@@ -36,7 +36,7 @@ include(FetchContent)
 FetchContent_Declare(
   QtPropertyBrowser
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:P70074313/qtpropertybrowser.git
-  GIT_TAG 2fd3b2e01842f016133b13d47323063ecb06c833
+  GIT_TAG 5f57e3b1f47515fedacabeb7a0da0433e29cf597
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(QtPropertyBrowser)
