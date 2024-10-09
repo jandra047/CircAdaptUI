@@ -138,11 +138,11 @@ void GraphGrid::connectColXAxes()
     }
 }
 
-void GraphGrid::updateGraphs(Buffer& buffer)
+void GraphGrid::updateGraphs(Buffer& buffer, double timeInterval)
 {
     for (int i = 0; i < rows; i++)
     {
-        getItem(i, ColType::CURRENT)->updateGraph(buffer);
+        getItem(i, ColType::CURRENT)->updateGraph(buffer, timeInterval);
 
     }
 }

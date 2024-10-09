@@ -41,7 +41,7 @@ public:
      * \brief Update graph with datapoints from buffer based on current FPS
      * \param buffer Buffer object that holds the data
      */
-    void updateGraph(Buffer& buffer);
+    void updateGraph(Buffer& buffer, double timeInterval);
 
     /*!
      * \brief removeData Erases data from the graph between x0 and x1.

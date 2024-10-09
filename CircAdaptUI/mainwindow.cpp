@@ -49,12 +49,12 @@ MainWindow::~MainWindow()
     delete l;
 }
 
-void MainWindow::updateGraphs()
+void MainWindow::updateGraphs(double timeInterval)
 {
-    ui->graphGrid->updateGraphs(buffer);
-    ui->pvGraph->updateGraph(buffer);
-    ui->ssGraph->updateGraph(buffer);
-    buffer.clear(1/(double)Settings::instance().fps());
+    ui->graphGrid->updateGraphs(buffer, timeInterval);
+    ui->pvGraph->updateGraph(buffer, timeInterval);
+    ui->ssGraph->updateGraph(buffer, timeInterval);
+    buffer.clear(timeInterval);
     emit updateDone();
 }
 

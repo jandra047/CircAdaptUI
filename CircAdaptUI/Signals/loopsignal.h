@@ -64,7 +64,7 @@ public:
         return *this;
     }
 
-    void updateGraph(Buffer& buffer);
+    void updateGraph(Buffer& buffer, double timeInterval);
     void removeData(double const x0, double x1, Buffer& buffer);
     QString getXVar() { return m_xVar; };
     QString getYVar() { return m_yVar; };

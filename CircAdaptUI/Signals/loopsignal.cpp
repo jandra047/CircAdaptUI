@@ -6,13 +6,13 @@ namespace {
     auto const quiet_nan = std::numeric_limits<double>::quiet_NaN();
 }
 
-void LoopSignal::updateGraph(Buffer& buffer)
+void LoopSignal::updateGraph(Buffer& buffer, double timeInterval)
 {
 
     buffer.lock();
-    QVector<double> yData = buffer.get(m_yVar, 1000/((double)Settings::instance().fps() * 1000));
-    QVector<double> xData = buffer.get(m_xVar, 1000/((double)Settings::instance().fps() * 1000));
-    QVector<double> tData = buffer.get("t", 1000/((double)Settings::instance().fps() * 1000));
+    QVector<double> yData = buffer.get(m_yVar, timeInterval);
+    QVector<double> xData = buffer.get(m_xVar, timeInterval);
+    QVector<double> tData = buffer.get("t", timeInterval);
     buffer.unlock();
 
     addData(tData, xData, yData);

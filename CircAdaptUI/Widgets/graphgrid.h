@@ -117,7 +117,7 @@ public slots:
      * \brief Updates all graphs within the grid.
      * \param buffer Buffer to update the graphs from.
      */
-    void updateGraphs(Buffer& buffer);
+    void updateGraphs(Buffer& buffer, double timeInterval);
 
     void takeSnapshot(Buffer& buffer);
     void displayReference(Buffer& buffer);

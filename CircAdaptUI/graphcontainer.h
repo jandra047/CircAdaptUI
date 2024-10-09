@@ -25,7 +25,7 @@ public:
      * \brief Updates the signals plotted on the graph container from the data from the buffer.
      * \param buffer Buffer from which to update the graph.
      */
-    void updateGraph(Buffer& buffer);
+    void updateGraph(Buffer& buffer, double timeInterval);
 
     /*!
      * \brief Adds a signal to the container.

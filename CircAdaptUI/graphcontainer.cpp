@@ -129,11 +129,11 @@ void GraphContainer<SignalType>::zoom(QWheelEvent* event)
 }
 
 template<typename SignalType>
-void GraphContainer<SignalType>::updateGraph(Buffer& buffer)
+void GraphContainer<SignalType>::updateGraph(Buffer& buffer, double timeInterval)
 {
     for (int i = 0; i < m_Signals.size(); i++)
     {
-        m_Signals[i]->updateGraph(buffer);
+        m_Signals[i]->updateGraph(buffer, timeInterval);
     }
     currentLayer()->replot();
 }

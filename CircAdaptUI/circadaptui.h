@@ -17,8 +17,11 @@ private:
     Buffer m_buffer{};
     ModelWrapper m_mw;
 
+    double fps;
+
 private slots:
     void togglePlay(bool isOn);
+    void realtimeSlot();
 };
 
 #endif // CIRCADAPTUI_H

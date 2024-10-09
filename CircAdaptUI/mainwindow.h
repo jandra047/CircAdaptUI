@@ -35,7 +35,7 @@ public: signals:
     void togglePlay(bool isPlay);
 
 public slots:
-    void updateGraphs();
+    void updateGraphs(double timeInterval);
     void takeSnapshot();
     void displayReference();
     void autoscaleAll();
