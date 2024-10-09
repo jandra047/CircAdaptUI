@@ -17,7 +17,7 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
     double tOffset = m_xPos - tData[0];
     double dt = tData[1] - tData[0];
     for (int i = 0; i < tData.size(); ++i) {
-        tData[i] += tOffset + dt;
+        tData[i] += tOffset;
     }
 
     // Remove old data before plotting the new data
