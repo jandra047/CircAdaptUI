@@ -45,7 +45,8 @@ signals:
 private slots:
     void propertyValueChanged( QtProperty * property, const QVariant& Val ); /*handleDynPropertyChanged( property, Val );*/
 public slots:
-        void showProperties(QList<QtBrowserItem*> browserItems);
+    void showProperties(QList<QtBrowserItem*> browserItems);
+    void resetProperties();
 };
 
 #endif // PROPERTYBROWSERBASE_H

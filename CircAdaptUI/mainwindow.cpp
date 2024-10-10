@@ -96,5 +96,6 @@ void MainWindow::resetSlot()
     ui->pvGraph->clearAllGraphs();
     ui->ssGraph->clearAllGraphs();
     buffer.clear();
+    mParamViewDockWidget->resetProperties();
     emit resetSignal();
 }

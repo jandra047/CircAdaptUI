@@ -166,3 +166,11 @@ void PropertyBrowserBase::showProperties(QList<QtBrowserItem*> browserItems)
         mPBrowser->setItemVisible(item, browserItems.contains(item));
     }
 }
+
+void PropertyBrowserBase::resetProperties()
+{
+    for (auto property: mDynPropertyManager->properties())
+    {
+        mDynPropertyManager->setToDefault(property);
+    }
+}

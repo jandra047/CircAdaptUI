@@ -18,6 +18,8 @@ public:
     explicit ParamViewDockWidget(QWidget *parent = nullptr);
     ~ParamViewDockWidget();
 
+    void resetProperties();
+
 private:
     Ui::ParamViewDockWidget *ui;
     void closeEvent( QCloseEvent * event ) override;

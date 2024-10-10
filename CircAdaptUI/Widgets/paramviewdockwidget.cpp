@@ -41,3 +41,9 @@ void ParamViewDockWidget::keyPressEvent(QKeyEvent *event)
         QDockWidget::keyPressEvent(event);  // Call base class implementation for other keys
     }
 }
+
+void ParamViewDockWidget::resetProperties()
+{
+    ui->systemPBrowser->resetProperties();
+    ui->circPBrowser->resetProperties();
+}
