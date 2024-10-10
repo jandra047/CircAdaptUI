@@ -316,7 +316,7 @@ void GraphGrid::connectLeftMargins()
     }
 }
 
-void GraphGrid::removeSnapshot()
+void GraphGrid::clearSnapshot()
 {
     for (int i = 0; i < rows; i++)
     {
@@ -324,4 +324,19 @@ void GraphGrid::removeSnapshot()
         item->clearSignals();
     }
 
+}
+
+void GraphGrid::clearGraphData()
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 1; j < cols; j++)
+        {
+            auto item = getItem(i, j);
+            item->clearSignals();
+            if (item->getLineMarker())
+                item->getLineMarker()->setVisible(false);
+            item->replot();
+        }
+    }
 }

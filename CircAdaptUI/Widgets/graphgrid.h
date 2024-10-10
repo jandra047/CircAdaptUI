@@ -119,10 +119,12 @@ public slots:
      */
     void updateGraphs(Buffer& buffer, double timeInterval);
 
+    void clearGraphData();
+
     void takeSnapshot(Buffer& buffer);
     void displayReference(Buffer& buffer);
     void handleAction(QAction* a);
-    void removeSnapshot();
+    void clearSnapshot();
 
 private:
     QGridLayout gridLayout;

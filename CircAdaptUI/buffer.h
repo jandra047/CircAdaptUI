@@ -41,6 +41,7 @@ public:
      * \param dt Timespan of the data to remove
      */
     void clear(double dt);
+    void clear();
 
     /*!
      * \brief Get number of datapoints currenly present for each key stored in buffer.

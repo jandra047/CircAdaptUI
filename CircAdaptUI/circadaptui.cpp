@@ -17,13 +17,15 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
     connect(&m_mw, &ModelWrapper::setup_done, m_mainwindow, &MainWindow::displayReference);
     connect(m_timer, &QTimer::timeout, this, &CircAdaptUI::realtimeSlot);
     connect(m_mainwindow, &MainWindow::togglePlay, this, &CircAdaptUI::togglePlay);
+    connect(m_mainwindow, &MainWindow::resetSignal, this, &CircAdaptUI::reset);
 
     fps = Settings::instance().fps();
 
+    connect(&m_mw, &ModelWrapper::setup_done, this, [=]() { m_timer->start(0); });
     m_mw.setup();
     m_mainwindow->show();
     m_mainwindow->autoscaleAll();
-    m_timer->start(0);
+
 }
 
 void CircAdaptUI::realtimeSlot()
@@ -69,4 +71,11 @@ void CircAdaptUI::togglePlay(bool isOn)
     {
         m_timer->stop();
     }
+}
+
+void CircAdaptUI::reset()
+{
+    m_timer->stop();
+    QMetaObject::invokeMethod(&m_mw, "reset");;
+
 }

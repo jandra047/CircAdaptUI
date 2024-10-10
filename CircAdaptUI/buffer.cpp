@@ -62,6 +62,15 @@ void Buffer::clear(double dt)
     }
 }
 
+void Buffer::clear()
+{
+    QMutexLocker l(&mutex);
+    for (auto [key, vec] : m_data.asKeyValueRange())
+    {
+        vec.erase(vec.cbegin(), vec.cend());
+    }
+}
+
 void Buffer::runAfterBeat()
 {
     if (m_beatData.count() >= 2)

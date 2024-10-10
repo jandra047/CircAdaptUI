@@ -37,7 +37,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(ui->actionStrain, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(4, isVisible); });
     QObject::connect(ui->actionAutoscale, &QAction::triggered, this, &MainWindow::autoscaleAll);
     QObject::connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(takeSnapshot()));
-    QObject::connect(ui->actionReset, &QAction::triggered, this, &MainWindow::clearSnapshots);
+    QObject::connect(ui->actionReset, &QAction::triggered, this, &MainWindow::resetSlot);
     QObject::connect(&buffer, &Buffer::updateValueView, ui->valueView, &ValueView::updateValues);
     QObject::connect(mParamViewDockWidget, &ParamViewDockWidget::aboutToClose, this, [this]() { ui->actionParameter_Settings->setChecked(false); } );
 }
@@ -85,8 +85,16 @@ void MainWindow::autoscaleAll()
 
 void MainWindow::clearSnapshots()
 {
-    ui->graphGrid->removeSnapshot();
-    ui->pvGraph->removeSnapshot();
-    ui->ssGraph->removeSnapshot();
+    ui->graphGrid->clearSnapshot();
+    ui->pvGraph->clearSnapshot();
+    ui->ssGraph->clearSnapshot();
 }
 
+void MainWindow::resetSlot()
+{
+    ui->graphGrid->clearGraphData();
+    ui->pvGraph->clearAllGraphs();
+    ui->ssGraph->clearAllGraphs();
+    buffer.clear();
+    emit resetSignal();
+}

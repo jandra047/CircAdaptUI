@@ -22,6 +22,7 @@ private:
 private slots:
     void togglePlay(bool isOn);
     void realtimeSlot();
+    void reset();
 };
 
 #endif // CIRCADAPTUI_H

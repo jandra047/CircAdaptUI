@@ -36,7 +36,10 @@ private:
 
 public slots:
     void updateMarker(GraphGrid::ColType colType, double x);
-    void removeSnapshot();
+    void clearSnapshot();
+    void clearReference();
+    void clearCurrent();
+    void clearAllGraphs();
 
 };
 

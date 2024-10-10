@@ -295,3 +295,14 @@ void ModelWrapper::updateParam(const QString& name, const QVariant& value)
         set_double(param->getPath().toStdString(), std::any_cast<double>(model_value));
     }
 }
+
+void ModelWrapper::reset()
+{
+    solver->clear_SVar();
+    it=-1;
+    set_model_state();
+    init_SVar();
+    run_stable();
+    run_beats(2);
+    emit setup_done();
+}

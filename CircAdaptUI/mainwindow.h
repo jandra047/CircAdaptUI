@@ -33,6 +33,7 @@ private:
 public: signals:
     void updateDone();
     void togglePlay(bool isPlay);
+    void resetSignal();
 
 public slots:
     void updateGraphs(double timeInterval);
@@ -40,5 +41,6 @@ public slots:
     void displayReference();
     void autoscaleAll();
     void clearSnapshots();
+    void resetSlot();
 };
 #endif // MAINWINDOW_H

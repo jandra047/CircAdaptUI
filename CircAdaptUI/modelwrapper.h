@@ -42,6 +42,7 @@ public:
     void set_model_state();
     QThread* get_thread() { return m_thread.get(); };
     void setup();
+    Q_INVOKABLE void reset();
 
 private:
 

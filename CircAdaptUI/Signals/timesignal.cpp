@@ -15,7 +15,6 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
 
     // Shift time data to start from current m_xPos
     double tOffset = m_xPos - tData[0];
-    double dt = tData[1] - tData[0];
     for (int i = 0; i < tData.size(); ++i) {
         tData[i] += tOffset;
     }
