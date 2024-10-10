@@ -69,6 +69,10 @@ void Buffer::clear()
     {
         vec.erase(vec.cbegin(), vec.cend());
     }
+    for (auto [key, vec] : m_currentBeatData.asKeyValueRange())
+    {
+        vec.erase(vec.cbegin(), vec.cend());
+    }
 }
 
 void Buffer::runAfterBeat()
