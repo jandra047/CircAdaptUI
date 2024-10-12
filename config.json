@@ -61,32 +61,32 @@
                 },
                 {
                     "name": "Sf_Lv",
-                    "path": "Model.Peri.TriSeg.wLv.pLv1.Sf",
+                    "path": "Model.Peri.TriSeg.wLv.pLv0.Sf",
                     "type": "stress"
                 },
                 {
                     "name": "Sf_Rv",
-                    "path": "Model.Peri.TriSeg.wRv.pRv1.Sf",
+                    "path": "Model.Peri.TriSeg.wRv.pRv0.Sf",
                     "type": "stress"
                 },
                 {
                     "name": "Sf_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.pSv1.Sf",
+                    "path": "Model.Peri.TriSeg.wSv.pSv0.Sf",
                     "type": "stress"
                 },
                 {
                     "name": "Ef_Lv",
-                    "path": "Model.Peri.TriSeg.wLv.pLv1.Ef",
+                    "path": "Model.Peri.TriSeg.wLv.pLv0.Ef",
                     "type": "pressure"
                 },
                 {
                     "name": "Ef_Rv",
-                    "path": "Model.Peri.TriSeg.wRv.pRv1.Ef",
+                    "path": "Model.Peri.TriSeg.wRv.pRv0.Ef",
                     "type": "pressure"
                 },
                 {
                     "name": "Ef_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.pSv1.Ef",
+                    "path": "Model.Peri.TriSeg.wSv.pSv0.Ef",
                     "type": "pressure"
                 },
                 {
@@ -254,152 +254,152 @@
             },
             {
                 "name": "Right atrial wall contractility",
-                "path": "Model.Peri.Ra.wRa.pRa1.Sf_act",
+                "path": "Model.Peri.Ra.wRa.pRa0.Sf_act",
                 "type": "percentage"
             },
             {
                 "name": "Right atrial wall passive stiffness",
-                "path": "Model.Peri.Ra.wRa.pRa1.Sf_pas",
+                "path": "Model.Peri.Ra.wRa.pRa0.Sf_pas",
                 "type": "percentage"
             },
             {
                 "name": "Right atrial wall mass",
-                "path": "Model.Peri.Ra.wRa.pRa1.V_wall",
+                "path": "Model.Peri.Ra.wRa.pRa0.V_wall",
                 "type": "percentage"
             },
             {
                 "name": "Right atrial wall dilatation",
-                "path": "Model.Peri.Ra.wRa.pRa1.Am_ref",
+                "path": "Model.Peri.Ra.wRa.pRa0.Am_ref",
                 "type": "percentage"
             },
             {
                 "name": "Right atrial wall mechanical activation delay",
-                "path": "Model.Peri.Ra.wRa.pRa1.dt",
+                "path": "Model.Peri.Ra.wRa.pRa0.dt",
                 "type": "ms"
             },
             {
                 "name": "Right atrial wall relaxation rate",
-                "path": "Model.Peri.Ra.wRa.pRa1.td",
+                "path": "Model.Peri.Ra.wRa.pRa0.td",
                 "type": "percentage"
             },
             {
                 "name": "Left atrial wall contractility",
-                "path": "Model.Peri.La.wLa.pLa1.Sf_act",
+                "path": "Model.Peri.La.wLa.pLa0.Sf_act",
                 "type": "percentage"
             },
             {
                 "name": "Left atrial wall passive stiffness",
-                "path": "Model.Peri.La.wLa.pLa1.Sf_pas",
+                "path": "Model.Peri.La.wLa.pLa0.Sf_pas",
                 "type": "percentage"
             },
             {
                 "name": "Left atrial wall mass",
-                "path": "Model.Peri.La.wLa.pLa1.V_wall",
+                "path": "Model.Peri.La.wLa.pLa0.V_wall",
                 "type": "percentage"
             },
             {
                 "name": "Left atrial wall dilatation",
-                "path": "Model.Peri.La.wLa.pLa1.Am_ref",
+                "path": "Model.Peri.La.wLa.pLa0.Am_ref",
                 "type": "percentage"
             },
             {
                 "name": "Left atrial wall mechanical activation delay",
-                "path": "Model.Peri.La.wLa.pLa1.dt",
+                "path": "Model.Peri.La.wLa.pLa0.dt",
                 "type": "ms"
             },
             {
                 "name": "Left atrial wall relaxation rate",
-                "path": "Model.Peri.La.wLa.pLa1.td",
+                "path": "Model.Peri.La.wLa.pLa0.td",
                 "type": "percentage"
             },
             {
                 "name": "Left ventricular wall contractility",
-                "path": "Model.Peri.TriSeg.wLv.pLv1.Sf_act",
+                "path": "Model.Peri.TriSeg.wLv.pLv0.Sf_act",
                 "type": "percentage"
             },
             {
                 "name": "Left ventricular wall passive stiffness",
-                "path": "Model.Peri.TriSeg.wLv.pLv1.Sf_pas",
+                "path": "Model.Peri.TriSeg.wLv.pLv0.Sf_pas",
                 "type": "percentage"
             },
             {
                 "name": "Left ventricular wall mass",
-                "path": "Model.Peri.TriSeg.wLv.pLv1.V_wall",
+                "path": "Model.Peri.TriSeg.wLv.pLv0.V_wall",
                 "type": "percentage"
             },
             {
                 "name": "Left ventricular wall dilatation",
-                "path": "Model.Peri.TriSeg.wLv.pLv1.Am_ref",
+                "path": "Model.Peri.TriSeg.wLv.pLv0.Am_ref",
                 "type": "percentage"
             },
             {
                 "name": "Left ventricular wall mechanical activation delay",
-                "path": "Model.Peri.TriSeg.wLv.pLv1.dt",
+                "path": "Model.Peri.TriSeg.wLv.pLv0.dt",
                 "type": "percentage"
             },
             {
                 "name": "Left ventricular wall relaxation rate",
-                "path": "Model.Peri.TriSeg.wLv.pLv1.td",
+                "path": "Model.Peri.TriSeg.wLv.pLv0.td",
                 "type": "percentage"
             },
             {
                 "name": "Septal wall contractility",
-                "path": "Model.Peri.TriSeg.wSv.pSv1.Sf_act",
+                "path": "Model.Peri.TriSeg.wSv.pSv0.Sf_act",
                 "type": "percentage"
             },
             {
                 "name": "Septal wall passive stiffness",
-                "path": "Model.Peri.TriSeg.wSv.pSv1.Sf_pas",
+                "path": "Model.Peri.TriSeg.wSv.pSv0.Sf_pas",
                 "type": "percentage"
             },
             {
                 "name": "Septal wall mass",
-                "path": "Model.Peri.TriSeg.wSv.pSv1.V_wall",
+                "path": "Model.Peri.TriSeg.wSv.pSv0.V_wall",
                 "type": "percentage"
             },
             {
                 "name": "Septal wall dilatation",
-                "path": "Model.Peri.TriSeg.wSv.pSv1.Am_ref",
+                "path": "Model.Peri.TriSeg.wSv.pSv0.Am_ref",
                 "type": "percentage"
             },
             {
                 "name": "Septal wall mechanical activation delay",
-                "path": "Model.Peri.TriSeg.wSv.pSv1.dt",
+                "path": "Model.Peri.TriSeg.wSv.pSv0.dt",
                 "type": "percentage"
             },
             {
                 "name": "Septal wall relaxation rate",
-                "path": "Model.Peri.TriSeg.wSv.pSv1.td",
+                "path": "Model.Peri.TriSeg.wSv.pSv0.td",
                 "type": "percentage"
             },
             {
                 "name": "Right ventricular wall contractility",
-                "path": "Model.Peri.TriSeg.wRv.pRv1.Sf_act",
+                "path": "Model.Peri.TriSeg.wRv.pRv0.Sf_act",
                 "type": "percentage"
             },
             {
                 "name": "Right ventricular wall passive stiffness",
-                "path": "Model.Peri.TriSeg.wRv.pRv1.Sf_pas",
+                "path": "Model.Peri.TriSeg.wRv.pRv0.Sf_pas",
                 "type": "percentage"
             },
             {
                 "name": "Right ventricular wall mass",
-                "path": "Model.Peri.TriSeg.wRv.pRv1.V_wall",
+                "path": "Model.Peri.TriSeg.wRv.pRv0.V_wall",
                 "type": "percentage"
             },
             {
                 "name": "Right ventricular wall dilatation",
-                "path": "Model.Peri.TriSeg.wRv.pRv1.Am_ref",
+                "path": "Model.Peri.TriSeg.wRv.pRv0.Am_ref",
                 "type": "percentage"
             },
             {
                 "name": "Right ventricular wall mechanical activation delay",
-                "path": "Model.Peri.TriSeg.wRv.pRv1.dt",
+                "path": "Model.Peri.TriSeg.wRv.pRv0.dt",
                 "type": "percentage"
             },
             {
                 "name": "Right ventricular wall relaxation rate",
-                "path": "Model.Peri.TriSeg.wRv.pRv1.td",
+                "path": "Model.Peri.TriSeg.wRv.pRv0.td",
                 "type": "percentage"
             }
         ]
@@ -751,7 +751,7 @@
                     "max": 10,
                     "default": 5.1,
                     "tooltip": "L/min",
-                    "stepsize": 0.2,
+                    "stepsize": 0.1,
                     "enabled": true,
                     "type": "double"
                 },

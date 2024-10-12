@@ -39,9 +39,10 @@ public:
         m_thread->wait();
     }
 
-    void set_model_state();
     QThread* get_thread() { return m_thread.get(); };
     void setup();
+    void buildModel();
+    void setReferenceParameters();
     Q_INVOKABLE void reset();
 
 private:
