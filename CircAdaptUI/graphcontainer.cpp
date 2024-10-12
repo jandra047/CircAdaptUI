@@ -46,9 +46,6 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     axisRect()->setMinimumMargins(QMargins(0,0,0,0));
     axisRect()->setMargins(QMargins(0,0,0,0));
 
-    connect(this, &QCustomPlot::customContextMenuRequested, this, [=](const QPoint& p) {
-        contextMenu->exec(mapToGlobal(p));
-    });
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
     connect(this, &QCustomPlot::mouseMove, this, &GraphContainer::showToolTip);
 }
@@ -193,6 +190,9 @@ void GraphContainer<SignalType>::setContextMenu(const std::pair<QMenu*, QActionG
 {
     contextMenu = menu.first;
     actionGroup = menu.second;
+    connect(this, &QCustomPlot::customContextMenuRequested, this, [=](const QPoint& p) {
+        contextMenu->exec(mapToGlobal(p));
+    });
 }
 
 template<typename SignalType>
