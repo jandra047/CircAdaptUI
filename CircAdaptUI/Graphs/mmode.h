@@ -11,8 +11,6 @@ public:
 
     QString getPoint(const QPoint& pos) override { return QString(""); };
 
-    void zoom(QWheelEvent* event) override;
-
 };
 
 #endif // MMODE_H

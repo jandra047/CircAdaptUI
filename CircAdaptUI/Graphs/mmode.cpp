@@ -96,28 +96,3 @@ MMode::MMode(QWidget* parent, QString xLabel, QString yLabel):
     sigSvEpi->setBrush(QBrush(Qt::white));
     sigSvEpi->setChannelFillGraph(sigSvEndo);
 }
-
-void MMode::zoom(QWheelEvent* event)
-{
-    // Calculate the zoom factor based on the wheel angle delta
-    double zoomFactor = 1 - event->angleDelta().y() / 1200.0; // Adjust as needed
-
-    if (event->modifiers() && Qt::ShiftModifier)
-    {
-        double max_X = getMaxX();
-        if (xAxis->range().upper * zoomFactor > max_X && !m_zoomPastX && !isEmpty())
-            xAxis->setRangeUpper(max_X);
-        else
-            xAxis->setRangeUpper(xAxis->range().upper * zoomFactor);
-    }
-    else
-    {
-        yAxis->setRangeUpper(0);
-        yAxis->setRangeLower(yAxis->range().lower * zoomFactor);
-    }
-
-    replot();
-
-    // Accept the event to prevent further processing
-    event->accept();
-}
