@@ -1,5 +1,6 @@
 #include "graphgrid.h"
 #include "CircAdaptUI/Graphs/signalgraph.h"
+#include "CircAdaptUI/Graphs/mmode.h"
 #include "CircAdaptUI/Signals/timesignal.h"
 #include "CircAdaptUI/settings.h"
 
@@ -14,23 +15,32 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
     {
         for (int j = 0; j < cols; ++j)
         {
-            SignalGraph* plot = new SignalGraph(this, "Time [s]", yLabels[i]);
-
-            auto sigs = Settings::instance().GraphGrid()[rowTypes[i]].toArray();
-            for (auto s = sigs.cbegin(), end = sigs.cend(); s != end; ++s)
+            SignalGraph* plot = Q_NULLPTR;
+            if (i != GraphGrid::MMODE)
             {
-                TimeSignal* sig = new TimeSignal
-                (
-                    plot->xAxis,
-                    plot->yAxis,
-                    s->toObject()["displayName"].toString(),
-                    s->toObject()["name"].toString(),
-                    "t",
-                    QColor(s->toObject()["color"].toString()),
-                    s->toObject()["isVisible"].toBool(),
-                    s->toObject()["unit"].toString()
-                );
-                plot->addSignal(sig);
+                plot = new SignalGraph(this, "Time [s]", yLabels[i]);
+
+                auto sigs = Settings::instance().GraphGrid()[rowTypes[i]].toArray();
+                for (auto s = sigs.cbegin(), end = sigs.cend(); s != end; ++s)
+                {
+                    TimeSignal* sig = new TimeSignal
+                    (
+                        plot->xAxis,
+                        plot->yAxis,
+                        s->toObject()["displayName"].toString(),
+                        s->toObject()["name"].toString(),
+                        "t",
+                        QColor(s->toObject()["color"].toString()),
+                        s->toObject()["isVisible"].toBool(),
+                        s->toObject()["unit"].toString()
+                    );
+                    plot->addSignal(sig);
+                }
+            }
+            else
+            {
+                plot = new MMode(this);
+                gridLayout.addWidget(plot, i, j);
             }
 
             if (j > 0)
@@ -51,8 +61,11 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             }
         }
     }
-    setRowVisible(3, false);
-    setRowVisible(4, false);
+
+    for (int i = 0; i < rows; i++)
+    {
+        setRowVisible(i, rowVisibility[i]);
+    }
     connectRowYAxes();
     connectColXAxes();
     gridLayout.setContentsMargins(QMargins(0,0,0,0));
@@ -79,11 +92,14 @@ void GraphGrid::buildMenus()
 {
     for (int i = 0; i < rows; i++)
     {
-        auto pair = getItem(i, 0)->buildMenu(this);
-        QObject::connect(pair.second, &QActionGroup::triggered, this, &GraphGrid::handleAction);
-        for (int j = 0; j < cols; j++)
+        if (i != RowType::MMODE)
         {
-            getItem(i, j)->setContextMenu(pair);
+            auto pair = getItem(i, 0)->buildMenu(this);
+            QObject::connect(pair.second, &QActionGroup::triggered, this, &GraphGrid::handleAction);
+            for (int j = 0; j < cols; j++)
+            {
+                getItem(i, j)->setContextMenu(pair);
+            }
         }
 
     }

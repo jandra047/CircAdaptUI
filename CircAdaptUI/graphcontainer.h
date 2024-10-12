@@ -62,11 +62,9 @@ private:
      * \brief Handles different zoom functionalities.
      * \param e QWheelEvent which holds data on wheel turn.
      */
-    void zoom(QWheelEvent* event);
+    virtual void zoom(QWheelEvent* event);
 
-    QMenu* contextMenu;
     QActionGroup* actionGroup;
-    double getMaxX();
 
 protected:
     /*!
@@ -75,6 +73,8 @@ protected:
     QVector<ptr_type> m_Signals;
     QCPTextElement* title;
     bool m_zoomPastX;
+    double getMaxX();
+    QMenu* contextMenu;
 
 public slots:
     void clearSignals();

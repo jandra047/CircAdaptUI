@@ -56,6 +56,9 @@ public:
     void lock() { mutex.lock(); };
     void unlock() { mutex.unlock(); };
     BeatData* getLastBeat() { return m_beatData.last(); };
+    void postprocessing();
+
+    QMap<QString, QVariant> modelParams;
 
 public:
 signals:
@@ -81,6 +84,8 @@ private:
     QMap<QString, QVector<double>> m_currentBeatData;
 
     QMutex mutex;
+
+    void calculateMMode();
 
 };
 

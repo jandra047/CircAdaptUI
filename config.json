@@ -138,6 +138,61 @@
                     "name": "vSyVenRa",
                     "path": "Model.Peri.SyVenRa.q",
                     "type": "flowvelocity"
+                },
+                {
+                    "name": "TriSeg.V",
+                    "path": "Model.Peri.TriSeg.V",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "TriSeg.Y",
+                    "path": "Model.Peri.TriSeg.Y",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Xm1",
+                    "path": "Model.Peri.TriSeg.Xm1",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Xm2",
+                    "path": "Model.Peri.TriSeg.Xm2",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Xm3",
+                    "path": "Model.Peri.TriSeg.Xm3",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Cm_Lv",
+                    "path": "Model.Peri.TriSeg.wLv.Cm",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Cm_Sv",
+                    "path": "Model.Peri.TriSeg.wSv.Cm",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Cm_Rv",
+                    "path": "Model.Peri.TriSeg.wRv.Cm",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Am_Lv",
+                    "path": "Model.Peri.TriSeg.wLv.Am",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Am_Sv",
+                    "path": "Model.Peri.TriSeg.wSv.Am",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "Am_Rv",
+                    "path": "Model.Peri.TriSeg.wRv.Am",
+                    "type": "coefficient"
                 }
             ],
         "parameters":

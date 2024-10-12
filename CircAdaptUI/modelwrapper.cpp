@@ -529,20 +529,37 @@ void ModelWrapper::setupParameters()
         mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createSignal(obj, this);
 
     }
+
+    double val;
+    get_double("Model.Peri.TriSeg.wLv.V_wall", val);
+    buffer.modelParams["V_wall_Lv"] = val;
+    get_double("Model.Peri.TriSeg.wSv.V_wall", val);
+    buffer.modelParams["V_wall_Sv"] = val;
+    get_double("Model.Peri.TriSeg.wRv.V_wall", val);
+    buffer.modelParams["V_wall_Rv"] = val;
+
+
 }
 
 
 void ModelWrapper::updateBuffer()
 {
     double val{};
+    bool success;
     for (auto s : mModelSignals)
     {
-        get_double(s->getPath().toStdString(), val);
+        success = get_double(s->getPath().toStdString(), val);
         // Cast the std::any back to double
-        double converted_val = std::any_cast<double>(s->model_to_ui(val));
-        buffer.append(s->getName(), converted_val);
+        if (success)
+        {
+            double converted_val = std::any_cast<double>(s->model_to_ui(val));
+            buffer.append(s->getName(), converted_val);
+        }
+        else
+            qDebug() << s->getPath();
     }
     buffer.append("t", solver->get_t());
+    buffer.postprocessing();
 
     if (beatDone)
     {
