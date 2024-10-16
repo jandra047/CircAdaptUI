@@ -39,8 +39,9 @@ void CircAdaptUI::realtimeSlot()
 
     if (timeElapsed - timeLastUpdate > 1/fps)
     {
+        double currfps = 1/(timeElapsed - timeLastUpdate);
         m_mainwindow->updateGraphs(
-            (fps < trueFPS) ? 1/fps : 1/trueFPS
+            (fps < trueFPS) ? 1/currfps : 1/trueFPS
             );
         timeLastUpdate = timeElapsed;
     }
