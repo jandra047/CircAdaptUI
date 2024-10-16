@@ -8,13 +8,13 @@ int main(int argc, char *argv[])
     QFontDatabase::addApplicationFont(":/fonts/LiberationSans-Regular.ttf");
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
 
-    CircAdaptUI circadaptui(argc, argv);
-
     QFont font = QFont("Liberation Sans", 11);
     font.setStyleStrategy(QFont::PreferAntialias);
     font.setHintingPreference(QFont::PreferNoHinting);
+    QApplication::setFont(font);
 
-    circadaptui.setFont(font);
+    CircAdaptUI circadaptui(argc, argv);
+
 
     return circadaptui.exec();
 }
