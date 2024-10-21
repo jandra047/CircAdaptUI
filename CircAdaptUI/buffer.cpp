@@ -18,6 +18,11 @@ void Buffer::append(const QString& string, double value)
     m_currentBeatData[string].append(value);
 }
 
+double Buffer::get(const QString& string)
+{
+    return m_data[string].first();
+}
+
 QVector<double> Buffer::get(const QString& string, double dt)
 {
     int count = 0;

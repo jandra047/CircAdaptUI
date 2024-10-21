@@ -33,6 +33,8 @@ public:
      */
     QVector<double> get(const QString& key, double dt);
 
+    double get(const QString& key);
+
     /*!
      * \brief Remove data from buffer
      *
