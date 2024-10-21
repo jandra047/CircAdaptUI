@@ -1015,7 +1015,7 @@
                         {
                             "name": "Diameter",
                             "key": "Atrial septal defect",
-                            "min": 0,
+                            "min": 1e-9,
                             "max": 10,
                             "default": 1e-9,
                             "tooltip": "%",
@@ -1029,7 +1029,7 @@
                         {
                             "name": "Diameter",
                             "key": "Ventricular septal defect",
-                            "min": 0,
+                            "min": 1e-9,
                             "max": 10,
                             "default": 1e-9,
                             "tooltip": "%",
