@@ -355,7 +355,7 @@ void ModelWrapper::setReferenceParameters()
               "fraction_A_open_Aext"};
     std::vector<double> adaptation_A_open_fac = {1., 1., 1., 1., 1., 1., 1., 1.};
     std::vector<double> A_open = {0.00049916, 0.00047155, 0.00047155, 0.00050805, 0.00049835, 0.00049835, 1e-9, 1e-9};
-    std::vector<double> A_leak = {1.e-09, 1.e-09, 1.e-09, 1.e-09, 1.e-09, 1.e-09, 1e-9, 1e-9};
+    std::vector<double> A_leak = {0.00049916, 1.e-09, 1.e-09, 0.00050805, 1.e-09, 1.e-09, 1e-9, 1e-9};
     l = {0.01260512, 0.01225144, 0.01225144, 0.01271679, 0.01259479, 0.01259479, 0.01259479, 0.01259479};
     std::vector<double> L_fac_prox = {0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75};
     std::vector<double> L_fac_dist = {0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75};
@@ -486,7 +486,6 @@ void ModelWrapper::changeParam(int val)
 
 void ModelWrapper::setup()
 {
-    // build("VanOsta2022", Settings::instance().MWSettings()["solver"].toString().toStdString());
     build("Custom", "backward_differential");
     buildModel();
     setReferenceParameters();
