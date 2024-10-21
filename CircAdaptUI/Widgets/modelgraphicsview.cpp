@@ -15,8 +15,6 @@ ModelGraphicsView::ModelGraphicsView(PropertyBrowserBase* propertyBrowser, QWidg
     scene->addItem(heartSvg);
     scene->addItem(tissueSvg);
 
-    heartSvg->afterSetup();
-
     showView(ViewType::Torso);
 
     setRenderHint(QPainter::Antialiasing, true);
@@ -75,4 +73,14 @@ ToggleButtonGroup* ModelGraphicsView::getSubMenu(ViewType viewType)
         return torsoSvg->getSubMenuContainer();
     }
 
+}
+
+void ModelGraphicsView::showOxygen(bool isVisible)
+{
+    heartSvg->showOxygen(isVisible);
+}
+
+void ModelGraphicsView::updateOxygen(Buffer& buffer)
+{
+    heartSvg->updateOxygen(buffer);
 }

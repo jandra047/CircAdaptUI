@@ -4,6 +4,8 @@
 #include "svgobjectbase.h"
 #include "drawingelementgroup.h"
 
+class Buffer;
+
 class SVGHeartObject : public SVGObjectBase
 {
 public:
@@ -18,12 +20,17 @@ public:
 
     DrawingElementGroup* valveGroup;
     DrawingElementGroup* shuntGroup;
+    DrawingElementGroup* oxygenGroup;
 
     void handleSubMenuSwitch(QAbstractButton* button) override;
     void showValves();
     void showShunts();
     void showPericardium();
-    void afterSetup();
+
+    void showOxygen(bool isVisible);
+
+public slots:
+    void updateOxygen(Buffer& buffer);
 
 };
 

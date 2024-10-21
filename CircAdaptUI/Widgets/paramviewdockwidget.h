@@ -5,6 +5,7 @@
 #include <QDockWidget>
 
 class QtProperty;
+class Buffer;
 
 namespace Ui {
 class ParamViewDockWidget;
@@ -31,6 +32,9 @@ public:
 signals:
     void paramChanged(const QString& path, const QVariant& value);
     void aboutToClose();
+public slots:
+    void showOxygen(bool isVisible);
+    void updateOxygen(Buffer& buffer);
 };
 
 #endif // PARAMVIEWDOCKWIDGET_H

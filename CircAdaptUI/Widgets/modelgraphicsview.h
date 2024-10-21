@@ -12,6 +12,8 @@
 #include "CircAdaptUI/SVGviews/svgheartobject.h"
 #include "CircAdaptUI/SVGviews/svgtissueobject.h"
 
+class Buffer;
+
 class ModelGraphicsView : public QGraphicsView
 {
     Q_OBJECT
@@ -36,6 +38,10 @@ private:
 
 public: signals:
     void showProperties(QList<QtBrowserItem*> browserItems);
+public slots:
+    void showOxygen(bool isVisible);
+    void updateOxygen(Buffer& buffer);
+
 };
 
 

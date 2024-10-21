@@ -1,6 +1,7 @@
 #include "modelwrapper.h"
 #include "settings.h"
 #include <vector>
+#include "Oxygen.hpp"
 
 void ModelWrapper::buildModel()
 {
@@ -228,7 +229,23 @@ void ModelWrapper::buildModel()
 // Papillary muscles
     set_component("Peri.RaRv.wPapMus", "Peri.TriSeg.wRv");
     set_component("Peri.LaLv.wPapMus", "Peri.TriSeg.wLv");
+
+
+    factory->register_component<CAcore::Components::Oxygen>("Oxygen");
+    add_component("", "Oxygen", "Oxygen");
+    set_component("Oxygen.max_saturation", "PuVen");
+    set_component("Oxygen.connector", "Peri.SyVenRa");
+    set_component("Oxygen.connector", "Peri.RaRv");
+    set_component("Oxygen.connector", "Peri.RvPuArt");
+    set_component("Oxygen.connector", "Peri.PuVenLa");
+    set_component("Oxygen.connector", "Peri.LaLv");
+    set_component("Oxygen.connector", "Peri.LvSyArt");
+    set_component("Oxygen.connector", "Peri.LaRa");
+    set_component("Oxygen.connector", "Peri.LvRv");
+    set_component("Oxygen.connector", "CiPu");
+    set_component("Oxygen.connector", "CiSy");
 }
+
 
 void ModelWrapper::setReferenceParameters()
 {
@@ -470,6 +487,7 @@ void ModelWrapper::run_single_step() {
         Settings::instance().beatIdxIncrement();
         it = -1;
         beatDone = true;
+        emit beat_done();
     }
     updateBuffer();
     emit timestep_done();
@@ -593,6 +611,7 @@ void ModelWrapper::updateParam(const QString& name, const QVariant& value)
     } else {
         set_double(param->getPath().toStdString(), std::any_cast<double>(model_value));
     }
+
 }
 
 void ModelWrapper::reset()

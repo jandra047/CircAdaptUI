@@ -23,7 +23,7 @@ include(FetchContent)
 FetchContent_Declare(
   CircAdapt_Library
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/CircAdapt_Library.git
-  GIT_TAG b968ed0effd5608d0f643c39c99f80d8afa5ac99
+  GIT_TAG be5d38355eb02e9cfc9009199496b5b8563d07e1
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(CircAdapt_Library)
@@ -32,7 +32,6 @@ message(CHECK_PASS "CircAdapt_Library fetched")
 
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 message(CHECK_START "Fetching QtPropertyBrowser")
-include(FetchContent)
 FetchContent_Declare(
   QtPropertyBrowser
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:P70074313/qtpropertybrowser.git
@@ -42,6 +41,18 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(QtPropertyBrowser)
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 message(CHECK_PASS "QtPropertyBrowser fetched")
+
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(CHECK_START "Fetching CircAdapt_Oxygen")
+FetchContent_Declare(
+  CircAdapt_Oxygen
+  GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/circadapt_oxygen.git
+  GIT_TAG 38e04f87e46f4d3b2ef2b807e98b6f7fd58db056
+  GIT_SHALLOW TRUE
+  GIT_PROGRESS TRUE)
+FetchContent_MakeAvailable(CircAdapt_Oxygen)
+list(POP_BACK CMAKE_MESSAGE_INDENT)
+message(CHECK_PASS "CircAdapt_Oxygen fetched")
 
 qt_standard_project_setup()
 
@@ -94,6 +105,9 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/custompropertymanager.h CircAdaptUI/PropertyBrowser/custompropertymanager.cpp
     CircAdaptUI/PropertyBrowser/resetbutton.h CircAdaptUI/PropertyBrowser/resetbutton.cpp
     CircAdaptUI/Graphs/mmode.h CircAdaptUI/Graphs/mmode.cpp
+    CircAdaptUI/SVGviews/DrawingElements/textcircle.h CircAdaptUI/SVGviews/DrawingElements/textcircle.cpp
+
+
 
 )
 
@@ -128,6 +142,7 @@ endif()
 target_link_libraries(CircAdaptUI PRIVATE
     CircAdaptLib
     qtpropertybrowser
+    Oxygen
 )
 
 add_dependencies(CircAdaptUI CircAdaptLib qtpropertybrowser)

@@ -193,7 +193,48 @@
                     "name": "Am_Rv",
                     "path": "Model.Peri.TriSeg.wRv.Am",
                     "type": "coefficient"
+                },
+                {
+                    "name": "satPuVen",
+                    "path": "Model.PuVen.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satLa",
+                    "path": "Model.Peri.La.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satLv",
+                    "path": "Model.Peri.TriSeg.cLv.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satSyArt",
+                    "path": "Model.SyArt.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satSyVen",
+                    "path": "Model.SyVen.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satRa",
+                    "path": "Model.Peri.Ra.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satRv",
+                    "path": "Model.Peri.TriSeg.cRv.saturation",
+                    "type": "coefficient"
+                },
+                {
+                    "name": "satPuArt",
+                    "path": "Model.PuArt.saturation",
+                    "type": "coefficient"
                 }
+
             ],
         "parameters":
         [

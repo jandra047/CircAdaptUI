@@ -39,8 +39,10 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(ui->actionAutoscale, &QAction::triggered, this, &MainWindow::autoscaleAll);
     QObject::connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(takeSnapshot()));
     QObject::connect(ui->actionReset, &QAction::triggered, this, &MainWindow::resetSlot);
+    QObject::connect(ui->actionShow_oxygen, &QAction::triggered, mParamViewDockWidget, &ParamViewDockWidget::showOxygen);
     QObject::connect(&buffer, &Buffer::updateValueView, ui->valueView, &ValueView::updateValues);
     QObject::connect(mParamViewDockWidget, &ParamViewDockWidget::aboutToClose, this, [this]() { ui->actionParameter_Settings->setChecked(false); } );
+    QObject::connect(&mw, &ModelWrapper::beat_done, this, [this, &buffer]() { mParamViewDockWidget->updateOxygen(buffer); });
 }
 
 

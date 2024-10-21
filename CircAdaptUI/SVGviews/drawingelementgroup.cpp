@@ -1,9 +1,10 @@
 #include "drawingelementgroup.h"
+#include "DrawingElements/textcircle.h"
 
 
 bool DrawingElementGroup::sceneEventFilter(QGraphicsItem* watched, QEvent* event)
 {
-    if (event->type() == QEvent::GraphicsSceneMousePress) {
+    if (event->type() == QEvent::GraphicsSceneMousePress && childrenSelectable()) {
         QGraphicsSceneMouseEvent* mouseEvent = static_cast<QGraphicsSceneMouseEvent*>(event);
         if (mouseEvent->button() == Qt::LeftButton)
         {
@@ -42,8 +43,33 @@ void DrawingElementGroup::clearSelection()
 void DrawingElementGroup::setVisible(bool isVisible)
 {
     QGraphicsItemGroup::setVisible(isVisible);
-    if (m_selectedItem && isVisible)
-        m_selectedItem->SVGObject()->setVisibleProperties(m_selectedItem->SVGObject()->propertyMap[m_selectedItem->name()]);
-    if (isVisible && !m_selectedItem)
-        qgraphicsitem_cast<GraphicElement*> (childItems().at(0))->SVGObject()->setVisibleProperties(QList<QtBrowserItem*> {});
+
+    if (childrenSelectable() && isVisible)
+    {
+        if (m_selectedItem)
+        {
+            m_selectedItem->SVGObject()->setVisibleProperties(m_selectedItem->SVGObject()->propertyMap[m_selectedItem->name()]);
+        }
+        else if (!childItems().isEmpty())
+        {
+            auto* firstChild = qgraphicsitem_cast<GraphicElement*>(childItems().at(0));
+            if (firstChild)
+            {
+                firstChild->SVGObject()->setVisibleProperties(QList<QtBrowserItem*> {});
+            }
+        }
+    }
+
+}
+
+void DrawingElementGroup::updateText(Buffer& buffer)
+{
+    for (auto item : childItems())
+    {
+        auto s = dynamic_cast<TextCircle*>(item);
+        if (s)
+        {
+            s->update(buffer);
+        }
+    }
 }

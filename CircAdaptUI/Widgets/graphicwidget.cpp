@@ -76,3 +76,8 @@ void GraphicWidget::topMenuSwitch(QPushButton *button, ViewType viewType) {
         currentButton->setChecked(true);
     }
 }
+
+void GraphicWidget::showOxygen(bool isVisible)
+{
+    graphicsView->showOxygen(isVisible);
+}

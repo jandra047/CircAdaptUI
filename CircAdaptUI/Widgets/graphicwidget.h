@@ -33,6 +33,9 @@ private:
 
     void createButtons();
     void topMenuSwitch(QPushButton *button, ViewType viewType);
+
+public slots:
+    void showOxygen(bool isVisible);
 };
 
 #endif // GRAPHICWIDGET_H

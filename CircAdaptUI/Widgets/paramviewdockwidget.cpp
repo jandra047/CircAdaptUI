@@ -47,3 +47,13 @@ void ParamViewDockWidget::resetProperties()
     ui->systemPBrowser->resetProperties();
     ui->circPBrowser->resetProperties();
 }
+
+void ParamViewDockWidget::showOxygen(bool isVisible)
+{
+    ui->graphicsView->showOxygen(isVisible);
+}
+
+void ParamViewDockWidget::updateOxygen(Buffer& buffer)
+{
+    ui->graphicsView->graphicsView->updateOxygen(buffer);
+}

@@ -5,6 +5,8 @@
 #include <QGraphicsSceneEvent>
 #include "DrawingElements/graphicelement.h"
 
+class Buffer;
+
 class DrawingElementGroup : public QGraphicsItemGroup
 {
 public:
@@ -19,9 +21,15 @@ public:
     bool selectElement(QGraphicsItem* item);
     void clearSelection();
     void setVisible(bool isVisible);
+    bool childrenSelectable() { return m_childrenSelectable; }
+    void setSelectable(bool isSelectable) { m_childrenSelectable = isSelectable; }
 
 private:
     GraphicElement* m_selectedItem;
+    bool m_childrenSelectable = true;
+
+public slots:
+    void updateText(Buffer& buffer);
 };
 
 #endif // DRAWINGELEMENTGROUP_H
