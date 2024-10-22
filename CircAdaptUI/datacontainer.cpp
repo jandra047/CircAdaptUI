@@ -1,19 +1,63 @@
 #include "datacontainer.h"
 #include "modelwrapper.h"
 
+void DataContainer::updateParam(QVariant variant) const
+{
+    switch (variant.userType())
+    {
+        case QMetaType::Bool:
+        {
+            bool b = variant.toBool();
+            mw.set_bool(mPath.toStdString(), b);
+            break;
+        }
+        case QMetaType::Double:
+        {
+            double d = ui_to_model(variant).toDouble();
+            mw.set_double(mPath.toStdString(), d);
+            break;
+        }
+    }
+}
+
+QVariant DataContainer::get()
+{
+    switch (mMetaType)
+    {
+        case (QMetaType::Double):
+        {
+            double d;
+            mw.get_double(mPath.toStdString(), d);
+            return model_to_ui(d);
+        }
+        case (QMetaType::Bool):
+        {
+            bool b;
+            mw.get_bool(mPath.toStdString(), b);
+            return model_to_ui(b);
+        }
+        default:
+            return QVariant();
+    }
+
+}
+
 class PressureContainer : public DataContainer
 {
 public:
     PressureContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
+        DataContainer(name, path, type, parent)
+    {
+        mMetaType = QMetaType::Double;
+    };
     // double model_to_ui(double val) const override { return val / 133; };
-    std::any model_to_ui(std::any value) const override
+    QVariant model_to_ui(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 133;
+        return variant.toDouble() / 133;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) * 133 ;
+        return variant.toDouble() * 133 ;
     }
 };
 
@@ -21,15 +65,18 @@ class StressContainer : public DataContainer
 {
 public:
     StressContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
+        DataContainer(name, path, type, parent)
+    {
+        mMetaType = QMetaType::Double;
+    };
     // double model_to_ui(double val) const override { return val / 133; };
-    std::any model_to_ui(std::any value) const override
+    QVariant model_to_ui(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 1000;
+        return variant.toDouble() / 1000;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 1000;
+        return variant.toDouble() / 1000;
     }
 };
 
@@ -37,14 +84,17 @@ class VolumeContainer : public DataContainer
 {
 public:
     VolumeContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return std::any_cast<double>(value) * 1e6 ;
+        mMetaType = QMetaType::Double;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 1e6 ;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 1e6 ;
+        return variant.toDouble() / 1e6 ;
     }
 };
 
@@ -52,14 +102,17 @@ class FlowContainer : public DataContainer
 {
 public:
     FlowContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return std::any_cast<double>(value) * 1e6 ;
+        mMetaType = QMetaType::Double;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 1e6 ;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 1e6 ;
+        return variant.toDouble() / 1e6 ;
     }
 };
 
@@ -73,11 +126,12 @@ public:
         A_openPath = path.left(position) + ".A_open";
         A_leakPath = path.left(position) + ".A_leak";
         A_Path = path.left(position) + ".A";
+        mMetaType = QMetaType::Double;
 
     };
-    std::any model_to_ui(std::any value) const override
+    QVariant model_to_ui(QVariant variant) const override
     {
-        double val = std::any_cast<double>(value);
+        double val = variant.toDouble();
         double A = 0;
         double A_leak = 0;
         double A_open = 0;
@@ -97,7 +151,7 @@ public:
     }
 
     // should not be used, rethink the structure
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
         return -1;
     }
@@ -112,14 +166,17 @@ class HRContainer : public DataContainer
 {
 public:
     HRContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return 60 / std::any_cast<double>(value);
+        mMetaType = QMetaType::Double;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return 60 / variant.toDouble();
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return 60 / std::any_cast<double>(value);
+        return 60 / variant.toDouble();
     }
 };
 
@@ -127,14 +184,17 @@ class COContainer : public DataContainer
 {
 public:
     COContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return std::any_cast<double>(value) * 60000;
+        mMetaType = QMetaType::Double;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 60000;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 60000;
+        return variant.toDouble() / 60000;
     }
 };
 
@@ -142,14 +202,17 @@ class BoolContainer : public DataContainer
 {
 public:
     BoolContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return std::any_cast<bool>(value);
+        mMetaType = QMetaType::Bool;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toBool();
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<bool>(value);
+        return variant.toBool();
     }
 };
 
@@ -158,14 +221,17 @@ class MilliSecondsContainer : public DataContainer
 {
 public:
     MilliSecondsContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return std::any_cast<double>(value) * 1e3;
+        mMetaType = QMetaType::Double;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 1e3;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 1e3;
+        return variant.toDouble() / 1e3;
     }
 };
 
@@ -173,14 +239,17 @@ class AreaContainer : public DataContainer
 {
 public:
     AreaContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
-    std::any model_to_ui(std::any value) const override
+        DataContainer(name, path, type, parent)
     {
-        return std::any_cast<double>(value) * 1e4;
+        mMetaType = QMetaType::Double;
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 1e4;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / 1e4;
+        return variant.toDouble() / 1e4;
     }
 };
 
@@ -189,14 +258,46 @@ class DiameterContainer : public DataContainer
 public:
     DiameterContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
         DataContainer(name, path, type, parent)
-        {};
-    std::any model_to_ui(std::any value) const override
+        {
+            mMetaType = QMetaType::Double;
+        };
+    QVariant model_to_ui(QVariant variant) const override
     {
-        return sqrt(std::any_cast<double>(value) / M_PI) / 1e-6;
+        return sqrt(variant.toDouble() / M_PI) / 1e-6;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return pow(std::any_cast<double>(value), 2) * M_PI * 1e-6;
+        return pow(variant.toDouble(), 2) * M_PI * 1e-6;
+    }
+};
+
+class ShuntContainer : public DiameterContainer
+{
+public:
+    ShuntContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
+        DiameterContainer(name, path, type, parent)
+        {
+            mMetaType = QMetaType::Double;
+        };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return sqrt(variant.toDouble() / M_PI) / 1e-6;
+    }
+    QVariant ui_to_model(QVariant variant) const override
+    {
+        return pow(variant.toDouble(), 2) * M_PI * 1e-6;
+    }
+    void updateParam(QVariant variant) const override
+    {
+        bool ok = false;
+        double value = ui_to_model(variant).toDouble(&ok);
+        if (ok)
+            mw.set_double(
+                QString(mPath + ".A_leak").toStdString(), value
+                );
+            mw.set_double(
+                QString(mPath + ".A_open").toStdString(), value
+                );
     }
 };
 
@@ -206,14 +307,16 @@ public:
     PercentageContainer(const QString& name, const QString& path, const QString& type, const double defaultValue, ModelWrapper* parent):
         DataContainer(name, path, type, parent),
         m_defaultValue(defaultValue)
-        {};
-    std::any model_to_ui(std::any value) const override
+        {
+            mMetaType = QMetaType::Double;
+        };
+    QVariant model_to_ui(QVariant variant) const override
     {
-        return std::any_cast<double>(value) / m_defaultValue * 100;
+        return variant.toDouble() / m_defaultValue * 100;
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value) * m_defaultValue / 100;
+        return variant.toDouble() * m_defaultValue / 100;
     }
 private:
     double m_defaultValue;
@@ -223,15 +326,18 @@ class CoefficientContainer : public DataContainer
 {
 public:
     CoefficientContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
-        DataContainer(name, path, type, parent) {};
+        DataContainer(name, path, type, parent)
+    {
+        mMetaType = QMetaType::Double;
+    };
     // double model_to_ui(double val) const override { return val / 133; };
-    std::any model_to_ui(std::any value) const override
+    QVariant model_to_ui(QVariant variant) const override
     {
-        return std::any_cast<double>(value);
+        return variant.toDouble();
     }
-    std::any ui_to_model(std::any value) const override
+    QVariant ui_to_model(QVariant variant) const override
     {
-        return std::any_cast<double>(value);
+        return variant.toDouble();
     }
 };
 
@@ -283,6 +389,10 @@ DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, Model
     else if (type == "diameter")
     {
         return new DiameterContainer(name, path, type, parent);
+    }
+    else if (type == "shunt")
+    {
+        return new ShuntContainer(name, path, type, parent);
     }
     else if (type == "percentage")
     {

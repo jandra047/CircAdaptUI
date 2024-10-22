@@ -556,15 +556,20 @@ void ModelWrapper::updateBuffer()
     bool success;
     for (auto s : mModelSignals)
     {
-        success = get_double(s->getPath().toStdString(), val);
-        // Cast the std::any back to double
-        if (success)
+        QVariant variant = s->get();
+        switch (variant.userType())
         {
-            double converted_val = std::any_cast<double>(s->model_to_ui(val));
-            buffer.append(s->getName(), converted_val);
+            case (QMetaType::Double):
+            {
+                buffer.append(s->getName(), variant.toDouble());
+                break;
+            }
+            case (QMetaType::Bool):
+            {
+                buffer.append(s->getName(), variant.toBool());
+                break;
+            }
         }
-        else
-            qDebug() << s->getPath();
     }
     buffer.append("t", solver->get_t());
     buffer.postprocessing();
@@ -578,31 +583,7 @@ void ModelWrapper::updateBuffer()
 
 void ModelWrapper::updateParam(const QString& name, const QVariant& value)
 {
-
-    auto param = mModelParameters[name];
-
-    // Convert QVariant to std::any
-    std::any any_value;
-    if (value.typeId() == QMetaType::Double) {
-        any_value = value.toDouble();
-    } else if (value.typeId() == QMetaType::Bool) {
-        any_value = value.toBool();
-    } else {
-        // Handle other types as needed
-        qDebug() << "Unsupported type: " << value.typeName();
-        return;
-    }
-
-    // Convert UI value to model value
-    std::any model_value = param->ui_to_model(any_value);
-
-    // Set the value in the model
-    if (param->getType() == "bool") {
-        set_bool(param->getPath().toStdString(), std::any_cast<bool>(model_value));
-    } else {
-        set_double(param->getPath().toStdString(), std::any_cast<double>(model_value));
-    }
-
+    mModelParameters[name]->updateParam(value);
 }
 
 void ModelWrapper::reset()

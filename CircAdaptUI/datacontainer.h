@@ -2,7 +2,6 @@
 #define DATACONTAINER_H
 
 #include <QJsonObject>
-#include <any>
 
 class ModelWrapper;
 
@@ -14,18 +13,23 @@ public:
         QObject((QObject*)parent),
         mName(name), mPath(path), mType(mType),
         mw(*parent)
-        {};
+        {
+        };
     ~DataContainer() = default;
     QString getType() { return mType; };
+    QMetaType::Type getMetaType() { return mMetaType; };
     QString getName() { return mName; };
     QString getPath() { return mPath; };
-    virtual std::any model_to_ui(std::any value) const = 0;
-    virtual std::any ui_to_model(std::any value) const = 0;
+    virtual QVariant model_to_ui(QVariant variant) const = 0;
+    virtual QVariant ui_to_model(QVariant variant) const = 0;
+    virtual void updateParam(QVariant variant) const;
+    virtual QVariant get();
 protected:
     QString mName;
     QString mPath;
     QString mType;
     ModelWrapper& mw;
+    QMetaType::Type mMetaType = QMetaType::UnknownType;
 };
 
 

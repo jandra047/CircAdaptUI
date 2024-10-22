@@ -350,13 +350,13 @@
             },
             {
                 "name": "Atrial septal defect",
-                "path": "Model.Peri.LaRa.A_open",
-                "type": "diameter"
+                "path": "Model.Peri.LaRa",
+                "type": "shunt"
             },
             {
                 "name": "Ventricular septal defect",
-                "path": "Model.Peri.LvRv.A_open",
-                "type": "diameter"
+                "path": "Model.Peri.LvRv",
+                "type": "shunt"
             },
             {
                 "name": "Right atrial wall contractility",
