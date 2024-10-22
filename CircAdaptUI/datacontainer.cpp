@@ -70,23 +70,42 @@ public:
         DataContainer(name, path, type, parent)
     {
         int position = path.lastIndexOf(".");
-        areaPath = path.left(position) + ".A_open";
+        A_openPath = path.left(position) + ".A_open";
+        A_leakPath = path.left(position) + ".A_leak";
+        A_Path = path.left(position) + ".A";
 
     };
     std::any model_to_ui(std::any value) const override
     {
-        double AOpen = 0;
-        mw.get_double(areaPath.toStdString(), AOpen);
-        return std::any_cast<double>(value) / AOpen * 100;
+        double val = std::any_cast<double>(value);
+        double A = 0;
+        double A_leak = 0;
+        double A_open = 0;
+        mw.get_double(A_openPath.toStdString(), A_open);
+        mw.get_double(A_leakPath.toStdString(), A_leak);
+        mw.get_double(A_Path.toStdString(), A);
+        if (A < 1.5 * A_leak && A_leak < 1e-7 )
+            return 0.;
+        if (val < 0)
+        {
+            return val / A_leak * 100;
+        }
+        else
+        {
+            return val / A_open * 100;
+        }
     }
+
+    // should not be used, rethink the structure
     std::any ui_to_model(std::any value) const override
     {
-        double AOpen = 0;
-        mw.get_double(areaPath.toStdString(), AOpen);
-        return std::any_cast<double>(value) / 100 * AOpen ;
+        return -1;
     }
+
 private:
-    QString areaPath;
+    QString A_Path;
+    QString A_openPath;
+    QString A_leakPath;
 };
 
 class HRContainer : public DataContainer
