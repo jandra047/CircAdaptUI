@@ -493,15 +493,6 @@ void ModelWrapper::run_single_step() {
     emit timestep_done();
 }
 
-void ModelWrapper::changeParam(int val)
-{
-    // double Sf_act;
-    // get_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", Sf_act);
-    // set_double("Model.Peri.TriSeg.wLv.pLv1.Sf_act", 120000 * val / 100);
-    double x = (double)val/10;
-    set_double("Model.PFC.q0", x/60000);
-}
-
 void ModelWrapper::setup()
 {
     build("Custom", "backward_differential");

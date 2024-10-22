@@ -93,8 +93,6 @@ public slots:
      */
     void run_steps();
 
-    void changeParam(int);
-
     /*!
      * \brief Runs single solver step
      */
