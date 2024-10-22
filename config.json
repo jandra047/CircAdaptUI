@@ -140,6 +140,16 @@
                     "type": "flowvelocity"
                 },
                 {
+                    "name": "vLaRa",
+                    "path": "Model.Peri.LaRa.q",
+                    "type": "flowvelocity"
+                },
+                {
+                    "name": "vLvRv",
+                    "path": "Model.Peri.LvRv.q",
+                    "type": "flowvelocity"
+                },
+                {
                     "name": "TriSeg.V",
                     "path": "Model.Peri.TriSeg.V",
                     "type": "coefficient"
@@ -670,28 +680,42 @@
                 "name": "vLaLv",
                 "displayName": "Mitral valve",
                 "isVisible": true,
-                "unit": "mL",
+                "unit": "cm/s",
                 "color": "#FB9A99"
             },
             {
                 "name": "vLvAo",
                 "displayName": "Aortic valve",
                 "isVisible": true,
-                "unit": "mL",
+                "unit": "cm/s",
                 "color": "#E31A1C"
             },
             {
                 "name": "vRaRv",
                 "displayName": "Tricuspid valve",
                 "isVisible": false,
-                "unit": "mL",
+                "unit": "cm/s",
                 "color": "#A6CEE3"
             },
             {
                 "name": "vRvPuArt",
                 "displayName": "Pulmonary valve",
                 "isVisible": false,
-                "unit": "mL",
+                "unit": "cm/s",
+                "color": "#1F78B4"
+            },
+            {
+                "name": "vLaRa",
+                "displayName": "Atrial septal defect",
+                "isVisible": false,
+                "unit": "cm/s",
+                "color": "#C15E81"
+            },
+            {
+                "name": "vLvRv",
+                "displayName": "Ventricular septal defect",
+                "isVisible": false,
+                "unit": "cm/s",
                 "color": "#1F78B4"
             }
         ],
