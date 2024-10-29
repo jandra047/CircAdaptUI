@@ -43,6 +43,7 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(&buffer, &Buffer::updateValueView, ui->valueView, &ValueView::updateValues);
     QObject::connect(mParamViewDockWidget, &ParamViewDockWidget::aboutToClose, this, [this]() { ui->actionParameter_Settings->setChecked(false); } );
     QObject::connect(&mw, &ModelWrapper::beat_done, this, [this, &buffer]() { mParamViewDockWidget->updateOxygen(buffer); });
+    QObject::connect(this, &MainWindow::updateDone, this, &MainWindow::replot, Qt::QueuedConnection);
 }
 
 
@@ -54,11 +55,80 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateGraphs(double timeInterval)
 {
+    static QQueue<qint64> elapsedTimes;
+    static QElapsedTimer overallTimer;
+    static qint64 totalElapsed = 0;
+
+    QElapsedTimer timer;
+    timer.start();
+
     ui->graphGrid->updateGraphs(buffer, timeInterval);
     ui->pvGraph->updateGraph(buffer, timeInterval);
     ui->ssGraph->updateGraph(buffer, timeInterval);
     buffer.clear(timeInterval);
     emit updateDone();
+
+    // Calculate the time taken for this call
+    qint64 elapsed = timer.elapsed();
+
+    // Update the rolling average every 2 seconds
+    if (!overallTimer.isValid())
+    {
+        overallTimer.start();
+    }
+    totalElapsed += elapsed;
+    elapsedTimes.enqueue(elapsed);
+
+    // Remove times outside the 2-second window
+    while (!elapsedTimes.isEmpty() && overallTimer.elapsed() > 2000)
+    {
+        totalElapsed -= elapsedTimes.dequeue();
+        overallTimer.restart();
+    }
+
+    // Calculate the average time over the current rolling window
+    double averageTime = elapsedTimes.isEmpty() ? 0 : static_cast<double>(totalElapsed) / elapsedTimes.size();
+    qDebug() << "Update 2sec avg: " << averageTime << " milliseconds";
+}
+
+#include <QElapsedTimer>
+#include <QQueue>
+
+void MainWindow::replot()
+{
+    static QQueue<qint64> elapsedTimes;
+    static QElapsedTimer overallTimer;
+    static qint64 totalElapsed = 0;
+
+    QElapsedTimer timer;
+    timer.start();
+
+    // Perform the replot actions
+    ui->graphGrid->replot();
+    ui->pvGraph->currentLayer()->replot();
+    ui->ssGraph->currentLayer()->replot();
+
+    // Calculate the time taken for this call
+    qint64 elapsed = timer.elapsed();
+
+    // Update the rolling average every 2 seconds
+    if (!overallTimer.isValid())
+    {
+        overallTimer.start();
+    }
+    totalElapsed += elapsed;
+    elapsedTimes.enqueue(elapsed);
+
+    // Remove times outside the 2-second window
+    while (!elapsedTimes.isEmpty() && overallTimer.elapsed() > 2000)
+    {
+        totalElapsed -= elapsedTimes.dequeue();
+        overallTimer.restart();
+    }
+
+    // Calculate the average time over the current rolling window
+    double averageTime = elapsedTimes.isEmpty() ? 0 : static_cast<double>(totalElapsed) / elapsedTimes.size();
+    qDebug() << "Replot 2sec avg: " << averageTime << " milliseconds";
 }
 
 void MainWindow::takeSnapshot()

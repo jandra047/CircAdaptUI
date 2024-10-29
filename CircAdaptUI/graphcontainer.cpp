@@ -10,7 +10,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     title(Q_NULLPTR),
     m_zoomPastX(true)
 {
-    setOpenGl(true);
+    setOpenGl(false);
 
     QFont tickLabelFont = xAxis->labelFont();
     tickLabelFont.setPointSize(11);
@@ -132,7 +132,6 @@ void GraphContainer<SignalType>::updateGraph(Buffer& buffer, double timeInterval
     {
         m_Signals[i]->updateGraph(buffer, timeInterval);
     }
-    currentLayer()->replot();
 }
 
 template<typename SignalType>

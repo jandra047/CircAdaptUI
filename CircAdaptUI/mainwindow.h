@@ -42,5 +42,6 @@ public slots:
     void autoscaleAll();
     void clearSnapshots();
     void resetSlot();
+    void replot();
 };
 #endif // MAINWINDOW_H

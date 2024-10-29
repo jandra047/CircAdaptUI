@@ -4,17 +4,21 @@
 #include <QObject>
 #include <QApplication>
 #include "mainwindow.h"
+#include <QtConcurrent/QtConcurrent>
+#include "settings.h"
 
-class MyThread : public QThread
+class TimerThread : public QThread
 {
     Q_OBJECT
 public:
-    MyThread() {};
-    MyThread(MainWindow* mw, QObject* parent = Q_NULLPTR):
+    TimerThread() {};
+    TimerThread(MainWindow* mw, QObject* parent = Q_NULLPTR):
         QThread(parent),
         m_mainwindow(mw)
     {
-        connect(timer, &QTimer::timeout, this, &MyThread::realtimeSlot);
+        fps = Settings::instance().fps();
+        connect(timer, &QTimer::timeout, this, &TimerThread::realtimeSlot);
+        start();
     };
     QTimer* timer = new QTimer(this);
     MainWindow* m_mainwindow;
@@ -32,19 +36,20 @@ public slots:
 
         if (timeElapsed - timeLastUpdate > 1/fps)
         {
-            double currfps = 1/(timeElapsed - timeLastUpdate);
-            m_mainwindow->updateGraphs(
-                (fps < trueFPS) ? 1/currfps : 1/trueFPS
-                );
-            timeLastUpdate = timeElapsed;
+        double currfps = 1/(timeElapsed - timeLastUpdate);
+        QFuture<void> future = QtConcurrent::run(
+            &MainWindow::updateGraphs,
+            m_mainwindow,
+            (fps < trueFPS) ? 1/currfps : 1/trueFPS);
+        timeLastUpdate = timeElapsed;
         }
         ++frameCount;
 
         if (timeElapsed - timeLastFps > 0.01)
         {
-            trueFPS = frameCount/(timeElapsed-timeLastFps);
-            timeLastFps = timeElapsed;
-            frameCount = 0;
+        trueFPS = frameCount/(timeElapsed-timeLastFps);
+        timeLastFps = timeElapsed;
+        frameCount = 0;
         }
 
     }
@@ -59,17 +64,13 @@ public:
 
 private:
     MainWindow* m_mainwindow = Q_NULLPTR;
-    QTimer *m_timer = new QTimer(this);
     Buffer m_buffer{};
     ModelWrapper m_mw;
 
-    MyThread* m_thread;
-
-    double fps;
+    TimerThread* m_thread;
 
 private slots:
     void togglePlay(bool isOn);
-    void realtimeSlot();
     void reset();
 };
 
