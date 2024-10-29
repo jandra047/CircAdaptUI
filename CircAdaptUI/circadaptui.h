@@ -12,6 +12,15 @@ class TimerThread : public QThread
     Q_OBJECT
 public:
     TimerThread() {};
+    ~TimerThread()
+    {
+        timer->stop();
+        delete timer;
+        exit();
+        wait();
+        deleteLater();
+
+    }
     TimerThread(MainWindow* mw, QObject* parent = Q_NULLPTR):
         QThread(parent),
         m_mainwindow(mw)
@@ -53,6 +62,7 @@ public slots:
         }
 
     }
+
 };
 
 class CircAdaptUI : public QApplication

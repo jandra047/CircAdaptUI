@@ -28,6 +28,7 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
 CircAdaptUI::~CircAdaptUI()
 {
     delete m_mainwindow;
+    delete m_thread;
 }
 
 void CircAdaptUI::togglePlay(bool isOn)
