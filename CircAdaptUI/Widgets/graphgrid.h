@@ -96,19 +96,6 @@ public:
      */
     void linkXAxis(SignalGraph* gc1, SignalGraph* gc2);
 
-    double getReplottime() { return getItem(0,2)->replotTime(); };
-
-    void printOpenGL() {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                qDebug() << getItem(i,j)->openGl() << " ";
-            }
-        }
-        qDebug() << "\n";
-    }
-
 signals:
     void verticalLineDrawn(ColType colType, double x);
 
