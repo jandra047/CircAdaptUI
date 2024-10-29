@@ -138,7 +138,11 @@ endif()
 if (WIN32)
     target_link_libraries(CircAdaptUI PRIVATE
         OpenGL32)
+elseif(APPLE)
+    target_link_libraries(CircAdaptUI PRIVATE "-framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo")
 endif()
+
+
 
 target_link_libraries(CircAdaptUI PRIVATE
     CircAdaptLib
