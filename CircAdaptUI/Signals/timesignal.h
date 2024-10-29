@@ -33,7 +33,7 @@ public:
         m_displayName(displayName),
         m_unit(unit)
     {
-        setPen(QPen(color, 2));
+        setPen(QPen(color, 1));
         setVisible(isVisible);
     };
     ~TimeSignal() {};
@@ -55,7 +55,6 @@ public:
     QColor getColor() { return color; }
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
-
 
 private:
 

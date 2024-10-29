@@ -3,7 +3,7 @@
 LineMarker::LineMarker(QCustomPlot* parent) :
     QCPItemStraightLine(parent)
 {
-    setPen(QPen(QColor("black"), 2));
+    setPen(QPen(QColor("black"), 1));
     setVisible(false);
 }
 
