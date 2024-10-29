@@ -17,6 +17,7 @@ enable_testing()
 add_subdirectory(tests)
 
 
+
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 message(CHECK_START "Fetching CircAdapt_Library")
 include(FetchContent)
@@ -106,10 +107,6 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/resetbutton.h CircAdaptUI/PropertyBrowser/resetbutton.cpp
     CircAdaptUI/Graphs/mmode.h CircAdaptUI/Graphs/mmode.cpp
     CircAdaptUI/SVGviews/DrawingElements/textcircle.h CircAdaptUI/SVGviews/DrawingElements/textcircle.cpp
-
-
-
-
 )
 
 qt_add_resources(CircAdaptUI
@@ -139,7 +136,9 @@ if (WIN32)
     target_link_libraries(CircAdaptUI PRIVATE
         OpenGL32)
 elseif(APPLE)
+    add_subdirectory(macos)
     target_link_libraries(CircAdaptUI PRIVATE "-framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo")
+    target_link_libraries(CircAdaptUI PRIVATE macOSHelpers)
 endif()
 
 
