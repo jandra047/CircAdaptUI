@@ -223,7 +223,7 @@ void GraphGrid::replot()
     {
         for (int j = 0; j < cols; j++)
         {
-            getItem(i, j)->replot();
+            getItem(i, j)->currentLayer()->replot();
         }
     }
 }
