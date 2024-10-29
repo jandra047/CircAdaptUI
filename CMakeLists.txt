@@ -109,6 +109,7 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
 
 
 
+
 )
 
 qt_add_resources(CircAdaptUI
@@ -144,7 +145,7 @@ target_link_libraries(CircAdaptUI PRIVATE
     qtpropertybrowser
     Oxygen
 )
-
+include_directories("dependencies")
 add_dependencies(CircAdaptUI CircAdaptLib qtpropertybrowser)
 
 install(TARGETS CircAdaptUI
