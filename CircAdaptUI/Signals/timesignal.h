@@ -33,7 +33,7 @@ public:
         m_displayName(displayName),
         m_unit(unit)
     {
-        setPen(QPen(color, 1));
+        setPen(QPen(color, 2));
         setVisible(isVisible);
     };
     ~TimeSignal() {};
@@ -55,6 +55,10 @@ public:
     QColor getColor() { return color; }
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
+    void drawLinePlot(QCPPainter* painter, const QVector<QPointF> &lines) const override;
+    void drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const;
+    QPolygonF createPolygon(double pixelSize) const;
+    QRectF clearRect() const;
 
 private:
 
@@ -78,6 +82,7 @@ private:
     double m_xPos{0};
     int i{0};
     double m_dt{0.2};
+    mutable QPixmap mMemSignalPlot;
 };
 
 #endif // TIMESIGNAL_H
