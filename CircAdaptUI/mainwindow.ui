@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="contextMenuPolicy">
-   <enum>Qt::ContextMenuPolicy::PreventContextMenu</enum>
+   <enum>Qt::PreventContextMenu</enum>
   </property>
   <property name="windowTitle">
    <string>CircAdapt</string>
@@ -52,7 +52,7 @@
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter_3">
       <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
+       <enum>Qt::Horizontal</enum>
       </property>
       <property name="opaqueResize">
        <bool>false</bool>
@@ -63,7 +63,7 @@
       <widget class="GraphGrid" name="graphGrid" native="true"/>
       <widget class="QSplitter" name="splitter_2">
        <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
+        <enum>Qt::Vertical</enum>
        </property>
        <property name="opaqueResize">
         <bool>false</bool>
@@ -73,7 +73,7 @@
        </property>
        <widget class="QSplitter" name="splitter">
         <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
+         <enum>Qt::Horizontal</enum>
         </property>
         <property name="opaqueResize">
          <bool>false</bool>
@@ -96,7 +96,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -140,6 +140,7 @@
      <addaction name="actionStress"/>
      <addaction name="actionStrain"/>
      <addaction name="actionM_mode"/>
+     <addaction name="actionSaturation"/>
     </widget>
     <addaction name="menuSignals"/>
     <addaction name="separator"/>
@@ -154,7 +155,7 @@
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="contextMenuPolicy">
-    <enum>Qt::ContextMenuPolicy::PreventContextMenu</enum>
+    <enum>Qt::PreventContextMenu</enum>
    </property>
    <property name="windowTitle">
     <string>toolBar</string>
@@ -169,7 +170,7 @@
     <bool>false</bool>
    </property>
    <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
    </property>
    <property name="floatable">
     <bool>false</bool>
@@ -202,7 +203,7 @@
     <string>Play</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionSnapshot">
@@ -214,7 +215,7 @@
     <string>Snapshot</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionReset">
@@ -226,7 +227,7 @@
     <string>Reset</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionAutoscale">
@@ -238,7 +239,7 @@
     <string>Autoscale</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionParameter_Settings">
@@ -256,7 +257,7 @@
     <string>Parameter Settings</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+    <enum>QAction::TextHeuristicRole</enum>
    </property>
   </action>
   <action name="actionStress_strain">
@@ -333,6 +334,14 @@
    </property>
    <property name="text">
     <string>Show oxygen</string>
+   </property>
+  </action>
+  <action name="actionSaturation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Saturation</string>
    </property>
   </action>
  </widget>

@@ -35,7 +35,8 @@ MainWindow::MainWindow(ModelWrapper& mw, Buffer& buffer, QWidget *parent)
     QObject::connect(ui->actionFlows, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(2, isVisible); });
     QObject::connect(ui->actionStress, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(3, isVisible); });
     QObject::connect(ui->actionStrain, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(4, isVisible); });
-    QObject::connect(ui->actionM_mode, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(5, isVisible); });
+    QObject::connect(ui->actionSaturation, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(5, isVisible); });
+    QObject::connect(ui->actionM_mode, &QAction::toggled, this, [this](bool isVisible) { ui->graphGrid->setRowVisible(6, isVisible); });
     QObject::connect(ui->actionAutoscale, &QAction::triggered, this, &MainWindow::autoscaleAll);
     QObject::connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(takeSnapshot()));
     QObject::connect(ui->actionReset, &QAction::triggered, this, &MainWindow::resetSlot);

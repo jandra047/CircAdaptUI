@@ -301,6 +301,24 @@ public:
     }
 };
 
+class PercentageCoeffContainer : public DataContainer
+{
+public:
+    PercentageCoeffContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
+        DataContainer(name, path, type, parent)
+        {
+            mMetaType = QMetaType::Double;
+        };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 100;
+    }
+    QVariant ui_to_model(QVariant variant) const override
+    {
+        return variant.toDouble() / 100;
+    }
+};
+
 class PercentageContainer : public DataContainer
 {
 public:
@@ -350,7 +368,7 @@ DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, Model
     {
         return new PressureContainer(name, path, type, parent);
     }
-    if (type == "stress")
+    else if (type == "stress")
     {
         return new StressContainer(name, path, type, parent);
     }
@@ -393,6 +411,10 @@ DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, Model
     else if (type == "shunt")
     {
         return new ShuntContainer(name, path, type, parent);
+    }
+    else if (type == "percentagecoeff")
+    {
+        return new PercentageCoeffContainer(name, path, type, parent);
     }
     else if (type == "percentage")
     {

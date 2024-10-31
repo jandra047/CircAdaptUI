@@ -588,6 +588,7 @@ void ModelWrapper::updateParam(const QString& name, const QVariant& value)
 
 void ModelWrapper::reset()
 {
+    m_thread->wait();
     solver->clear_SVar();
     it=-1;
     setReferenceParameters();

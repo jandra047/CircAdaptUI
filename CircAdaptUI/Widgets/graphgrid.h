@@ -26,14 +26,15 @@ public:
         FLOW,
         STRESS,
         STRAIN,
+        SATURATION,
         MMODE
     };
     const QVector<QString> colTypes = {"REFERENCE", "SNAPSHOT", "CURRENT"};
-    const QVector<QString> rowTypes = {"PRESSURE", "VOLUME", "FLOW", "STRESS", "STRAIN", "MMODE"};
-    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow velocity [cm/s]", "Stress [kPa]", "Strain [-]", "MMode"};
+    const QVector<QString> rowTypes = {"PRESSURE", "VOLUME", "FLOW", "STRESS", "STRAIN", "SATURATION", "MMODE"};
+    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow velocity [cm/s]", "Stress [kPa]", "Strain [-]", "Saturation [%]", "MMode"};
 
 public:
-    GraphGrid(QWidget*, int rows = 6, int cols = 3);
+    GraphGrid(QWidget*, int rows = 7, int cols = 3);
     ~GraphGrid();
 
     void setupSignals();
@@ -116,7 +117,7 @@ public slots:
 
 private:
     QGridLayout gridLayout;
-    QVector<bool> rowVisibility = {true, true, true, false, false, false};
+    QVector<bool> rowVisibility = {true, true, true, false, false, false, false};
 
     std::pair<int, int> findGridIndex(QObject* target) {
 

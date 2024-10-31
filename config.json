@@ -207,42 +207,42 @@
                 {
                     "name": "satPuVen",
                     "path": "Model.PuVen.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satLa",
                     "path": "Model.Peri.La.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satLv",
                     "path": "Model.Peri.TriSeg.cLv.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satSyArt",
                     "path": "Model.SyArt.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satSyVen",
                     "path": "Model.SyVen.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satRa",
                     "path": "Model.Peri.Ra.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satRv",
                     "path": "Model.Peri.TriSeg.cRv.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 },
                 {
                     "name": "satPuArt",
                     "path": "Model.PuArt.saturation",
-                    "type": "coefficient"
+                    "type": "percentagecoeff"
                 }
 
             ],
@@ -267,6 +267,11 @@
                 "name": "Homeostatic pressure-flow control",
                 "path": "Model.PFC.is_active",
                 "type": "bool"
+            },
+            {
+                "name": "Hemoglobin concentration",
+                "path": "Model.Oxygen.cHb",
+                "type": "double"
             },
             {
                 "name": "AV delay offset",
@@ -590,183 +595,227 @@
         ]
     },
 
-    "GraphGrid":
-    {
-        "PRESSURE":
-        [
-            {
-                "name": "pLa",
-                "displayName": "Left atrium",
-                "isVisible": false,
-                "unit": "mmHg",
-                "color": "#FB9A99",
-                "row":"PRESSURES"
-            },
-            {
-                "name": "pRa",
-                "displayName": "Right atrium",
-                "isVisible": false,
-                "unit": "mmHg",
-                "color": "#A6CEE3",
-                "column":"PRESSURES"
-            },
-            {
-                "name": "pLv",
-                "displayName": "Left ventricle",
-                "isVisible": true,
-                "unit": "mmHg",
-                "color": "#E31A1C",
-                "column":"PRESSURES"
-            },
-            {
-                "name": "pRv",
-                "displayName": "Right ventricle",
-                "isVisible": true,
-                "unit": "mmHg",
-                "color": "#1F78B4",
-                "column":"PRESSURES"
-            },
-            {
-                "name": "pAo",
-                "displayName": "Aorta",
-                "isVisible": true,
-                "unit": "mmHg",
-                "color": "#6A3D9A",
-                "column":"PRESSURES"
-            },
-            {
-                "name": "pPu",
-                "displayName": "Pulmonary artery",
-                "isVisible": true,
-                "unit": "mmHg",
-                "color": "#000000",
-                "column":"PRESSURES"
-            }
-        ],
-        "VOLUME":
-        [
-            {
-                "name": "VLa",
-                "displayName": "Left atrium",
-                "isVisible": false,
-                "unit": "mL",
-                "color": "#FB9A99"
-            },
-            {
-                "name": "VRa",
-                "displayName": "Right atrium",
-                "isVisible": false,
-                "unit": "mL",
-                "color": "#A6CEE3"
-            },
-            {
-                "name": "VLv",
-                "displayName": "Left ventricle",
-                "isVisible": true,
-                "unit": "mL",
-                "color": "#E31A1C"
-            },
-            {
-                "name": "VRv",
-                "displayName": "Right ventricle",
-                "isVisible": true,
-                "unit": "mL",
-                "color": "#1F78B4"
-            }
-        ],
-        "FLOW":
-        [
-            {
-                "name": "vLaLv",
-                "displayName": "Mitral valve",
-                "isVisible": true,
-                "unit": "cm/s",
-                "color": "#FB9A99"
-            },
-            {
-                "name": "vLvAo",
-                "displayName": "Aortic valve",
-                "isVisible": true,
-                "unit": "cm/s",
-                "color": "#E31A1C"
-            },
-            {
-                "name": "vRaRv",
-                "displayName": "Tricuspid valve",
-                "isVisible": false,
-                "unit": "cm/s",
-                "color": "#A6CEE3"
-            },
-            {
-                "name": "vRvPuArt",
-                "displayName": "Pulmonary valve",
-                "isVisible": false,
-                "unit": "cm/s",
-                "color": "#1F78B4"
-            },
-            {
-                "name": "vLaRa",
-                "displayName": "Atrial septal defect",
-                "isVisible": false,
-                "unit": "cm/s",
-                "color": "#C15E81"
-            },
-            {
-                "name": "vLvRv",
-                "displayName": "Ventricular septal defect",
-                "isVisible": false,
-                "unit": "cm/s",
-                "color": "#1F78B4"
-            }
-        ],
-        "STRESS":
-        [
-            {
-                "name": "Sf_Lv",
-                "displayName": "Left ventricular free wall",
-                "isVisible": true,
-                "unit": "kPa",
-                "color": "#E31A1C"
-            },
-            {
-                "name": "Sf_Sv",
-                "displayName": "Septal wall",
-                "unit": "kPa",
-                "color": "#000000"
-            },
-            {
-                "name": "Sf_Rv",
-                "displayName": "Right ventricular free wall",
-                "isVisible": true,
-                "unit": "kPa",
-                "color": "#1F78B4"
-            }
-        ],
-        "STRAIN":
-        [
-            {
-                "name": "Ef_Lv",
-                "displayName": "Left ventricular free wall",
-                "isVisible": true,
-                "unit": "Pa",
-                "color": "#E31A1C"
-            },
-            {
-                "name": "Ef_Sv",
-                "displayName": "Septal wall",
-                "isVisible": true,
-                "unit": "Pa",
-                "color": "#000000"
-            },
-            {
-                "name": "Ef_Rv",
-                "displayName": "Right ventricular free wall",
-                "isVisible": true,
-                "unit": "Pa",
-                "color": "#1F78B4"
-            }
-        ]
-    },
+  "GraphGrid": {
+    "PRESSURE": [
+      {
+        "name": "pLa",
+        "displayName": "Left atrium",
+        "isVisible": false,
+        "unit": "mmHg",
+        "color": "#FB9A99",
+        "row": "PRESSURES"
+      },
+      {
+        "name": "pRa",
+        "displayName": "Right atrium",
+        "isVisible": false,
+        "unit": "mmHg",
+        "color": "#A6CEE3",
+        "column": "PRESSURES"
+      },
+      {
+        "name": "pLv",
+        "displayName": "Left ventricle",
+        "isVisible": true,
+        "unit": "mmHg",
+        "color": "#E31A1C",
+        "column": "PRESSURES"
+      },
+      {
+        "name": "pRv",
+        "displayName": "Right ventricle",
+        "isVisible": true,
+        "unit": "mmHg",
+        "color": "#1F78B4",
+        "column": "PRESSURES"
+      },
+      {
+        "name": "pAo",
+        "displayName": "Aorta",
+        "isVisible": true,
+        "unit": "mmHg",
+        "color": "#6A3D9A",
+        "column": "PRESSURES"
+      },
+      {
+        "name": "pPu",
+        "displayName": "Pulmonary artery",
+        "isVisible": true,
+        "unit": "mmHg",
+        "color": "#000000",
+        "column": "PRESSURES"
+      }
+    ],
+    "VOLUME": [
+      {
+        "name": "VLa",
+        "displayName": "Left atrium",
+        "isVisible": false,
+        "unit": "mL",
+        "color": "#FB9A99"
+      },
+      {
+        "name": "VRa",
+        "displayName": "Right atrium",
+        "isVisible": false,
+        "unit": "mL",
+        "color": "#A6CEE3"
+      },
+      {
+        "name": "VLv",
+        "displayName": "Left ventricle",
+        "isVisible": true,
+        "unit": "mL",
+        "color": "#E31A1C"
+      },
+      {
+        "name": "VRv",
+        "displayName": "Right ventricle",
+        "isVisible": true,
+        "unit": "mL",
+        "color": "#1F78B4"
+      }
+    ],
+    "FLOW": [
+      {
+        "name": "vLaLv",
+        "displayName": "Mitral valve",
+        "isVisible": true,
+        "unit": "cm/s",
+        "color": "#FB9A99"
+      },
+      {
+        "name": "vLvAo",
+        "displayName": "Aortic valve",
+        "isVisible": true,
+        "unit": "cm/s",
+        "color": "#E31A1C"
+      },
+      {
+        "name": "vRaRv",
+        "displayName": "Tricuspid valve",
+        "isVisible": false,
+        "unit": "cm/s",
+        "color": "#A6CEE3"
+      },
+      {
+        "name": "vRvPuArt",
+        "displayName": "Pulmonary valve",
+        "isVisible": false,
+        "unit": "cm/s",
+        "color": "#1F78B4"
+      },
+      {
+        "name": "vLaRa",
+        "displayName": "Atrial septal defect",
+        "isVisible": false,
+        "unit": "cm/s",
+        "color": "#C15E81"
+      },
+      {
+        "name": "vLvRv",
+        "displayName": "Ventricular septal defect",
+        "isVisible": false,
+        "unit": "cm/s",
+        "color": "#1F78B4"
+      }
+    ],
+    "SATURATION": [
+      {
+        "name": "satLa",
+        "displayName": "Left atrium",
+        "isVisible": false,
+        "unit": "[%]",
+        "color": "#FB9A99",
+        "row": "SATURATION"
+      },
+      {
+        "name": "satRa",
+        "displayName": "Right atrium",
+        "isVisible": false,
+        "unit": "[%]",
+        "color": "#A6CEE3",
+        "column": "SATURATION"
+      },
+      {
+        "name": "satLv",
+        "displayName": "Left ventricle",
+        "isVisible": true,
+        "unit": "[%]",
+        "color": "#E31A1C",
+        "column": "SATURATION"
+      },
+      {
+        "name": "satRv",
+        "displayName": "Right ventricle",
+        "isVisible": true,
+        "unit": "[%]",
+        "color": "#1F78B4",
+        "column": "SATURATION"
+      },
+      {
+        "name": "satSyArt",
+        "displayName": "Aorta",
+        "isVisible": true,
+        "unit": "[%]",
+        "color": "#6A3D9A",
+        "column": "SATURATION"
+      },
+      {
+        "name": "satPuArt",
+        "displayName": "Pulmonary artery",
+        "isVisible": true,
+        "unit": "[%]",
+        "color": "#000000",
+        "column": "SATURATION"
+      }
+    ],
+    "STRESS": [
+      {
+        "name": "Sf_Lv",
+        "displayName": "Left ventricular free wall",
+        "isVisible": true,
+        "unit": "kPa",
+        "color": "#E31A1C"
+      },
+      {
+        "name": "Sf_Sv",
+        "displayName": "Septal wall",
+        "unit": "kPa",
+        "color": "#000000"
+      },
+      {
+        "name": "Sf_Rv",
+        "displayName": "Right ventricular free wall",
+        "isVisible": true,
+        "unit": "kPa",
+        "color": "#1F78B4"
+      }
+    ],
+    "STRAIN": [
+      {
+        "name": "Ef_Lv",
+        "displayName": "Left ventricular free wall",
+        "isVisible": true,
+        "unit": "Pa",
+        "color": "#E31A1C"
+      },
+      {
+        "name": "Ef_Sv",
+        "displayName": "Septal wall",
+        "isVisible": true,
+        "unit": "Pa",
+        "color": "#000000"
+      },
+      {
+        "name": "Ef_Rv",
+        "displayName": "Right ventricular free wall",
+        "isVisible": true,
+        "unit": "Pa",
+        "color": "#1F78B4"
+      }
+    ]
+  },
     "ValueView":
     [
         {
@@ -881,6 +930,17 @@
                     "default": true,
                     "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
                     "type": "bool"
+                },
+                {
+                    "name": "Hemoglobin concentration",
+                    "key": "Hemoglobin concentration",
+                    "min": 5,
+                    "max": 25,
+                    "default": 15,
+                    "tooltip": "g/L",
+                    "stepsize": 1,
+                    "enabled": true,
+                    "type": "double"
                 }
             ]
         },
