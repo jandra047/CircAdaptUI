@@ -368,7 +368,7 @@ DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, Model
     {
         return new PressureContainer(name, path, type, parent);
     }
-    if (type == "stress")
+    else if (type == "stress")
     {
         return new StressContainer(name, path, type, parent);
     }

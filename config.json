@@ -269,6 +269,11 @@
                 "type": "bool"
             },
             {
+                "name": "Hemoglobin concentration",
+                "path": "Model.Oxygen.cHb",
+                "type": "double"
+            },
+            {
                 "name": "AV delay offset",
                 "path": "Model.Timings.dtau_av",
                 "type": "ms"
@@ -925,6 +930,17 @@
                     "default": true,
                     "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
                     "type": "bool"
+                },
+                {
+                    "name": "Hemoglobin concentration",
+                    "key": "Hemoglobin concentration",
+                    "min": 5,
+                    "max": 25,
+                    "default": 15,
+                    "tooltip": "g/L",
+                    "stepsize": 1,
+                    "enabled": true,
+                    "type": "double"
                 }
             ]
         },
