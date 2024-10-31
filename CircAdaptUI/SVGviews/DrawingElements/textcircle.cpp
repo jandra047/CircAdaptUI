@@ -165,7 +165,7 @@ void TextCircle::update(Buffer& buffer)
 {
     setText(
         QString::number(
-            buffer.get(m_name)*100, 'f', 0
+            buffer.get(m_name), 'f', 0
         )
     );
 }
