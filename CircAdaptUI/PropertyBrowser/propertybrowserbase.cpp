@@ -42,6 +42,7 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
                           double setVal,
                           const QString& key,
                           const QString& toolTip,
+                          const QString& unit,
                           bool enabled)
 {
     QtProperty * doubleProp = mDynPropertyManager->addProperty( QMetaType::Double, pName );
@@ -50,7 +51,7 @@ void PropertyBrowserBase::createDoubleProperty(QtProperty* property,
 
     if ( doubleProp )
     {
-        doubleProp->setPropertyName( pName ); // Create a user interface readable name
+        doubleProp->setPropertyName( pName + " [" + unit + "]" ); // Create a user interface readable name
 
         doubleProp->setEnabled( enabled );
 
@@ -140,6 +141,7 @@ QMap<QString, QList<QtBrowserItem*>> PropertyBrowserBase::createProperties(const
                                      obj["default"].toDouble(),
                                      tr(obj["key"].toString().toStdString().c_str()),
                                      tr(obj["tooltip"].toString().toStdString().c_str()),
+                                     tr(obj["unit"].toString().toStdString().c_str()),
                                      obj["enabled"].toBool());
             }
             else if (obj["type"].toString() == "bool")

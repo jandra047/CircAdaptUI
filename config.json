@@ -877,6 +877,7 @@
                     "default": 70,
                     "stepsize": 5,
                     "tooltip": "Beats per minute",
+                    "unit": "BPM",
                     "enabled": true,
                     "type": "double"
                 },
@@ -888,6 +889,7 @@
                     "default": 155,
                     "stepsize": 5,
                     "tooltip": "ms",
+                    "unit": "ms",
                     "enabled": false,
                     "type": "double"
                 },
@@ -899,6 +901,7 @@
                     "default": 0.0,
                     "stepsize": 10,
                     "tooltip": "ms",
+                    "unit": "ms",
                     "enabled": false,
                     "type": "double"
                 },
@@ -909,6 +912,7 @@
                     "max": 150,
                     "default": 91,
                     "tooltip": "mmHg",
+                    "unit": "mmHg",
                     "stepsize": 5,
                     "enabled": true,
                     "type": "double"
@@ -920,6 +924,7 @@
                     "max": 10,
                     "default": 5.1,
                     "tooltip": "L/min",
+                    "unit": "L/min",
                     "stepsize": 0.1,
                     "enabled": true,
                     "type": "double"
@@ -938,6 +943,7 @@
                     "max": 25,
                     "default": 15,
                     "tooltip": "g/L",
+                    "unit": "g/L",
                     "stepsize": 1,
                     "enabled": true,
                     "type": "double"
@@ -955,6 +961,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -966,6 +973,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -980,6 +988,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -991,6 +1000,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1002,6 +1012,7 @@
                             "max": 100,
                             "default": 9,
                             "tooltip": "mmHg",
+                            "unit": "mmHg",
                             "stepsize": 1,
                             "enabled": true,
                             "type": "double"
@@ -1019,6 +1030,7 @@
                             "max": 8,
                             "default": 7.5,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1030,6 +1042,7 @@
                             "max": 2.0,
                             "default": 1e-9,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1044,6 +1057,7 @@
                             "max": 6.0,
                             "default": 5.0,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1055,6 +1069,7 @@
                             "max": 2.0,
                             "default": 1e-9,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1069,6 +1084,7 @@
                             "max": 8.0,
                             "default": 7.5,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1080,6 +1096,7 @@
                             "max": 2.0,
                             "default": 1e-9,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1094,6 +1111,7 @@
                             "max": 6.0,
                             "default": 5.0,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1105,6 +1123,7 @@
                             "max": 1.2,
                             "default": 1e-9,
                             "tooltip": "cm^2",
+                            "unit": "cm^2",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1119,6 +1138,7 @@
                             "max": 35,
                             "default": 10.0,
                             "tooltip": "-",
+                            "unit": "-",
                             "stepsize": 1,
                             "enabled": true,
                             "type": "double"
@@ -1130,6 +1150,7 @@
                             "max": 500,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1144,6 +1165,7 @@
                             "max": 10,
                             "default": 1e-9,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1158,6 +1180,7 @@
                             "max": 10,
                             "default": 1e-9,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -1175,6 +1198,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1185,7 +1209,8 @@
                             "min": 20,
                             "max": 4000,
                             "default": 100,
-                            "tooltip": "cm^2",
+                            "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1197,6 +1222,7 @@
                             "max": 200,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1208,6 +1234,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1219,6 +1246,7 @@
                             "max": 250,
                             "default": 0,
                             "tooltip": "ms",
+                            "unit": "ms",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1230,6 +1258,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1244,6 +1273,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1254,7 +1284,8 @@
                             "min": 20,
                             "max": 4000,
                             "default": 100,
-                            "tooltip": "cm^2",
+                            "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1266,6 +1297,7 @@
                             "max": 200,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1277,6 +1309,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1288,6 +1321,7 @@
                             "max": 250,
                             "default": 0,
                             "tooltip": "ms",
+                            "unit": "ms",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1299,6 +1333,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1313,6 +1348,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1323,7 +1359,8 @@
                             "min": 20,
                             "max": 4000,
                             "default": 100,
-                            "tooltip": "cm^2",
+                            "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1335,6 +1372,7 @@
                             "max": 200,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1346,6 +1384,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1357,6 +1396,7 @@
                             "max": 250,
                             "default": 0,
                             "tooltip": "ms",
+                            "unit": "ms",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1368,6 +1408,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1382,6 +1423,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1392,7 +1434,8 @@
                             "min": 20,
                             "max": 4000,
                             "default": 100,
-                            "tooltip": "cm^2",
+                            "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1404,6 +1447,7 @@
                             "max": 200,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1415,6 +1459,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1426,6 +1471,7 @@
                             "max": 250,
                             "default": 0,
                             "tooltip": "ms",
+                            "unit": "ms",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1437,6 +1483,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1451,6 +1498,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1461,7 +1509,8 @@
                             "min": 20,
                             "max": 4000,
                             "default": 100,
-                            "tooltip": "cm^2",
+                            "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1473,6 +1522,7 @@
                             "max": 200,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1484,6 +1534,7 @@
                             "max": 300,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 5,
                             "enabled": true,
                             "type": "double"
@@ -1495,6 +1546,7 @@
                             "max": 250,
                             "default": 0,
                             "tooltip": "ms",
+                            "unit": "ms",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
@@ -1506,6 +1558,7 @@
                             "max": 250,
                             "default": 100,
                             "tooltip": "%",
+                            "unit": "%",
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"

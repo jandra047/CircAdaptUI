@@ -31,6 +31,7 @@ public:
                               double setVal,
                               const QString& key,
                               const QString& toolTip,
+                              const QString& unit = "",
                               bool enabled = true);
     void createCheckboxProperty( QtProperty * property,
                                  const QString & pName,

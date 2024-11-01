@@ -27,6 +27,7 @@ void SystemPropertyBrowser::setPropertiesFromConfig()
                                      obj["default"].toDouble(),
                                      tr(obj["key"].toString().toStdString().c_str()),
                                      tr(obj["tooltip"].toString().toStdString().c_str()),
+                                     tr(obj["unit"].toString().toStdString().c_str()),
                                      obj["enabled"].toBool());
             }
             else if (obj["type"].toString() == "bool")
