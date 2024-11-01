@@ -271,7 +271,7 @@
             {
                 "name": "Hemoglobin concentration",
                 "path": "Model.Oxygen.cHb",
-                "type": "double"
+                "type": "percentagecoeff"
             },
             {
                 "name": "AV delay offset",
