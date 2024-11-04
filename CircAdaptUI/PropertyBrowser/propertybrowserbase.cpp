@@ -105,19 +105,6 @@ void PropertyBrowserBase::propertyValueChanged(QtProperty* property, const QVari
     // emit changeModelParam(property->propertyName(), value);
 }
 
-QtProperty* PropertyBrowserBase::findProperty(const QString& name)
-{
-    QSet<QtProperty*> properties = mDynPropertyManager->properties();
-    for (QtProperty* property : properties)
-    {
-        if (property->propertyName() == name)
-        {
-            return property;
-        }
-    }
-    return Q_NULLPTR;
-}
-
 QMap<QString, QList<QtBrowserItem*>> PropertyBrowserBase::createProperties(const QJsonObject& jsonObject)
 {
     QMap<QString, QList<QtBrowserItem*>> propertyMap {};

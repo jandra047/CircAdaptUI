@@ -50,7 +50,11 @@ void SystemPropertyBrowser::propertyValueChanged( QtProperty * property, QVarian
     // Update model parameter with new value
     if (property->propertyName() == "Homeostatic pressure-flow control")
     {
-        findProperty("Venous return")->setEnabled(val.toBool());
-        findProperty("Mean arterial pressure")->setEnabled(val.toBool());
+        for (QString string : {"Venous return", "Mean arterial pressure"})
+        {
+            QtProperty* prop = mDynPropertyManager->findPropertyByKey(string);
+            if (prop)
+                prop->setEnabled(val.toBool());
+        }
     }
 }

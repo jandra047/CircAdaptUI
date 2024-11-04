@@ -38,7 +38,6 @@ public:
                                  const QString & key,
                                  bool SetVal,
                                  const QString & toolTipVal );
-    QtProperty* findProperty(const QString& name);
 
     QMap<QString, QList<QtBrowserItem*>> createProperties(const QJsonObject& jsonObject);
 signals:

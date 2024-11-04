@@ -22,6 +22,7 @@ public:
     }
 
     void setToDefault(QtProperty* property) { setValue(property, m_defaultValues[property]); }
+    QtProperty* findPropertyByKey(const QString& key);
 
 private:
     QMap<QtProperty*, QVariant> m_defaultValues;
