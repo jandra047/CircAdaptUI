@@ -15,6 +15,11 @@ public:
     void setSelected(bool isSelected);
     const QString& name() { return m_Name; }
     SVGObjectBase* SVGObject() { return m_SVGObject; }
+    static bool parsePathDataFast( QStringView dataStr, QPainterPath & path );
+    QPen penDefault() { return m_penDefault; }
+    QPen penSelected() { return m_penSelected; }
+    void setPenDefault(const QPen& pen) { m_penDefault = pen; }
+    void setPenSelected(const QPen& pen) { m_penSelected = pen; }
 
 private:
     SVGObjectBase* m_SVGObject;
@@ -27,7 +32,6 @@ protected:
 
     void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-    static bool parsePathDataFast( QStringView dataStr, QPainterPath & path );
 
     QString m_Name;
 };
