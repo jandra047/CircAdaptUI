@@ -40,6 +40,16 @@ void DrawingElementGroup::clearSelection()
     }
 }
 
+void DrawingElementGroup::selectAll()
+{
+    for (QGraphicsItem* item : childItems()) {
+        GraphicElement* element = qgraphicsitem_cast<GraphicElement*>(item);
+        if (element) {
+            element->setSelected(true);
+        }
+    }
+}
+
 void DrawingElementGroup::setVisible(bool isVisible)
 {
     QGraphicsItemGroup::setVisible(isVisible);

@@ -20,6 +20,7 @@ public:
     bool sceneEventFilter(QGraphicsItem* watched, QEvent* event) override;
     bool selectElement(QGraphicsItem* item);
     void clearSelection();
+    void selectAll();
     void setVisible(bool isVisible);
     bool childrenSelectable() { return m_childrenSelectable; }
     void setSelectable(bool isSelectable) { m_childrenSelectable = isSelectable; }
