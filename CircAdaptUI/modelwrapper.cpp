@@ -231,6 +231,7 @@ void ModelWrapper::buildModel()
     set_component("Peri.LaLv.wPapMus", "Peri.TriSeg.wLv");
 
 
+// Oxygen model
     factory->register_component<CAcore::Components::Oxygen>("Oxygen");
     add_component("", "Oxygen", "Oxygen");
     set_component("Oxygen.max_saturation", "PuVen");
@@ -244,6 +245,7 @@ void ModelWrapper::buildModel()
     set_component("Oxygen.connector", "Peri.LvRv");
     set_component("Oxygen.connector", "CiPu");
     set_component("Oxygen.connector", "CiSy");
+
 }
 
 
@@ -432,11 +434,16 @@ void ModelWrapper::setReferenceParameters()
     set_double("Model.Peri.TriSeg.thresh_F", 0.001);
     set_double("Model.Peri.TriSeg.thresh_dV", 1e-9);
     set_double("Model.Peri.TriSeg.thresh_dY", 1e-6);
+    //
+    set_int("Model.Peri.TriSeg.wLv.n_patch", 11);
+    set_int("Model.Peri.TriSeg.wSv.n_patch", 5);
+    set_int("Model.Peri.TriSeg.wRv.n_patch", 7);
     run_stable();
 
     double circulation_volume;
     get_double("Model.PFC.circulation_volume", circulation_volume);
     set_double("Model.PFC.target_volume", circulation_volume);
+
 }
 
 void ModelWrapper::run_steps()
