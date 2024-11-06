@@ -359,6 +359,63 @@ public:
     }
 };
 
+class WallPercentageContainer : public DataContainer
+{
+public:
+    WallPercentageContainer(const QString& name, const QString& path, const QString& type, const double defaultValue, ModelWrapper* parent):
+        DataContainer(name, path, type, parent)
+    {
+        int position = path.lastIndexOf(".");
+        wallPath = path.left(position);
+        paramPart = path.right(path.length() - position);
+        patchPart = ".p" + wallPath.right(2);
+
+        mw.get_double(
+            QString(
+                wallPath + patchPart + "0" + paramPart
+                ).toStdString(),
+            m_defaultValue
+            );
+        qDebug() << m_defaultValue;
+
+        mMetaType = QMetaType::Double;
+        mw.get_int(
+            QString(wallPath + ".n_patch").toStdString(), n_patch);
+
+    };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() / m_defaultValue * 100;
+    }
+
+    // should not be used, rethink the structure
+    QVariant ui_to_model(QVariant variant) const override
+    {
+        return variant.toDouble() * m_defaultValue / 100;
+    }
+    void updateParam(QVariant variant) const override
+    {
+        bool ok = false;
+        double value = ui_to_model(variant).toDouble(&ok);
+        if (ok)
+        {
+            QString str = wallPath + patchPart + "%1" + paramPart;
+            for (int i = 0; i < n_patch; i++)
+            {
+                mw.set_double(
+                    QString(str.arg(i)).toStdString(), value
+                    );
+            }
+        }
+    }
+private:
+    int n_patch = qQNaN();
+    QString wallPath;
+    QString paramPart;
+    QString patchPart;
+    double m_defaultValue;
+};
+
 DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, ModelWrapper* parent) {
     QString const name = json["name"].toString();
     QString const path = json["path"].toString();
@@ -423,6 +480,10 @@ DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, Model
     else if (type == "coefficient")
     {
         return new CoefficientContainer(name, path, type, parent);
+    }
+    else if (type == "wallpercentage")
+    {
+        return new WallPercentageContainer(name, path, type, defaultValue, parent);
     }
     else
     {
