@@ -107,6 +107,8 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/resetbutton.h CircAdaptUI/PropertyBrowser/resetbutton.cpp
     CircAdaptUI/Graphs/mmode.h CircAdaptUI/Graphs/mmode.cpp
     CircAdaptUI/SVGviews/DrawingElements/textcircle.h CircAdaptUI/SVGviews/DrawingElements/textcircle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/leftventricle2.h CircAdaptUI/SVGviews/DrawingElements/leftventricle2.cpp
+
 )
 
 qt_add_resources(CircAdaptUI

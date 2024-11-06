@@ -6,7 +6,7 @@
 #include "DrawingElements/leftatrium.h"
 #include "DrawingElements/rightventricle.h"
 #include "DrawingElements/septum.h"
-#include "DrawingElements/leftventricle.h"
+#include "DrawingElements/leftventricle2.h"
 #include "drawingelementgroup.h"
 
 class SVGTissueObject : public SVGObjectBase
@@ -30,7 +30,7 @@ public:
     LeftAtrium* leftAtrium;
     RightVentricle* rightVentricle;
     Septum* septum;
-    LeftVentricle* leftVentricle;
+    LeftVentricle2* leftVentricle;
     QGraphicsRectItem* m_CoverElement;
     void showView(const ViewType& viewType);
 

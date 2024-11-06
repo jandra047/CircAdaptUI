@@ -7,7 +7,7 @@ SVGTissueObject::SVGTissueObject(PropertyBrowserBase* propertyBrowser, QGraphics
     leftAtrium(new LeftAtrium(this)),
     rightVentricle(new RightVentricle(this)),
     septum(new Septum(this)),
-    leftVentricle(new LeftVentricle(this))
+    leftVentricle(new LeftVentricle2(this))
 {
     subMenuContainer->addButton("Right atrium");
     subMenuContainer->addButton("Left atrium");

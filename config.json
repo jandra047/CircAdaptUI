@@ -425,8 +425,8 @@
             },
             {
                 "name": "Left ventricular wall contractility",
-                "path": "Model.Peri.TriSeg.wLv.pLv0.Sf_act",
-                "type": "percentage"
+                "path": "Model.Peri.TriSeg.wLv.Sf_act",
+                "type": "wallpercentage"
             },
             {
                 "name": "Left ventricular wall passive stiffness",
@@ -458,11 +458,12 @@
                 "path": "Model.Peri.TriSeg.wSv.pSv0.Sf_act",
                 "type": "percentage"
             },
-            {
-                "name": "Septal wall passive stiffness",
-                "path": "Model.Peri.TriSeg.wSv.pSv0.Sf_pas",
-                "type": "percentage"
-            },
+          {
+            "name": "Septal wall passive stiffness",
+            "path": "Model.Peri.TriSeg.wSv.Sf_pas",
+            "type": "wallpercentage"
+          },
+           
             {
                 "name": "Septal wall mass",
                 "path": "Model.Peri.TriSeg.wSv.pSv0.V_wall",
@@ -1489,7 +1490,81 @@
                             "type": "double"
                         }
                     ],
-                "Left ventricular wall":
+              "Left ventricular wall": [
+                {
+                  "name": "Contractility",
+                  "key": "Left ventricular wall contractility",
+                  "min": 1,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Passive stiffness",
+                  "key": "Left ventricular wall passive stiffness",
+                  "min": 20,
+                  "max": 4000,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Mass",
+                  "key": "Left ventricular wall mass",
+                  "min": 50,
+                  "max": 200,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Dilatation",
+                  "key": "Left ventricular wall dilatation",
+                  "min": 100,
+                  "max": 300,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 5,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Mechanical activation delay",
+                  "key": "Left ventricular wall mechanical activation delay",
+                  "min": -50,
+                  "max": 250,
+                  "default": 0,
+                  "tooltip": "ms",
+                  "unit": "ms",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Relaxation rate",
+                  "key": "Left ventricular wall relaxation rate",
+                  "min": 40,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                }
+              ],
+              "Lv.pLv0":
                     [
                         {
                             "name": "Contractility",
@@ -1564,6 +1639,6 @@
                             "type": "double"
                         }
                     ]
-            }
+        }
     }
 }
