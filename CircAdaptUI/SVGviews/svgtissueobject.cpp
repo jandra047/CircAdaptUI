@@ -17,7 +17,7 @@ SVGTissueObject::SVGTissueObject(PropertyBrowserBase* propertyBrowser, QGraphics
 
     subMenuContainer->buttonGroup->buttons().at(0)->setChecked(true);
 
-    propertyMap = propertyBrowser->createProperties(Settings::instance().ModelParameters()["Tissue"].toObject());
+    createProperties();
 
     m_CoverElement = new QGraphicsRectItem(m_bgItem.boundingRect(), this);
     QColor  coverColor( 255, 255, 255, 200 );
@@ -62,4 +62,69 @@ void SVGTissueObject::handleSubMenuSwitch(QAbstractButton* button)
     {
         showView(ViewType::Lv);
     }
+}
+
+void SVGTissueObject::createProperties()
+{
+    QJsonObject object = Settings::instance().ModelParameters()["Tissue"].toObject();
+    QJsonObject newObject;
+    qDebug() << object.keys();
+    for (auto key : object.keys())
+    {
+        newObject.insert(key, object[key]);
+
+        if (key == "Left ventricular wall")
+        {
+
+            for (int i = 0; i < 11; ++i)
+            {
+                QJsonArray modifiedArray;
+                for (const auto& value : object[key].toArray())
+                {
+                    QJsonObject item = value.toObject();
+                    QString modifiedKey = item["key"].toString() + " " + QString::number(i);
+                    item["key"] = modifiedKey;
+                    modifiedArray.append(item);
+                }
+                // Add to new QJsonObject with updated key names
+                newObject.insert(key + " " + QString::number(i), modifiedArray);
+            }
+
+        }
+        if (key == "Septal wall")
+        {
+
+            for (int i = 0; i < 5; ++i)
+            {
+                QJsonArray modifiedArray;
+                for (const auto& value : object[key].toArray())
+                {
+                    QJsonObject item = value.toObject();
+                    QString modifiedKey = item["key"].toString() + " " + QString::number(i);
+                    item["key"] = modifiedKey;
+                    modifiedArray.append(item);
+                }
+                // Add to new QJsonObject with updated key names
+                newObject.insert(key + " " + QString::number(i), modifiedArray);
+            }
+        }
+        if (key == "Right ventricular wall")
+        {
+
+            for (int i = 0; i < 7; ++i)
+            {
+                QJsonArray modifiedArray;
+                for (const auto& value : object[key].toArray())
+                {
+                    QJsonObject item = value.toObject();
+                    QString modifiedKey = item["key"].toString() + " " + QString::number(i);
+                    item["key"] = modifiedKey;
+                    modifiedArray.append(item);
+                }
+                // Add to new QJsonObject with updated key names
+                newObject.insert(key + " " + QString::number(i), modifiedArray);
+            }
+        }
+    }
+    propertyMap = mPropertyBrowser->createProperties(newObject);
 }

@@ -33,6 +33,7 @@ public:
     LeftVentricle2* leftVentricle;
     QGraphicsRectItem* m_CoverElement;
     void showView(const ViewType& viewType);
+    void createProperties();
 
 
     void handleSubMenuSwitch(QAbstractButton* button) override;
