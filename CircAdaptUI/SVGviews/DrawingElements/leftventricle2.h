@@ -11,6 +11,7 @@ public:
     void setSelected(bool isSelected);
     bool m_isSelected = false;
     const QString name()  { return m_name; }
+    const QList<QString> patchNames() { return namePath.keys(); }
 
 private:
     QMap<QString, QString> namePath;
