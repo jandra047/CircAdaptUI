@@ -5,8 +5,8 @@ SVGTissueObject::SVGTissueObject(PropertyBrowserBase* propertyBrowser, QGraphics
     SVGObjectBase(":/CircAdapt/svgs/Heart_segments.svg", propertyBrowser, "", parent),
     rightAtrium(new RightAtrium(this)),
     leftAtrium(new LeftAtrium(this)),
-    rightVentricle(new RightVentricle(this)),
-    septum(new Septum(this)),
+    rightVentricle(new RightVentricle2(this)),
+    septum(new Septum2(this)),
     leftVentricle(new LeftVentricle2(this))
 {
     subMenuContainer->addButton("Right atrium");
@@ -75,7 +75,7 @@ void SVGTissueObject::createProperties()
 
         if (key == "Left ventricular wall")
         {
-            QList<QString> patchNames = leftVentricle->patchNames();
+            QList<QString> patchNames = LeftVentricle2::namePath.keys();
             for (int i = 0; i < 11; ++i)
             {
                 QJsonArray modifiedArray;
@@ -93,6 +93,7 @@ void SVGTissueObject::createProperties()
         }
         if (key == "Septal wall")
         {
+            QList<QString> patchNames = Septum2::namePath.keys();
             for (int i = 0; i < 5; ++i)
             {
                 QJsonArray modifiedArray;
@@ -104,12 +105,13 @@ void SVGTissueObject::createProperties()
                     modifiedArray.append(item);
                 }
                 // Add to new QJsonObject with updated key names
-                newObject.insert(key + " " + QString::number(i), modifiedArray);
+                newObject.insert(patchNames[i], modifiedArray);
             }
         }
         if (key == "Right ventricular wall")
         {
 
+            QList<QString> patchNames = RightVentricle2::namePath.keys();
             for (int i = 0; i < 7; ++i)
             {
                 QJsonArray modifiedArray;
@@ -121,7 +123,7 @@ void SVGTissueObject::createProperties()
                     modifiedArray.append(item);
                 }
                 // Add to new QJsonObject with updated key names
-                newObject.insert(key + " " + QString::number(i), modifiedArray);
+                newObject.insert(patchNames[i], modifiedArray);
             }
         }
     }

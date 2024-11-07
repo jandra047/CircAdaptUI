@@ -4,8 +4,8 @@
 #include "svgobjectbase.h"
 #include "DrawingElements/rightatrium.h"
 #include "DrawingElements/leftatrium.h"
-#include "DrawingElements/rightventricle.h"
-#include "DrawingElements/septum.h"
+#include "DrawingElements/rightventricle2.h"
+#include "DrawingElements/septum2.h"
 #include "DrawingElements/leftventricle2.h"
 #include "drawingelementgroup.h"
 
@@ -28,8 +28,8 @@ public:
     void createCovers();
     RightAtrium* rightAtrium;
     LeftAtrium* leftAtrium;
-    RightVentricle* rightVentricle;
-    Septum* septum;
+    RightVentricle2* rightVentricle;
+    Septum2* septum;
     LeftVentricle2* leftVentricle;
     QGraphicsRectItem* m_CoverElement;
     void showView(const ViewType& viewType);

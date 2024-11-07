@@ -1,1644 +1,2332 @@
 {
-    "ModelWrapper":
-    {
-        "solver": "forward_euler",
-        "export_signals":
-            [
-                {
-                    "name": "pLa",
-                    "path": "Model.Peri.La.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "pRa",
-                    "path": "Model.Peri.Ra.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "pLv",
-                    "path": "Model.Peri.TriSeg.cLv.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "pRv",
-                    "path": "Model.Peri.TriSeg.cRv.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "pAo",
-                    "path": "Model.SyArt.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "pPu",
-                    "path": "Model.PuArt.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "pPuVen",
-                    "path": "Model.PuVen.p",
-                    "type": "pressure"
-                },
-                {
-                    "name": "VLa",
-                    "path": "Model.Peri.La.V",
-                    "type": "volume"
-                },
-                {
-                    "name": "VRa",
-                    "path": "Model.Peri.Ra.V",
-                    "type": "volume"
-                },
-                {
-                    "name": "VLv",
-                    "path": "Model.Peri.TriSeg.cLv.V",
-                    "type": "volume"
-                },
-                {
-                    "name": "VRv",
-                    "path": "Model.Peri.TriSeg.cRv.V",
-                    "type": "volume"
-                },
-                {
-                    "name": "Sf_Lv",
-                    "path": "Model.Peri.TriSeg.wLv.pLv0.Sf",
-                    "type": "stress"
-                },
-                {
-                    "name": "Sf_Rv",
-                    "path": "Model.Peri.TriSeg.wRv.pRv0.Sf",
-                    "type": "stress"
-                },
-                {
-                    "name": "Sf_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.pSv0.Sf",
-                    "type": "stress"
-                },
-                {
-                    "name": "Ef_Lv",
-                    "path": "Model.Peri.TriSeg.wLv.pLv0.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv",
-                    "path": "Model.Peri.TriSeg.wRv.pRv0.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.pSv0.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "qLaLv",
-                    "path": "Model.Peri.LaLv.q",
-                    "type": "flow"
-                },
-                {
-                    "name": "qRaRv",
-                    "path": "Model.Peri.RaRv.q",
-                    "type": "flow"
-                },
-                {
-                    "name": "qLvAo",
-                    "path": "Model.Peri.LvSyArt.q",
-                    "type": "flow"
-                },
-                {
-                    "name": "qRvPuArt",
-                    "path": "Model.Peri.RvPuArt.q",
-                    "type": "flow"
-                },
-                {
-                    "name": "qSyVenRa",
-                    "path": "Model.Peri.SyVenRa.q",
-                    "type": "flow"
-                },
-                {
-                    "name": "vLaLv",
-                    "path": "Model.Peri.LaLv.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "vRaRv",
-                    "path": "Model.Peri.RaRv.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "vLvAo",
-                    "path": "Model.Peri.LvSyArt.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "vRvPuArt",
-                    "path": "Model.Peri.RvPuArt.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "vSyVenRa",
-                    "path": "Model.Peri.SyVenRa.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "vLaRa",
-                    "path": "Model.Peri.LaRa.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "vLvRv",
-                    "path": "Model.Peri.LvRv.q",
-                    "type": "flowvelocity"
-                },
-                {
-                    "name": "TriSeg.V",
-                    "path": "Model.Peri.TriSeg.V",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "TriSeg.Y",
-                    "path": "Model.Peri.TriSeg.Y",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Xm1",
-                    "path": "Model.Peri.TriSeg.Xm1",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Xm2",
-                    "path": "Model.Peri.TriSeg.Xm2",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Xm3",
-                    "path": "Model.Peri.TriSeg.Xm3",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Cm_Lv",
-                    "path": "Model.Peri.TriSeg.wLv.Cm",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Cm_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.Cm",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Cm_Rv",
-                    "path": "Model.Peri.TriSeg.wRv.Cm",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Am_Lv",
-                    "path": "Model.Peri.TriSeg.wLv.Am",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Am_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.Am",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "Am_Rv",
-                    "path": "Model.Peri.TriSeg.wRv.Am",
-                    "type": "coefficient"
-                },
-                {
-                    "name": "satPuVen",
-                    "path": "Model.PuVen.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satLa",
-                    "path": "Model.Peri.La.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satLv",
-                    "path": "Model.Peri.TriSeg.cLv.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satSyArt",
-                    "path": "Model.SyArt.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satSyVen",
-                    "path": "Model.SyVen.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satRa",
-                    "path": "Model.Peri.Ra.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satRv",
-                    "path": "Model.Peri.TriSeg.cRv.saturation",
-                    "type": "percentagecoeff"
-                },
-                {
-                    "name": "satPuArt",
-                    "path": "Model.PuArt.saturation",
-                    "type": "percentagecoeff"
-                }
+	"ModelWrapper":
+	{
+		"solver": "forward_euler",
+		"export_signals":
+		[
+			{
+				"name": "pLa",
+				"path": "Model.Peri.La.p",
+				"type": "pressure"
+			},
+			{
+				"name": "pRa",
+				"path": "Model.Peri.Ra.p",
+				"type": "pressure"
+			},
+			{
+				"name": "pLv",
+				"path": "Model.Peri.TriSeg.cLv.p",
+				"type": "pressure"
+			},
+			{
+				"name": "pRv",
+				"path": "Model.Peri.TriSeg.cRv.p",
+				"type": "pressure"
+			},
+			{
+				"name": "pAo",
+				"path": "Model.SyArt.p",
+				"type": "pressure"
+			},
+			{
+				"name": "pPu",
+				"path": "Model.PuArt.p",
+				"type": "pressure"
+			},
+			{
+				"name": "pPuVen",
+				"path": "Model.PuVen.p",
+				"type": "pressure"
+			},
+			{
+				"name": "VLa",
+				"path": "Model.Peri.La.V",
+				"type": "volume"
+			},
+			{
+				"name": "VRa",
+				"path": "Model.Peri.Ra.V",
+				"type": "volume"
+			},
+			{
+				"name": "VLv",
+				"path": "Model.Peri.TriSeg.cLv.V",
+				"type": "volume"
+			},
+			{
+				"name": "VRv",
+				"path": "Model.Peri.TriSeg.cRv.V",
+				"type": "volume"
+			},
+			{
+				"name": "Sf_Lv",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.Sf",
+				"type": "stress"
+			},
+			{
+				"name": "Sf_Rv",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.Sf",
+				"type": "stress"
+			},
+			{
+				"name": "Sf_Sv",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.Sf",
+				"type": "stress"
+			},
+			{
+				"name": "Ef_Lv",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.Ef",
+				"type": "pressure"
+			},
+			{
+				"name": "Ef_Rv",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.Ef",
+				"type": "pressure"
+			},
+			{
+				"name": "Ef_Sv",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.Ef",
+				"type": "pressure"
+			},
+			{
+				"name": "qLaLv",
+				"path": "Model.Peri.LaLv.q",
+				"type": "flow"
+			},
+			{
+				"name": "qRaRv",
+				"path": "Model.Peri.RaRv.q",
+				"type": "flow"
+			},
+			{
+				"name": "qLvAo",
+				"path": "Model.Peri.LvSyArt.q",
+				"type": "flow"
+			},
+			{
+				"name": "qRvPuArt",
+				"path": "Model.Peri.RvPuArt.q",
+				"type": "flow"
+			},
+			{
+				"name": "qSyVenRa",
+				"path": "Model.Peri.SyVenRa.q",
+				"type": "flow"
+			},
+			{
+				"name": "vLaLv",
+				"path": "Model.Peri.LaLv.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "vRaRv",
+				"path": "Model.Peri.RaRv.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "vLvAo",
+				"path": "Model.Peri.LvSyArt.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "vRvPuArt",
+				"path": "Model.Peri.RvPuArt.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "vSyVenRa",
+				"path": "Model.Peri.SyVenRa.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "vLaRa",
+				"path": "Model.Peri.LaRa.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "vLvRv",
+				"path": "Model.Peri.LvRv.q",
+				"type": "flowvelocity"
+			},
+			{
+				"name": "TriSeg.V",
+				"path": "Model.Peri.TriSeg.V",
+				"type": "coefficient"
+			},
+			{
+				"name": "TriSeg.Y",
+				"path": "Model.Peri.TriSeg.Y",
+				"type": "coefficient"
+			},
+			{
+				"name": "Xm1",
+				"path": "Model.Peri.TriSeg.Xm1",
+				"type": "coefficient"
+			},
+			{
+				"name": "Xm2",
+				"path": "Model.Peri.TriSeg.Xm2",
+				"type": "coefficient"
+			},
+			{
+				"name": "Xm3",
+				"path": "Model.Peri.TriSeg.Xm3",
+				"type": "coefficient"
+			},
+			{
+				"name": "Cm_Lv",
+				"path": "Model.Peri.TriSeg.wLv.Cm",
+				"type": "coefficient"
+			},
+			{
+				"name": "Cm_Sv",
+				"path": "Model.Peri.TriSeg.wSv.Cm",
+				"type": "coefficient"
+			},
+			{
+				"name": "Cm_Rv",
+				"path": "Model.Peri.TriSeg.wRv.Cm",
+				"type": "coefficient"
+			},
+			{
+				"name": "Am_Lv",
+				"path": "Model.Peri.TriSeg.wLv.Am",
+				"type": "coefficient"
+			},
+			{
+				"name": "Am_Sv",
+				"path": "Model.Peri.TriSeg.wSv.Am",
+				"type": "coefficient"
+			},
+			{
+				"name": "Am_Rv",
+				"path": "Model.Peri.TriSeg.wRv.Am",
+				"type": "coefficient"
+			},
+			{
+				"name": "satPuVen",
+				"path": "Model.PuVen.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satLa",
+				"path": "Model.Peri.La.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satLv",
+				"path": "Model.Peri.TriSeg.cLv.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satSyArt",
+				"path": "Model.SyArt.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satSyVen",
+				"path": "Model.SyVen.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satRa",
+				"path": "Model.Peri.Ra.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satRv",
+				"path": "Model.Peri.TriSeg.cRv.saturation",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "satPuArt",
+				"path": "Model.PuArt.saturation",
+				"type": "percentagecoeff"
+			}
 
-            ],
-        "parameters":
-        [
-            {
-                "name": "Heart rate",
-                "path": "Model.t_cycle",
-                "type": "HR"
-            },
-            {
-                "name": "Venous return",
-                "path": "Model.PFC.q0",
-                "type": "CO"
-            },
-            {
-                "name": "Mean arterial pressure",
-                "path": "Model.PFC.p0",
-                "type": "pressure"
-            },
-            {
-                "name": "Homeostatic pressure-flow control",
-                "path": "Model.PFC.is_active",
-                "type": "bool"
-            },
-            {
-                "name": "Hemoglobin concentration",
-                "path": "Model.Oxygen.cHb",
-                "type": "percentagecoeff"
-            },
-            {
-                "name": "AV delay offset",
-                "path": "Model.Timings.dtau_av",
-                "type": "ms"
-            },
-            {
-                "name": "Systemic arterial stiffness coefficient",
-                "path": "Model.SyArt.p0",
-                "type": "percentage"
-            },
-            {
-                "name": "Systemic venous stiffness coefficient",
-                "path": "Model.SyVen.p0",
-                "type": "percentage"
-            },
-            {
-                "name": "Pulmonary arterial stiffness coefficient",
-                "path": "Model.PuArt.p0",
-                "type": "percentage"
-            },
-            {
-                "name": "Pulmonary venous stiffness coefficient",
-                "path": "Model.PuVen.p0",
-                "type": "percentage"
-            },
-            {
-                "name": "Pulmonary arteriovenous pressure drop",
-                "path": "Model.CiPu.p0",
-                "type": "pressure"
-            },
-            {
-                "name": "Tricuspid effective orifice area",
-                "path": "Model.Peri.RaRv.A_open",
-                "type": "area"
-            },
-            {
-                "name": "Tricuspid effective regurgitant orifice area",
-                "path": "Model.Peri.RaRv.A_leak",
-                "type": "area"
-            },
-            {
-                "name": "Pulmonary effective orifice area",
-                "path": "Model.Peri.RvPuArt.A_open",
-                "type": "area"
-            },
-            {
-                "name": "Pulmonary effective regurgitant orifice area",
-                "path": "Model.Peri.RvPuArt.A_leak",
-                "type": "area"
-            },
-            {
-                "name": "Mitral effective orifice area",
-                "path": "Model.Peri.LaLv.A_open",
-                "type": "area"
-            },
-            {
-                "name": "Mitral effective regurgitant orifice area",
-                "path": "Model.Peri.LaLv.A_leak",
-                "type": "area"
-            },
-            {
-                "name": "Aortic effective orifice area",
-                "path": "Model.Peri.LvSyArt.A_open",
-                "type": "area"
-            },
-            {
-                "name": "Aortic effective regurgitant orifice area",
-                "path": "Model.Peri.LvSyArt.A_leak",
-                "type": "area"
-            },
-            {
-                "name": "Pericardial stiffness exponent",
-                "path": "Model.Peri.k",
-                "type": "coefficient"
-            },
-            {
-                "name": "Pericardial dilatation",
-                "path": "Model.Peri.V_ref",
-                "type": "percentage"
-            },
-            {
-                "name": "Atrial septal defect",
-                "path": "Model.Peri.LaRa",
-                "type": "shunt"
-            },
-            {
-                "name": "Ventricular septal defect",
-                "path": "Model.Peri.LvRv",
-                "type": "shunt"
-            },
-            {
-                "name": "Right atrial wall contractility",
-                "path": "Model.Peri.Ra.wRa.pRa0.Sf_act",
-                "type": "percentage"
-            },
-            {
-                "name": "Right atrial wall passive stiffness",
-                "path": "Model.Peri.Ra.wRa.pRa0.Sf_pas",
-                "type": "percentage"
-            },
-            {
-                "name": "Right atrial wall mass",
-                "path": "Model.Peri.Ra.wRa.pRa0.V_wall",
-                "type": "percentage"
-            },
-            {
-                "name": "Right atrial wall dilatation",
-                "path": "Model.Peri.Ra.wRa.pRa0.Am_ref",
-                "type": "percentage"
-            },
-            {
-                "name": "Right atrial wall mechanical activation delay",
-                "path": "Model.Peri.Ra.wRa.pRa0.dt",
-                "type": "ms"
-            },
-            {
-                "name": "Right atrial wall relaxation rate",
-                "path": "Model.Peri.Ra.wRa.pRa0.td",
-                "type": "percentage"
-            },
-            {
-                "name": "Left atrial wall contractility",
-                "path": "Model.Peri.La.wLa.pLa0.Sf_act",
-                "type": "percentage"
-            },
-            {
-                "name": "Left atrial wall passive stiffness",
-                "path": "Model.Peri.La.wLa.pLa0.Sf_pas",
-                "type": "percentage"
-            },
-            {
-                "name": "Left atrial wall mass",
-                "path": "Model.Peri.La.wLa.pLa0.V_wall",
-                "type": "percentage"
-            },
-            {
-                "name": "Left atrial wall dilatation",
-                "path": "Model.Peri.La.wLa.pLa0.Am_ref",
-                "type": "percentage"
-            },
-            {
-                "name": "Left atrial wall mechanical activation delay",
-                "path": "Model.Peri.La.wLa.pLa0.dt",
-                "type": "ms"
-            },
-            {
-                "name": "Left atrial wall relaxation rate",
-                "path": "Model.Peri.La.wLa.pLa0.td",
-                "type": "percentage"
-            },
-            {
-                "name": "Left ventricular wall contractility",
-                "path": "Model.Peri.TriSeg.wLv.Sf_act",
-                "type": "wallpercentage"
-            },
-            {
-                "name": "Left ventricular wall passive stiffness",
-                "path": "Model.Peri.TriSeg.wLv.pLv0.Sf_pas",
-                "type": "percentage"
-            },
-            {
-                "name": "Left ventricular wall mass",
-                "path": "Model.Peri.TriSeg.wLv.pLv0.V_wall",
-                "type": "percentage"
-            },
-            {
-                "name": "Left ventricular wall dilatation",
-                "path": "Model.Peri.TriSeg.wLv.pLv0.Am_ref",
-                "type": "percentage"
-            },
-            {
-                "name": "Left ventricular wall mechanical activation delay",
-                "path": "Model.Peri.TriSeg.wLv.pLv0.dt",
-                "type": "percentage"
-            },
-            {
-                "name": "Left ventricular wall relaxation rate",
-                "path": "Model.Peri.TriSeg.wLv.pLv0.td",
-                "type": "percentage"
-            },
-            {
-                "name": "Septal wall contractility",
-                "path": "Model.Peri.TriSeg.wSv.pSv0.Sf_act",
-                "type": "percentage"
-            },
-          {
-            "name": "Septal wall passive stiffness",
-            "path": "Model.Peri.TriSeg.wSv.Sf_pas",
-            "type": "wallpercentage"
-          },
-           
-            {
-                "name": "Septal wall mass",
-                "path": "Model.Peri.TriSeg.wSv.pSv0.V_wall",
-                "type": "percentage"
-            },
-            {
-                "name": "Septal wall dilatation",
-                "path": "Model.Peri.TriSeg.wSv.pSv0.Am_ref",
-                "type": "percentage"
-            },
-            {
-                "name": "Septal wall mechanical activation delay",
-                "path": "Model.Peri.TriSeg.wSv.pSv0.dt",
-                "type": "percentage"
-            },
-            {
-                "name": "Septal wall relaxation rate",
-                "path": "Model.Peri.TriSeg.wSv.pSv0.td",
-                "type": "percentage"
-            },
-            {
-                "name": "Right ventricular wall contractility",
-                "path": "Model.Peri.TriSeg.wRv.pRv0.Sf_act",
-                "type": "percentage"
-            },
-            {
-                "name": "Right ventricular wall passive stiffness",
-                "path": "Model.Peri.TriSeg.wRv.pRv0.Sf_pas",
-                "type": "percentage"
-            },
-            {
-                "name": "Right ventricular wall mass",
-                "path": "Model.Peri.TriSeg.wRv.pRv0.V_wall",
-                "type": "percentage"
-            },
-            {
-                "name": "Right ventricular wall dilatation",
-                "path": "Model.Peri.TriSeg.wRv.pRv0.Am_ref",
-                "type": "percentage"
-            },
-            {
-                "name": "Right ventricular wall mechanical activation delay",
-                "path": "Model.Peri.TriSeg.wRv.pRv0.dt",
-                "type": "percentage"
-            },
-            {
-                "name": "Right ventricular wall relaxation rate",
-                "path": "Model.Peri.TriSeg.wRv.pRv0.td",
-                "type": "percentage"
-            }
-        ]
-    },
+		],
+		"parameters": [
+			{
+				"name": "Heart rate",
+				"path": "Model.t_cycle",
+				"type": "HR"
+			},
+			{
+				"name": "Venous return",
+				"path": "Model.PFC.q0",
+				"type": "CO"
+			},
+			{
+				"name": "Mean arterial pressure",
+				"path": "Model.PFC.p0",
+				"type": "pressure"
+			},
+			{
+				"name": "Homeostatic pressure-flow control",
+				"path": "Model.PFC.is_active",
+				"type": "bool"
+			},
+			{
+				"name": "Hemoglobin concentration",
+				"path": "Model.Oxygen.cHb",
+				"type": "percentagecoeff"
+			},
+			{
+				"name": "AV delay offset",
+				"path": "Model.Timings.dtau_av",
+				"type": "ms"
+			},
+			{
+				"name": "Systemic arterial stiffness coefficient",
+				"path": "Model.SyArt.p0",
+				"type": "percentage"
+			},
+			{
+				"name": "Systemic venous stiffness coefficient",
+				"path": "Model.SyVen.p0",
+				"type": "percentage"
+			},
+			{
+				"name": "Pulmonary arterial stiffness coefficient",
+				"path": "Model.PuArt.p0",
+				"type": "percentage"
+			},
+			{
+				"name": "Pulmonary venous stiffness coefficient",
+				"path": "Model.PuVen.p0",
+				"type": "percentage"
+			},
+			{
+				"name": "Pulmonary arteriovenous pressure drop",
+				"path": "Model.CiPu.p0",
+				"type": "pressure"
+			},
+			{
+				"name": "Tricuspid effective orifice area",
+				"path": "Model.Peri.RaRv.A_open",
+				"type": "area"
+			},
+			{
+				"name": "Tricuspid effective regurgitant orifice area",
+				"path": "Model.Peri.RaRv.A_leak",
+				"type": "area"
+			},
+			{
+				"name": "Pulmonary effective orifice area",
+				"path": "Model.Peri.RvPuArt.A_open",
+				"type": "area"
+			},
+			{
+				"name": "Pulmonary effective regurgitant orifice area",
+				"path": "Model.Peri.RvPuArt.A_leak",
+				"type": "area"
+			},
+			{
+				"name": "Mitral effective orifice area",
+				"path": "Model.Peri.LaLv.A_open",
+				"type": "area"
+			},
+			{
+				"name": "Mitral effective regurgitant orifice area",
+				"path": "Model.Peri.LaLv.A_leak",
+				"type": "area"
+			},
+			{
+				"name": "Aortic effective orifice area",
+				"path": "Model.Peri.LvSyArt.A_open",
+				"type": "area"
+			},
+			{
+				"name": "Aortic effective regurgitant orifice area",
+				"path": "Model.Peri.LvSyArt.A_leak",
+				"type": "area"
+			},
+			{
+				"name": "Pericardial stiffness exponent",
+				"path": "Model.Peri.k",
+				"type": "coefficient"
+			},
+			{
+				"name": "Pericardial dilatation",
+				"path": "Model.Peri.V_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Atrial septal defect",
+				"path": "Model.Peri.LaRa",
+				"type": "shunt"
+			},
+			{
+				"name": "Ventricular septal defect",
+				"path": "Model.Peri.LvRv",
+				"type": "shunt"
+			},
+			{
+				"name": "Right atrial wall contractility",
+				"path": "Model.Peri.Ra.wRa.pRa0.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right atrial wall passive stiffness",
+				"path": "Model.Peri.Ra.wRa.pRa0.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right atrial wall mass",
+				"path": "Model.Peri.Ra.wRa.pRa0.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right atrial wall dilatation",
+				"path": "Model.Peri.Ra.wRa.pRa0.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right atrial wall mechanical activation delay",
+				"path": "Model.Peri.Ra.wRa.pRa0.dt",
+				"type": "ms"
+			},
+			{
+				"name": "Right atrial wall relaxation rate",
+				"path": "Model.Peri.Ra.wRa.pRa0.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left atrial wall contractility",
+				"path": "Model.Peri.La.wLa.pLa0.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left atrial wall passive stiffness",
+				"path": "Model.Peri.La.wLa.pLa0.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left atrial wall mass",
+				"path": "Model.Peri.La.wLa.pLa0.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left atrial wall dilatation",
+				"path": "Model.Peri.La.wLa.pLa0.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left atrial wall mechanical activation delay",
+				"path": "Model.Peri.La.wLa.pLa0.dt",
+				"type": "ms"
+			},
+			{
+				"name": "Left atrial wall relaxation rate",
+				"path": "Model.Peri.La.wLa.pLa0.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility",
+				"path": "Model.Peri.TriSeg.wLv.Sf_act",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness",
+				"path": "Model.Peri.TriSeg.wLv.Sf_pas",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Left ventricular wall mass",
+				"path": "Model.Peri.TriSeg.wLv.V_wall",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation",
+				"path": "Model.Peri.TriSeg.wLv.Am_ref",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay",
+				"path": "Model.Peri.TriSeg.wLv.dt",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate",
+				"path": "Model.Peri.TriSeg.wLv.td",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 0",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 0",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 0",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 0",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 0",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 0",
+				"path": "Model.Peri.TriSeg.wLv.pLv0.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 1",
+				"path": "Model.Peri.TriSeg.wLv.pLv1.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 1",
+				"path": "Model.Peri.TriSeg.wLv.pLv1.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 1",
+				"path": "Model.Peri.TriSeg.wLv.pLv1.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 1",
+				"path": "Model.Peri.TriSeg.wLv.pLv1.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 1",
+				"path": "Model.Peri.TriSeg.wLv.pLv1.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 1",
+				"path": "Model.Peri.TriSeg.wLv.pLv1.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 2",
+				"path": "Model.Peri.TriSeg.wLv.pLv2.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 2",
+				"path": "Model.Peri.TriSeg.wLv.pLv2.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 2",
+				"path": "Model.Peri.TriSeg.wLv.pLv2.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 2",
+				"path": "Model.Peri.TriSeg.wLv.pLv2.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 2",
+				"path": "Model.Peri.TriSeg.wLv.pLv2.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 2",
+				"path": "Model.Peri.TriSeg.wLv.pLv2.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 3",
+				"path": "Model.Peri.TriSeg.wLv.pLv3.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 3",
+				"path": "Model.Peri.TriSeg.wLv.pLv3.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 3",
+				"path": "Model.Peri.TriSeg.wLv.pLv3.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 3",
+				"path": "Model.Peri.TriSeg.wLv.pLv3.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 3",
+				"path": "Model.Peri.TriSeg.wLv.pLv3.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 3",
+				"path": "Model.Peri.TriSeg.wLv.pLv3.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 4",
+				"path": "Model.Peri.TriSeg.wLv.pLv4.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 4",
+				"path": "Model.Peri.TriSeg.wLv.pLv4.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 4",
+				"path": "Model.Peri.TriSeg.wLv.pLv4.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 4",
+				"path": "Model.Peri.TriSeg.wLv.pLv4.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 4",
+				"path": "Model.Peri.TriSeg.wLv.pLv4.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 4",
+				"path": "Model.Peri.TriSeg.wLv.pLv4.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 5",
+				"path": "Model.Peri.TriSeg.wLv.pLv5.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 5",
+				"path": "Model.Peri.TriSeg.wLv.pLv5.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 5",
+				"path": "Model.Peri.TriSeg.wLv.pLv5.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 5",
+				"path": "Model.Peri.TriSeg.wLv.pLv5.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 5",
+				"path": "Model.Peri.TriSeg.wLv.pLv5.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 5",
+				"path": "Model.Peri.TriSeg.wLv.pLv5.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 6",
+				"path": "Model.Peri.TriSeg.wLv.pLv6.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 6",
+				"path": "Model.Peri.TriSeg.wLv.pLv6.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 6",
+				"path": "Model.Peri.TriSeg.wLv.pLv6.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 6",
+				"path": "Model.Peri.TriSeg.wLv.pLv6.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 6",
+				"path": "Model.Peri.TriSeg.wLv.pLv6.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 6",
+				"path": "Model.Peri.TriSeg.wLv.pLv6.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 7",
+				"path": "Model.Peri.TriSeg.wLv.pLv7.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 7",
+				"path": "Model.Peri.TriSeg.wLv.pLv7.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 7",
+				"path": "Model.Peri.TriSeg.wLv.pLv7.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 7",
+				"path": "Model.Peri.TriSeg.wLv.pLv7.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 7",
+				"path": "Model.Peri.TriSeg.wLv.pLv7.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 7",
+				"path": "Model.Peri.TriSeg.wLv.pLv7.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 8",
+				"path": "Model.Peri.TriSeg.wLv.pLv8.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 8",
+				"path": "Model.Peri.TriSeg.wLv.pLv8.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 8",
+				"path": "Model.Peri.TriSeg.wLv.pLv8.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 8",
+				"path": "Model.Peri.TriSeg.wLv.pLv8.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 8",
+				"path": "Model.Peri.TriSeg.wLv.pLv8.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 8",
+				"path": "Model.Peri.TriSeg.wLv.pLv8.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 9",
+				"path": "Model.Peri.TriSeg.wLv.pLv9.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 9",
+				"path": "Model.Peri.TriSeg.wLv.pLv9.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 9",
+				"path": "Model.Peri.TriSeg.wLv.pLv9.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 9",
+				"path": "Model.Peri.TriSeg.wLv.pLv9.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 9",
+				"path": "Model.Peri.TriSeg.wLv.pLv9.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 9",
+				"path": "Model.Peri.TriSeg.wLv.pLv9.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall contractility 10",
+				"path": "Model.Peri.TriSeg.wLv.pLv10.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall passive stiffness 10",
+				"path": "Model.Peri.TriSeg.wLv.pLv10.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mass 10",
+				"path": "Model.Peri.TriSeg.wLv.pLv10.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall dilatation 10",
+				"path": "Model.Peri.TriSeg.wLv.pLv10.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall mechanical activation delay 10",
+				"path": "Model.Peri.TriSeg.wLv.pLv10.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Left ventricular wall relaxation rate 10",
+				"path": "Model.Peri.TriSeg.wLv.pLv10.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall contractility",
+				"path": "Model.Peri.TriSeg.wSv.Sf_act",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Septal wall passive stiffness",
+				"path": "Model.Peri.TriSeg.wSv.Sf_pas",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Septal wall mass",
+				"path": "Model.Peri.TriSeg.wSv.V_wall",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Septal wall dilatation",
+				"path": "Model.Peri.TriSeg.wSv.Am_ref",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Septal wall mechanical activation delay",
+				"path": "Model.Peri.TriSeg.wSv.dt",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Septal wall relaxation rate",
+				"path": "Model.Peri.TriSeg.wSv.td",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Septal wall contractility 0",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall passive stiffness 0",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mass 0",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall dilatation 0",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mechanical activation delay 0",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall relaxation rate 0",
+				"path": "Model.Peri.TriSeg.wSv.pSv0.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall contractility 1",
+				"path": "Model.Peri.TriSeg.wSv.pSv1.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall passive stiffness 1",
+				"path": "Model.Peri.TriSeg.wSv.pSv1.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mass 1",
+				"path": "Model.Peri.TriSeg.wSv.pSv1.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall dilatation 1",
+				"path": "Model.Peri.TriSeg.wSv.pSv1.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mechanical activation delay 1",
+				"path": "Model.Peri.TriSeg.wSv.pSv1.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall relaxation rate 1",
+				"path": "Model.Peri.TriSeg.wSv.pSv1.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall contractility 2",
+				"path": "Model.Peri.TriSeg.wSv.pSv2.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall passive stiffness 2",
+				"path": "Model.Peri.TriSeg.wSv.pSv2.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mass 2",
+				"path": "Model.Peri.TriSeg.wSv.pSv2.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall dilatation 2",
+				"path": "Model.Peri.TriSeg.wSv.pSv2.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mechanical activation delay 2",
+				"path": "Model.Peri.TriSeg.wSv.pSv2.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall relaxation rate 2",
+				"path": "Model.Peri.TriSeg.wSv.pSv2.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall contractility 3",
+				"path": "Model.Peri.TriSeg.wSv.pSv3.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall passive stiffness 3",
+				"path": "Model.Peri.TriSeg.wSv.pSv3.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mass 3",
+				"path": "Model.Peri.TriSeg.wSv.pSv3.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall dilatation 3",
+				"path": "Model.Peri.TriSeg.wSv.pSv3.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mechanical activation delay 3",
+				"path": "Model.Peri.TriSeg.wSv.pSv3.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall relaxation rate 3",
+				"path": "Model.Peri.TriSeg.wSv.pSv3.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall contractility 4",
+				"path": "Model.Peri.TriSeg.wSv.pSv4.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall passive stiffness 4",
+				"path": "Model.Peri.TriSeg.wSv.pSv4.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mass 4",
+				"path": "Model.Peri.TriSeg.wSv.pSv4.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall dilatation 4",
+				"path": "Model.Peri.TriSeg.wSv.pSv4.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall mechanical activation delay 4",
+				"path": "Model.Peri.TriSeg.wSv.pSv4.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Septal wall relaxation rate 4",
+				"path": "Model.Peri.TriSeg.wSv.pSv4.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility",
+				"path": "Model.Peri.TriSeg.wRv.Sf_act",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness",
+				"path": "Model.Peri.TriSeg.wRv.Sf_pas",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Right ventricular wall mass",
+				"path": "Model.Peri.TriSeg.wRv.V_wall",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation",
+				"path": "Model.Peri.TriSeg.wRv.Am_ref",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay",
+				"path": "Model.Peri.TriSeg.wRv.dt",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate",
+				"path": "Model.Peri.TriSeg.wRv.td",
+				"type": "wallpercentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 0",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 0",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 0",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 0",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 0",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 0",
+				"path": "Model.Peri.TriSeg.wRv.pRv0.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 1",
+				"path": "Model.Peri.TriSeg.wRv.pRv1.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 1",
+				"path": "Model.Peri.TriSeg.wRv.pRv1.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 1",
+				"path": "Model.Peri.TriSeg.wRv.pRv1.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 1",
+				"path": "Model.Peri.TriSeg.wRv.pRv1.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 1",
+				"path": "Model.Peri.TriSeg.wRv.pRv1.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 1",
+				"path": "Model.Peri.TriSeg.wRv.pRv1.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 2",
+				"path": "Model.Peri.TriSeg.wRv.pRv2.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 2",
+				"path": "Model.Peri.TriSeg.wRv.pRv2.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 2",
+				"path": "Model.Peri.TriSeg.wRv.pRv2.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 2",
+				"path": "Model.Peri.TriSeg.wRv.pRv2.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 2",
+				"path": "Model.Peri.TriSeg.wRv.pRv2.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 2",
+				"path": "Model.Peri.TriSeg.wRv.pRv2.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 3",
+				"path": "Model.Peri.TriSeg.wRv.pRv3.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 3",
+				"path": "Model.Peri.TriSeg.wRv.pRv3.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 3",
+				"path": "Model.Peri.TriSeg.wRv.pRv3.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 3",
+				"path": "Model.Peri.TriSeg.wRv.pRv3.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 3",
+				"path": "Model.Peri.TriSeg.wRv.pRv3.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 3",
+				"path": "Model.Peri.TriSeg.wRv.pRv3.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 4",
+				"path": "Model.Peri.TriSeg.wRv.pRv4.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 4",
+				"path": "Model.Peri.TriSeg.wRv.pRv4.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 4",
+				"path": "Model.Peri.TriSeg.wRv.pRv4.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 4",
+				"path": "Model.Peri.TriSeg.wRv.pRv4.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 4",
+				"path": "Model.Peri.TriSeg.wRv.pRv4.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 4",
+				"path": "Model.Peri.TriSeg.wRv.pRv4.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 5",
+				"path": "Model.Peri.TriSeg.wRv.pRv5.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 5",
+				"path": "Model.Peri.TriSeg.wRv.pRv5.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 5",
+				"path": "Model.Peri.TriSeg.wRv.pRv5.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 5",
+				"path": "Model.Peri.TriSeg.wRv.pRv5.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 5",
+				"path": "Model.Peri.TriSeg.wRv.pRv5.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 5",
+				"path": "Model.Peri.TriSeg.wRv.pRv5.td",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall contractility 6",
+				"path": "Model.Peri.TriSeg.wRv.pRv6.Sf_act",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall passive stiffness 6",
+				"path": "Model.Peri.TriSeg.wRv.pRv6.Sf_pas",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mass 6",
+				"path": "Model.Peri.TriSeg.wRv.pRv6.V_wall",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall dilatation 6",
+				"path": "Model.Peri.TriSeg.wRv.pRv6.Am_ref",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall mechanical activation delay 6",
+				"path": "Model.Peri.TriSeg.wRv.pRv6.dt",
+				"type": "percentage"
+			},
+			{
+				"name": "Right ventricular wall relaxation rate 6",
+				"path": "Model.Peri.TriSeg.wRv.pRv6.td",
+				"type": "percentage"
+			}
+		]
+	},
 
-    "GUI":
-    {
-        "framerate": 60,
-        "buffersize": 50,
-        "paddingY": 0.05
-    },
+	"GUI":
+	{
+		"framerate": 60,
+		"buffersize": 50,
+		"paddingY": 0.05
+	},
 
-    "PVGraph":
-    {
-        "title": "Pressure-volume loops",
-        "xLabel": "Volume [mL]",
-        "yLabel": "Pressure [mmHg]",
-        "Signals":
-        [
-            {
-                "displayName": "Left atrium",
-                "xVar": "VLa",
-                "yVar": "pLa",
-                "isVisible": false,
-                "color": "#FB9A99"
-            },
-            {
-                "displayName": "Right atrium",
-                "xVar": "VRa",
-                "yVar": "pRa",
-                "isVisible": false,
-                "color": "#A6CEE3"
-            },
-            {
-                "displayName": "Left ventricle",
-                "xVar": "VLv",
-                "yVar": "pLv",
-                "isVisible": true,
-                "color": "#E31A1D"
-            },
-            {
-                "displayName": "Right ventricle",
-                "xVar": "VRv",
-                "yVar": "pRv",
-                "isVisible": true,
-                "color": "#1F78B4"
-            }
-        ]
-    },
+	"PVGraph":
+	{
+		"title": "Pressure-volume loops",
+		"xLabel": "Volume [mL]",
+		"yLabel": "Pressure [mmHg]",
+		"Signals":
+		[
+			{
+				"displayName": "Left atrium",
+				"xVar": "VLa",
+				"yVar": "pLa",
+				"isVisible": false,
+				"color": "#FB9A99"
+			},
+			{
+				"displayName": "Right atrium",
+				"xVar": "VRa",
+				"yVar": "pRa",
+				"isVisible": false,
+				"color": "#A6CEE3"
+			},
+			{
+				"displayName": "Left ventricle",
+				"xVar": "VLv",
+				"yVar": "pLv",
+				"isVisible": true,
+				"color": "#E31A1D"
+			},
+			{
+				"displayName": "Right ventricle",
+				"xVar": "VRv",
+				"yVar": "pRv",
+				"isVisible": true,
+				"color": "#1F78B4"
+			}
+		]
+	},
 
-    "SSGraph":
-    {
-        "title": "Stress-strain loops",
-        "xLabel": "Strain [-]",
-        "yLabel": "Stress [kPa]",
-        "Signals":
-        [
-            {
-                "displayName": "Left ventricular free wall",
-                "xVar": "Ef_Lv",
-                "yVar": "Sf_Lv",
-                "isVisible": true,
-                "unit": "mmHg/mL",
-                "color": "#E31A1D"
-            },
-            {
-                "displayName": "Septal wall",
-                "xVar": "Ef_Sv",
-                "yVar": "Sf_Sv",
-                "isVisible": true,
-                "unit": "mmHg/mL",
-                "color": "#000000"
-            },
-            {
-                "displayName": "Right ventricular free wall",
-                "xVar": "Ef_Rv",
-                "yVar": "Sf_Rv",
-                "isVisible": true,
-                "unit": "mmHg/mL",
-                "color": "#1F78B4"
-            }
-        ]
-    },
+	"SSGraph":
+	{
+		"title": "Stress-strain loops",
+		"xLabel": "Strain [-]",
+		"yLabel": "Stress [kPa]",
+		"Signals":
+		[
+			{
+				"displayName": "Left ventricular free wall",
+				"xVar": "Ef_Lv",
+				"yVar": "Sf_Lv",
+				"isVisible": true,
+				"unit": "mmHg/mL",
+				"color": "#E31A1D"
+			},
+			{
+				"displayName": "Septal wall",
+				"xVar": "Ef_Sv",
+				"yVar": "Sf_Sv",
+				"isVisible": true,
+				"unit": "mmHg/mL",
+				"color": "#000000"
+			},
+			{
+				"displayName": "Right ventricular free wall",
+				"xVar": "Ef_Rv",
+				"yVar": "Sf_Rv",
+				"isVisible": true,
+				"unit": "mmHg/mL",
+				"color": "#1F78B4"
+			}
+		]
+	},
 
-  "GraphGrid": {
-    "PRESSURE": [
-      {
-        "name": "pLa",
-        "displayName": "Left atrium",
-        "isVisible": false,
-        "unit": "mmHg",
-        "color": "#FB9A99",
-        "row": "PRESSURES"
-      },
-      {
-        "name": "pRa",
-        "displayName": "Right atrium",
-        "isVisible": false,
-        "unit": "mmHg",
-        "color": "#A6CEE3",
-        "column": "PRESSURES"
-      },
-      {
-        "name": "pLv",
-        "displayName": "Left ventricle",
-        "isVisible": true,
-        "unit": "mmHg",
-        "color": "#E31A1C",
-        "column": "PRESSURES"
-      },
-      {
-        "name": "pRv",
-        "displayName": "Right ventricle",
-        "isVisible": true,
-        "unit": "mmHg",
-        "color": "#1F78B4",
-        "column": "PRESSURES"
-      },
-      {
-        "name": "pAo",
-        "displayName": "Aorta",
-        "isVisible": true,
-        "unit": "mmHg",
-        "color": "#6A3D9A",
-        "column": "PRESSURES"
-      },
-      {
-        "name": "pPu",
-        "displayName": "Pulmonary artery",
-        "isVisible": true,
-        "unit": "mmHg",
-        "color": "#000000",
-        "column": "PRESSURES"
-      }
-    ],
-    "VOLUME": [
-      {
-        "name": "VLa",
-        "displayName": "Left atrium",
-        "isVisible": false,
-        "unit": "mL",
-        "color": "#FB9A99"
-      },
-      {
-        "name": "VRa",
-        "displayName": "Right atrium",
-        "isVisible": false,
-        "unit": "mL",
-        "color": "#A6CEE3"
-      },
-      {
-        "name": "VLv",
-        "displayName": "Left ventricle",
-        "isVisible": true,
-        "unit": "mL",
-        "color": "#E31A1C"
-      },
-      {
-        "name": "VRv",
-        "displayName": "Right ventricle",
-        "isVisible": true,
-        "unit": "mL",
-        "color": "#1F78B4"
-      }
-    ],
-    "FLOW": [
-      {
-        "name": "vLaLv",
-        "displayName": "Mitral valve",
-        "isVisible": true,
-        "unit": "cm/s",
-        "color": "#FB9A99"
-      },
-      {
-        "name": "vLvAo",
-        "displayName": "Aortic valve",
-        "isVisible": true,
-        "unit": "cm/s",
-        "color": "#E31A1C"
-      },
-      {
-        "name": "vRaRv",
-        "displayName": "Tricuspid valve",
-        "isVisible": false,
-        "unit": "cm/s",
-        "color": "#A6CEE3"
-      },
-      {
-        "name": "vRvPuArt",
-        "displayName": "Pulmonary valve",
-        "isVisible": false,
-        "unit": "cm/s",
-        "color": "#1F78B4"
-      },
-      {
-        "name": "vLaRa",
-        "displayName": "Atrial septal defect",
-        "isVisible": false,
-        "unit": "cm/s",
-        "color": "#C15E81"
-      },
-      {
-        "name": "vLvRv",
-        "displayName": "Ventricular septal defect",
-        "isVisible": false,
-        "unit": "cm/s",
-        "color": "#1F78B4"
-      }
-    ],
-    "SATURATION": [
-      {
-        "name": "satLa",
-        "displayName": "Left atrium",
-        "isVisible": false,
-        "unit": "[%]",
-        "color": "#FB9A99",
-        "row": "SATURATION"
-      },
-      {
-        "name": "satRa",
-        "displayName": "Right atrium",
-        "isVisible": false,
-        "unit": "[%]",
-        "color": "#A6CEE3",
-        "column": "SATURATION"
-      },
-      {
-        "name": "satLv",
-        "displayName": "Left ventricle",
-        "isVisible": true,
-        "unit": "[%]",
-        "color": "#E31A1C",
-        "column": "SATURATION"
-      },
-      {
-        "name": "satRv",
-        "displayName": "Right ventricle",
-        "isVisible": true,
-        "unit": "[%]",
-        "color": "#1F78B4",
-        "column": "SATURATION"
-      },
-      {
-        "name": "satSyArt",
-        "displayName": "Aorta",
-        "isVisible": true,
-        "unit": "[%]",
-        "color": "#6A3D9A",
-        "column": "SATURATION"
-      },
-      {
-        "name": "satPuArt",
-        "displayName": "Pulmonary artery",
-        "isVisible": true,
-        "unit": "[%]",
-        "color": "#000000",
-        "column": "SATURATION"
-      }
-    ],
-    "STRESS": [
-      {
-        "name": "Sf_Lv",
-        "displayName": "Left ventricular free wall",
-        "isVisible": true,
-        "unit": "kPa",
-        "color": "#E31A1C"
-      },
-      {
-        "name": "Sf_Sv",
-        "displayName": "Septal wall",
-        "unit": "kPa",
-        "color": "#000000"
-      },
-      {
-        "name": "Sf_Rv",
-        "displayName": "Right ventricular free wall",
-        "isVisible": true,
-        "unit": "kPa",
-        "color": "#1F78B4"
-      }
-    ],
-    "STRAIN": [
-      {
-        "name": "Ef_Lv",
-        "displayName": "Left ventricular free wall",
-        "isVisible": true,
-        "unit": "Pa",
-        "color": "#E31A1C"
-      },
-      {
-        "name": "Ef_Sv",
-        "displayName": "Septal wall",
-        "isVisible": true,
-        "unit": "Pa",
-        "color": "#000000"
-      },
-      {
-        "name": "Ef_Rv",
-        "displayName": "Right ventricular free wall",
-        "isVisible": true,
-        "unit": "Pa",
-        "color": "#1F78B4"
-      }
-    ]
-  },
-    "ValueView":
-    [
-        {
-            "name": "CO",
-            "unit": "L/min"
-        },
-        {
-            "name": "Qs",
-            "unit": "L/min"
-        },
-        {
-            "name": "Qp",
-            "unit": "L/min"
-        },
-        {
-            "name": "Qp/Qs",
-            "unit": "-"
-        },
-        {
-            "name": "mLAP",
-            "unit": "mmHg"
-        },
-        {
-            "name": "SBP",
-            "unit": "mmHg"
-        },
-        {
-            "name": "DBP",
-            "unit": "mmHg"
-        },
-        {
-            "name": "MAP",
-            "unit": "mmHg"
-        },
-        {
-            "name": "mPAP",
-            "unit": "mmHg"
-        },
-        {
-            "name": "PVR",
-            "unit": "WU"
-        },
-        {
-            "name": "PVP",
-            "unit": "mmHg"
-        }
-    ],
-    "ModelParameters":
-    {
-        "Systemic":
-        {
-            "Homeostatic control":
-            [
-                {
-                    "name": "Heart rate",
-                    "key": "Heart rate",
-                    "min": 30,
-                    "max": 220,
-                    "default": 70,
-                    "stepsize": 5,
-                    "tooltip": "Beats per minute",
-                    "unit": "BPM",
-                    "enabled": true,
-                    "type": "double"
-                },
-                {
-                    "name": "AV delay",
-                    "key": "AV delay",
-                    "min": 30,
-                    "max": 220,
-                    "default": 155,
-                    "stepsize": 5,
-                    "tooltip": "ms",
-                    "unit": "ms",
-                    "enabled": false,
-                    "type": "double"
-                },
-                {
-                    "name": "AV delay offset",
-                    "key": "AV delay offset",
-                    "min": -150,
-                    "max": 150,
-                    "default": 0.0,
-                    "stepsize": 10,
-                    "tooltip": "ms",
-                    "unit": "ms",
-                    "enabled": false,
-                    "type": "double"
-                },
-                {
-                    "name": "Mean arterial pressure",
-                    "key": "Mean arterial pressure",
-                    "min": 40,
-                    "max": 150,
-                    "default": 91,
-                    "tooltip": "mmHg",
-                    "unit": "mmHg",
-                    "stepsize": 5,
-                    "enabled": true,
-                    "type": "double"
-                },
-                {
-                    "name": "Venous return",
-                    "key": "Venous return",
-                    "min": 2,
-                    "max": 10,
-                    "default": 5.1,
-                    "tooltip": "L/min",
-                    "unit": "L/min",
-                    "stepsize": 0.1,
-                    "enabled": true,
-                    "type": "double"
-                },
-                {
-                    "name": "Homeostatic pressure-flow control",
-                    "key": "Homeostatic pressure-flow control",
-                    "default": true,
-                    "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
-                    "type": "bool"
-                },
-                {
-                    "name": "Hemoglobin concentration",
-                    "key": "Hemoglobin concentration",
-                    "min": 5,
-                    "max": 25,
-                    "default": 15,
-                    "tooltip": "g/L",
-                    "unit": "g/L",
-                    "stepsize": 1,
-                    "enabled": true,
-                    "type": "double"
-                }
-            ]
-        },
-        "Torso":
-            {
-                "Systemic circulation":
-                    [
-                        {
-                            "name": "Arterial stiffness coefficient",
-                            "key": "Systemic arterial stiffness coefficient",
-                            "min": 75,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Venous stiffness coefficient",
-                            "key": "Systemic venous stiffness coefficient",
-                            "min": 75,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Pulmonary circulation":
-                    [
-                        {
-                            "name": "Arterial stiffness coefficient",
-                            "key": "Pulmonary arterial stiffness coefficient",
-                            "min": 75,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Venous stiffness coefficient",
-                            "key": "Pulmonary venous stiffness coefficient",
-                            "min": 75,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Arteriovenous pressure drop",
-                            "key": "Pulmonary arteriovenous pressure drop",
-                            "min": 5,
-                            "max": 100,
-                            "default": 9,
-                            "tooltip": "mmHg",
-                            "unit": "mmHg",
-                            "stepsize": 1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ]
-            },
-        "Heart":
-            {
-                "Tricuspid valve":
-                    [
-                        {
-                            "name": "Effective orifice area",
-                            "key": "Tricuspid effective orifice area",
-                            "min": 0.1,
-                            "max": 8,
-                            "default": 7.5,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Effective regurgitant orifice area",
-                            "key": "Tricuspid effective regurgitant orifice area",
-                            "min": 1e-9,
-                            "max": 2.0,
-                            "default": 1e-9,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Pulmonary valve":
-                    [
-                        {
-                            "name": "Effective orifice area",
-                            "key": "Pulmonary effective orifice area",
-                            "min": 0.1,
-                            "max": 6.0,
-                            "default": 5.0,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Effective regurgitant orifice area",
-                            "key": "Pulmonary effective regurgitant orifice area",
-                            "min": 1e-9,
-                            "max": 2.0,
-                            "default": 1e-9,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Mitral valve":
-                    [
-                        {
-                            "name": "Effective orifice area",
-                            "key": "Mitral effective orifice area",
-                            "min": 0.1,
-                            "max": 8.0,
-                            "default": 7.5,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Effective regurgitant orifice area",
-                            "key": "Mitral effective regurgitant orifice area",
-                            "min": 1e-9,
-                            "max": 2.0,
-                            "default": 1e-9,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Aortic valve":
-                    [
-                        {
-                            "name": "Effective orifice area",
-                            "key": "Aortic effective orifice area",
-                            "min": 0.1,
-                            "max": 6.0,
-                            "default": 5.0,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Effective regurgitant orifice area",
-                            "key": "Aortic effective regurgitant orifice area",
-                            "min": 1e-9,
-                            "max": 1.2,
-                            "default": 1e-9,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Pericardial sac":
-                [
-                    {
-                            "name": "Pericardial stiffness exponent",
-                            "key": "Pericardial stiffness exponent",
-                            "min": 1.0,
-                            "max": 35,
-                            "default": 10.0,
-                            "tooltip": "-",
-                            "unit": "-",
-                            "stepsize": 1,
-                            "enabled": true,
-                            "type": "double"
-                    },
-                    {
-                            "name": "Dilatation",
-                            "key": "Pericardial dilatation",
-                            "min": 50,
-                            "max": 500,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                    }
-                ],
-                "Atrial septal defect":
-                    [
-                        {
-                            "name": "Diameter",
-                            "key": "Atrial septal defect",
-                            "min": 1e-9,
-                            "max": 10,
-                            "default": 1e-9,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Ventricular septal defect":
-                    [
-                        {
-                            "name": "Diameter",
-                            "key": "Ventricular septal defect",
-                            "min": 1e-9,
-                            "max": 10,
-                            "default": 1e-9,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 0.1,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ]
-            },
-        "Tissue":
-            {
-                "Right atrial wall":
-                    [
-                        {
-                            "name": "Contractility",
-                            "key": "Right atrial wall contractility",
-                            "min": 1,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Passive stiffness",
-                            "key": "Right atrial wall passive stiffness",
-                            "min": 20,
-                            "max": 4000,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mass",
-                            "key": "Right atrial wall mass",
-                            "min": 50,
-                            "max": 200,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Dilatation",
-                            "key": "Right atrial wall dilatation",
-                            "min": 100,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mechanical activation delay",
-                            "key": "Right atrial wall mechanical activation delay",
-                            "min": -50,
-                            "max": 250,
-                            "default": 0,
-                            "tooltip": "ms",
-                            "unit": "ms",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Relaxation rate",
-                            "key": "Right atrial wall relaxation rate",
-                            "min": 40,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Left atrial wall":
-                    [
-                        {
-                            "name": "Contractility",
-                            "key": "Left atrial wall contractility",
-                            "min": 1,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Passive stiffness",
-                            "key": "Left atrial wall passive stiffness",
-                            "min": 20,
-                            "max": 4000,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mass",
-                            "key": "Left atrial wall mass",
-                            "min": 50,
-                            "max": 200,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Dilatation",
-                            "key": "Left atrial wall dilatation",
-                            "min": 100,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mechanical activation delay",
-                            "key": "Left atrial wall mechanical activation delay",
-                            "min": -50,
-                            "max": 250,
-                            "default": 0,
-                            "tooltip": "ms",
-                            "unit": "ms",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Relaxation rate",
-                            "key": "Left atrial wall relaxation rate",
-                            "min": 40,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Right ventricular wall":
-                    [
-                        {
-                            "name": "Contractility",
-                            "key": "Right ventricular wall contractility",
-                            "min": 1,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Passive stiffness",
-                            "key": "Right ventricular wall passive stiffness",
-                            "min": 20,
-                            "max": 4000,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mass",
-                            "key": "Right ventricular wall mass",
-                            "min": 50,
-                            "max": 200,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Dilatation",
-                            "key": "Right ventricular wall dilatation",
-                            "min": 100,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mechanical activation delay",
-                            "key": "Right ventricular wall mechanical activation delay",
-                            "min": -50,
-                            "max": 250,
-                            "default": 0,
-                            "tooltip": "ms",
-                            "unit": "ms",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Relaxation rate",
-                            "key": "Right ventricular wall relaxation rate",
-                            "min": 40,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-                "Septal wall":
-                    [
-                        {
-                            "name": "Contractility",
-                            "key": "Septal wall relaxation rate",
-                            "min": 1,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Passive stiffness",
-                            "key": "Septal wall passive stiffness",
-                            "min": 20,
-                            "max": 4000,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mass",
-                            "key": "Septal wall mass",
-                            "min": 50,
-                            "max": 200,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Dilatation",
-                            "key": "Septal wall dilatation",
-                            "min": 100,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mechanical activation delay",
-                            "key": "Septal wall mechanical activation delay",
-                            "min": -50,
-                            "max": 250,
-                            "default": 0,
-                            "tooltip": "ms",
-                            "unit": "ms",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Relaxation rate",
-                            "key": "Septal wall relaxation rate",
-                            "min": 40,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ],
-              "Left ventricular wall": [
-                {
-                  "name": "Contractility",
-                  "key": "Left ventricular wall contractility",
-                  "min": 1,
-                  "max": 250,
-                  "default": 100,
-                  "tooltip": "%",
-                  "unit": "%",
-                  "stepsize": 10,
-                  "enabled": true,
-                  "type": "double"
-                },
-                {
-                  "name": "Passive stiffness",
-                  "key": "Left ventricular wall passive stiffness",
-                  "min": 20,
-                  "max": 4000,
-                  "default": 100,
-                  "tooltip": "%",
-                  "unit": "%",
-                  "stepsize": 10,
-                  "enabled": true,
-                  "type": "double"
-                },
-                {
-                  "name": "Mass",
-                  "key": "Left ventricular wall mass",
-                  "min": 50,
-                  "max": 200,
-                  "default": 100,
-                  "tooltip": "%",
-                  "unit": "%",
-                  "stepsize": 10,
-                  "enabled": true,
-                  "type": "double"
-                },
-                {
-                  "name": "Dilatation",
-                  "key": "Left ventricular wall dilatation",
-                  "min": 100,
-                  "max": 300,
-                  "default": 100,
-                  "tooltip": "%",
-                  "unit": "%",
-                  "stepsize": 5,
-                  "enabled": true,
-                  "type": "double"
-                },
-                {
-                  "name": "Mechanical activation delay",
-                  "key": "Left ventricular wall mechanical activation delay",
-                  "min": -50,
-                  "max": 250,
-                  "default": 0,
-                  "tooltip": "ms",
-                  "unit": "ms",
-                  "stepsize": 10,
-                  "enabled": true,
-                  "type": "double"
-                },
-                {
-                  "name": "Relaxation rate",
-                  "key": "Left ventricular wall relaxation rate",
-                  "min": 40,
-                  "max": 250,
-                  "default": 100,
-                  "tooltip": "%",
-                  "unit": "%",
-                  "stepsize": 10,
-                  "enabled": true,
-                  "type": "double"
-                }
-              ],
-              "Lv.pLv0":
-                    [
-                        {
-                            "name": "Contractility",
-                            "key": "Left ventricular wall contractility",
-                            "min": 1,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Passive stiffness",
-                            "key": "Left ventricular wall passive stiffness",
-                            "min": 20,
-                            "max": 4000,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mass",
-                            "key": "Left ventricular wall mass",
-                            "min": 50,
-                            "max": 200,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Dilatation",
-                            "key": "Left ventricular wall dilatation",
-                            "min": 100,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mechanical activation delay",
-                            "key": "Left ventricular wall mechanical activation delay",
-                            "min": -50,
-                            "max": 250,
-                            "default": 0,
-                            "tooltip": "ms",
-                            "unit": "ms",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Relaxation rate",
-                            "key": "Left ventricular wall relaxation rate",
-                            "min": 40,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ]
-        }
-    }
+	"GraphGrid": {
+		"PRESSURE": [
+			{
+				"name": "pLa",
+				"displayName": "Left atrium",
+				"isVisible": false,
+				"unit": "mmHg",
+				"color": "#FB9A99",
+				"row": "PRESSURES"
+			},
+			{
+				"name": "pRa",
+				"displayName": "Right atrium",
+				"isVisible": false,
+				"unit": "mmHg",
+				"color": "#A6CEE3",
+				"column": "PRESSURES"
+			},
+			{
+				"name": "pLv",
+				"displayName": "Left ventricle",
+				"isVisible": true,
+				"unit": "mmHg",
+				"color": "#E31A1C",
+				"column": "PRESSURES"
+			},
+			{
+				"name": "pRv",
+				"displayName": "Right ventricle",
+				"isVisible": true,
+				"unit": "mmHg",
+				"color": "#1F78B4",
+				"column": "PRESSURES"
+			},
+			{
+				"name": "pAo",
+				"displayName": "Aorta",
+				"isVisible": true,
+				"unit": "mmHg",
+				"color": "#6A3D9A",
+				"column": "PRESSURES"
+			},
+			{
+				"name": "pPu",
+				"displayName": "Pulmonary artery",
+				"isVisible": true,
+				"unit": "mmHg",
+				"color": "#000000",
+				"column": "PRESSURES"
+			}
+		],
+		"VOLUME": [
+			{
+				"name": "VLa",
+				"displayName": "Left atrium",
+				"isVisible": false,
+				"unit": "mL",
+				"color": "#FB9A99"
+			},
+			{
+				"name": "VRa",
+				"displayName": "Right atrium",
+				"isVisible": false,
+				"unit": "mL",
+				"color": "#A6CEE3"
+			},
+			{
+				"name": "VLv",
+				"displayName": "Left ventricle",
+				"isVisible": true,
+				"unit": "mL",
+				"color": "#E31A1C"
+			},
+			{
+				"name": "VRv",
+				"displayName": "Right ventricle",
+				"isVisible": true,
+				"unit": "mL",
+				"color": "#1F78B4"
+			}
+		],
+		"FLOW": [
+			{
+				"name": "vLaLv",
+				"displayName": "Mitral valve",
+				"isVisible": true,
+				"unit": "cm/s",
+				"color": "#FB9A99"
+			},
+			{
+				"name": "vLvAo",
+				"displayName": "Aortic valve",
+				"isVisible": true,
+				"unit": "cm/s",
+				"color": "#E31A1C"
+			},
+			{
+				"name": "vRaRv",
+				"displayName": "Tricuspid valve",
+				"isVisible": false,
+				"unit": "cm/s",
+				"color": "#A6CEE3"
+			},
+			{
+				"name": "vRvPuArt",
+				"displayName": "Pulmonary valve",
+				"isVisible": false,
+				"unit": "cm/s",
+				"color": "#1F78B4"
+			},
+			{
+				"name": "vLaRa",
+				"displayName": "Atrial septal defect",
+				"isVisible": false,
+				"unit": "cm/s",
+				"color": "#C15E81"
+			},
+			{
+				"name": "vLvRv",
+				"displayName": "Ventricular septal defect",
+				"isVisible": false,
+				"unit": "cm/s",
+				"color": "#1F78B4"
+			}
+		],
+		"SATURATION": [
+			{
+				"name": "satLa",
+				"displayName": "Left atrium",
+				"isVisible": false,
+				"unit": "[%]",
+				"color": "#FB9A99",
+				"row": "SATURATION"
+			},
+			{
+				"name": "satRa",
+				"displayName": "Right atrium",
+				"isVisible": false,
+				"unit": "[%]",
+				"color": "#A6CEE3",
+				"column": "SATURATION"
+			},
+			{
+				"name": "satLv",
+				"displayName": "Left ventricle",
+				"isVisible": true,
+				"unit": "[%]",
+				"color": "#E31A1C",
+				"column": "SATURATION"
+			},
+			{
+				"name": "satRv",
+				"displayName": "Right ventricle",
+				"isVisible": true,
+				"unit": "[%]",
+				"color": "#1F78B4",
+				"column": "SATURATION"
+			},
+			{
+				"name": "satSyArt",
+				"displayName": "Aorta",
+				"isVisible": true,
+				"unit": "[%]",
+				"color": "#6A3D9A",
+				"column": "SATURATION"
+			},
+			{
+				"name": "satPuArt",
+				"displayName": "Pulmonary artery",
+				"isVisible": true,
+				"unit": "[%]",
+				"color": "#000000",
+				"column": "SATURATION"
+			}
+		],
+		"STRESS": [
+			{
+				"name": "Sf_Lv",
+				"displayName": "Left ventricular free wall",
+				"isVisible": true,
+				"unit": "kPa",
+				"color": "#E31A1C"
+			},
+			{
+				"name": "Sf_Sv",
+				"displayName": "Septal wall",
+				"unit": "kPa",
+				"color": "#000000"
+			},
+			{
+				"name": "Sf_Rv",
+				"displayName": "Right ventricular free wall",
+				"isVisible": true,
+				"unit": "kPa",
+				"color": "#1F78B4"
+			}
+		],
+		"STRAIN": [
+			{
+				"name": "Ef_Lv",
+				"displayName": "Left ventricular free wall",
+				"isVisible": true,
+				"unit": "Pa",
+				"color": "#E31A1C"
+			},
+			{
+				"name": "Ef_Sv",
+				"displayName": "Septal wall",
+				"isVisible": true,
+				"unit": "Pa",
+				"color": "#000000"
+			},
+			{
+				"name": "Ef_Rv",
+				"displayName": "Right ventricular free wall",
+				"isVisible": true,
+				"unit": "Pa",
+				"color": "#1F78B4"
+			}
+		]
+	},
+	"ValueView":
+	[
+		{
+			"name": "CO",
+			"unit": "L/min"
+		},
+		{
+			"name": "Qs",
+			"unit": "L/min"
+		},
+		{
+			"name": "Qp",
+			"unit": "L/min"
+		},
+		{
+			"name": "Qp/Qs",
+			"unit": "-"
+		},
+		{
+			"name": "mLAP",
+			"unit": "mmHg"
+		},
+		{
+			"name": "SBP",
+			"unit": "mmHg"
+		},
+		{
+			"name": "DBP",
+			"unit": "mmHg"
+		},
+		{
+			"name": "MAP",
+			"unit": "mmHg"
+		},
+		{
+			"name": "mPAP",
+			"unit": "mmHg"
+		},
+		{
+			"name": "PVR",
+			"unit": "WU"
+		},
+		{
+			"name": "PVP",
+			"unit": "mmHg"
+		}
+	],
+	"ModelParameters":
+	{
+		"Systemic":
+		{
+			"Homeostatic control":
+			[
+				{
+					"name": "Heart rate",
+					"key": "Heart rate",
+					"min": 30,
+					"max": 220,
+					"default": 70,
+					"stepsize": 5,
+					"tooltip": "Beats per minute",
+					"unit": "BPM",
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "AV delay",
+					"key": "AV delay",
+					"min": 30,
+					"max": 220,
+					"default": 155,
+					"stepsize": 5,
+					"tooltip": "ms",
+					"unit": "ms",
+					"enabled": false,
+					"type": "double"
+				},
+				{
+					"name": "AV delay offset",
+					"key": "AV delay offset",
+					"min": -150,
+					"max": 150,
+					"default": 0.0,
+					"stepsize": 10,
+					"tooltip": "ms",
+					"unit": "ms",
+					"enabled": false,
+					"type": "double"
+				},
+				{
+					"name": "Mean arterial pressure",
+					"key": "Mean arterial pressure",
+					"min": 40,
+					"max": 150,
+					"default": 91,
+					"tooltip": "mmHg",
+					"unit": "mmHg",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Venous return",
+					"key": "Venous return",
+					"min": 2,
+					"max": 10,
+					"default": 5.1,
+					"tooltip": "L/min",
+					"unit": "L/min",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Homeostatic pressure-flow control",
+					"key": "Homeostatic pressure-flow control",
+					"default": true,
+					"tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
+					"type": "bool"
+				},
+				{
+					"name": "Hemoglobin concentration",
+					"key": "Hemoglobin concentration",
+					"min": 5,
+					"max": 25,
+					"default": 15,
+					"tooltip": "g/L",
+					"unit": "g/L",
+					"stepsize": 1,
+					"enabled": true,
+					"type": "double"
+				}
+			]
+		},
+		"Torso":
+		{
+			"Systemic circulation":
+			[
+				{
+					"name": "Arterial stiffness coefficient",
+					"key": "Systemic arterial stiffness coefficient",
+					"min": 75,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Venous stiffness coefficient",
+					"key": "Systemic venous stiffness coefficient",
+					"min": 75,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Pulmonary circulation":
+			[
+				{
+					"name": "Arterial stiffness coefficient",
+					"key": "Pulmonary arterial stiffness coefficient",
+					"min": 75,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Venous stiffness coefficient",
+					"key": "Pulmonary venous stiffness coefficient",
+					"min": 75,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Arteriovenous pressure drop",
+					"key": "Pulmonary arteriovenous pressure drop",
+					"min": 5,
+					"max": 100,
+					"default": 9,
+					"tooltip": "mmHg",
+					"unit": "mmHg",
+					"stepsize": 1,
+					"enabled": true,
+					"type": "double"
+				}
+			]
+		},
+		"Heart":
+		{
+			"Tricuspid valve":
+			[
+				{
+					"name": "Effective orifice area",
+					"key": "Tricuspid effective orifice area",
+					"min": 0.1,
+					"max": 8,
+					"default": 7.5,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Effective regurgitant orifice area",
+					"key": "Tricuspid effective regurgitant orifice area",
+					"min": 1e-9,
+					"max": 2.0,
+					"default": 1e-9,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Pulmonary valve":
+			[
+				{
+					"name": "Effective orifice area",
+					"key": "Pulmonary effective orifice area",
+					"min": 0.1,
+					"max": 6.0,
+					"default": 5.0,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Effective regurgitant orifice area",
+					"key": "Pulmonary effective regurgitant orifice area",
+					"min": 1e-9,
+					"max": 2.0,
+					"default": 1e-9,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Mitral valve":
+			[
+				{
+					"name": "Effective orifice area",
+					"key": "Mitral effective orifice area",
+					"min": 0.1,
+					"max": 8.0,
+					"default": 7.5,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Effective regurgitant orifice area",
+					"key": "Mitral effective regurgitant orifice area",
+					"min": 1e-9,
+					"max": 2.0,
+					"default": 1e-9,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Aortic valve":
+			[
+				{
+					"name": "Effective orifice area",
+					"key": "Aortic effective orifice area",
+					"min": 0.1,
+					"max": 6.0,
+					"default": 5.0,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Effective regurgitant orifice area",
+					"key": "Aortic effective regurgitant orifice area",
+					"min": 1e-9,
+					"max": 1.2,
+					"default": 1e-9,
+					"tooltip": "cm^2",
+					"unit": "cm^2",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Pericardial sac":
+			[
+				{
+					"name": "Pericardial stiffness exponent",
+					"key": "Pericardial stiffness exponent",
+					"min": 1.0,
+					"max": 35,
+					"default": 10.0,
+					"tooltip": "-",
+					"unit": "-",
+					"stepsize": 1,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Pericardial dilatation",
+					"min": 50,
+					"max": 500,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Atrial septal defect":
+			[
+				{
+					"name": "Diameter",
+					"key": "Atrial septal defect",
+					"min": 1e-9,
+					"max": 10,
+					"default": 1e-9,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Ventricular septal defect":
+			[
+				{
+					"name": "Diameter",
+					"key": "Ventricular septal defect",
+					"min": 1e-9,
+					"max": 10,
+					"default": 1e-9,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 0.1,
+					"enabled": true,
+					"type": "double"
+				}
+			]
+		},
+		"Tissue":
+		{
+			"Right atrial wall":
+			[
+				{
+					"name": "Contractility",
+					"key": "Right atrial wall contractility",
+					"min": 1,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Passive stiffness",
+					"key": "Right atrial wall passive stiffness",
+					"min": 20,
+					"max": 4000,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mass",
+					"key": "Right atrial wall mass",
+					"min": 50,
+					"max": 200,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Right atrial wall dilatation",
+					"min": 100,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mechanical activation delay",
+					"key": "Right atrial wall mechanical activation delay",
+					"min": -50,
+					"max": 250,
+					"default": 0,
+					"tooltip": "ms",
+					"unit": "ms",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Relaxation rate",
+					"key": "Right atrial wall relaxation rate",
+					"min": 40,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Left atrial wall":
+			[
+				{
+					"name": "Contractility",
+					"key": "Left atrial wall contractility",
+					"min": 1,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Passive stiffness",
+					"key": "Left atrial wall passive stiffness",
+					"min": 20,
+					"max": 4000,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mass",
+					"key": "Left atrial wall mass",
+					"min": 50,
+					"max": 200,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Left atrial wall dilatation",
+					"min": 100,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mechanical activation delay",
+					"key": "Left atrial wall mechanical activation delay",
+					"min": -50,
+					"max": 250,
+					"default": 0,
+					"tooltip": "ms",
+					"unit": "ms",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Relaxation rate",
+					"key": "Left atrial wall relaxation rate",
+					"min": 40,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Right ventricular wall":
+			[
+				{
+					"name": "Contractility",
+					"key": "Right ventricular wall contractility",
+					"min": 1,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Passive stiffness",
+					"key": "Right ventricular wall passive stiffness",
+					"min": 20,
+					"max": 4000,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mass",
+					"key": "Right ventricular wall mass",
+					"min": 50,
+					"max": 200,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Right ventricular wall dilatation",
+					"min": 100,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mechanical activation delay",
+					"key": "Right ventricular wall mechanical activation delay",
+					"min": -50,
+					"max": 250,
+					"default": 0,
+					"tooltip": "ms",
+					"unit": "ms",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Relaxation rate",
+					"key": "Right ventricular wall relaxation rate",
+					"min": 40,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Septal wall":
+			[
+				{
+					"name": "Contractility",
+					"key": "Septal wall relaxation rate",
+					"min": 1,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Passive stiffness",
+					"key": "Septal wall passive stiffness",
+					"min": 20,
+					"max": 4000,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mass",
+					"key": "Septal wall mass",
+					"min": 50,
+					"max": 200,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Septal wall dilatation",
+					"min": 100,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mechanical activation delay",
+					"key": "Septal wall mechanical activation delay",
+					"min": -50,
+					"max": 250,
+					"default": 0,
+					"tooltip": "ms",
+					"unit": "ms",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Relaxation rate",
+					"key": "Septal wall relaxation rate",
+					"min": 40,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Left ventricular wall": [
+				{
+					"name": "Contractility",
+					"key": "Left ventricular wall contractility",
+					"min": 1,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Passive stiffness",
+					"key": "Left ventricular wall passive stiffness",
+					"min": 20,
+					"max": 4000,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mass",
+					"key": "Left ventricular wall mass",
+					"min": 50,
+					"max": 200,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Left ventricular wall dilatation",
+					"min": 100,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mechanical activation delay",
+					"key": "Left ventricular wall mechanical activation delay",
+					"min": -50,
+					"max": 250,
+					"default": 0,
+					"tooltip": "ms",
+					"unit": "ms",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Relaxation rate",
+					"key": "Left ventricular wall relaxation rate",
+					"min": 40,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				}
+			],
+			"Lv.pLv0":
+			[
+				{
+					"name": "Contractility",
+					"key": "Left ventricular wall contractility",
+					"min": 1,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Passive stiffness",
+					"key": "Left ventricular wall passive stiffness",
+					"min": 20,
+					"max": 4000,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mass",
+					"key": "Left ventricular wall mass",
+					"min": 50,
+					"max": 200,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Dilatation",
+					"key": "Left ventricular wall dilatation",
+					"min": 100,
+					"max": 300,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 5,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Mechanical activation delay",
+					"key": "Left ventricular wall mechanical activation delay",
+					"min": -50,
+					"max": 250,
+					"default": 0,
+					"tooltip": "ms",
+					"unit": "ms",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				},
+				{
+					"name": "Relaxation rate",
+					"key": "Left ventricular wall relaxation rate",
+					"min": 40,
+					"max": 250,
+					"default": 100,
+					"tooltip": "%",
+					"unit": "%",
+					"stepsize": 10,
+					"enabled": true,
+					"type": "double"
+				}
+			]
+		}
+	}
 }

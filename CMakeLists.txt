@@ -108,6 +108,9 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/Graphs/mmode.h CircAdaptUI/Graphs/mmode.cpp
     CircAdaptUI/SVGviews/DrawingElements/textcircle.h CircAdaptUI/SVGviews/DrawingElements/textcircle.cpp
     CircAdaptUI/SVGviews/DrawingElements/leftventricle2.h CircAdaptUI/SVGviews/DrawingElements/leftventricle2.cpp
+    CircAdaptUI/SVGviews/DrawingElements/rightventricle2.h CircAdaptUI/SVGviews/DrawingElements/rightventricle2.cpp
+    CircAdaptUI/SVGviews/DrawingElements/septum2.h CircAdaptUI/SVGviews/DrawingElements/septum2.cpp
+
 
 )
 
