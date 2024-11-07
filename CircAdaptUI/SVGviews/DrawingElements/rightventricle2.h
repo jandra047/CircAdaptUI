@@ -1,12 +1,12 @@
-#ifndef LEFTVENTRICLE2_H
-#define LEFTVENTRICLE2_H
+#ifndef RIGHTVENTRICLE2_H
+#define RIGHTVENTRICLE2_H
 
 #include "CircAdaptUI/SVGviews/drawingelementgroup.h"
 
-class LeftVentricle2 : public DrawingElementGroup
+class RightVentricle2 : public DrawingElementGroup
 {
 public:
-    LeftVentricle2(SVGObjectBase* parent);
+    RightVentricle2(SVGObjectBase* parent);
     void setSelected(bool isSelected);
     bool m_isSelected = false;
     const QString name()  { return m_name; }
@@ -15,8 +15,8 @@ public:
 
 private:
     SVGObjectBase* m_SVGObject;
-    QString m_name = "Left ventricular wall";
+    QString m_name = "Right ventricular wall";
 
 };
 
-#endif // LEFTVENTRICLE2_H
+#endif // RIGHTVENTRICLE2_H
