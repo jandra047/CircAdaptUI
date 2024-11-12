@@ -36,7 +36,7 @@ message(CHECK_START "Fetching QtPropertyBrowser")
 FetchContent_Declare(
   QtPropertyBrowser
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:P70074313/qtpropertybrowser.git
-  GIT_TAG 5f57e3b1f47515fedacabeb7a0da0433e29cf597
+  GIT_TAG 21c268d3132e8b4d6135ba971cb2193caaa8964b
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(QtPropertyBrowser)
