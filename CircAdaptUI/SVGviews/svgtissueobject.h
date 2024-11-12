@@ -4,9 +4,9 @@
 #include "svgobjectbase.h"
 #include "DrawingElements/rightatrium.h"
 #include "DrawingElements/leftatrium.h"
-#include "DrawingElements/rightventricle2.h"
-#include "DrawingElements/septum2.h"
-#include "DrawingElements/leftventricle2.h"
+#include "DrawingElements/rightventricle.h"
+#include "DrawingElements/septum.h"
+#include "DrawingElements/leftventricle.h"
 #include "drawingelementgroup.h"
 
 class SVGTissueObject : public SVGObjectBase
@@ -28,9 +28,9 @@ public:
     void createCovers();
     RightAtrium* rightAtrium;
     LeftAtrium* leftAtrium;
-    RightVentricle2* rightVentricle;
-    Septum2* septum;
-    LeftVentricle2* leftVentricle;
+    RightVentricle* rightVentricle;
+    Septum* septum;
+    LeftVentricle* leftVentricle;
     QGraphicsRectItem* m_CoverElement;
     void showView(const ViewType& viewType);
     void createProperties();

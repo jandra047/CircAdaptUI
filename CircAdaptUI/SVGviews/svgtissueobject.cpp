@@ -5,9 +5,9 @@ SVGTissueObject::SVGTissueObject(PropertyBrowserBase* propertyBrowser, QGraphics
     SVGObjectBase(":/CircAdapt/svgs/Heart_segments.svg", propertyBrowser, "", parent),
     rightAtrium(new RightAtrium(this)),
     leftAtrium(new LeftAtrium(this)),
-    rightVentricle(new RightVentricle2(this)),
-    septum(new Septum2(this)),
-    leftVentricle(new LeftVentricle2(this))
+    rightVentricle(new RightVentricle(this)),
+    septum(new Septum(this)),
+    leftVentricle(new LeftVentricle(this))
 {
     subMenuContainer->addButton("Right atrium");
     subMenuContainer->addButton("Left atrium");
@@ -68,14 +68,13 @@ void SVGTissueObject::createProperties()
 {
     QJsonObject object = Settings::instance().ModelParameters()["Tissue"].toObject();
     QJsonObject newObject;
-    qDebug() << object.keys();
     for (auto key : object.keys())
     {
         newObject.insert(key, object[key]);
 
         if (key == "Left ventricular wall")
         {
-            QList<QString> patchNames = LeftVentricle2::namePath.keys();
+            QList<QString> patchNames = LeftVentricle::namePath.keys();
             for (int i = 0; i < 11; ++i)
             {
                 QJsonArray modifiedArray;
@@ -93,7 +92,7 @@ void SVGTissueObject::createProperties()
         }
         if (key == "Septal wall")
         {
-            QList<QString> patchNames = Septum2::namePath.keys();
+            QList<QString> patchNames = Septum::namePath.keys();
             for (int i = 0; i < 5; ++i)
             {
                 QJsonArray modifiedArray;
@@ -111,7 +110,7 @@ void SVGTissueObject::createProperties()
         if (key == "Right ventricular wall")
         {
 
-            QList<QString> patchNames = RightVentricle2::namePath.keys();
+            QList<QString> patchNames = RightVentricle::namePath.keys();
             for (int i = 0; i < 7; ++i)
             {
                 QJsonArray modifiedArray;
