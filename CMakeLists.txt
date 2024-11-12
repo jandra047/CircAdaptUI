@@ -98,15 +98,18 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/SVGviews/DrawingElements/shuntelement.h CircAdaptUI/SVGviews/DrawingElements/shuntelement.cpp
     CircAdaptUI/SVGviews/DrawingElements/rightatrium.h CircAdaptUI/SVGviews/DrawingElements/rightatrium.cpp
     CircAdaptUI/SVGviews/DrawingElements/leftatrium.h CircAdaptUI/SVGviews/DrawingElements/leftatrium.cpp
-    CircAdaptUI/SVGviews/DrawingElements/rightventricle.h CircAdaptUI/SVGviews/DrawingElements/rightventricle.cpp
-    CircAdaptUI/SVGviews/DrawingElements/septum.h CircAdaptUI/SVGviews/DrawingElements/septum.cpp
-    CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
+
+
+
     CircAdaptUI/loopmarker.h CircAdaptUI/loopmarker.cpp
     CircAdaptUI/SVGviews/drawingelementgroup.h CircAdaptUI/SVGviews/drawingelementgroup.cpp
     CircAdaptUI/PropertyBrowser/custompropertymanager.h CircAdaptUI/PropertyBrowser/custompropertymanager.cpp
     CircAdaptUI/PropertyBrowser/resetbutton.h CircAdaptUI/PropertyBrowser/resetbutton.cpp
     CircAdaptUI/Graphs/mmode.h CircAdaptUI/Graphs/mmode.cpp
     CircAdaptUI/SVGviews/DrawingElements/textcircle.h CircAdaptUI/SVGviews/DrawingElements/textcircle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/rightventricle.h CircAdaptUI/SVGviews/DrawingElements/rightventricle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/septum.h CircAdaptUI/SVGviews/DrawingElements/septum.cpp
 )
 
 qt_add_resources(CircAdaptUI

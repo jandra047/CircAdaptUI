@@ -19,6 +19,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     labelFont.setBold(true);
     labelFont.setPointSize(12);
 
+    setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
     setPlottingHint(QCP::phCacheLabels, false);
     currentLayer()->setMode(QCPLayer::lmBuffered);
     setInteraction(QCP::iRangeDrag);
