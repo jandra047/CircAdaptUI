@@ -107,9 +107,9 @@ qt_add_executable(CircAdaptUI WIN32 MACOSX_BUNDLE
     CircAdaptUI/PropertyBrowser/resetbutton.h CircAdaptUI/PropertyBrowser/resetbutton.cpp
     CircAdaptUI/Graphs/mmode.h CircAdaptUI/Graphs/mmode.cpp
     CircAdaptUI/SVGviews/DrawingElements/textcircle.h CircAdaptUI/SVGviews/DrawingElements/textcircle.cpp
-    CircAdaptUI/SVGviews/DrawingElements/leftventricle2.h CircAdaptUI/SVGviews/DrawingElements/leftventricle2.cpp
-    CircAdaptUI/SVGviews/DrawingElements/rightventricle2.h CircAdaptUI/SVGviews/DrawingElements/rightventricle2.cpp
-    CircAdaptUI/SVGviews/DrawingElements/septum2.h CircAdaptUI/SVGviews/DrawingElements/septum2.cpp
+    CircAdaptUI/SVGviews/DrawingElements/leftventricle.h CircAdaptUI/SVGviews/DrawingElements/leftventricle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/rightventricle.h CircAdaptUI/SVGviews/DrawingElements/rightventricle.cpp
+    CircAdaptUI/SVGviews/DrawingElements/septum.h CircAdaptUI/SVGviews/DrawingElements/septum.cpp
 
 
 )
