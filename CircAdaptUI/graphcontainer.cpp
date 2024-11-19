@@ -251,7 +251,7 @@ void GraphContainer<SignalType>::clearSignals()
     for (int i = 0; i < m_Signals.size(); i++)
     {
         SignalType* signal = m_Signals.at(i);
-        signal->data()->clear();
+        signal->reset();
         currentLayer()->replot();
     }
 }

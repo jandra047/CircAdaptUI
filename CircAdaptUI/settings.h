@@ -53,6 +53,9 @@ public slots:
         m_settings.setValue("framerate", fps);
         emit fpsChanged(fps);
     }
+    void setBeatIdx(int idx) {
+        m_settings.setValue("ModelWrapper/beatIdx", idx);
+    }
 
 private:
     Settings() :

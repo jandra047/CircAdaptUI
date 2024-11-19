@@ -59,6 +59,7 @@ public:
     void drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const;
     QPolygonF createPolygon(double pixelSize) const;
     QRectF clearRect() const;
+    void reset();
 
 private:
 

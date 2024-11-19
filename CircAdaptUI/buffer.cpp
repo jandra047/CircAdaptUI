@@ -13,7 +13,6 @@ Buffer::Buffer()
 
 void Buffer::append(const QString& string, double value)
 {
-    QMutexLocker l(&mutex);
     m_data[string].append(value);
     m_currentBeatData[string].append(value);
 }
@@ -73,11 +72,15 @@ void Buffer::clear()
     QMutexLocker l(&mutex);
     for (auto [key, vec] : m_data.asKeyValueRange())
     {
-        vec.erase(vec.cbegin(), vec.cend());
+        vec.clear();
     }
     for (auto [key, vec] : m_currentBeatData.asKeyValueRange())
     {
-        vec.erase(vec.cbegin(), vec.cend());
+        vec.clear();
+    }
+    for (auto elem : m_beatData)
+    {
+        elem->clear();
     }
 }
 

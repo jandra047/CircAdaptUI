@@ -166,10 +166,18 @@ void MainWindow::clearSnapshots()
 
 void MainWindow::resetSlot()
 {
-    ui->graphGrid->clearGraphData();
-    ui->pvGraph->clearAllGraphs();
-    ui->ssGraph->clearAllGraphs();
-    buffer.clear();
-    mParamViewDockWidget->resetProperties();
-    emit resetSignal();
+    // Pause the GUI update timer
+    emit togglePlay(false);
+
+    // Wait for any pending UI updates to complete
+    QMetaObject::invokeMethod(this, [this]() {
+            // Clear visualization data after updates are done
+            ui->graphGrid->clearGraphData();
+            ui->pvGraph->clearAllGraphs();
+            ui->ssGraph->clearAllGraphs();
+            mParamViewDockWidget->resetProperties();
+
+            // Now emit reset signal
+            emit resetSignal();
+        }, Qt::QueuedConnection);
 }

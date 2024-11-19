@@ -139,3 +139,9 @@ QPolygonF TimeSignal::createPolygon(double pixelSize) const
     return polygon;
 }
 
+void TimeSignal::reset()
+{
+    data()->clear();
+    m_xPos = 0;
+}
+

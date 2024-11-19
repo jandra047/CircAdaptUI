@@ -62,3 +62,8 @@ void LoopSignal::clear()
     if (m_marker)
         m_marker->setVisible(false);
 }
+
+void LoopSignal::reset()
+{
+    clear();
+}

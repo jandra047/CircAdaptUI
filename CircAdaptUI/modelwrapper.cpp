@@ -537,7 +537,7 @@ void ModelWrapper::setupParameters()
     for (auto s : paramArray)
     {
         QJsonObject obj = s.toObject();
-        double d = 0;
+        double d = qQNaN();
         if (obj["type"].toString() != "bool")
             get_double(obj["path"].toString().toStdString(), d);
         obj["default"] = d;
@@ -553,14 +553,13 @@ void ModelWrapper::setupParameters()
     get_double("Model.Peri.TriSeg.wRv.V_wall", val);
     buffer.modelParams["V_wall_Rv"] = val;
 
-
 }
-
 
 void ModelWrapper::updateBuffer()
 {
     double val{};
     bool success;
+    buffer.lock();
     for (auto s : mModelSignals)
     {
         QVariant variant = s->get();
@@ -585,6 +584,7 @@ void ModelWrapper::updateBuffer()
     {
         buffer.runAfterBeat();
     }
+    buffer.unlock();
 
 }
 
@@ -595,12 +595,23 @@ void ModelWrapper::updateParam(const QString& name, const QVariant& value)
 
 void ModelWrapper::reset()
 {
-    m_thread->wait();
     solver->clear_SVar();
-    it=-1;
+    it = -1;
+
+    set_int("Model.Peri.TriSeg.wLv.n_patch", 1);
+    set_int("Model.Peri.TriSeg.wSv.n_patch", 1);
+    set_int("Model.Peri.TriSeg.wRv.n_patch", 1);
+
     setReferenceParameters();
+
+    set_int("Model.Peri.TriSeg.wLv.n_patch", 11);
+    set_int("Model.Peri.TriSeg.wSv.n_patch", 5);
+    set_int("Model.Peri.TriSeg.wRv.n_patch", 7);
+
     init_SVar();
     run_stable();
     run_beats(2);
+    Settings::instance().setBeatIdx(0);
+
     emit setup_done();
 }

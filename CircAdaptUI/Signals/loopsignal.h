@@ -74,6 +74,7 @@ public:
     LoopMarker* getMarker() { return m_marker; }
     void createMarker();
     void setVisible(bool isVisible);
+    void reset();
     void clear();
 
 private:
