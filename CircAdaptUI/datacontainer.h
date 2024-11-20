@@ -38,7 +38,7 @@ protected:
 class DataContainerFactory
 {
 public:
-    static DataContainer* createSignal(const QJsonObject& json, ModelWrapper* parent = Q_NULLPTR);
+    static DataContainer* createContainer(const QJsonObject& json, ModelWrapper* parent = Q_NULLPTR);
     DataContainerFactory();
     DataContainerFactory(const DataContainerFactory&) = delete;
     DataContainerFactory& operator=(const DataContainerFactory&) = delete;

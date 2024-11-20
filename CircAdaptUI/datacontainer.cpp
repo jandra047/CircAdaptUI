@@ -487,7 +487,7 @@ private:
     double m_defaultValue;
 };
 
-DataContainer* DataContainerFactory::createSignal(const QJsonObject& json, ModelWrapper* parent) {
+DataContainer* DataContainerFactory::createContainer(const QJsonObject& json, ModelWrapper* parent) {
     QString const name = json["name"].toString();
     QString const path = json["path"].toString();
     QString const type = json["type"].toString();
