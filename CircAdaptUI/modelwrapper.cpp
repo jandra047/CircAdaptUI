@@ -562,20 +562,7 @@ void ModelWrapper::updateBuffer()
     buffer.lock();
     for (auto s : mModelSignals)
     {
-        QVariant variant = s->get();
-        switch (variant.userType())
-        {
-            case (QMetaType::Double):
-            {
-                buffer.append(s->getName(), variant.toDouble());
-                break;
-            }
-            case (QMetaType::Bool):
-            {
-                buffer.append(s->getName(), variant.toBool());
-                break;
-            }
-        }
+        s->updateBuffer(buffer);
     }
     buffer.append("t", solver->get_t());
     buffer.postprocessing();

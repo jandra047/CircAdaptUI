@@ -1,5 +1,6 @@
 #include "datacontainer.h"
 #include "modelwrapper.h"
+#include "buffer.h"
 
 void DataContainer::updateParam(QVariant variant) const
 {
@@ -39,7 +40,24 @@ QVariant DataContainer::get()
         default:
             return QVariant();
     }
+}
 
+void DataContainer::updateBuffer(Buffer& buffer)
+{
+    QVariant variant = get();
+    switch (variant.userType())
+    {
+        case (QMetaType::Double):
+        {
+            buffer.append(getName(), variant.toDouble());
+            break;
+        }
+        case (QMetaType::Bool):
+        {
+            buffer.append(getName(), variant.toBool());
+            break;
+        }
+    }
 }
 
 class PressureContainer : public DataContainer

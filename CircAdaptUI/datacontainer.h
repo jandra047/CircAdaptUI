@@ -4,6 +4,7 @@
 #include <QJsonObject>
 
 class ModelWrapper;
+class Buffer;
 
 class DataContainer : public QObject
 {
@@ -24,6 +25,7 @@ public:
     virtual QVariant ui_to_model(QVariant variant) const = 0;
     virtual void updateParam(QVariant variant) const;
     virtual QVariant get();
+    virtual void updateBuffer(Buffer& buffer);
 protected:
     QString mName;
     QString mPath;
