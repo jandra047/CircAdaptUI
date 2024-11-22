@@ -25,13 +25,15 @@ public:
                QString xVar = "t",
                QColor color = QColor(0,0,0),
                bool isVisible = true,
-               QString unit = "") :
+               QString unit = "",
+               bool isInMainMenu = true) :
         QCPGraph(xAxis, yAxis),
         color(color),
         m_yVar(yVar),
         m_xVar(xVar),
         m_displayName(displayName),
-        m_unit(unit)
+        m_unit(unit),
+        m_isInMainMenu(isInMainMenu)
     {
         setPen(QPen(color, 2));
         setVisible(isVisible);
@@ -55,6 +57,7 @@ public:
     QColor getColor() { return color; }
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
+    bool isInMainMenu() { return m_isInMainMenu; }
     void drawLinePlot(QCPPainter* painter, const QVector<QPointF> &lines) const override;
     void drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const;
     QPolygonF createPolygon(double pixelSize) const;
@@ -73,6 +76,7 @@ private:
      */
     QString m_xVar;
 
+    bool m_isInMainMenu;
 
     QString m_displayName;
 

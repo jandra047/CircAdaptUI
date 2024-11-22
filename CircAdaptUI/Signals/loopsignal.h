@@ -15,13 +15,15 @@ public:
                QString xVar,
                QColor color = QColor(0,0,0),
                bool isVisible = true,
-               QString unit = "") :
+               QString unit = "",
+               bool isInMainMenu = true) :
         QCPCurve(xAxis, yAxis),
         m_yVar(yVar),
         m_xVar(xVar),
         m_displayName(displayName),
         color(color),
         m_unit(unit),
+        m_isInMainMenu(isInMainMenu),
         m_marker(Q_NULLPTR)
     {
         setVisible(isVisible);
@@ -39,6 +41,7 @@ public:
         m_unit(other.m_unit),
         i(other.i),
         m_dt(other.m_dt),
+        m_isInMainMenu(other.m_isInMainMenu),
         m_marker(Q_NULLPTR)
     {
         setVisible(other.visible());
@@ -57,6 +60,7 @@ public:
             i = other.i;
             m_dt = other.m_dt;
             m_marker = Q_NULLPTR;
+            m_isInMainMenu = other.m_isInMainMenu;
 
             setVisible(other.visible());
             setPen(QPen(color, 1));
@@ -72,6 +76,7 @@ public:
     QString getDisplayName() { return m_displayName; }
     QString getUnit() { return m_unit; }
     LoopMarker* getMarker() { return m_marker; }
+    bool isInMainMenu() { return m_isInMainMenu; }
     void createMarker();
     void setVisible(bool isVisible);
     void reset();
@@ -86,6 +91,7 @@ private:
     QString m_displayName;
     QString m_unit;
     LoopMarker* m_marker;
+    bool m_isInMainMenu;
 };
 
 #endif // LOOPSIGNAL_H

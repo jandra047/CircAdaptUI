@@ -4,10 +4,6 @@
 Buffer::Buffer()
 {
     m_beatData.reserve(2);
-    for (int i = 0; i < 2; i++)
-    {
-        m_beatData.emplace_back(new BeatData(this));
-    }
 
 }
 
@@ -78,16 +74,18 @@ void Buffer::clear()
     {
         vec.clear();
     }
-    for (auto elem : m_beatData)
-    {
-        elem->clear();
-    }
+    while (m_beatData.count())
+        delete m_beatData.takeLast();
 }
 
 void Buffer::runAfterBeat()
 {
     if (m_beatData.count() >= 2)
         m_beatData.first()->setData(m_beatData.last()->getData());
+    else
+    {
+        m_beatData.emplaceBack(new BeatData(this));
+    }
     m_beatData.last()->setData(m_currentBeatData);
     m_currentBeatData.clear();
 
@@ -127,6 +125,9 @@ const QVector<double> Buffer::getSnapshot(const QString& key) const
 void Buffer::postprocessing()
 {
     calculateMMode();
+    calculateStrains();
+    if (!m_beatData.empty())
+        calculateEngineeringStrain();
 }
 
 void Buffer::calculateMMode()
@@ -198,4 +199,61 @@ void Buffer::calculateMMode()
     m_data["SvEndo"].append(SvEndo);
     m_currentBeatData["SvEndo"].append(SvEndo);
 
+}
+
+void Buffer::calculateStrains()
+{
+    double d = 0;
+    // // Here calculate Ef/Ef_mvc for all strains
+    for (auto s : {"Ef_Lv0", "Ef_Lv1", "Ef_Lv2", "Ef_Lv3", "Ef_Lv4", "Ef_Lv5", "Ef_Lv6", "Ef_Lv7", "Ef_Lv8", "Ef_Lv9", "Ef_Lv10"})
+    {
+        d += m_data[s].last();
+    }
+    m_data["Ef_Lv"].append(d/11);
+    m_currentBeatData["Ef_Lv"].append(d/11);
+    d = 0;
+    for (auto s : {"Ef_Sv0", "Ef_Sv1", "Ef_Sv2", "Ef_Sv3", "Ef_Sv4"})
+    {
+        d += m_data[s].last();
+    }
+    m_data["Ef_Sv"].append(d/5);
+    m_currentBeatData["Ef_Sv"].append(d/5);
+    d = 0;
+    for (auto s : {"Ef_Rv0", "Ef_Rv1", "Ef_Rv2", "Ef_Rv3", "Ef_Rv4", "Ef_Rv5", "Ef_Rv6"})
+    {
+        d += m_data[s].last();
+    }
+    m_data["Ef_Rv"].append(d/7);
+    m_currentBeatData["Ef_Rv"].append(d/7);
+}
+
+void Buffer::calculateEngineeringStrain()
+{
+
+    double idxQRSOnset = getLastBeat()->getStat("idxQRSOnset");
+    double d = 0;
+    // // Here calculate Ls/l_s_mvc for all strains
+    for (auto s : {"l_s_Lv0", "l_s_Lv1", "l_s_Lv2", "l_s_Lv3", "l_s_Lv4", "l_s_Lv5", "l_s_Lv6", "l_s_Lv7", "l_s_Lv8", "l_s_Lv9", "l_s_Lv10"})
+    {
+        m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
+        d += m_data[s].last();
+    }
+    m_data["Ef_Lv"].last() = d/11;
+    m_currentBeatData["Ef_Lv"].last() = (d/11);
+    d = 0;
+    for (auto s : {"l_s_Sv0", "l_s_Sv1", "l_s_Sv2", "l_s_Sv3", "l_s_Sv4"})
+    {
+        m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
+        d += m_data[s].last();
+    }
+    m_data["Ef_Sv"].last() = (d/5);
+    m_currentBeatData["Ef_Sv"].last() = (d/5);
+    d = 0;
+    for (auto s : {"l_s_Rv0", "l_s_Rv1", "l_s_Rv2", "l_s_Rv3", "l_s_Rv4", "l_s_Rv5", "l_s_Rv6"})
+    {
+        m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
+        d += m_data[s].last();
+    }
+    m_data["Ef_Rv"].last() = (d/7);
+    m_currentBeatData["Ef_Rv"].last() = (d/7);
 }

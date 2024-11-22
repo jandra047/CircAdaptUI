@@ -12,6 +12,7 @@ void BeatData::clear()
 void BeatData::setData(const QMap<QString, QVector<double>>& data)
 {
     m_data = data;
+    analyzeData();
 }
 
 QVector<double> BeatData::get(const QString& param)
@@ -32,6 +33,7 @@ void BeatData::analyzeData()
     m_beatStats["PVR"] = getPVR();
     m_beatStats["mPAP"] = get_mPAP();
     m_beatStats["PVP"] = getPVP();
+    m_beatStats["idxQRSOnset"] = getIdxQRSOnset();
 
 }
 
@@ -97,6 +99,108 @@ double BeatData::getPVP()
     return PVP;
 }
 
+double BeatData::getIdxQRSOnset()
+{
+    int beatSize = m_data["t"].size();
+    QVector<double> CLv(beatSize, 0.0);
+    QVector<double> C_dotLv(beatSize, 0.0);
+    QVector<double> CSv(beatSize, 0.0);
+    QVector<double> C_dotSv(beatSize, 0.0);
+    QVector<double> CRv(beatSize, 0.0);
+    QVector<double> C_dotRv(beatSize, 0.0);
+    for (int i = 0; i < 11; i++)
+    {
+        for (int idx = 0; idx < beatSize; idx++)
+        {
+            CLv[idx] += m_data[QString("C_Lv%1").arg(i)].at(idx);
+            C_dotLv[idx] += m_data[QString("C_dot_Lv%1").arg(i)].at(idx);
+        }
+    }
+    std::transform(CLv.begin(), CLv.end(), CLv.begin(),
+                   [](double value) { return value / 11.0; });
+    std::transform(C_dotLv.begin(), C_dotLv.end(), C_dotLv.begin(),
+                   [](double value) { return value / 11.0; });
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int idx = 0; idx < beatSize; idx++)
+        {
+            CSv[idx] += m_data[QString("C_Sv%1").arg(i)].at(idx);
+            C_dotSv[idx] += m_data[QString("C_dot_Sv%1").arg(i)].at(idx);
+        }
+    }
+    std::transform(CSv.begin(), CSv.end(), CSv.begin(),
+                   [](double value) { return value / 5.0; });
+    std::transform(C_dotSv.begin(), C_dotSv.end(), C_dotSv.begin(),
+                   [](double value) { return value / 5.0; });
+
+    for (int i = 0; i < 7; i++)
+    {
+        for (int idx = 0; idx < beatSize; idx++)
+        {
+            CRv[idx] += m_data[QString("C_Rv%1").arg(i)].at(idx);
+            C_dotRv[idx] += m_data[QString("C_dot_Rv%1").arg(i)].at(idx);
+        }
+    }
+    std::transform(CRv.begin(), CRv.end(), CRv.begin(),
+                   [](double value) { return value / 7.0; });
+    std::transform(C_dotRv.begin(), C_dotRv.end(), C_dotRv.begin(),
+                   [](double value) { return value / 7.0; });
+
+    QVector<double> Ctot(m_data["t"].size(), 0.0);
+    QVector<double> C_dotTot(m_data["t"].size(), 0.0);
+    for (int i = 0; i < CLv.size(); i++)
+    {
+        Ctot[i] += CLv[i] + CSv[i] + CRv[i];
+        C_dotTot[i] += C_dotLv[i] + C_dotSv[i] + C_dotRv[i];
+    }
+
+    double CMax = *std::max_element(Ctot.begin(), Ctot.end());
+    int t10 = 0;
+    int t40 = 0;
+    double CMax10 = 0.1 * CMax;
+    double CMax40 = 0.4 * CMax;
+    for ( int t=0; t < Ctot.size(); t++ )
+    {
+        if ( C_dotTot[t] > 0 )
+        {
+            if ( Ctot[t] < CMax10 )
+            {
+                t10 = t;
+            }
+            if ( Ctot[t] < CMax40 )
+            {
+                t40 = t;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    QVector<double> slice = Ctot.mid(t10, t40-t10);
+    double sliceMean = std::accumulate(slice.begin(), slice.end(), 0.0) / slice.count();
+
+    QVector<double> ts(slice.size(), 0.0);
+    for (int t=0; t < ts.size(); t++)
+    {
+        ts[t] = t;
+    }
+    double a;
+    double slope;
+    linearRegression(ts, slice, a, slope);
+    double OnsetActL  = qRound((t40 + t10)/2.0 - sliceMean / slope); //PETER
+
+    // Sum C curves for all patches in a wall and divide it by number of patches.
+    // Sum C_dot for all patches in a wall and divide it by number of patches
+    // Sum all C values for each wall to get Ctot
+    // Find time for 10% and 40% of Ctot
+    // Calculate slope
+    return OnsetActL;
+
+}
+
 double BeatData::calcIntegral(const QVector<double>& vec1, const QVector<double>& vec2)
 {
     // Check if the vectors are of the same size and have at least two elements
@@ -115,4 +219,23 @@ double BeatData::calcIntegral(const QVector<double>& vec1, const QVector<double>
     }
 
     return integral;
+}
+
+void BeatData::linearRegression(const QVector<double>& x,
+             const QVector<double>& y,
+             double& intercept,
+             double& slope)
+{
+    double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+    int n = x.size();
+
+    for(int i = 0; i < n; i++) {
+        sumX += x[i];
+        sumY += y[i];
+        sumXY += x[i] * y[i];
+        sumX2 += x[i] * x[i];
+    }
+
+    slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+    intercept = (sumY - slope * sumX) / n;
 }

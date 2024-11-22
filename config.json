@@ -74,20 +74,128 @@
                     "path": "Model.Peri.TriSeg.wSv.pSv0.Sf",
                     "type": "stress"
                 },
+              
+
                 {
-                    "name": "Ef_Lv",
+                    "name": "Ef_Lv0",
                     "path": "Model.Peri.TriSeg.wLv.pLv0.Ef",
                     "type": "pressure"
                 },
                 {
-                    "name": "Ef_Rv",
+                    "name": "Ef_Lv1",
+                    "path": "Model.Peri.TriSeg.wLv.pLv1.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv2",
+                    "path": "Model.Peri.TriSeg.wLv.pLv2.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv3",
+                    "path": "Model.Peri.TriSeg.wLv.pLv3.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv4",
+                    "path": "Model.Peri.TriSeg.wLv.pLv4.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv5",
+                    "path": "Model.Peri.TriSeg.wLv.pLv5.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv6",
+                    "path": "Model.Peri.TriSeg.wLv.pLv6.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv7",
+                    "path": "Model.Peri.TriSeg.wLv.pLv7.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv8",
+                    "path": "Model.Peri.TriSeg.wLv.pLv8.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv9",
+                    "path": "Model.Peri.TriSeg.wLv.pLv9.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Lv10",
+                    "path": "Model.Peri.TriSeg.wLv.pLv10.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Sv0",
+                    "path": "Model.Peri.TriSeg.wSv.pSv0.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Sv1",
+                    "path": "Model.Peri.TriSeg.wSv.pSv1.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Sv2",
+                    "path": "Model.Peri.TriSeg.wSv.pSv2.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Sv3",
+                    "path": "Model.Peri.TriSeg.wSv.pSv3.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Sv4",
+                    "path": "Model.Peri.TriSeg.wSv.pSv4.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv0",
                     "path": "Model.Peri.TriSeg.wRv.pRv0.Ef",
                     "type": "pressure"
                 },
                 {
-                    "name": "Ef_Sv",
-                    "path": "Model.Peri.TriSeg.wSv.pSv0.Ef",
+                    "name": "Ef_Rv1",
+                    "path": "Model.Peri.TriSeg.wRv.pRv1.Ef",
                     "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv2",
+                    "path": "Model.Peri.TriSeg.wRv.pRv2.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv3",
+                    "path": "Model.Peri.TriSeg.wRv.pRv3.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv4",
+                    "path": "Model.Peri.TriSeg.wRv.pRv4.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv5",
+                    "path": "Model.Peri.TriSeg.wRv.pRv5.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name": "Ef_Rv6",
+                    "path": "Model.Peri.TriSeg.wRv.pRv6.Ef",
+                    "type": "pressure"
+                },
+                {
+                    "name":  "Ef_Lv_avg",
+                    "path":  "Model.Peri.TriSeg.wLv.Ef",
+                    "type":  "wall",
+                    "subtype": "pressure"
                 },
                 {
                     "name": "qLaLv",
@@ -1490,6 +1598,94 @@
         "color": "#E31A1C"
       },
       {
+        "name": "Ef_Lv0",
+        "displayName": "LV basal anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#e31a1d",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv1",
+        "displayName": "LV basal inferior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#e95355",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv2",
+        "displayName": "LV basal inferolateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#f18d8d",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv3",
+        "displayName": "LV basal anterloateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#f9d1d2",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv4",
+        "displayName": "LV mid anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#a7194b",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv5",
+        "displayName": "LV mid inferior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#bf577c",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv6",
+        "displayName": "LV mid inferolateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#d795ac",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv7",
+        "displayName": "LV mid anterolateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#eed4dd",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv8",
+        "displayName": "LV apical anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#6a3d9a",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv9",
+        "displayName": "LV apical inferior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#9271b5",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Lv10",
+        "displayName": "LV apical lateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#bba6d1",
+        "inMainMenu": false
+      },
+      {
         "name": "Ef_Sv",
         "displayName": "Septal wall",
         "isVisible": true,
@@ -1497,11 +1693,107 @@
         "color": "#000000"
       },
       {
+        "name": "Ef_Sv0",
+        "displayName": "SV basal anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#000000",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Sv1",
+        "displayName": "SV basal posterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#333333",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Sv2",
+        "displayName": "SV mid anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#666666",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Sv3",
+        "displayName": "SV mid posterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#999999",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Sv4",
+        "displayName": "SV apical",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#CCCCCC",
+        "inMainMenu": false
+      },
+      {
         "name": "Ef_Rv",
         "displayName": "Right ventricular free wall",
         "isVisible": true,
         "unit": "Pa",
         "color": "#1F78B4"
+      },
+      {
+        "name": "Ef_Rv0",
+        "displayName": "RV basal anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#1F78B4",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Rv1",
+        "displayName": "RV basal lateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#3C89BE",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Rv2",
+        "displayName": "RV basal posterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#599BC7",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Rv3",
+        "displayName": "RV mid anterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#76ACD1",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Rv4",
+        "displayName": "RV mid lateral",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#94BEDB",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Rv5",
+        "displayName": "RV mid posterior",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#B1D0E5",
+        "inMainMenu": false
+      },
+      {
+        "name": "Ef_Rv6",
+        "displayName": "RV apical",
+        "isVisible": false,
+        "unit": "Pa",
+        "color": "#cee1ef",
+        "inMainMenu": false
       }
     ]
   },
@@ -2251,82 +2543,7 @@
                   "enabled": true,
                   "type": "double"
                 }
-              ],
-              "Lv.pLv0":
-                    [
-                        {
-                            "name": "Contractility",
-                            "key": "Left ventricular wall contractility",
-                            "min": 1,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Passive stiffness",
-                            "key": "Left ventricular wall passive stiffness",
-                            "min": 20,
-                            "max": 4000,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mass",
-                            "key": "Left ventricular wall mass",
-                            "min": 50,
-                            "max": 200,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Dilatation",
-                            "key": "Left ventricular wall dilatation",
-                            "min": 100,
-                            "max": 300,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 5,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Mechanical activation delay",
-                            "key": "Left ventricular wall mechanical activation delay",
-                            "min": -50,
-                            "max": 250,
-                            "default": 0,
-                            "tooltip": "ms",
-                            "unit": "ms",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        },
-                        {
-                            "name": "Relaxation rate",
-                            "key": "Left ventricular wall relaxation rate",
-                            "min": 40,
-                            "max": 250,
-                            "default": 100,
-                            "tooltip": "%",
-                            "unit": "%",
-                            "stepsize": 10,
-                            "enabled": true,
-                            "type": "double"
-                        }
-                    ]
+              ]
         }
     }
 }

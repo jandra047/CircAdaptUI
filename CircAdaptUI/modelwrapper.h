@@ -82,6 +82,7 @@ private:
     QMap<QString, DataContainer*> mModelParameters;
 
     void setupSignals();
+    void setupAdditionalSignals();
     void setupParameters();
     void run_beats(int N_beats);
 

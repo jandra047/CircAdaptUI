@@ -14,8 +14,9 @@ public:
     void clear();
     void setData(const QMap<QString, QVector<double>>& data);
     QVector<double> get(const QString& param);
-    QMap<QString, double> getStats() { analyzeData(); return m_beatStats; };
-    QMap<QString, QVector<double>> getData() { return m_data; };
+    QMap<QString, double> getStats() { return m_beatStats; }
+    double getStat(const QString& key) { return m_beatStats[key]; }
+    QMap<QString, QVector<double>> getData() { return m_data; }
 
 
 private:
@@ -30,8 +31,13 @@ private:
     double getPVR();
     double get_mPAP();
     double getPVP();
+    double getIdxQRSOnset();
 
-    double calcIntegral(const QVector<double>& vec1, const QVector<double>& vec2);
+    static double calcIntegral(const QVector<double>& vec1, const QVector<double>& vec2);
+    static void linearRegression(const QVector<double>& x,
+                                 const QVector<double>& y,
+                                 double& intercept,
+                                 double& slope);
     QMap<QString, QVector<double>> m_data;
 
     QMap<QString, double> m_beatStats;

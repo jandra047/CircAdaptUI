@@ -88,6 +88,8 @@ private:
     QMutex mutex;
 
     void calculateMMode();
+    void calculateStrains();
+    void calculateEngineeringStrain();
 
 };
 

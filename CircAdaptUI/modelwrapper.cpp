@@ -528,6 +528,46 @@ void ModelWrapper::setupSignals()
         mModelSignals.push_back(DataContainerFactory::createContainer(s.toObject(), this));
 
     }
+
+    setupAdditionalSignals();
+}
+
+void ModelWrapper::setupAdditionalSignals()
+{
+    for (QString param : {"C", "C_dot", "l_s"})
+    {
+        // Signals that are needed for postprocessing
+        for (int i = 0; i < 11; i++)
+        {
+        mModelSignals.push_back(DataContainerFactory::createContainer(
+            QJsonObject{
+            {"name", QString("%1_Lv%2").arg(param).arg(i)},
+            {"path", QString("Model.Peri.TriSeg.wLv.pLv%1.%2").arg(i).arg(param)},
+            {"type", "coefficient"}
+            }
+            , this));
+        }
+        for (int i = 0; i < 5; i++)
+        {
+        mModelSignals.push_back(DataContainerFactory::createContainer(
+            QJsonObject{
+            {"name", QString("%1_Sv%2").arg(param).arg(i)},
+            {"path", QString("Model.Peri.TriSeg.wSv.pSv%1.%2").arg(i).arg(param)},
+            {"type", "coefficient"}
+            }
+            , this));
+        }
+        for (int i = 0; i < 7; i++)
+        {
+        mModelSignals.push_back(DataContainerFactory::createContainer(
+            QJsonObject{
+            {"name", QString("%1_Rv%2").arg(param).arg(i)},
+            {"path", QString("Model.Peri.TriSeg.wRv.pRv%1.%2").arg(i).arg(param)},
+            {"type", "coefficient"}
+            }
+            , this));
+        }
+    }
 }
 
 void ModelWrapper::setupParameters()
@@ -597,7 +637,7 @@ void ModelWrapper::reset()
 
     init_SVar();
     run_stable();
-    run_beats(2);
+    run_beats(4);
     Settings::instance().setBeatIdx(0);
 
     emit setup_done();

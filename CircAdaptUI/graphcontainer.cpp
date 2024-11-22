@@ -54,6 +54,7 @@ template<typename SignalType>
 std::pair<QMenu*, QActionGroup*> GraphContainer<SignalType>::buildMenu(QWidget* parent)
 {
     QMenu* menu = new QMenu(parent);
+    QMenu* submenu = menu->addMenu("More");
     QActionGroup* actionGroup = new QActionGroup(parent);
     actionGroup->setExclusive(false); // Allow multiple actions to be checked/unchecked
 
@@ -73,11 +74,28 @@ std::pair<QMenu*, QActionGroup*> GraphContainer<SignalType>::buildMenu(QWidget* 
         action->setChecked(m_Signals[i]->visible());
         action->setData(i); // Store the index of the signal in the action
         // connect(action, &QAction::triggered, this, &GraphContainer::showHideSignal);
-        menu->addAction(action);
+        if (m_Signals[i]->isInMainMenu())
+        {
+            menu->addAction(action);
+        }
+        else
+        {
+            submenu->addAction(action);
+        }
         actionGroup->addAction(action);
         QFont actionFont = action->font();
         actionFont.setBold(action->isChecked());
         action->setFont(actionFont);
+    }
+    if (submenu->isEmpty())
+    {
+        menu->removeAction(submenu->menuAction());
+        delete submenu;
+    }
+    else
+    {
+        menu->removeAction(submenu->menuAction());
+        menu->addMenu(submenu);
     }
     return std::pair<QMenu*, QActionGroup*> {menu, actionGroup};
 }
