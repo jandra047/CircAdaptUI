@@ -1468,6 +1468,20 @@
     ],
     "STRAIN": [
       {
+        "name": "l_s_La0",
+        "displayName": "Left atrial wall",
+        "isVisible": false,
+        "unit": "%",
+        "color": "#fb9a99"
+      },
+      {
+        "name": "l_s_Ra0",
+        "displayName": "Right atrial wall",
+        "isVisible": false,
+        "unit": "%",
+        "color": "#a6cee3"
+      },
+      {
         "name": "l_s_Lv",
         "displayName": "Left ventricular free wall",
         "isVisible": true,
