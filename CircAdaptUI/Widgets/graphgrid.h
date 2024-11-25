@@ -31,7 +31,7 @@ public:
     };
     const QVector<QString> colTypes = {"REFERENCE", "SNAPSHOT", "CURRENT"};
     const QVector<QString> rowTypes = {"PRESSURE", "VOLUME", "FLOW", "STRESS", "STRAIN", "SATURATION", "MMODE"};
-    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow velocity [cm/s]", "Stress [kPa]", "Strain [-]", "Saturation [%]", "MMode"};
+    const QVector<QString> yLabels = {"Pressure [mmHg]", "Volume [mL]", "Flow velocity [cm/s]", "Stress [kPa]", "Strain [%]", "Saturation [%]", "MMode"};
 
 public:
     GraphGrid(QWidget*, int rows = 7, int cols = 3);

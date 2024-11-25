@@ -1238,7 +1238,7 @@
     "SSGraph":
     {
         "title": "Stress-strain loops",
-        "xLabel": "Strain [-]",
+        "xLabel": "Strain [%]",
         "yLabel": "Stress [kPa]",
         "Signals":
         [
