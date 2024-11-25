@@ -60,6 +60,16 @@
                     "type": "volume"
                 },
                 {
+                    "name": "Sf_La",
+                    "path": "Model.Peri.La.wLa.pLa0.Sf",
+                    "type": "stress"
+                },
+                {
+                    "name": "Sf_Ra",
+                    "path": "Model.Peri.Ra.wRa.pRa0.Sf",
+                    "type": "stress"
+                },
+                {
                     "name": "Sf_Lv",
                     "path": "Model.Peri.TriSeg.wLv.pLv0.Sf",
                     "type": "stress"
@@ -1243,6 +1253,22 @@
         "Signals":
         [
             {
+                "displayName": "Left atrial wall",
+                "xVar": "l_s_La",
+                "yVar": "Sf_La",
+                "isVisible": false,
+                "unit": "mmHg/mL",
+                "color": "#fb9a99"
+            },
+            {
+                "displayName": "Right atrial wall",
+                "xVar": "l_s_Ra",
+                "yVar": "Sf_Ra",
+                "isVisible": false,
+                "unit": "mmHg/mL",
+                "color": "#a6cee3"
+            },
+            {
                 "displayName": "Left ventricular free wall",
                 "xVar": "l_s_Lv",
                 "yVar": "Sf_Lv",
@@ -1468,14 +1494,14 @@
     ],
     "STRAIN": [
       {
-        "name": "l_s_La0",
+        "name": "l_s_La",
         "displayName": "Left atrial wall",
         "isVisible": false,
         "unit": "%",
         "color": "#fb9a99"
       },
       {
-        "name": "l_s_Ra0",
+        "name": "l_s_Ra",
         "displayName": "Right atrial wall",
         "isVisible": false,
         "unit": "%",
@@ -1485,14 +1511,14 @@
         "name": "l_s_Lv",
         "displayName": "Left ventricular free wall",
         "isVisible": true,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#E31A1C"
       },
       {
         "name": "l_s_Lv0",
         "displayName": "LV basal anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#e31a1d",
         "inMainMenu": false
       },
@@ -1500,7 +1526,7 @@
         "name": "l_s_Lv1",
         "displayName": "LV basal inferior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#e95355",
         "inMainMenu": false
       },
@@ -1508,7 +1534,7 @@
         "name": "l_s_Lv2",
         "displayName": "LV basal inferolateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#f18d8d",
         "inMainMenu": false
       },
@@ -1516,7 +1542,7 @@
         "name": "l_s_Lv3",
         "displayName": "LV basal anterloateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#f9d1d2",
         "inMainMenu": false
       },
@@ -1524,7 +1550,7 @@
         "name": "l_s_Lv4",
         "displayName": "LV mid anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#a7194b",
         "inMainMenu": false
       },
@@ -1532,7 +1558,7 @@
         "name": "l_s_Lv5",
         "displayName": "LV mid inferior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#bf577c",
         "inMainMenu": false
       },
@@ -1540,7 +1566,7 @@
         "name": "l_s_Lv6",
         "displayName": "LV mid inferolateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#d795ac",
         "inMainMenu": false
       },
@@ -1548,7 +1574,7 @@
         "name": "l_s_Lv7",
         "displayName": "LV mid anterolateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#eed4dd",
         "inMainMenu": false
       },
@@ -1556,7 +1582,7 @@
         "name": "l_s_Lv8",
         "displayName": "LV apical anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#6a3d9a",
         "inMainMenu": false
       },
@@ -1564,7 +1590,7 @@
         "name": "l_s_Lv9",
         "displayName": "LV apical inferior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#9271b5",
         "inMainMenu": false
       },
@@ -1572,7 +1598,7 @@
         "name": "l_s_Lv10",
         "displayName": "LV apical lateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#bba6d1",
         "inMainMenu": false
       },
@@ -1580,14 +1606,14 @@
         "name": "l_s_Sv",
         "displayName": "Septal wall",
         "isVisible": true,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#000000"
       },
       {
         "name": "l_s_Sv0",
         "displayName": "SV basal anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#000000",
         "inMainMenu": false
       },
@@ -1595,7 +1621,7 @@
         "name": "l_s_Sv1",
         "displayName": "SV basal posterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#333333",
         "inMainMenu": false
       },
@@ -1603,7 +1629,7 @@
         "name": "l_s_Sv2",
         "displayName": "SV mid anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#666666",
         "inMainMenu": false
       },
@@ -1611,7 +1637,7 @@
         "name": "l_s_Sv3",
         "displayName": "SV mid posterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#999999",
         "inMainMenu": false
       },
@@ -1619,7 +1645,7 @@
         "name": "l_s_Sv4",
         "displayName": "SV apical",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#CCCCCC",
         "inMainMenu": false
       },
@@ -1627,14 +1653,14 @@
         "name": "l_s_Rv",
         "displayName": "Right ventricular free wall",
         "isVisible": true,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#1F78B4"
       },
       {
         "name": "l_s_Rv0",
         "displayName": "RV basal anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#1F78B4",
         "inMainMenu": false
       },
@@ -1642,7 +1668,7 @@
         "name": "l_s_Rv1",
         "displayName": "RV basal lateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#3C89BE",
         "inMainMenu": false
       },
@@ -1650,7 +1676,7 @@
         "name": "l_s_Rv2",
         "displayName": "RV basal posterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#599BC7",
         "inMainMenu": false
       },
@@ -1658,7 +1684,7 @@
         "name": "l_s_Rv3",
         "displayName": "RV mid anterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#76ACD1",
         "inMainMenu": false
       },
@@ -1666,7 +1692,7 @@
         "name": "l_s_Rv4",
         "displayName": "RV mid lateral",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#94BEDB",
         "inMainMenu": false
       },
@@ -1674,7 +1700,7 @@
         "name": "l_s_Rv5",
         "displayName": "RV mid posterior",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#B1D0E5",
         "inMainMenu": false
       },
@@ -1682,7 +1708,7 @@
         "name": "l_s_Rv6",
         "displayName": "RV apical",
         "isVisible": false,
-        "unit": "Pa",
+        "unit": "%",
         "color": "#cee1ef",
         "inMainMenu": false
       }

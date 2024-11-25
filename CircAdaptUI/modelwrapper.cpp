@@ -575,12 +575,11 @@ void ModelWrapper::setupAdditionalSignals()
     {
         mModelSignals.push_back(DataContainerFactory::createContainer(
             QJsonObject{
-            {"name", QString("l_s_%1").arg(atrium) + "0"},
+            {"name", QString("l_s_%1").arg(atrium)},
             {"path", QString("Model.Peri.%1.w%1.p%1%2.l_s").arg(atrium).arg("0")},
             {"type", "coefficient"}
             }
             , this));
-        qDebug() << mModelSignals.last()->getPath();
     }
 }
 

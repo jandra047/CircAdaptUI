@@ -248,7 +248,7 @@ void Buffer::calculateEngineeringStrain()
         m_data["l_s_Rv"].append(d/7);
         m_currentBeatData["l_s_Rv"].append(d/7);
 
-        for (auto s : {"l_s_La0", "l_s_Ra0"})
+        for (auto s : {"l_s_La", "l_s_Ra"})
         {
             m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
         }
