@@ -515,7 +515,8 @@ void ModelWrapper::setup()
 #ifdef QT_NO_DEBUG
     run_stable();
 #endif
-    run_beats(2);
+    run_beats(4); // run at least 3 beats to fill buffer with 2 beats with calculated strains
+    buffer.clear(model->get_t_cycle());
     emit setup_done();
 }
 
@@ -638,6 +639,7 @@ void ModelWrapper::reset()
     init_SVar();
     run_stable();
     run_beats(4);
+    buffer.clear(2 *model->get_t_cycle());
     Settings::instance().setBeatIdx(0);
 
     emit setup_done();

@@ -48,9 +48,7 @@ void CircAdaptUI::reset()
     // Reset the model first
     QMetaObject::invokeMethod(&m_mw, "reset", Qt::BlockingQueuedConnection);
 
-    // After model reset, clear and reinitialize buffer
     QMetaObject::invokeMethod(this, [this]() {
-            m_buffer.clear();
             // Run steps to refill buffer
             QMetaObject::invokeMethod(&m_mw, "run_steps", Qt::BlockingQueuedConnection);
         }, Qt::QueuedConnection);
