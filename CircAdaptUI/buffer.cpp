@@ -218,6 +218,10 @@ void Buffer::calculateEngineeringStrain()
         m_currentBeatData["l_s_Sv"].append(0);
         m_data["l_s_Rv"].append(0);
         m_currentBeatData["l_s_Rv"].append(0);
+        m_data["l_s_La"].append(0);
+        m_currentBeatData["l_s_La"].append(0);
+        m_data["l_s_Ra"].append(0);
+        m_currentBeatData["l_s_Ra"].append(0);
     }
     else
     {
@@ -226,31 +230,30 @@ void Buffer::calculateEngineeringStrain()
         // // Here calculate Ls/l_s_mvc for all strains
         for (auto s : {"l_s_Lv0", "l_s_Lv1", "l_s_Lv2", "l_s_Lv3", "l_s_Lv4", "l_s_Lv5", "l_s_Lv6", "l_s_Lv7", "l_s_Lv8", "l_s_Lv9", "l_s_Lv10"})
         {
-            m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
-            d += m_data[s].last();
+            d += ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
+
         }
         m_data["l_s_Lv"].append(d/11);
         m_currentBeatData["l_s_Lv"].append(d/11);
         d = 0;
         for (auto s : {"l_s_Sv0", "l_s_Sv1", "l_s_Sv2", "l_s_Sv3", "l_s_Sv4"})
         {
-            m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
-            d += m_data[s].last();
+            d += ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
         }
         m_data["l_s_Sv"].append(d/5);
         m_currentBeatData["l_s_Sv"].append(d/5);
         d = 0;
         for (auto s : {"l_s_Rv0", "l_s_Rv1", "l_s_Rv2", "l_s_Rv3", "l_s_Rv4", "l_s_Rv5", "l_s_Rv6"})
         {
-            m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
-            d += m_data[s].last();
+            d += ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
         }
         m_data["l_s_Rv"].append(d/7);
         m_currentBeatData["l_s_Rv"].append(d/7);
 
-        for (auto s : {"l_s_La", "l_s_Ra"})
+        for (QString s : {"l_s_La0", "l_s_Ra0"})
         {
-            m_data[s].last() = ((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 ;
+            m_data[s.chopped(1)].append(((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 );
+            m_currentBeatData[s.chopped(1)].append(((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 );
         }
     }
 }
