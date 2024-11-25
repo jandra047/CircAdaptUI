@@ -516,7 +516,8 @@ void ModelWrapper::setup()
     run_stable();
 #endif
     run_beats(4); // run at least 3 beats to fill buffer with 2 beats with calculated strains
-    buffer.clear(model->get_t_cycle());
+    buffer.clear((double)model->get_t_cycle()); // remove one beat to discard non-existing strain data
+    buffer.clear(1); // remove one additional timepoint
     emit setup_done();
 }
 

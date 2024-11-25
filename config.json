@@ -74,129 +74,6 @@
                     "path": "Model.Peri.TriSeg.wSv.pSv0.Sf",
                     "type": "stress"
                 },
-              
-
-                {
-                    "name": "Ef_Lv0",
-                    "path": "Model.Peri.TriSeg.wLv.pLv0.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv1",
-                    "path": "Model.Peri.TriSeg.wLv.pLv1.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv2",
-                    "path": "Model.Peri.TriSeg.wLv.pLv2.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv3",
-                    "path": "Model.Peri.TriSeg.wLv.pLv3.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv4",
-                    "path": "Model.Peri.TriSeg.wLv.pLv4.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv5",
-                    "path": "Model.Peri.TriSeg.wLv.pLv5.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv6",
-                    "path": "Model.Peri.TriSeg.wLv.pLv6.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv7",
-                    "path": "Model.Peri.TriSeg.wLv.pLv7.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv8",
-                    "path": "Model.Peri.TriSeg.wLv.pLv8.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv9",
-                    "path": "Model.Peri.TriSeg.wLv.pLv9.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Lv10",
-                    "path": "Model.Peri.TriSeg.wLv.pLv10.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Sv0",
-                    "path": "Model.Peri.TriSeg.wSv.pSv0.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Sv1",
-                    "path": "Model.Peri.TriSeg.wSv.pSv1.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Sv2",
-                    "path": "Model.Peri.TriSeg.wSv.pSv2.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Sv3",
-                    "path": "Model.Peri.TriSeg.wSv.pSv3.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Sv4",
-                    "path": "Model.Peri.TriSeg.wSv.pSv4.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv0",
-                    "path": "Model.Peri.TriSeg.wRv.pRv0.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv1",
-                    "path": "Model.Peri.TriSeg.wRv.pRv1.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv2",
-                    "path": "Model.Peri.TriSeg.wRv.pRv2.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv3",
-                    "path": "Model.Peri.TriSeg.wRv.pRv3.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv4",
-                    "path": "Model.Peri.TriSeg.wRv.pRv4.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv5",
-                    "path": "Model.Peri.TriSeg.wRv.pRv5.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name": "Ef_Rv6",
-                    "path": "Model.Peri.TriSeg.wRv.pRv6.Ef",
-                    "type": "pressure"
-                },
-                {
-                    "name":  "Ef_Lv_avg",
-                    "path":  "Model.Peri.TriSeg.wLv.Ef",
-                    "type":  "wall",
-                    "subtype": "pressure"
-                },
                 {
                     "name": "qLaLv",
                     "path": "Model.Peri.LaLv.q",
@@ -1367,7 +1244,7 @@
         [
             {
                 "displayName": "Left ventricular free wall",
-                "xVar": "Ef_Lv",
+                "xVar": "l_s_Lv",
                 "yVar": "Sf_Lv",
                 "isVisible": true,
                 "unit": "mmHg/mL",
@@ -1375,7 +1252,7 @@
             },
             {
                 "displayName": "Septal wall",
-                "xVar": "Ef_Sv",
+                "xVar": "l_s_Sv",
                 "yVar": "Sf_Sv",
                 "isVisible": true,
                 "unit": "mmHg/mL",
@@ -1383,7 +1260,7 @@
             },
             {
                 "displayName": "Right ventricular free wall",
-                "xVar": "Ef_Rv",
+                "xVar": "l_s_Rv",
                 "yVar": "Sf_Rv",
                 "isVisible": true,
                 "unit": "mmHg/mL",
@@ -1591,14 +1468,14 @@
     ],
     "STRAIN": [
       {
-        "name": "Ef_Lv",
+        "name": "l_s_Lv",
         "displayName": "Left ventricular free wall",
         "isVisible": true,
         "unit": "Pa",
         "color": "#E31A1C"
       },
       {
-        "name": "Ef_Lv0",
+        "name": "l_s_Lv0",
         "displayName": "LV basal anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1606,7 +1483,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv1",
+        "name": "l_s_Lv1",
         "displayName": "LV basal inferior",
         "isVisible": false,
         "unit": "Pa",
@@ -1614,7 +1491,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv2",
+        "name": "l_s_Lv2",
         "displayName": "LV basal inferolateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1622,7 +1499,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv3",
+        "name": "l_s_Lv3",
         "displayName": "LV basal anterloateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1630,7 +1507,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv4",
+        "name": "l_s_Lv4",
         "displayName": "LV mid anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1638,7 +1515,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv5",
+        "name": "l_s_Lv5",
         "displayName": "LV mid inferior",
         "isVisible": false,
         "unit": "Pa",
@@ -1646,7 +1523,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv6",
+        "name": "l_s_Lv6",
         "displayName": "LV mid inferolateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1654,7 +1531,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv7",
+        "name": "l_s_Lv7",
         "displayName": "LV mid anterolateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1662,7 +1539,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv8",
+        "name": "l_s_Lv8",
         "displayName": "LV apical anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1670,7 +1547,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv9",
+        "name": "l_s_Lv9",
         "displayName": "LV apical inferior",
         "isVisible": false,
         "unit": "Pa",
@@ -1678,7 +1555,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Lv10",
+        "name": "l_s_Lv10",
         "displayName": "LV apical lateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1686,14 +1563,14 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Sv",
+        "name": "l_s_Sv",
         "displayName": "Septal wall",
         "isVisible": true,
         "unit": "Pa",
         "color": "#000000"
       },
       {
-        "name": "Ef_Sv0",
+        "name": "l_s_Sv0",
         "displayName": "SV basal anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1701,7 +1578,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Sv1",
+        "name": "l_s_Sv1",
         "displayName": "SV basal posterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1709,7 +1586,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Sv2",
+        "name": "l_s_Sv2",
         "displayName": "SV mid anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1717,7 +1594,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Sv3",
+        "name": "l_s_Sv3",
         "displayName": "SV mid posterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1725,7 +1602,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Sv4",
+        "name": "l_s_Sv4",
         "displayName": "SV apical",
         "isVisible": false,
         "unit": "Pa",
@@ -1733,14 +1610,14 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv",
+        "name": "l_s_Rv",
         "displayName": "Right ventricular free wall",
         "isVisible": true,
         "unit": "Pa",
         "color": "#1F78B4"
       },
       {
-        "name": "Ef_Rv0",
+        "name": "l_s_Rv0",
         "displayName": "RV basal anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1748,7 +1625,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv1",
+        "name": "l_s_Rv1",
         "displayName": "RV basal lateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1756,7 +1633,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv2",
+        "name": "l_s_Rv2",
         "displayName": "RV basal posterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1764,7 +1641,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv3",
+        "name": "l_s_Rv3",
         "displayName": "RV mid anterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1772,7 +1649,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv4",
+        "name": "l_s_Rv4",
         "displayName": "RV mid lateral",
         "isVisible": false,
         "unit": "Pa",
@@ -1780,7 +1657,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv5",
+        "name": "l_s_Rv5",
         "displayName": "RV mid posterior",
         "isVisible": false,
         "unit": "Pa",
@@ -1788,7 +1665,7 @@
         "inMainMenu": false
       },
       {
-        "name": "Ef_Rv6",
+        "name": "l_s_Rv6",
         "displayName": "RV apical",
         "isVisible": false,
         "unit": "Pa",

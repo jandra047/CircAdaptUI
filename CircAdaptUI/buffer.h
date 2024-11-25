@@ -43,6 +43,7 @@ public:
      * \param dt Timespan of the data to remove
      */
     void clear(double dt);
+    void clear(int count);
     void clear();
 
     /*!
@@ -88,7 +89,6 @@ private:
     QMutex mutex;
 
     void calculateMMode();
-    void calculateStrains();
     void calculateEngineeringStrain();
 
 };
