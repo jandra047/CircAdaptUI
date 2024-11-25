@@ -26,7 +26,6 @@ LeftVentricle::LeftVentricle(SVGObjectBase* parent) :
         patchNames.append(pair.first);
         QString name = pair.first;
         QString path = pair.second;
-        qDebug() << name << "\n";
         GraphicElement* element = new GraphicElement(name, parent);
         QPainterPath p;
         GraphicElement::parsePathDataFast(path, p);

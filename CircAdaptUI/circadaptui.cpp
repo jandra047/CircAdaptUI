@@ -15,11 +15,11 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
 
     connect(m_mainwindow, &MainWindow::updateDone, &m_mw, &ModelWrapper::run_steps);
     connect(&m_mw, &ModelWrapper::setup_done, m_mainwindow, &MainWindow::displayReference);
-    connect(m_mainwindow, &MainWindow::togglePlay, this, &CircAdaptUI::togglePlay);
+    connect(m_mainwindow, &MainWindow::togglePlay, m_thread, &TimerThread::togglePlay);
     connect(m_mainwindow, &MainWindow::resetSignal, this, &CircAdaptUI::reset);
 
 
-    connect(&m_mw, &ModelWrapper::setup_done, this, [=]() { m_thread->timer->start(0); });
+    connect(&m_mw, &ModelWrapper::setup_done, this, [=]() { m_thread->togglePlay(true); });
     m_mw.setup();
     m_mainwindow->show();
     m_mainwindow->autoscaleAll();
@@ -29,18 +29,6 @@ CircAdaptUI::~CircAdaptUI()
 {
     delete m_mainwindow;
     delete m_thread;
-}
-
-void CircAdaptUI::togglePlay(bool isOn)
-{
-    if (isOn)
-    {
-        m_thread->timer->start();
-    }
-    else
-    {
-        m_thread->timer->stop();
-    }
 }
 
 void CircAdaptUI::reset()

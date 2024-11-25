@@ -29,17 +29,16 @@ public:
         connect(timer, &QTimer::timeout, this, &TimerThread::realtimeSlot);
         start();
     };
+    QTime timeStart = QTime::currentTime();
+    double timeLastUpdate = 0;
     QTimer* timer = new QTimer(this);
     MainWindow* m_mainwindow;
     double fps = 60;
 public slots:
     void realtimeSlot()
     {
-
-        static QTime timeStart = QTime::currentTime();
         static double trueFPS = 1000;
         double timeElapsed = timeStart.msecsTo(QTime::currentTime())/1000.0;
-        static double timeLastUpdate = 0;
         static double timeLastFps;
         static int frameCount;
 
@@ -63,6 +62,20 @@ public slots:
 
     }
 
+    void togglePlay(bool isPlay)
+    {
+        if (!isPlay)
+        {
+            timer->stop();
+        }
+        else
+        {
+            timeStart = QTime::currentTime();
+            timeLastUpdate = 0;
+            timer->start(0);
+        }
+    }
+
 };
 
 class CircAdaptUI : public QApplication
@@ -80,7 +93,6 @@ private:
     TimerThread* m_thread;
 
 private slots:
-    void togglePlay(bool isOn);
     void reset();
 };
 
