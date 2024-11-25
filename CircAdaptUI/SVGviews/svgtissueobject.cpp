@@ -74,7 +74,7 @@ void SVGTissueObject::createProperties()
 
         if (key == "Left ventricular wall")
         {
-            QList<QString> patchNames = LeftVentricle::namePath.keys();
+            QList<QString> patchNames = LeftVentricle::patchNames;
             for (int i = 0; i < 11; ++i)
             {
                 QJsonArray modifiedArray;
@@ -92,7 +92,7 @@ void SVGTissueObject::createProperties()
         }
         if (key == "Septal wall")
         {
-            QList<QString> patchNames = Septum::namePath.keys();
+            QList<QString> patchNames = Septum::patchNames;
             for (int i = 0; i < 5; ++i)
             {
                 QJsonArray modifiedArray;
@@ -110,7 +110,7 @@ void SVGTissueObject::createProperties()
         if (key == "Right ventricular wall")
         {
 
-            QList<QString> patchNames = RightVentricle::namePath.keys();
+            QList<QString> patchNames = RightVentricle::patchNames;
             for (int i = 0; i < 7; ++i)
             {
                 QJsonArray modifiedArray;

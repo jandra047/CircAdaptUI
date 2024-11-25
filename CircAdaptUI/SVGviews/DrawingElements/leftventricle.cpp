@@ -1,6 +1,8 @@
 #include "leftventricle.h"
 
-QMap<QString, QString> LeftVentricle::namePath
+QList<QString> LeftVentricle::patchNames;
+
+QList<std::pair<QString, QString>> LeftVentricle::namePath
 {
     {"LV basal anterior" , QString("m 317.331,202.395 c -9.386,-5.495 -20.274,-8.655 -31.841,-8.655 -11.515,0 -22.357,3.131 -31.713,8.58 0,0 -0.094,-0.124 -0.094,-0.124 0,0 -15.539,-27.05 -15.539,-27.05 0,0 -0.025,-0.106 -0.025,-0.106 13.98,-8.128 30.174,-12.797 47.371,-12.797 17.175,0 33.349,4.657 47.317,12.766 0,0 -0.085,0.168 -0.085,0.168 0,0 -15.312,27.062 -15.312,27.062 0,0 -0.079,0.156 -0.079,0.156")},
     {"LV basal inferior" , QString("m 317.331,312.073 c -9.386,5.496 -20.274,8.655 -31.841,8.655 -11.515,0 -22.357,-3.131 -31.713,-8.58 0,0 -0.094,0.124 -0.094,0.124 0,0 -15.539,27.051 -15.539,27.051 0,0 -0.025,0.105 -0.025,0.105 13.98,8.129 30.174,12.797 47.371,12.797 17.175,0 33.349,-4.656 47.317,-12.765 0,0 -0.085,-0.169 -0.085,-0.169 0,0 -15.312,-27.062 -15.312,-27.062 0,0 -0.079,-0.156 -0.079,-0.156")},
@@ -19,9 +21,12 @@ LeftVentricle::LeftVentricle(SVGObjectBase* parent) :
     DrawingElementGroup(parent),
     m_SVGObject(parent)
 {
-
-    for (auto [name, path] : namePath.asKeyValueRange())
+    for (const auto pair : namePath)
     {
+        patchNames.append(pair.first);
+        QString name = pair.first;
+        QString path = pair.second;
+        qDebug() << name << "\n";
         GraphicElement* element = new GraphicElement(name, parent);
         QPainterPath p;
         GraphicElement::parsePathDataFast(path, p);

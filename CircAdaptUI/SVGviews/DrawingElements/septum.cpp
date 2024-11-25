@@ -1,6 +1,8 @@
 #include "septum.h"
 
-QMap<QString, QString> Septum::namePath
+QList<QString> Septum::patchNames;
+
+QList<std::pair<QString, QString>> Septum::namePath
 {
     {"SV basal anterior" , QString("m 222.036,257.172 c -0.025,-10.876 2.725,-21.875 8.547,-31.87 5.796,-9.951 13.957,-17.743 23.375,-23.086 0,0 -0.06,-0.144 -0.06,-0.144 0,0 -15.554,-27.041 -15.554,-27.041 0,0 -0.078,-0.075 -0.078,-0.075 -14.061,7.989 -26.245,19.633 -34.9,34.493 -8.644,14.841 -12.761,31.161 -12.784,47.312 0,0 0.188,0.012 0.188,0.012 0,0 31.092,0.388 31.092,0.388 0,0 0.174,0.011 0.174,0.011")},
     {"SV basal posterior" , QString("m 253.916,312.259 c -9.453,-5.379 -17.635,-13.227 -23.42,-23.243 -5.76,-9.971 -8.472,-20.925 -8.433,-31.753 0,0 -0.155,-0.019 -0.155,-0.019 0,0 -31.195,0.075 -31.195,0.075 0,0 -0.104,0.03 -0.104,0.03 -0.046,16.172 4.011,32.529 12.612,47.421 8.591,14.872 20.713,26.548 34.721,34.588 0,0 0.103,-0.158 0.103,-0.158 0,0 15.776,-26.795 15.776,-26.795 0,0 0.095,-0.146 0.095,-0.146")},
@@ -14,8 +16,11 @@ Septum::Septum(SVGObjectBase* parent) :
     m_SVGObject(parent)
 {
 
-    for (auto [name, path] : namePath.asKeyValueRange())
+    for (const auto pair : namePath)
     {
+        patchNames.append(pair.first);
+        QString name = pair.first;
+        QString path = pair.second;
         GraphicElement* element = new GraphicElement(name, parent);
         QPainterPath p;
         GraphicElement::parsePathDataFast(path, p);

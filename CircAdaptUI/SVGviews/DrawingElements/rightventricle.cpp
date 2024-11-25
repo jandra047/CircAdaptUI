@@ -1,6 +1,8 @@
 #include "rightventricle.h"
 
-QMap<QString, QString> RightVentricle::namePath
+QList<QString> RightVentricle::patchNames;
+
+QList<std::pair<QString, QString>> RightVentricle::namePath
 {
     {"RV basal anterior" , QString("m 66.234,225.781 c 6.987,-9.437 17.178,-17.604 30.182,-23.377 12.946,-5.747 27.165,-8.45 41.219,-8.407 0,0 0.026,-0.155 0.026,-0.155 0,0 -0.081,-31.149 -0.081,-31.149 0,0 -0.04,-0.104 -0.04,-0.104 -20.99,-0.053 -42.224,3.992 -61.558,12.575 -19.309,8.571 -34.471,20.671 -44.913,34.655 0,0 0.204,0.104 0.204,0.104 0,0 34.772,15.762 34.772,15.762 0,0 0.189,0.096 0.189,0.096" )},
     {"RV basal lateral" , QString("m 66.617,289.333 c -7.179,-9.351 -11.334,-20.211 -11.391,-31.761 -0.057,-11.498 3.953,-22.335 10.98,-31.699 0,0 -0.162,-0.094 -0.162,-0.094 0,0 -35.188,-15.412 -35.188,-15.412 0,0 -0.137,-0.025 -0.137,-0.025 -10.481,13.991 -16.461,30.178 -16.376,47.35 0.085,17.149 6.209,33.282 16.803,47.198 0,0 0.218,-0.085 0.218,-0.085 0,0 35.051,-15.393 35.051,-15.393 0,0 0.202,-0.079 0.202,-0.079")},
@@ -16,8 +18,11 @@ RightVentricle::RightVentricle(SVGObjectBase* parent) :
     m_SVGObject(parent)
 {
 
-    for (auto [name, path] : namePath.asKeyValueRange())
+    for (const auto pair : namePath)
     {
+        patchNames.append(pair.first);
+        QString name = pair.first;
+        QString path = pair.second;
         GraphicElement* element = new GraphicElement(name, parent);
         QPainterPath p;
         GraphicElement::parsePathDataFast(path, p);

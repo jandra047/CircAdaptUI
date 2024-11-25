@@ -10,8 +10,8 @@ public:
     void setSelected(bool isSelected);
     bool m_isSelected = false;
     const QString name()  { return m_name; }
-    const QList<QString> patchNames() { return namePath.keys(); }
-    static QMap<QString, QString> namePath;
+    static QList<QString> patchNames;
+    static QList<std::pair<QString, QString>> namePath;
 
 private:
     SVGObjectBase* m_SVGObject;
