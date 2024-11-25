@@ -90,6 +90,7 @@ private:
 
     void calculateMMode();
     void calculateEngineeringStrain();
+    void calculateAverageWallStress();
 
 };
 

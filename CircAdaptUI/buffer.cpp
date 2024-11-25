@@ -134,6 +134,7 @@ void Buffer::postprocessing()
 {
     calculateMMode();
     calculateEngineeringStrain();
+    calculateAverageWallStress();
 }
 
 void Buffer::calculateMMode()
@@ -256,4 +257,31 @@ void Buffer::calculateEngineeringStrain()
             m_currentBeatData[s.chopped(1)].append(((m_data[s].last() / getLastBeat()->get(s).at(idxQRSOnset)) - 1) * 100 );
         }
     }
+}
+
+
+void Buffer::calculateAverageWallStress()
+{
+    double d = 0;
+    for (auto s : {"Sf_Lv0", "Sf_Lv1", "Sf_Lv2", "Sf_Lv3", "Sf_Lv4", "Sf_Lv5", "Sf_Lv6", "Sf_Lv7", "Sf_Lv8", "Sf_Lv9", "Sf_Lv10"})
+    {
+        d += m_data[s].last();
+
+    }
+    m_data["Sf_Lv"].append(d/11);
+    m_currentBeatData["Sf_Lv"].append(d/11);
+    d = 0;
+    for (auto s : {"Sf_Sv0", "Sf_Sv1", "Sf_Sv2", "Sf_Sv3", "Sf_Sv4"})
+    {
+        d += m_data[s].last();
+    }
+    m_data["Sf_Sv"].append(d/5);
+    m_currentBeatData["Sf_Sv"].append(d/5);
+    d = 0;
+    for (auto s : {"Sf_Rv0", "Sf_Rv1", "Sf_Rv2", "Sf_Rv3", "Sf_Rv4", "Sf_Rv5", "Sf_Rv6"})
+    {
+        d += m_data[s].last();
+    }
+    m_data["Sf_Rv"].append(d/7);
+    m_currentBeatData["Sf_Rv"].append(d/7);
 }
