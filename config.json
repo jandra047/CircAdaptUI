@@ -1239,7 +1239,7 @@
         [
             {
                 "displayName": "Left atrial wall",
-                "xVar": "l_s_La",
+                "xVar": "strain_La",
                 "yVar": "Sf_La",
                 "isVisible": false,
                 "unit": "mmHg/mL",
@@ -1247,7 +1247,7 @@
             },
             {
                 "displayName": "Right atrial wall",
-                "xVar": "l_s_Ra",
+                "xVar": "strain_Ra",
                 "yVar": "Sf_Ra",
                 "isVisible": false,
                 "unit": "mmHg/mL",
@@ -1255,7 +1255,7 @@
             },
             {
                 "displayName": "Left ventricular free wall",
-                "xVar": "l_s_Lv",
+                "xVar": "strain_Lv",
                 "yVar": "Sf_Lv",
                 "isVisible": true,
                 "unit": "mmHg/mL",
@@ -1263,7 +1263,7 @@
             },
             {
                 "displayName": "Septal wall",
-                "xVar": "l_s_Sv",
+                "xVar": "strain_Sv",
                 "yVar": "Sf_Sv",
                 "isVisible": true,
                 "unit": "mmHg/mL",
@@ -1271,7 +1271,7 @@
             },
             {
                 "displayName": "Right ventricular free wall",
-                "xVar": "l_s_Rv",
+                "xVar": "strain_Rv",
                 "yVar": "Sf_Rv",
                 "isVisible": true,
                 "unit": "mmHg/mL",
@@ -1677,28 +1677,28 @@
     ],
     "STRAIN": [
       {
-        "name": "l_s_La",
+        "name": "strain_La",
         "displayName": "Left atrial wall",
         "isVisible": false,
         "unit": "%",
         "color": "#fb9a99"
       },
       {
-        "name": "l_s_Ra",
+        "name": "strain_Ra",
         "displayName": "Right atrial wall",
         "isVisible": false,
         "unit": "%",
         "color": "#a6cee3"
       },
       {
-        "name": "l_s_Lv",
+        "name": "strain_Lv",
         "displayName": "Left ventricular free wall",
         "isVisible": true,
         "unit": "%",
         "color": "#E31A1C"
       },
       {
-        "name": "l_s_Lv0",
+        "name": "strain_Lv0",
         "displayName": "LV basal anterior",
         "isVisible": false,
         "unit": "%",
@@ -1706,7 +1706,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv1",
+        "name": "strain_Lv1",
         "displayName": "LV basal inferior",
         "isVisible": false,
         "unit": "%",
@@ -1714,7 +1714,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv2",
+        "name": "strain_Lv2",
         "displayName": "LV basal inferolateral",
         "isVisible": false,
         "unit": "%",
@@ -1722,7 +1722,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv3",
+        "name": "strain_Lv3",
         "displayName": "LV basal anterloateral",
         "isVisible": false,
         "unit": "%",
@@ -1730,7 +1730,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv4",
+        "name": "strain_Lv4",
         "displayName": "LV mid anterior",
         "isVisible": false,
         "unit": "%",
@@ -1738,7 +1738,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv5",
+        "name": "strain_Lv5",
         "displayName": "LV mid inferior",
         "isVisible": false,
         "unit": "%",
@@ -1746,7 +1746,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv6",
+        "name": "strain_Lv6",
         "displayName": "LV mid inferolateral",
         "isVisible": false,
         "unit": "%",
@@ -1754,7 +1754,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv7",
+        "name": "strain_Lv7",
         "displayName": "LV mid anterolateral",
         "isVisible": false,
         "unit": "%",
@@ -1762,7 +1762,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv8",
+        "name": "strain_Lv8",
         "displayName": "LV apical anterior",
         "isVisible": false,
         "unit": "%",
@@ -1770,7 +1770,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv9",
+        "name": "strain_Lv9",
         "displayName": "LV apical inferior",
         "isVisible": false,
         "unit": "%",
@@ -1778,7 +1778,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Lv10",
+        "name": "strain_Lv10",
         "displayName": "LV apical lateral",
         "isVisible": false,
         "unit": "%",
@@ -1786,14 +1786,14 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Sv",
+        "name": "strain_Sv",
         "displayName": "Septal wall",
         "isVisible": true,
         "unit": "%",
         "color": "#000000"
       },
       {
-        "name": "l_s_Sv0",
+        "name": "strain_Sv0",
         "displayName": "SV basal anterior",
         "isVisible": false,
         "unit": "%",
@@ -1801,7 +1801,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Sv1",
+        "name": "strain_Sv1",
         "displayName": "SV basal posterior",
         "isVisible": false,
         "unit": "%",
@@ -1809,7 +1809,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Sv2",
+        "name": "strain_Sv2",
         "displayName": "SV mid anterior",
         "isVisible": false,
         "unit": "%",
@@ -1817,7 +1817,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Sv3",
+        "name": "strain_Sv3",
         "displayName": "SV mid posterior",
         "isVisible": false,
         "unit": "%",
@@ -1825,7 +1825,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Sv4",
+        "name": "strain_Sv4",
         "displayName": "SV apical",
         "isVisible": false,
         "unit": "%",
@@ -1833,14 +1833,14 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv",
+        "name": "strain_Rv",
         "displayName": "Right ventricular free wall",
         "isVisible": true,
         "unit": "%",
         "color": "#1F78B4"
       },
       {
-        "name": "l_s_Rv0",
+        "name": "strain_Rv0",
         "displayName": "RV basal anterior",
         "isVisible": false,
         "unit": "%",
@@ -1848,7 +1848,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv1",
+        "name": "strain_Rv1",
         "displayName": "RV basal lateral",
         "isVisible": false,
         "unit": "%",
@@ -1856,7 +1856,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv2",
+        "name": "strain_Rv2",
         "displayName": "RV basal posterior",
         "isVisible": false,
         "unit": "%",
@@ -1864,7 +1864,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv3",
+        "name": "strain_Rv3",
         "displayName": "RV mid anterior",
         "isVisible": false,
         "unit": "%",
@@ -1872,7 +1872,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv4",
+        "name": "strain_Rv4",
         "displayName": "RV mid lateral",
         "isVisible": false,
         "unit": "%",
@@ -1880,7 +1880,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv5",
+        "name": "strain_Rv5",
         "displayName": "RV mid posterior",
         "isVisible": false,
         "unit": "%",
@@ -1888,7 +1888,7 @@
         "inMainMenu": false
       },
       {
-        "name": "l_s_Rv6",
+        "name": "strain_Rv6",
         "displayName": "RV apical",
         "isVisible": false,
         "unit": "%",

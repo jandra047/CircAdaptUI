@@ -536,8 +536,17 @@ void ModelWrapper::setupSignals()
 
 void ModelWrapper::setupAdditionalSignals()
 {
-    for (QString param : {"C", "C_dot", "l_s"})
+    QList<std::pair<QString, QString>> additionalSignals = {
+        {"C", "coefficient"},
+        {"C_dot", "coefficient"},
+        {"l_s", "coefficient"},
+        {"Sf", "stress"},
+    };
+
+    for (const auto& pair : additionalSignals)
     {
+        QString param = pair.first;
+        QString type = pair.second;
         // Signals that are needed for postprocessing
         for (int i = 0; i < 11; i++)
         {
@@ -545,7 +554,7 @@ void ModelWrapper::setupAdditionalSignals()
             QJsonObject{
             {"name", QString("%1_Lv%2").arg(param).arg(i)},
             {"path", QString("Model.Peri.TriSeg.wLv.pLv%1.%2").arg(i).arg(param)},
-            {"type", "coefficient"}
+            {"type", type}
             }
             , this));
         }
@@ -555,7 +564,7 @@ void ModelWrapper::setupAdditionalSignals()
             QJsonObject{
             {"name", QString("%1_Sv%2").arg(param).arg(i)},
             {"path", QString("Model.Peri.TriSeg.wSv.pSv%1.%2").arg(i).arg(param)},
-            {"type", "coefficient"}
+            {"type", type}
             }
             , this));
         }
@@ -565,7 +574,7 @@ void ModelWrapper::setupAdditionalSignals()
             QJsonObject{
             {"name", QString("%1_Rv%2").arg(param).arg(i)},
             {"path", QString("Model.Peri.TriSeg.wRv.pRv%1.%2").arg(i).arg(param)},
-            {"type", "coefficient"}
+            {"type", type}
             }
             , this));
         }
@@ -575,7 +584,7 @@ void ModelWrapper::setupAdditionalSignals()
     {
         mModelSignals.push_back(DataContainerFactory::createContainer(
             QJsonObject{
-            {"name", QString("l_s_%1").arg(atrium) + "0"},
+            {"name", QString("l_s_%1").arg(atrium)},
             {"path", QString("Model.Peri.%1.w%1.p%1%2.l_s").arg(atrium).arg("0")},
             {"type", "coefficient"}
             }
