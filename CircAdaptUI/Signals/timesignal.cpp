@@ -4,16 +4,28 @@
 
 void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
 {
+    timeInt = timeInterval;
     // Get all the data from the buffer
     buffer.lock();
     QVector<double> yData = buffer.get(m_yVar, timeInterval);
     QVector<double> tData = buffer.get(m_xVar, timeInterval);
     buffer.unlock();
 
+    newLines.clear();
     // Shift time data to start from current m_xPos
     double dt = tData[1] - tData[0];
     for (int i = 0; i < tData.size(); ++i) {
-        tData[i] = m_xPos + i*dt;
+        tData[i] = m_xPos + dt + i*dt;
+        try
+        {
+            newLines.push_back({
+                                keyAxis()->coordToPixel(tData[i]),
+                                valueAxis()->coordToPixel(yData[i])});
+        }
+        catch( const std::exception& e)
+        {
+            qDebug() << "Couldn't add";
+        }
     }
 
     // Remove old data before plotting the new data
@@ -44,11 +56,12 @@ void TimeSignal::removeData(double const x0, double const x1)
 
 void TimeSignal::drawLinePlot(QCPPainter* painter, const QVector<QPointF> &lines) const
 {
-  if (painter->pen().style() != Qt::NoPen && painter->pen().color().alpha() != 0)
-  {
-    applyDefaultAntialiasingHint(painter);
-    drawPixmap(painter, lines);
-  }
+  // if (painter->pen().style() != Qt::NoPen && painter->pen().color().alpha() != 0)
+  // {
+  //   applyDefaultAntialiasingHint(painter);
+  //   drawPixmap(painter, lines);
+  // }
+    QCPGraph::drawLinePlot(painter, newLines);
 }
 
 void TimeSignal::drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const

@@ -63,6 +63,7 @@ public:
     QPolygonF createPolygon(double pixelSize) const;
     QRectF clearRect() const;
     void reset();
+    double timeInt;
 
 private:
 
@@ -88,6 +89,7 @@ private:
     int i{0};
     double m_dt{0.2};
     mutable QPixmap mMemSignalPlot;
+    QVector<QPointF> newLines;
 };
 
 #endif // TIMESIGNAL_H
