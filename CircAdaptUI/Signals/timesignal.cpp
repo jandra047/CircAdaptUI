@@ -15,13 +15,16 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
         newLines.erase(newLines.cbegin(), newLines.cend() - 1);
     // Shift time data to start from current m_xPos
     double dt = tData[1] - tData[0];
-    for (int i = 0; i < tData.size(); ++i) {
+    for (int i = 0; i < tData.size(); ++i)
+    {
         tData[i] = m_xPos + i*dt;
         try
         {
             newLines.push_back({
                                 keyAxis()->coordToPixel(tData[i]),
                                 valueAxis()->coordToPixel(yData[i])});
+            if (tData[i] >= keyAxis()->range().upper)
+                newLines.push_back({qQNaN(), qQNaN()});
         }
         catch( const std::exception& e)
         {
