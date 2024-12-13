@@ -1207,11 +1207,12 @@ void QCPLayer::drawToPaintBuffer()
 */
 void QCPLayer::replot()
 {
-  if (mMode == lmBuffered && !mParentPlot->hasInvalidatedPaintBuffers())
+  if (mMode >= lmBuffered && !mParentPlot->hasInvalidatedPaintBuffers())
   {
     if (QSharedPointer<QCPAbstractPaintBuffer> pb = mPaintBuffer.toStrongRef())
     {
-      pb->clear(Qt::transparent);
+      if (mMode != lmRealtime)
+        pb->clear(Qt::transparent);
       drawToPaintBuffer();
       pb->setInvalidated(false); // since layer is lmBuffered, we know only this layer is on buffer and we can reset invalidated flag
       mParentPlot->update();
@@ -15858,7 +15859,7 @@ void QCustomPlot::setupPaintBuffers()
     if (layer->mode() == QCPLayer::lmLogical)
     {
       layer->mPaintBuffer = mPaintBuffers.at(bufferIndex).toWeakRef();
-    } else if (layer->mode() == QCPLayer::lmBuffered)
+    } else if (layer->mode() >= QCPLayer::lmBuffered)
     {
       ++bufferIndex;
       if (bufferIndex >= mPaintBuffers.size())

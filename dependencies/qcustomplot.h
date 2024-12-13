@@ -701,6 +701,7 @@ public:
   */
   enum LayerMode { lmLogical   ///< Layer is used only for rendering order, and shares paint buffer with all other adjacent logical layers.
                    ,lmBuffered ///< Layer has its own paint buffer and may be replotted individually (see \ref replot).
+                   ,lmRealtime ///< Layer can does not redraw the whole paint buffer but only the new data
                  };
   Q_ENUMS(LayerMode)
   
