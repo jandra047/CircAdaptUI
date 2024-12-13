@@ -116,7 +116,7 @@ void LoopGraph::showSignal(QAction* action)
 
 void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
 {
-    if (colType == GraphGrid::REFERENCE)
+    if (colType == GraphGrid::ColType::REFERENCE)
     {
         m_referenceMarkerPos = x;
         for (auto signal : m_References)
@@ -131,7 +131,7 @@ void LoopGraph::updateMarker(GraphGrid::ColType colType, double x)
             }
         }
     }
-    if (colType == GraphGrid::SNAPSHOT)
+    if (colType == GraphGrid::ColType::SNAPSHOT)
     {
         m_snapshotMarkerPos = x;
         if (!m_Snapshots.at(0)->data()->isEmpty())
