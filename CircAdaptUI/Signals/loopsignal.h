@@ -27,7 +27,7 @@ public:
         m_marker(Q_NULLPTR)
     {
         setVisible(isVisible);
-        setPen(QPen(color, 1));
+        setPen(QPen(color, 2));
     };
 
     ~LoopSignal() = default;
@@ -45,7 +45,7 @@ public:
         m_marker(Q_NULLPTR)
     {
         setVisible(other.visible());
-        setPen(QPen(color, 1));
+        setPen(QPen(color, 2));
     }
 
     LoopSignal& operator=(const LoopSignal& other)
@@ -63,7 +63,7 @@ public:
             m_isInMainMenu = other.m_isInMainMenu;
 
             setVisible(other.visible());
-            setPen(QPen(color, 1));
+            setPen(QPen(color, 2));
         }
         return *this;
     }

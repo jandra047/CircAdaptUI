@@ -6,6 +6,7 @@ LoopGraph::LoopGraph(QWidget* parent) :
     m_referenceMarkerPos(-1),
     m_snapshotMarkerPos(-1)
 {
+    currentLayer()->setMode(QCPLayer::lmBuffered);
     xAxis->setLabel("Volume [mL]");
     yAxis->setLabel("Pressure [mmHg]");
     xAxis->setRange(0, 200);
