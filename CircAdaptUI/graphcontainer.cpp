@@ -188,15 +188,15 @@ void GraphContainer<SignalType>::runEraser()
         );
     currentLayer()->eraseRect(eraseRect);
 
-    // // If wrap around needed
-    // if (eraseEnd > xUpper) {
-    //     qDebug() << "Wrapping";
-    //     double wrapAmount = eraseEnd - xUpper;
-    //     double wrapEndPixel = xAxis->coordToPixel(wrapAmount);
-    //     QRectF wrapRect(plotRect.left(), plotRect.top(),
-    //                     wrapEndPixel - plotRect.left(), plotRect.height());
-    //     bufferPainter.fillRect(wrapRect, Qt::transparent);
-    // }
+    // If wrap around needed
+    if (eraseEnd > xUpper) {
+        qDebug() << "Wrapping";
+        double wrapAmount = eraseEnd - xUpper;
+        double wrapEndPixel = xAxis->coordToPixel(wrapAmount);
+        QRectF wrapRect(plotRect.left(), plotRect.top(),
+                        wrapEndPixel - plotRect.left(), plotRect.height());
+        currentLayer()->eraseRect(wrapRect);
+    }
 }
 
 template<typename SignalType>
