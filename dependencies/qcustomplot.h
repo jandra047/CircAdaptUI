@@ -722,7 +722,8 @@ public:
   
   // non-virtual methods:
   void replot();
-  
+  void eraseRect(const QRectF& rect);
+
 protected:
   // property members:
   QCustomPlot *mParentPlot;

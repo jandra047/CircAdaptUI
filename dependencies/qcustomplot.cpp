@@ -1191,6 +1191,29 @@ void QCPLayer::drawToPaintBuffer()
     qDebug() << Q_FUNC_INFO << "no valid paint buffer associated with this layer";
 }
 
+void QCPLayer::eraseRect(const QRectF& rect)
+{
+  if (mMode != lmRealtime)
+      return;
+  if (QSharedPointer<QCPAbstractPaintBuffer> pb = mPaintBuffer.toStrongRef())
+  {
+    if (QCPPainter *painter = pb->startPainting())
+    {
+      if (painter->isActive())
+      {
+        painter->setCompositionMode(QPainter::CompositionMode_Clear);
+        painter->fillRect(rect, Qt::red);
+      }
+      else
+        qDebug() << Q_FUNC_INFO << "paint buffer returned inactive painter";
+      delete painter;
+      pb->donePainting();
+    } else
+      qDebug() << Q_FUNC_INFO << "paint buffer returned nullptr painter";
+  } else
+    qDebug() << Q_FUNC_INFO << "no valid paint buffer associated with this layer";
+}
+
 /*!
   If the layer mode (\ref setMode) is set to \ref lmBuffered, this method allows replotting only
   the layerables on this specific layer, without the need to replot all other layers (as a call to
