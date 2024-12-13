@@ -70,13 +70,14 @@ public:
 
     void updateGraph(Buffer& buffer, double timeInterval);
     void removeData(double const x0, double x1, Buffer& buffer);
-    QString getXVar() { return m_xVar; };
-    QString getYVar() { return m_yVar; };
-    QColor getColor() { return color; }
-    QString getDisplayName() { return m_displayName; }
-    QString getUnit() { return m_unit; }
+    const QString getXVar() const { return m_xVar; };
+    const QString getYVar() const { return m_yVar; };
+    const QColor getColor() const { return color; }
+    const QString getDisplayName() const { return m_displayName; }
+    const QString getUnit() const { return m_unit; }
+    const bool isInMainMenu() const { return m_isInMainMenu; }
+    const double getXPos() const { return 0; }
     LoopMarker* getMarker() { return m_marker; }
-    bool isInMainMenu() { return m_isInMainMenu; }
     void createMarker();
     void setVisible(bool isVisible);
     void reset();

@@ -52,11 +52,11 @@ public:
      */
     void removeData(double const x0, double const x1);
 
-    QString getXVar() { return m_xVar; };
-    QString getYVar() { return m_yVar; };
-    QColor getColor() { return color; }
-    QString getDisplayName() { return m_displayName; }
-    QString getUnit() { return m_unit; }
+    const QString getXVar() const { return m_xVar; };
+    const QString getYVar() const { return m_yVar; };
+    const QColor getColor() const { return color; }
+    const QString getDisplayName() const { return m_displayName; }
+    const QString getUnit() const { return m_unit; }
     bool isInMainMenu() { return m_isInMainMenu; }
     void drawLinePlot(QCPPainter* painter, const QVector<QPointF> &lines) const override;
     void drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const;
