@@ -2,8 +2,6 @@
 #define GRAPHCONTAINER_H
 #include "dependencies/qcustomplot.h"
 #include "buffer.h"
-#include "CircAdaptUI/linemarker.h"
-// #include "signalslothelper.h"
 
 /*!
  * \brief Contains signals.
