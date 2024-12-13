@@ -54,6 +54,7 @@ public:
     void setZoomPastX(bool zoomPastX) { m_zoomPastX = zoomPastX; };
     bool getZoomPastX() { return m_zoomPastX; };
     bool isEmpty();
+    const QVector<ptr_type>& getSignals() const { return m_Signals; }
 private:
 
     /*!
@@ -73,6 +74,7 @@ protected:
     bool m_zoomPastX;
     double getMaxX();
     QMenu* contextMenu;
+    void runEraser();
 
 public slots:
     void clearSignals();

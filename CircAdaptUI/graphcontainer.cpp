@@ -21,7 +21,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 
     setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
     setPlottingHint(QCP::phCacheLabels, false);
-    currentLayer()->setMode(QCPLayer::lmBuffered);
+    currentLayer()->setMode(QCPLayer::lmRealtime);
     setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(4);
     xAxis->setTickLabelFont(tickLabelFont);
@@ -151,6 +151,52 @@ void GraphContainer<SignalType>::updateGraph(Buffer& buffer, double timeInterval
     {
         m_Signals[i]->updateGraph(buffer, timeInterval);
     }
+    runEraser();
+}
+
+template<typename SignalType>
+void GraphContainer<SignalType>::runEraser()
+{
+    // bufferPainter.setCompositionMode(QPainter::CompositionMode_Clear);
+
+    // Get the last position from signals
+    // double lastPos = 0;
+    // for (const auto& signal : m_Signals) {
+    //     if (!signal->data()->isEmpty()) {
+    //         lastPos = std::max(lastPos, signal->data()->constEnd()->key);
+    //     }
+    // }
+
+    double lastPos = m_Signals[0]->getXPos();
+
+    // Calculate eraser regions
+    double xUpper = xAxis->range().upper;
+    double eraseEnd = lastPos + 0.2;
+    QRectF plotRect = axisRect()->rect();
+
+    // Convert data coordinates to pixel coordinates
+    double lastPosPixel = xAxis->coordToPixel(lastPos);
+    double eraseEndPixel = xAxis->coordToPixel(std::min(eraseEnd, xUpper));
+
+    // Draw first region
+    QRectF eraseRect
+        (
+            lastPosPixel,
+            plotRect.top(),
+            eraseEndPixel - lastPosPixel,
+            plotRect.height()
+        );
+    currentLayer()->eraseRect(eraseRect);
+
+    // // If wrap around needed
+    // if (eraseEnd > xUpper) {
+    //     qDebug() << "Wrapping";
+    //     double wrapAmount = eraseEnd - xUpper;
+    //     double wrapEndPixel = xAxis->coordToPixel(wrapAmount);
+    //     QRectF wrapRect(plotRect.left(), plotRect.top(),
+    //                     wrapEndPixel - plotRect.left(), plotRect.height());
+    //     bufferPainter.fillRect(wrapRect, Qt::transparent);
+    // }
 }
 
 template<typename SignalType>

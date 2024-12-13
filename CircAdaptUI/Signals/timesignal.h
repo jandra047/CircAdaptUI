@@ -37,6 +37,7 @@ public:
     {
         setPen(QPen(color, 2));
         setVisible(isVisible);
+        connect(parentPlot(), &QCustomPlot::beforeReplot, this, [this]() { newLines.clear(); });
     };
     ~TimeSignal() {};
     /*!
@@ -57,7 +58,8 @@ public:
     const QColor getColor() const { return color; }
     const QString getDisplayName() const { return m_displayName; }
     const QString getUnit() const { return m_unit; }
-    bool isInMainMenu() { return m_isInMainMenu; }
+    const bool isInMainMenu() const { return m_isInMainMenu; }
+    const double getXPos() const { return m_xPos; }
     void drawLinePlot(QCPPainter* painter, const QVector<QPointF> &lines) const override;
     void drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const;
     QPolygonF createPolygon(double pixelSize) const;
