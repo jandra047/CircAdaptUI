@@ -59,6 +59,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             if (j < ColType::CURRENT)
             {
                 plot->setZoomPastX(false);
+                plot->currentLayer()->setMode(QCPLayer::lmBuffered);
             }
         }
     }
@@ -217,14 +218,16 @@ void GraphGrid::rescaleYAxes()
     replot();
 }
 
-void GraphGrid::replot()
-{
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            getItem(i, j)->currentLayer()->replot();
+void GraphGrid::replot(ColTypeFlags columns) {
+    for (int i = 0; i < rows; i++) {
+        if (columns.includes(ColType::REFERENCE)) {
+            getItem(i, ColType::REFERENCE)->currentLayer()->replot();
+        }
+        if (columns.includes(ColType::SNAPSHOT)) {
+            getItem(i, ColType::SNAPSHOT)->currentLayer()->replot();
+        }
+        if (columns.includes(ColType::CURRENT)) {
+            getItem(i, ColType::CURRENT)->currentLayer()->replot();
         }
     }
 }

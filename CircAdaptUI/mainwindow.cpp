@@ -105,7 +105,7 @@ void MainWindow::replot()
     timer.start();
 
     // Perform the replot actions
-    ui->graphGrid->replot();
+    ui->graphGrid->replot(GraphGrid::ColType::CURRENT);
     ui->pvGraph->currentLayer()->replot();
     ui->ssGraph->currentLayer()->replot();
 

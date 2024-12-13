@@ -15,10 +15,37 @@ class GraphGrid : public QWidget
 
 public:
     enum ColType {
-        REFERENCE,
-        SNAPSHOT,
-        CURRENT
+        REFERENCE = 0,
+        SNAPSHOT = 1,
+        CURRENT = 2,
+        ALL = -1
     };
+
+    // Helper struct to handle flag operations
+    struct ColTypeFlags {
+        unsigned int flags;
+
+        // Convert from single ColType to flags
+        explicit ColTypeFlags(ColType type) {
+            if (type == ColType::ALL) {
+                flags = (1u << 3) - 1;  // Set all bits up to highest column
+            } else {
+                flags = 1u << static_cast<unsigned int>(type);
+            }
+        }
+
+        // Convert from raw flags
+        explicit ColTypeFlags(unsigned int f) : flags(f) {}
+
+        bool includes(ColType type) const {
+            return (flags & (1u << static_cast<unsigned int>(type))) != 0;
+        }
+
+        static ColTypeFlags all() {
+            return ColTypeFlags(ColType::ALL);
+        }
+    };
+
 
     enum RowType {
         PRESSURE,
@@ -71,7 +98,9 @@ public:
      * After modifying the data of the signals in graphs, replot() needs to
      * be called in order to visualize these changes in the plots.
      */
-    void replot();
+    void replot(ColTypeFlags columns = ColTypeFlags::all());
+    void replot(ColType column) { replot(ColTypeFlags(column)); }
+
 
     /*!
      * \brief Connects the y-axis ranges of all graphs in a row.
@@ -151,4 +180,25 @@ private:
     void connectLeftMargins();
     QCPMarginGroup* leftMarginGroup;
 };
+
+inline GraphGrid::ColTypeFlags operator|(GraphGrid::ColType a, GraphGrid::ColType b) {
+    return GraphGrid::ColTypeFlags(
+        (1u << static_cast<unsigned int>(a)) |
+        (1u << static_cast<unsigned int>(b))
+        );
+}
+
+inline GraphGrid::ColTypeFlags operator|(GraphGrid::ColTypeFlags a, GraphGrid::ColType b) {
+    return GraphGrid::ColTypeFlags(a.flags | (1u << static_cast<unsigned int>(b)));
+}
+
+inline GraphGrid::ColTypeFlags operator|(GraphGrid::ColType a, GraphGrid::ColTypeFlags b) {
+    return b | a;
+}
+
+inline GraphGrid::ColTypeFlags operator|(GraphGrid::ColTypeFlags a, GraphGrid::ColTypeFlags b) {
+    return GraphGrid::ColTypeFlags(a.flags | b.flags);
+}
+
+
 #endif // GRAPHGRID_H
