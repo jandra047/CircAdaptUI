@@ -14,10 +14,10 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
     if (!newLines.isEmpty())
         newLines.erase(newLines.cbegin(), newLines.cend() - 1);
     // Shift time data to start from current m_xPos
-    double dt = tData[1] - tData[0];
+    double dt = 0.002;
     for (int i = 0; i < tData.size(); ++i)
     {
-        tData[i] = m_xPos + i*dt;
+        tData[i] = m_xPos + dt +i*dt;
         try
         {
             newLines.push_back({
