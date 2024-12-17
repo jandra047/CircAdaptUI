@@ -8,20 +8,23 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
     QVector<double> yData = buffer.get(m_yVar, timeInterval);
     QVector<double> tData = buffer.get(m_xVar, timeInterval);
 
+    // Leave last point for smoother transition
     if (!newLines.isEmpty())
         newLines.erase(newLines.cbegin(), newLines.cend() - 1);
+
     // Shift time data to start from current m_xPos
-    double dt = 0.002;
+    double dt = 0.002; // TODO: Should come from the ModelWrapper
     for (int i = 0; i < tData.size(); ++i)
     {
-        tData[i] = m_xPos + dt +i*dt;
+        tData[i] = fmod(m_xPos + (i+1)*dt, keyAxis()->range().upper);
         try
         {
+            if (m_xPos + (i+1)*dt > keyAxis()->range().upper)
+                newLines.push_back({qQNaN(), qQNaN()});
+
             newLines.push_back({
                                 keyAxis()->coordToPixel(tData[i]),
                                 valueAxis()->coordToPixel(yData[i])});
-            if (tData[i] >= keyAxis()->range().upper)
-                newLines.push_back({qQNaN(), qQNaN()});
         }
         catch( const std::exception& e)
         {
@@ -36,7 +39,7 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
     addData(tData, yData, true);
 
     // Update m_xPos for the next segment
-    m_xPos = fmod(tData.last(), keyAxis()->range().upper);
+    m_xPos = tData.last();
 
 }
 
