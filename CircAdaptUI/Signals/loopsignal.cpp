@@ -9,11 +9,9 @@ namespace {
 void LoopSignal::updateGraph(Buffer& buffer, double timeInterval)
 {
 
-    buffer.lock();
     QVector<double> yData = buffer.get(m_yVar, timeInterval);
     QVector<double> xData = buffer.get(m_xVar, timeInterval);
     QVector<double> tData = buffer.get("t", timeInterval);
-    buffer.unlock();
 
     addData(tData, xData, yData);
     if (Settings::instance().beatIdx() > 0)

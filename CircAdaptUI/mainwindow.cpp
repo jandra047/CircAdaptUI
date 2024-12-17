@@ -63,10 +63,12 @@ void MainWindow::updateGraphs(double timeInterval)
     QElapsedTimer timer;
     timer.start();
 
+    buffer.lock();
     ui->graphGrid->updateGraphs(buffer, timeInterval);
     ui->pvGraph->updateGraph(buffer, timeInterval);
     ui->ssGraph->updateGraph(buffer, timeInterval);
     buffer.clear(timeInterval);
+    buffer.unlock();
     emit updateDone();
 
     // Calculate the time taken for this call

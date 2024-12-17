@@ -46,7 +46,6 @@ QVector<double> Buffer::get(const QString& string, double dt)
 
 void Buffer::clear(double dt)
 {
-    QMutexLocker l(&mutex);
     int count = 0;
     for (int i = 0; i < m_data["t"].size(); i++)
     {

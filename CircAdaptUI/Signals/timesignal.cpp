@@ -6,10 +6,8 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
 {
     timeInt = timeInterval;
     // Get all the data from the buffer
-    buffer.lock();
     QVector<double> yData = buffer.get(m_yVar, timeInterval);
     QVector<double> tData = buffer.get(m_xVar, timeInterval);
-    buffer.unlock();
 
     if (!newLines.isEmpty())
         newLines.erase(newLines.cbegin(), newLines.cend() - 1);
