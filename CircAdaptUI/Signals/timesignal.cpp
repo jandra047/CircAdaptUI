@@ -4,7 +4,6 @@
 
 void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
 {
-    timeInt = timeInterval;
     // Get all the data from the buffer
     QVector<double> yData = buffer.get(m_yVar, timeInterval);
     QVector<double> tData = buffer.get(m_xVar, timeInterval);

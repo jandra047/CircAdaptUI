@@ -65,7 +65,6 @@ public:
     QPolygonF createPolygon(double pixelSize) const;
     QRectF clearRect() const;
     void reset();
-    double timeInt;
 
 private:
 
