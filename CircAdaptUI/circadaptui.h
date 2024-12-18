@@ -44,25 +44,12 @@ public slots:
     {
         static double trueFPS = 1000;
         double timeElapsed = m_timeStart.msecsTo(QTime::currentTime())/1000.0;
-        static double timeLastFps;
-        static int frameCount;
 
         if (timeElapsed - m_timeLastUpdate >= 1/fps)
         {
             double currfps = 1/(timeElapsed - m_timeLastUpdate);
-            QFuture<void> future = QtConcurrent::run(
-                &MainWindow::updateGraphs,
-                m_mainwindow,
-                (fps < trueFPS) ? 1/currfps : 1/trueFPS);
+            m_mainwindow->updateGraphs((fps < trueFPS) ? 1/currfps : 1/trueFPS);
             m_timeLastUpdate = timeElapsed;
-        }
-        ++frameCount;
-
-        if (timeElapsed - timeLastFps > 0.01)
-        {
-            trueFPS = frameCount/(timeElapsed-timeLastFps);
-            timeLastFps = timeElapsed;
-            frameCount = 0;
         }
     }
 
