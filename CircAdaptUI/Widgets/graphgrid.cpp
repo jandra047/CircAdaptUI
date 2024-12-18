@@ -272,10 +272,13 @@ void GraphGrid::connectLineMarkers()
     for (int j = 0; j < ColType::CURRENT; ++j)
     {
         for (int i = 0; i < rows; ++i) {
-            for (int k = 0; k < rows; ++k) {
-                if (i != k) {
-                    auto itemA = getItem(i, j);
+            auto itemA = getItem(i, j);
+            for (int k = 0; k < rows; ++k)
+            {
+                if (i != k)
+                {
                     auto itemB = getItem(k, j);
+
                     for (auto item : { itemA, itemB })
                     {
                         if (item->getLineMarker() == Q_NULLPTR)
@@ -285,9 +288,9 @@ void GraphGrid::connectLineMarkers()
                     }
                     connect(itemA->getLineMarker(), &LineMarker::xPosChanged, itemB->getLineMarker(), &LineMarker::setXPos);
 
-                    connect(itemA->getLineMarker(), &LineMarker::xPosChanged, this, [=](double x){ emit verticalLineDrawn(static_cast<ColType>(j), x); } );
                 }
             }
+            connect(itemA->getLineMarker(), &LineMarker::xPosChanged, this, [=](double x){ emit verticalLineDrawn(static_cast<ColType>(j), x); } );
         }
     }
 }
