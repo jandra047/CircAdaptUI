@@ -161,7 +161,6 @@ void GraphGrid::updateGraphs(Buffer& buffer, double timeInterval)
     for (int i = 0; i < rows; i++)
     {
         getItem(i, ColType::CURRENT)->updateGraph(buffer, timeInterval);
-
     }
 }
 
@@ -261,7 +260,9 @@ void GraphGrid::handleAction(QAction* a)
     {
         for (int j = 0; j < cols; j++)
         {
-            getItem(row, j)->showSignal(a);
+            auto item = getItem(row, j);
+            item->showSignal(a);
+            item->replot();
         }
     }
 }
