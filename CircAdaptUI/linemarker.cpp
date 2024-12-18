@@ -1,9 +1,13 @@
 #include "linemarker.h"
+#include "Graphs/mmode.h"
 
-LineMarker::LineMarker(QCustomPlot* parent) :
+LineMarker::LineMarker(SignalGraph* parent) :
     QCPItemStraightLine(parent)
 {
-    setPen(QPen(QColor("black"), 2));
+    if (MMode* derived = dynamic_cast<MMode*>(parent))
+        setPen(QPen(Qt::white, 2));
+    else
+        setPen(QPen(Qt::black, 2));
     setVisible(false);
 }
 

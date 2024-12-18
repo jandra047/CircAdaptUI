@@ -3,11 +3,13 @@
 
 #include "qcustomplot.h"
 
+class SignalGraph;
+
 class LineMarker : public QCPItemStraightLine
 {
     Q_OBJECT
 public:
-    LineMarker(QCustomPlot* parent);
+    LineMarker(SignalGraph* parent);
 
     const double& xPos() { return m_xPos; };
     void setDragging(bool isDragging) { m_Dragging = isDragging; };
