@@ -11,15 +11,15 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
     Settings::instance().load(qApp->applicationDirPath().append("/config.json"));
     QThread::currentThread()->setPriority(QThread::HighestPriority);
     m_mainwindow = new MainWindow(m_mw, m_buffer);
-    m_thread = new TimerThread(m_mainwindow, this);
+    m_timer = new TimerManager(m_mainwindow, Q_NULLPTR);
 
     connect(m_mainwindow, &MainWindow::updateDone, &m_mw, &ModelWrapper::run_steps);
     connect(&m_mw, &ModelWrapper::setup_done, m_mainwindow, &MainWindow::displayReference);
-    connect(m_mainwindow, &MainWindow::togglePlay, m_thread, &TimerThread::togglePlay);
+    connect(m_mainwindow, &MainWindow::togglePlay, m_timer, &TimerManager::togglePlay);
     connect(m_mainwindow, &MainWindow::resetSignal, this, &CircAdaptUI::reset);
 
 
-    connect(&m_mw, &ModelWrapper::setup_done, this, [=]() { m_thread->togglePlay(true); });
+    connect(&m_mw, &ModelWrapper::setup_done, this, [=]() { m_timer->togglePlay(true); });
     m_mw.setup();
     m_mainwindow->show();
     m_mainwindow->autoscaleAll();
@@ -28,7 +28,7 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
 CircAdaptUI::~CircAdaptUI()
 {
     delete m_mainwindow;
-    delete m_thread;
+    delete m_timer;
 }
 
 void CircAdaptUI::reset()
