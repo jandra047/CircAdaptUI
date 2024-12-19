@@ -20,7 +20,6 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     labelFont.setPointSize(12);
 
     setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
-    setPlottingHint(QCP::phCacheLabels, false);
     currentLayer()->setMode(QCPLayer::lmRealtime);
     setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(4);
@@ -190,7 +189,6 @@ void GraphContainer<SignalType>::runEraser()
 
     // If wrap around needed
     if (eraseEnd > xUpper) {
-        qDebug() << "Wrapping";
         double wrapAmount = eraseEnd - xUpper;
         double wrapEndPixel = xAxis->coordToPixel(wrapAmount);
         QRectF wrapRect(plotRect.left(), plotRect.top(),

@@ -16,14 +16,16 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
     double dt = 0.002; // TODO: Should come from the ModelWrapper
     for (int i = 0; i < tData.size(); ++i)
     {
-        tData[i] = fmod(m_xPos + (i+1)*dt, keyAxis()->range().upper);
+        static double pos = 0;
+        pos = m_xPos + (i+1)*dt;
+        tData[i] = pos;
         try
         {
-            if (m_xPos + (i+1)*dt > keyAxis()->range().upper)
+            if (pos >= keyAxis()->range().upper)
                 newLines.push_back({qQNaN(), qQNaN()});
 
             newLines.push_back({
-                                keyAxis()->coordToPixel(tData[i]),
+                                keyAxis()->coordToPixel(fmod(pos, keyAxis()->range().upper)),
                                 valueAxis()->coordToPixel(yData[i])});
         }
         catch( const std::exception& e)
@@ -33,14 +35,13 @@ void TimeSignal::updateGraph(Buffer& buffer, double timeInterval)
     }
 
     // Remove old data before plotting the new data
-    removeData(m_xPos, tData.last() + m_dt);
+    removeData(m_xPos, m_xPos+(tData.size()*dt) + m_dt);
 
     // Plot the new data
     addData(tData, yData, true);
 
     // Update m_xPos for the next segment
-    m_xPos = tData.last();
-
+    m_xPos = fmod(tData.last(), keyAxis()->range().upper);
 }
 
 void TimeSignal::removeData(double const x0, double const x1)
