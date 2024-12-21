@@ -10,8 +10,6 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     title(Q_NULLPTR),
     m_zoomPastX(true)
 {
-    setOpenGl(false);
-
     QFont tickLabelFont = xAxis->labelFont();
     tickLabelFont.setPointSize(11);
 
@@ -21,8 +19,8 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 
     setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
     currentLayer()->setMode(QCPLayer::lmRealtime);
-    setPlottingHint(QCP::phFastPolylines);
     setInteraction(QCP::iRangeDrag);
+    setAntialiasedElements(QCP::aeAll);
     xAxis->ticker()->setTickCount(4);
     xAxis->setTickLabelFont(tickLabelFont);
     xAxis->setLabelFont(labelFont);
