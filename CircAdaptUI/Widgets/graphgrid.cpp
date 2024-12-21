@@ -59,7 +59,6 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
             if (j < ColType::CURRENT)
             {
                 plot->setZoomPastX(false);
-                plot->currentLayer()->setMode(QCPLayer::lmBuffered);
             }
         }
     }
