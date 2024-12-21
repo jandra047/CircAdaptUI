@@ -38,6 +38,7 @@ public:
               unit,
               isInMainMenu)
     {
+        setAdaptiveSampling(false);
         setPen(QPen(color, 2));
         setVisible(isVisible);
         QObject::connect(parentPlot(), &QCustomPlot::beforeReplot, this, [this]() { newLines.clear(); });
