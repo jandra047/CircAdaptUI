@@ -21,6 +21,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
 
     setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
     currentLayer()->setMode(QCPLayer::lmRealtime);
+    setPlottingHint(QCP::phFastPolylines);
     setInteraction(QCP::iRangeDrag);
     xAxis->ticker()->setTickCount(4);
     xAxis->setTickLabelFont(tickLabelFont);
