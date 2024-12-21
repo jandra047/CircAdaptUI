@@ -48,7 +48,7 @@ message(CHECK_START "Fetching CircAdapt_Oxygen")
 FetchContent_Declare(
   CircAdapt_Oxygen
   GIT_REPOSITORY git@gitlab.maastrichtuniversity.nl:circadapt/circadapt_oxygen.git
-  GIT_TAG 38e04f87e46f4d3b2ef2b807e98b6f7fd58db056
+  GIT_TAG bc79cf22f141ff66ed873a1d5365da2978cb8e7d
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(CircAdapt_Oxygen)
