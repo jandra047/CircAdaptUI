@@ -59,9 +59,6 @@ public:
     void reset() override;
 
     void drawLinePlot(QCPPainter* painter, const QVector<QPointF> &lines) const override;
-    void drawPixmap(QCPPainter* painter, const QVector<QPointF> &lines) const;
-    QPolygonF createPolygon(double pixelSize) const;
-    QRectF clearRect() const;
 
 private:
 
