@@ -131,5 +131,5 @@ void SignalGraph::displaySnapshot(Buffer& buffer)
         QVector<double> tData = buffer.getSnapshot(signal->getXVar());
         signal->setData(tData, yData);
     }
-    currentLayer()->replot();
+    replot();
 }
