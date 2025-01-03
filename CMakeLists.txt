@@ -16,6 +16,7 @@ find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
 enable_testing()
 add_subdirectory(tests)
 
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
@@ -147,6 +148,7 @@ elseif(APPLE)
     target_link_libraries(CircAdaptUI PRIVATE macOSHelpers)
 endif()
 
+add_subdirectory("docs")
 
 
 target_link_libraries(CircAdaptUI PRIVATE
