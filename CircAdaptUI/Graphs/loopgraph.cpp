@@ -1,5 +1,6 @@
 #include "loopgraph.h"
 #include "CircAdaptUI/loopmarker.h"
+#include "CircAdaptUI/settings.h"
 
 LoopGraph::LoopGraph(QWidget* parent) :
     GraphContainer<LoopSignal>(parent),
@@ -276,4 +277,43 @@ void LoopGraph::clearAllGraphs()
     clearCurrent();
     clearReference();
     clearSnapshot();
+}
+
+void LoopGraph::rescaleAxes()
+{
+    double xMin = std::numeric_limits<double>::max();
+    double xMax = std::numeric_limits<double>::lowest();
+    double yMin = std::numeric_limits<double>::max();
+    double yMax = std::numeric_limits<double>::lowest();
+
+    if (containsSignals())
+    {
+
+        QCPRange yRange = getYDataRange();
+        QCPRange xRange = getXDataRange();
+            if (yRange.lower < yMin)
+                {
+                    yMin = yRange.lower;
+                }
+
+            if (yRange.upper > yMax)
+            {
+                yMax = yRange.upper;
+            }
+            if (xRange.lower < xMin)
+                {
+                    xMin = xRange.lower;
+                }
+
+            if (xRange.upper > xMax)
+            {
+                xMax = xRange.upper;
+            }
+        double paddingY = (yMax - yMin) * Settings::instance().paddingVertical();
+        yAxis->setRange(yMin - paddingY, yMax + paddingY);
+        double paddingX= (xMax - xMin) * Settings::instance().paddingVertical();
+        xAxis->setRange(xMin - paddingX, xMax + paddingX);
+    }
+
+    replot();
 }

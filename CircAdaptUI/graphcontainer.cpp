@@ -221,6 +221,30 @@ QCPRange GraphContainer<SignalType>::getYDataRange()
 }
 
 template<typename SignalType>
+QCPRange GraphContainer<SignalType>::getXDataRange()
+{
+    double xMax = std::numeric_limits<double>::lowest();
+    double xMin = std::numeric_limits<double>::max();
+
+    for (int i = 0; i < m_Signals.size(); i++)
+    {
+        if (m_Signals[i]->visible())
+        {
+            bool isFound;
+            auto xRange = m_Signals[i]->data()->keyRange(isFound);
+            if (isFound)
+            {
+                if (xRange.upper > xMax)
+                  xMax = xRange.upper;
+                if (xRange.lower < xMin)
+                  xMin = xRange.lower;
+            }
+        }
+    }
+    return QCPRange(xMin, xMax);
+}
+
+template<typename SignalType>
 bool GraphContainer<SignalType>::containsSignals()
 {
     if (m_Signals.size() > 0)

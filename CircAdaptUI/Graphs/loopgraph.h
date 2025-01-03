@@ -40,6 +40,7 @@ public slots:
     void clearReference();
     void clearCurrent();
     void clearAllGraphs();
+    void rescaleAxes();
 
 };
 

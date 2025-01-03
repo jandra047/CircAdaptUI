@@ -31,10 +31,16 @@ public:
     virtual void addSignal(ptr_type);
 
     /*!
-     * \brief Get the minimum and maximum value of signals plotted in graph container
-     * \return QCPRange containing min and max value of signals plotted in graph container
+     * \brief Get the minimum and maximum yAxis value of signals plotted in graph container
+     * \return QCPRange containing yAxis min and max value of signals plotted in graph container
      */
     QCPRange getYDataRange();
+
+    /*!
+     * \brief Get the minimum and maximum xAxis value of signals plotted in graph container
+     * \return QCPRange containing xAxis min and max value of signals plotted in graph container
+     */
+    QCPRange getXDataRange();
 
     /*!
      * \brief Check if graph container contains any signals
