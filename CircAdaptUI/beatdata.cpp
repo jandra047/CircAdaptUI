@@ -26,11 +26,15 @@ void BeatData::analyzeData()
     m_beatStats["Qs"] = getQs();
     m_beatStats["Qp"] = getQp();
     m_beatStats["Qp/Qs"] = m_beatStats["Qp"]/m_beatStats["Qs"];
+    m_beatStats["CVP"] = get_CVP();
     m_beatStats["mLAP"] = get_mLAP();
+    m_beatStats["mRAP"] = get_mRAP();
     m_beatStats["SBP"] = getSBP();
     m_beatStats["DBP"] = getDBP();
     m_beatStats["MAP"] = getMAP();
     m_beatStats["PVR"] = getPVR();
+    m_beatStats["sPAP"] = get_sPAP();
+    m_beatStats["dPAP"] = get_dPAP();
     m_beatStats["mPAP"] = get_mPAP();
     m_beatStats["PVP"] = getPVP();
     m_beatStats["idxQRSOnset"] = getIdxQRSOnset();
@@ -55,10 +59,22 @@ double BeatData::getQp()
     return calcIntegral(m_data["qRvPuArt"], m_data["t"]) * 60 / tCycle / 1000;
 }
 
+double BeatData::get_CVP()
+{
+    double CVP = std::accumulate(m_data["pSyVen"].begin(), m_data["pSyVen"].end(), .0) / m_data["pSyVen"].size();
+    return CVP;
+}
+
 double BeatData::get_mLAP()
 {
     double mLAP = std::accumulate(m_data["pLa"].begin(), m_data["pLa"].end(), .0) / m_data["pLa"].size();
     return mLAP;
+}
+
+double BeatData::get_mRAP()
+{
+    double mRAP = std::accumulate(m_data["pRa"].begin(), m_data["pRa"].end(), .0) / m_data["pRa"].size();
+    return mRAP;
 }
 
 double BeatData::getSBP()
@@ -85,6 +101,18 @@ double BeatData::getPVR()
     double mLAP = get_mLAP();
     double CO = getCO();
     return (mPAP - mLAP)/CO;
+}
+
+double BeatData::get_sPAP()
+{
+    double sPAP = *std::max_element(m_data["pPu"].begin(), m_data["pPu"].end());
+    return sPAP;
+}
+
+double BeatData::get_dPAP()
+{
+    double dPAP = *std::min_element(m_data["pPu"].begin(), m_data["pPu"].end());
+    return dPAP;
 }
 
 double BeatData::get_mPAP()

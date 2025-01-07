@@ -1916,7 +1916,15 @@
             "unit": "-"
         },
         {
+            "name": "CVP",
+            "unit": "mmHg"
+        },
+        {
             "name": "mLAP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "mRAP",
             "unit": "mmHg"
         },
         {
@@ -1929,6 +1937,14 @@
         },
         {
             "name": "MAP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "sPAP",
+            "unit": "mmHg"
+        },
+        {
+            "name": "dPAP",
             "unit": "mmHg"
         },
         {

@@ -591,6 +591,14 @@ void ModelWrapper::setupAdditionalSignals()
             }
             , this));
     }
+
+    mModelSignals.push_back(DataContainerFactory::createContainer(
+        QJsonObject{
+        {"name", "pSyVen"},
+        {"path", "Model.SyVen.p"},
+        {"type", "pressure"}
+        }
+        , this));
 }
 
 void ModelWrapper::setupParameters()

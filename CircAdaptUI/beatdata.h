@@ -24,11 +24,15 @@ private:
     double getCO();
     double getQs();
     double getQp();
+    double get_CVP();
     double get_mLAP();
+    double get_mRAP();
     double getSBP();
     double getDBP();
     double getMAP();
     double getPVR();
+    double get_sPAP();
+    double get_dPAP();
     double get_mPAP();
     double getPVP();
     double getIdxQRSOnset();
