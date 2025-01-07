@@ -213,7 +213,20 @@ void GraphGrid::rescaleYAxes()
             item->yAxis->setRange(yMin - padding, yMax + padding);
         }
     }
-    replot();
+}
+
+void GraphGrid::replotFull(ColTypeFlags columns) {
+    for (int i = 0; i < rows; i++) {
+        if (columns.includes(ColType::REFERENCE)) {
+            getItem(i, ColType::REFERENCE)->replot();
+        }
+        if (columns.includes(ColType::SNAPSHOT)) {
+            getItem(i, ColType::SNAPSHOT)->replot();
+        }
+        if (columns.includes(ColType::CURRENT)) {
+            getItem(i, ColType::CURRENT)->replot();
+        }
+    }
 }
 
 void GraphGrid::replot(ColTypeFlags columns) {

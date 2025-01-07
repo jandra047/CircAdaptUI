@@ -90,7 +90,7 @@ void MainWindow::displayReference()
 void MainWindow::autoscaleAll()
 {
     ui->graphGrid->rescaleAxes();
-    ui->graphGrid->replot();
+    ui->graphGrid->replotFull();
     ui->pvGraph->rescaleAxes();
     ui->pvGraph->replot();
     ui->ssGraph->rescaleAxes();

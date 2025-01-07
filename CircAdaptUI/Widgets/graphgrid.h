@@ -101,6 +101,9 @@ public:
     void replot(ColTypeFlags columns = ColTypeFlags::all());
     void replot(ColType column) { replot(ColTypeFlags(column)); }
 
+    void replotFull(ColTypeFlags columns = ColTypeFlags::all());
+    void replotFull(ColType column) { replotFull(ColTypeFlags(column)); }
+
 
     /*!
      * \brief Connects the y-axis ranges of all graphs in a row.
