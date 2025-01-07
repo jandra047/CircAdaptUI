@@ -1995,7 +1995,7 @@
                     "tooltip": "mmHg",
                     "unit": "mmHg",
                     "stepsize": 5,
-                    "enabled": true,
+                    "enabled": false,
                     "type": "double"
                 },
                 {
@@ -2007,13 +2007,13 @@
                     "tooltip": "L/min",
                     "unit": "L/min",
                     "stepsize": 0.1,
-                    "enabled": true,
+                    "enabled": false,
                     "type": "double"
                 },
                 {
                     "name": "Homeostatic pressure-flow control",
                     "key": "Homeostatic pressure-flow control",
-                    "default": true,
+                    "default": false,
                     "tooltip": "Enables the pressure flow control, maintaining a constant mean blood pressure and cardiac output",
                     "type": "bool"
                 },
