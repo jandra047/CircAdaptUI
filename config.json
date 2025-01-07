@@ -250,7 +250,7 @@
         {
           "name": "Hemoglobin concentration",
           "path": "Model.Oxygen.cHb",
-          "type": "percentagecoeff"
+          "type": "concentration"
         },
         {
           "name": "AV delay offset",
@@ -2036,12 +2036,12 @@
                 {
                     "name": "Hemoglobin concentration",
                     "key": "Hemoglobin concentration",
-                    "min": 5,
-                    "max": 25,
-                    "default": 15,
-                    "tooltip": "g/L",
-                    "unit": "g/L",
-                    "stepsize": 1,
+                    "min": 3,
+                    "max": 15,
+                    "default": 9,
+                    "tooltip": "mmol/L",
+                    "unit": "mmol/L",
+                    "stepsize": 0.5,
                     "enabled": true,
                     "type": "double"
                 }

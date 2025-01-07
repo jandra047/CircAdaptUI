@@ -534,6 +534,25 @@ private:
     double m_defaultValue;
 };
 
+class ConcentrationContainer : public DataContainer
+{
+public:
+    ConcentrationContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
+        DataContainer(name, path, type, parent)
+    {
+        mMetaType = QMetaType::Double;
+    };
+    // double model_to_ui(double val) const override { return val / 133; };
+    QVariant model_to_ui(QVariant variant) const override
+    {
+        return variant.toDouble() * 0.6206;
+    }
+    QVariant ui_to_model(QVariant variant) const override
+    {
+        return variant.toDouble() / 0.6206 ;
+    }
+};
+
 DataContainer* DataContainerFactory::createContainer(const QJsonObject& json, ModelWrapper* parent) {
     QString const name = json["name"].toString();
     QString const path = json["path"].toString();
@@ -610,6 +629,10 @@ DataContainer* DataContainerFactory::createContainer(const QJsonObject& json, Mo
     else if (type == "wall")
     {
         return new WallStrainContainer(name, path, type, parent);
+    }
+    else if (type == "concentration")
+    {
+        return new ConcentrationContainer(name, path, type, parent);
     }
     else
     {
