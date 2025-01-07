@@ -50,7 +50,7 @@ public:
 
     virtual void displaySnapshot(Buffer& buffer) = 0;
 
-    void showToolTip(QMouseEvent *event);
+    void showTooltip(QMouseEvent *event);
 
     virtual QString getPoint(const QPoint& pos) = 0;
     std::pair<QMenu*, QActionGroup*> buildMenu(QWidget* parent);
@@ -58,9 +58,11 @@ public:
     void setContextMenu(const std::pair<QMenu*, QActionGroup*>& menu);
     void setTitle(QString title, QFont font);
     void setZoomPastX(bool zoomPastX) { m_zoomPastX = zoomPastX; };
+    void setShowTooltip(bool isShowTooltip) { m_showTooltip = isShowTooltip; }
     bool getZoomPastX() { return m_zoomPastX; };
     bool isEmpty();
     const QVector<ptr_type>& getSignals() const { return m_Signals; }
+    const bool getShowTooltip() const { return m_showTooltip; }
 private:
 
     /*!
@@ -80,6 +82,7 @@ protected:
     bool m_zoomPastX;
     double getMaxX();
     QMenu* contextMenu;
+    bool m_showTooltip;
     void runEraser();
 
 public slots:

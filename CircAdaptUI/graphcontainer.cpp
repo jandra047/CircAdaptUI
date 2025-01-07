@@ -8,7 +8,8 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     contextMenu(Q_NULLPTR),
     actionGroup(Q_NULLPTR),
     title(Q_NULLPTR),
-    m_zoomPastX(true)
+    m_zoomPastX(true),
+    m_showTooltip(false)
 {
     QFont tickLabelFont = xAxis->labelFont();
     tickLabelFont.setPointSize(11);
@@ -46,7 +47,7 @@ GraphContainer<SignalType>::GraphContainer(QWidget* parent) :
     axisRect()->setMargins(QMargins(0,0,0,0));
 
     connect(this, &QCustomPlot::mouseWheel, this, &GraphContainer::zoom);
-    connect(this, &QCustomPlot::mouseMove, this, &GraphContainer::showToolTip);
+    connect(this, &QCustomPlot::mouseMove, this, &GraphContainer::showTooltip);
 }
 
 template<typename SignalType>
@@ -261,8 +262,8 @@ bool GraphContainer<SignalType>::containsSignals()
 }
 
 template<typename SignalType>
-void GraphContainer<SignalType>::showToolTip(QMouseEvent *event) {
-    if (containsSignals())
+void GraphContainer<SignalType>::showTooltip(QMouseEvent *event) {
+    if (containsSignals() && getShowTooltip())
     {
         double x = xAxis->pixelToCoord(event->pos().x());
         QString text = getPoint(event->pos());
