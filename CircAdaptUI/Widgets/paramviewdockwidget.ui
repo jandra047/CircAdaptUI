@@ -20,14 +20,14 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Model properties</string>
+   <string>Parameter settings</string>
   </property>
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
+       <enum>Qt::Horizontal</enum>
       </property>
       <widget class="GraphicWidget" name="graphicsView" native="true"/>
       <widget class="QWidget" name="verticalLayoutWidget">
