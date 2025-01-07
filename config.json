@@ -373,6 +373,16 @@
           "type": "percentage"
         },
         {
+          "name": "Right atrial wall stiffness coefficient",
+          "path": "Model.Peri.Ra.wRa.pRa0.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right atrial wall contraction rate",
+          "path": "Model.Peri.Ra.wRa.pRa0.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Left atrial wall contractility",
           "path": "Model.Peri.La.wLa.pLa0.Sf_act",
           "type": "percentage"
@@ -400,6 +410,16 @@
         {
           "name": "Left atrial wall relaxation rate",
           "path": "Model.Peri.La.wLa.pLa0.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left atrial wall stiffness coefficient",
+          "path": "Model.Peri.La.wLa.pLa0.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left atrial wall contraction rate",
+          "path": "Model.Peri.La.wLa.pLa0.tr",
           "type": "percentage"
         },
         {
@@ -433,6 +453,16 @@
           "type": "wallpercentage"
         },
         {
+          "name": "Left ventricular wall stiffness coefficient",
+          "path": "Model.Peri.TriSeg.wLv.k1",
+          "type": "wallcoeff"
+        },
+        {
+          "name": "Left ventricular wall contraction rate",
+          "path": "Model.Peri.TriSeg.wLv.tr",
+          "type": "wallpercentage"
+        },
+        {
           "name": "Left ventricular wall contractility 0",
           "path": "Model.Peri.TriSeg.wLv.pLv0.Sf_act",
           "type": "percentage"
@@ -460,6 +490,16 @@
         {
           "name": "Left ventricular wall relaxation rate 0",
           "path": "Model.Peri.TriSeg.wLv.pLv0.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left ventricular wall stiffness coefficient 0",
+          "path": "Model.Peri.TriSeg.wLv.pLv0.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 0",
+          "path": "Model.Peri.TriSeg.wLv.pLv0.tr",
           "type": "percentage"
         },
         {
@@ -493,6 +533,16 @@
           "type": "percentage"
         },
         {
+          "name": "Left ventricular wall stiffness coefficient 1",
+          "path": "Model.Peri.TriSeg.wLv.pLv1.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 1",
+          "path": "Model.Peri.TriSeg.wLv.pLv1.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Left ventricular wall contractility 2",
           "path": "Model.Peri.TriSeg.wLv.pLv2.Sf_act",
           "type": "percentage"
@@ -520,6 +570,16 @@
         {
           "name": "Left ventricular wall relaxation rate 2",
           "path": "Model.Peri.TriSeg.wLv.pLv2.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left ventricular wall stiffness coefficient 2",
+          "path": "Model.Peri.TriSeg.wLv.pLv2.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 2",
+          "path": "Model.Peri.TriSeg.wLv.pLv2.tr",
           "type": "percentage"
         },
         {
@@ -553,6 +613,16 @@
           "type": "percentage"
         },
         {
+          "name": "Left ventricular wall stiffness coefficient 3",
+          "path": "Model.Peri.TriSeg.wLv.pLv3.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 3",
+          "path": "Model.Peri.TriSeg.wLv.pLv3.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Left ventricular wall contractility 4",
           "path": "Model.Peri.TriSeg.wLv.pLv4.Sf_act",
           "type": "percentage"
@@ -580,6 +650,16 @@
         {
           "name": "Left ventricular wall relaxation rate 4",
           "path": "Model.Peri.TriSeg.wLv.pLv4.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left ventricular wall stiffness coefficient 4",
+          "path": "Model.Peri.TriSeg.wLv.pLv4.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 4",
+          "path": "Model.Peri.TriSeg.wLv.pLv4.tr",
           "type": "percentage"
         },
         {
@@ -613,6 +693,16 @@
           "type": "percentage"
         },
         {
+          "name": "Left ventricular wall stiffness coefficient 5",
+          "path": "Model.Peri.TriSeg.wLv.pLv5.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 5",
+          "path": "Model.Peri.TriSeg.wLv.pLv5.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Left ventricular wall contractility 6",
           "path": "Model.Peri.TriSeg.wLv.pLv6.Sf_act",
           "type": "percentage"
@@ -640,6 +730,16 @@
         {
           "name": "Left ventricular wall relaxation rate 6",
           "path": "Model.Peri.TriSeg.wLv.pLv6.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left ventricular wall stiffness coefficient 6",
+          "path": "Model.Peri.TriSeg.wLv.pLv6.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 6",
+          "path": "Model.Peri.TriSeg.wLv.pLv6.tr",
           "type": "percentage"
         },
         {
@@ -673,6 +773,16 @@
           "type": "percentage"
         },
         {
+          "name": "Left ventricular wall stiffness coefficient 7",
+          "path": "Model.Peri.TriSeg.wLv.pLv7.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 7",
+          "path": "Model.Peri.TriSeg.wLv.pLv7.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Left ventricular wall contractility 8",
           "path": "Model.Peri.TriSeg.wLv.pLv8.Sf_act",
           "type": "percentage"
@@ -700,6 +810,16 @@
         {
           "name": "Left ventricular wall relaxation rate 8",
           "path": "Model.Peri.TriSeg.wLv.pLv8.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left ventricular wall stiffness coefficient 8",
+          "path": "Model.Peri.TriSeg.wLv.pLv8.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 8",
+          "path": "Model.Peri.TriSeg.wLv.pLv8.tr",
           "type": "percentage"
         },
         {
@@ -733,6 +853,16 @@
           "type": "percentage"
         },
         {
+          "name": "Left ventricular wall stiffness coefficient 9",
+          "path": "Model.Peri.TriSeg.wLv.pLv9.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 9",
+          "path": "Model.Peri.TriSeg.wLv.pLv9.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Left ventricular wall contractility 10",
           "path": "Model.Peri.TriSeg.wLv.pLv10.Sf_act",
           "type": "percentage"
@@ -760,6 +890,16 @@
         {
           "name": "Left ventricular wall relaxation rate 10",
           "path": "Model.Peri.TriSeg.wLv.pLv10.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Left ventricular wall stiffness coefficient 10",
+          "path": "Model.Peri.TriSeg.wLv.pLv10.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Left ventricular wall contraction rate 10",
+          "path": "Model.Peri.TriSeg.wLv.pLv10.tr",
           "type": "percentage"
         },
         {
@@ -793,6 +933,16 @@
           "type": "wallpercentage"
         },
         {
+          "name": "Septal wall stiffness coefficient",
+          "path": "Model.Peri.TriSeg.wSv.k1",
+          "type": "wallcoeff"
+        },
+        {
+          "name": "Septal wall contraction rate",
+          "path": "Model.Peri.TriSeg.wSv.tr",
+          "type": "wallpercentage"
+        },
+        {
           "name": "Septal wall contractility 0",
           "path": "Model.Peri.TriSeg.wSv.pSv0.Sf_act",
           "type": "percentage"
@@ -820,6 +970,16 @@
         {
           "name": "Septal wall relaxation rate 0",
           "path": "Model.Peri.TriSeg.wSv.pSv0.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Septal wall stiffness coefficient 0",
+          "path": "Model.Peri.TriSeg.wSv.pSv0.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Septal wall contraction rate 0",
+          "path": "Model.Peri.TriSeg.wSv.pSv0.tr",
           "type": "percentage"
         },
         {
@@ -853,6 +1013,16 @@
           "type": "percentage"
         },
         {
+          "name": "Septal wall stiffness coefficient 1",
+          "path": "Model.Peri.TriSeg.wSv.pSv1.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Septal wall contraction rate 1",
+          "path": "Model.Peri.TriSeg.wSv.pSv1.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Septal wall contractility 2",
           "path": "Model.Peri.TriSeg.wSv.pSv2.Sf_act",
           "type": "percentage"
@@ -880,6 +1050,16 @@
         {
           "name": "Septal wall relaxation rate 2",
           "path": "Model.Peri.TriSeg.wSv.pSv2.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Septal wall stiffness coefficient 2",
+          "path": "Model.Peri.TriSeg.wSv.pSv2.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Septal wall contraction rate 2",
+          "path": "Model.Peri.TriSeg.wSv.pSv2.tr",
           "type": "percentage"
         },
         {
@@ -913,6 +1093,16 @@
           "type": "percentage"
         },
         {
+          "name": "Septal wall stiffness coefficient 3",
+          "path": "Model.Peri.TriSeg.wSv.pSv3.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Septal wall contraction rate 3",
+          "path": "Model.Peri.TriSeg.wSv.pSv3.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Septal wall contractility 4",
           "path": "Model.Peri.TriSeg.wSv.pSv4.Sf_act",
           "type": "percentage"
@@ -940,6 +1130,16 @@
         {
           "name": "Septal wall relaxation rate 4",
           "path": "Model.Peri.TriSeg.wSv.pSv4.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Septal wall stiffness coefficient 4",
+          "path": "Model.Peri.TriSeg.wSv.pSv4.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Septal wall contraction rate 4",
+          "path": "Model.Peri.TriSeg.wSv.pSv4.tr",
           "type": "percentage"
         },
         {
@@ -973,6 +1173,16 @@
           "type": "wallpercentage"
         },
         {
+          "name": "Right ventricular wall stiffness coefficient",
+          "path": "Model.Peri.TriSeg.wRv.k1",
+          "type": "wallcoeff"
+        },
+        {
+          "name": "Right ventricular wall contraction rate",
+          "path": "Model.Peri.TriSeg.wRv.tr",
+          "type": "wallpercentage"
+        },
+        {
           "name": "Right ventricular wall contractility 0",
           "path": "Model.Peri.TriSeg.wRv.pRv0.Sf_act",
           "type": "percentage"
@@ -1000,6 +1210,16 @@
         {
           "name": "Right ventricular wall relaxation rate 0",
           "path": "Model.Peri.TriSeg.wRv.pRv0.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Right ventricular wall stiffness coefficient 0",
+          "path": "Model.Peri.TriSeg.wRv.pRv0.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 0",
+          "path": "Model.Peri.TriSeg.wRv.pRv0.tr",
           "type": "percentage"
         },
         {
@@ -1033,6 +1253,16 @@
           "type": "percentage"
         },
         {
+          "name": "Right ventricular wall stiffness coefficient 1",
+          "path": "Model.Peri.TriSeg.wRv.pRv1.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 1",
+          "path": "Model.Peri.TriSeg.wRv.pRv1.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Right ventricular wall contractility 2",
           "path": "Model.Peri.TriSeg.wRv.pRv2.Sf_act",
           "type": "percentage"
@@ -1060,6 +1290,16 @@
         {
           "name": "Right ventricular wall relaxation rate 2",
           "path": "Model.Peri.TriSeg.wRv.pRv2.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Right ventricular wall stiffness coefficient 2",
+          "path": "Model.Peri.TriSeg.wRv.pRv2.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 2",
+          "path": "Model.Peri.TriSeg.wRv.pRv2.tr",
           "type": "percentage"
         },
         {
@@ -1093,6 +1333,16 @@
           "type": "percentage"
         },
         {
+          "name": "Right ventricular wall stiffness coefficient 3",
+          "path": "Model.Peri.TriSeg.wRv.pRv3.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 3",
+          "path": "Model.Peri.TriSeg.wRv.pRv3.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Right ventricular wall contractility 4",
           "path": "Model.Peri.TriSeg.wRv.pRv4.Sf_act",
           "type": "percentage"
@@ -1120,6 +1370,16 @@
         {
           "name": "Right ventricular wall relaxation rate 4",
           "path": "Model.Peri.TriSeg.wRv.pRv4.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Right ventricular wall stiffness coefficient 4",
+          "path": "Model.Peri.TriSeg.wRv.pRv4.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 4",
+          "path": "Model.Peri.TriSeg.wRv.pRv4.tr",
           "type": "percentage"
         },
         {
@@ -1153,6 +1413,16 @@
           "type": "percentage"
         },
         {
+          "name": "Right ventricular wall stiffness coefficient 5",
+          "path": "Model.Peri.TriSeg.wRv.pRv5.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 5",
+          "path": "Model.Peri.TriSeg.wRv.pRv5.tr",
+          "type": "percentage"
+        },
+        {
           "name": "Right ventricular wall contractility 6",
           "path": "Model.Peri.TriSeg.wRv.pRv6.Sf_act",
           "type": "percentage"
@@ -1180,6 +1450,16 @@
         {
           "name": "Right ventricular wall relaxation rate 6",
           "path": "Model.Peri.TriSeg.wRv.pRv6.td",
+          "type": "percentage"
+        },
+        {
+          "name": "Right ventricular wall stiffness coefficient 6",
+          "path": "Model.Peri.TriSeg.wRv.pRv6.k1",
+          "type": "coefficient"
+        },
+        {
+          "name": "Right ventricular wall contraction rate 6",
+          "path": "Model.Peri.TriSeg.wRv.pRv6.tr",
           "type": "percentage"
         }
       ]
@@ -2126,8 +2406,8 @@
                             "min": 0.1,
                             "max": 8,
                             "default": 7.5,
-                            "tooltip": "cm^2",
-                            "unit": "cm^2",
+                            "tooltip": "cm<sup>2</sup>",
+                            "unit": "cm<sup>2</sup>",
                             "stepsize": 0.1,
                             "enabled": true,
                             "type": "double"
@@ -2359,7 +2639,31 @@
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
-                        }
+                        },
+                {
+                  "name": "Stiffness coefficient",
+                  "key": "Right atrial wall stiffness coefficient",
+                  "min": 1,
+                  "max": 25,
+                  "default": 10,
+                  "tooltip": "[-]",
+                  "unit": "-",
+                  "stepsize": 1,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Contraction rate",
+                  "key": "Right atrial wall contraction rate",
+                  "min": 40,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                }
                     ],
                 "Left atrial wall":
                     [
@@ -2434,7 +2738,31 @@
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
-                        }
+                        },
+                {
+                  "name": "Stiffness coefficient",
+                  "key": "Left atrial wall stiffness coefficient",
+                  "min": 1,
+                  "max": 25,
+                  "default": 10,
+                  "tooltip": "[-]",
+                  "unit": "-",
+                  "stepsize": 1,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Contraction rate",
+                  "key": "Left atrial wall contraction rate",
+                  "min": 40,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                }
                     ],
                 "Right ventricular wall":
                     [
@@ -2509,7 +2837,31 @@
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
-                        }
+                        },
+                {
+                  "name": "Stiffness coefficient",
+                  "key": "Right ventricular wall stiffness coefficient",
+                  "min": 1,
+                  "max": 25,
+                  "default": 10,
+                  "tooltip": "[-]",
+                  "unit": "-",
+                  "stepsize": 1,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Contraction rate",
+                  "key": "Right ventricular wall contraction rate",
+                  "min": 40,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                }
                     ],
                 "Septal wall":
                     [
@@ -2584,7 +2936,31 @@
                             "stepsize": 10,
                             "enabled": true,
                             "type": "double"
-                        }
+                        },
+                {
+                  "name": "Stiffness coefficient",
+                  "key": "Septal wall stiffness coefficient",
+                  "min": 1,
+                  "max": 25,
+                  "default": 10,
+                  "tooltip": "[-]",
+                  "unit": "-",
+                  "stepsize": 1,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Contraction rate",
+                  "key": "Septal wall contraction rate",
+                  "min": 40,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                }
                     ],
               "Left ventricular wall": [
                 {
@@ -2650,6 +3026,30 @@
                 {
                   "name": "Relaxation rate",
                   "key": "Left ventricular wall relaxation rate",
+                  "min": 40,
+                  "max": 250,
+                  "default": 100,
+                  "tooltip": "%",
+                  "unit": "%",
+                  "stepsize": 10,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Stiffness coefficient",
+                  "key": "Left ventricular wall stiffness coefficient",
+                  "min": 1,
+                  "max": 25,
+                  "default": 10,
+                  "tooltip": "[-]",
+                  "unit": "-",
+                  "stepsize": 1,
+                  "enabled": true,
+                  "type": "double"
+                },
+                {
+                  "name": "Contraction rate",
+                  "key": "Left ventricular wall contraction rate",
                   "min": 40,
                   "max": 250,
                   "default": 100,
