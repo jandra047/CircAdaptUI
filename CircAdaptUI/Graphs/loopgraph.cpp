@@ -281,9 +281,9 @@ void LoopGraph::clearAllGraphs()
 
 void LoopGraph::rescaleAxes()
 {
-    double xMin = std::numeric_limits<double>::max();
+    double xMin = 0;
     double xMax = std::numeric_limits<double>::lowest();
-    double yMin = std::numeric_limits<double>::max();
+    double yMin = 0;
     double yMax = std::numeric_limits<double>::lowest();
 
     if (containsSignals())
@@ -314,6 +314,4 @@ void LoopGraph::rescaleAxes()
         double paddingX= (xMax - xMin) * Settings::instance().paddingVertical();
         xAxis->setRange(xMin - paddingX, xMax + paddingX);
     }
-
-    replot();
 }
