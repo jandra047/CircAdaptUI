@@ -84,7 +84,7 @@ protected:
     QMenu* contextMenu;
     bool m_showTooltip;
     void runEraser();
-    double m_eraserWidth = 0.1;
+    double m_eraserWidth = 0.2;
 
 public slots:
     void clearSignals();

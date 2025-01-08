@@ -65,7 +65,7 @@ protected:
 
     double m_xPos{0};
     int i{0};
-    double m_dt{0.1};
+    double m_dt{0.2};
 };
 
 #endif // SIGNALINTERFACE_H
