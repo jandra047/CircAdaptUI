@@ -170,7 +170,7 @@ void GraphContainer<SignalType>::runEraser()
 
     // Calculate eraser regions
     double xUpper = xAxis->range().upper;
-    double eraseEnd = lastPos + 0.2;
+    double eraseEnd = lastPos + m_eraserWidth;
     QRectF plotRect = axisRect()->rect();
 
     // Convert data coordinates to pixel coordinates
