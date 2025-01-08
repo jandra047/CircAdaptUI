@@ -9,12 +9,22 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 set(BUILD_SHARED_LIBS ON)
 
+option(BUILD_DOCUMENTATION "Build documentation" OFF)
+option(BUILD_TESTS "Build tests" OFF)
+
 find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui OpenGL Svg SvgWidgets)
 find_package(Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS PrintSupport Widgets)
 
-enable_testing()
-add_subdirectory(tests)
+
+if (BUILD_TESTS)
+        enable_testing()
+        add_subdirectory(tests)
+endif()
+
+if (BUILD_DOCS)
+        add_subdirectory("docs")
+endif()
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
@@ -147,9 +157,6 @@ elseif(APPLE)
     target_link_libraries(CircAdaptUI PRIVATE "-framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo")
     target_link_libraries(CircAdaptUI PRIVATE macOSHelpers)
 endif()
-
-add_subdirectory("docs")
-
 
 target_link_libraries(CircAdaptUI PRIVATE
     CircAdaptLib
