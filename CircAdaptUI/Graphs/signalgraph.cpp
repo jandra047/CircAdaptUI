@@ -133,3 +133,9 @@ void SignalGraph::displaySnapshot(Buffer& buffer)
     }
     replot();
 }
+
+void SignalGraph::showSignal(QAction* action)
+{
+    GraphContainer<TimeSignal>::showSignal(action);
+    emit autoscaleNeeded();
+}

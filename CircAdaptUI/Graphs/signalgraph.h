@@ -6,6 +6,7 @@
 
 class SignalGraph : public GraphContainer<TimeSignal>
 {
+    Q_OBJECT
 public:
     SignalGraph(QWidget* parent, QString xLabel = "", QString yLabel = "");
     ~SignalGraph() = default;
@@ -17,6 +18,10 @@ public:
     void displaySnapshot(Buffer& buffer) override;
     LineMarker* getLineMarker() { return m_lineMarker; }
     void setLineMarker(LineMarker* lineMarker) { m_lineMarker = lineMarker; m_lineMarker->setLayer(lineMarkerLayer); }
+    void showSignal(QAction* action) override;
+
+signals:
+    void autoscaleNeeded();
 
 public slots:
     void onMouseMove(QMouseEvent* event);

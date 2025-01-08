@@ -61,6 +61,7 @@ GraphGrid::GraphGrid(QWidget* parent, int rows, int cols) :
                 plot->setZoomPastX(false);
                 plot->setShowTooltip(true);
             }
+            connect(plot, &SignalGraph::autoscaleNeeded, this, &GraphGrid::rescaleAxes);
         }
     }
 
@@ -185,7 +186,7 @@ void GraphGrid::rescaleYAxes()
     for (int i = 0; i < rows; i++)
     {
 
-        double yMin = std::numeric_limits<double>::max();
+        double yMin = 0;
         double yMax = std::numeric_limits<double>::lowest();
 
         for (int j = 0; j < cols; j++)
