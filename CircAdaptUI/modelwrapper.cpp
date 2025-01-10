@@ -452,7 +452,7 @@ void ModelWrapper::fillBuffer()
     int bufferSize = Settings::instance().buffersize();
     for (int i = bufferLen; i < bufferSize; i++)
     {
-        run_single_step();
+        runSingleStep();
     }
 }
 
@@ -461,7 +461,7 @@ void ModelWrapper::run_beats(int N_beats)
     int beat_idx = 0;
     do
     {
-        run_single_step();
+        runSingleStep();
 
         if (beatDone == true)
         {
@@ -472,7 +472,7 @@ void ModelWrapper::run_beats(int N_beats)
 
 }
 
-void ModelWrapper::run_single_step() {
+void ModelWrapper::runSingleStep() {
     size_t nt = ((size_t)(model->get_t_cycle() / solver->get_dt_export()));
     if (it == -1) {
         solver->pre_beat();

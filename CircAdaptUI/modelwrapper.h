@@ -97,7 +97,7 @@ public slots:
     /*!
      * \brief Runs single solver step
      */
-    void run_single_step();
+    void runSingleStep();
 
     /*!
      * \brief Updates a model parameter
