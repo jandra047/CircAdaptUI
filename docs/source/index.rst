@@ -7,9 +7,9 @@ to simulate cardiovascular hemodynamics and provides immediate visualization
 of the results, enabling users to interact with and analyze simulations in 
 real-time.
 
-########
+############
 Key features
-########
+############
 
 #. Real-time simulation 
 
@@ -25,4 +25,5 @@ Key features
    :caption: Table of contents
     
    basics
+   config
    gui
