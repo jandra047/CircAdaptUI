@@ -448,7 +448,7 @@ void ModelWrapper::setReferenceParameters()
 
 void ModelWrapper::fillBuffer()
 {
-    int bufferLen = buffer.getLen();
+    int bufferLen = buffer.getCurrentLen();
     int bufferSize = Settings::instance().buffersize();
     for (int i = bufferLen; i < bufferSize; i++)
     {
