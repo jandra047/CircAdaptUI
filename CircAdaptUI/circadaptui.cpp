@@ -14,7 +14,7 @@ CircAdaptUI::CircAdaptUI(int &argc, char **argv):
     m_mainwindow->setWindowState(Qt::WindowMaximized);
     m_timer = new TimerManager(m_mainwindow, Q_NULLPTR);
 
-    connect(m_mainwindow, &MainWindow::updateDone, &m_mw, &ModelWrapper::run_steps);
+    connect(m_mainwindow, &MainWindow::updateDone, &m_mw, &ModelWrapper::fillBuffer);
     connect(&m_mw, &ModelWrapper::setup_done, m_mainwindow, &MainWindow::displayReference);
     connect(m_mainwindow, &MainWindow::togglePlay, m_timer, &TimerManager::togglePlay);
     connect(m_mainwindow, &MainWindow::resetSignal, this, &CircAdaptUI::reset);
@@ -39,6 +39,6 @@ void CircAdaptUI::reset()
 
     QMetaObject::invokeMethod(this, [this]() {
             // Run steps to refill buffer
-            QMetaObject::invokeMethod(&m_mw, "run_steps", Qt::BlockingQueuedConnection);
+            QMetaObject::invokeMethod(&m_mw, "fillBuffer", Qt::BlockingQueuedConnection);
         }, Qt::QueuedConnection);
 }

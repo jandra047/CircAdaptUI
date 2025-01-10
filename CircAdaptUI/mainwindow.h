@@ -26,8 +26,7 @@ private:
     Ui::MainWindow *ui;
     Buffer& buffer;
     ModelWrapper& mw;
-    QLabel* l = Q_NULLPTR;
-    ParamViewDockWidget* mParamViewDockWidget = Q_NULLPTR;
+    ParamViewDockWidget* m_ParamViewDockWidget = Q_NULLPTR;
 
 
 public: signals:

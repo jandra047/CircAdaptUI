@@ -9,7 +9,7 @@
 #include "datacontainer.h"
 
 /*!
- * \brief A class which wraps the Core class of CircAdapt
+ * \brief Wraps the Core class of CircAdapt
  *
  * ModelWrapper is used for manipulating the simulation engine
  * (changing model parameters, running simulation steps),
@@ -77,9 +77,9 @@ private:
      */
     std::unique_ptr<QThread> m_thread;
 
-    QVector<DataContainer*> mModelSignals;
+    QVector<DataContainer*> m_ModelSignals;
 
-    QMap<QString, DataContainer*> mModelParameters;
+    QMap<QString, DataContainer*> m_ModelParameters;
 
     void setupSignals();
     void setupAdditionalSignals();
@@ -90,15 +90,20 @@ private:
 
 public slots:
     /*!
-     * \brief Runs a number of steps until \ref Buffer length reaches value specified at \ref Settings
+     * \brief Runs a number of steps until \ref Buffer length reaches value specified by \ref Settings
      */
-    void run_steps();
+    void fillBuffer();
 
     /*!
      * \brief Runs single solver step
      */
     void run_single_step();
 
+    /*!
+     * \brief Updates a model parameter
+     * @param name Name of the parameter.
+     * @param value New value for the parameter.
+     */
     void updateParam(const QString& path, const QVariant& value);
 
 signals:
@@ -113,6 +118,9 @@ signals:
      */
     void beat_done();
 
+    /*!
+     * \brief Emits a signal after setup is done
+     */
     void setup_done();
 
 private slots:

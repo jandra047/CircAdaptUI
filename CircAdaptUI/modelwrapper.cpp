@@ -446,7 +446,7 @@ void ModelWrapper::setReferenceParameters()
 
 }
 
-void ModelWrapper::run_steps()
+void ModelWrapper::fillBuffer()
 {
     int bufferLen = buffer.getLen();
     int bufferSize = Settings::instance().buffersize();
@@ -525,10 +525,10 @@ void ModelWrapper::setup()
 void ModelWrapper::setupSignals()
 {
     QJsonArray signalArray = Settings::instance().ExportSignals();
-    mModelSignals.reserve(signalArray.size());
+    m_ModelSignals.reserve(signalArray.size());
     for (auto s : signalArray)
     {
-        mModelSignals.push_back(DataContainerFactory::createContainer(s.toObject(), this));
+        m_ModelSignals.push_back(DataContainerFactory::createContainer(s.toObject(), this));
 
     }
 
@@ -551,7 +551,7 @@ void ModelWrapper::setupAdditionalSignals()
         // Signals that are needed for postprocessing
         for (int i = 0; i < 11; i++)
         {
-        mModelSignals.push_back(DataContainerFactory::createContainer(
+        m_ModelSignals.push_back(DataContainerFactory::createContainer(
             QJsonObject{
             {"name", QString("%1_Lv%2").arg(param).arg(i)},
             {"path", QString("Model.Peri.TriSeg.wLv.pLv%1.%2").arg(i).arg(param)},
@@ -561,7 +561,7 @@ void ModelWrapper::setupAdditionalSignals()
         }
         for (int i = 0; i < 5; i++)
         {
-        mModelSignals.push_back(DataContainerFactory::createContainer(
+        m_ModelSignals.push_back(DataContainerFactory::createContainer(
             QJsonObject{
             {"name", QString("%1_Sv%2").arg(param).arg(i)},
             {"path", QString("Model.Peri.TriSeg.wSv.pSv%1.%2").arg(i).arg(param)},
@@ -571,7 +571,7 @@ void ModelWrapper::setupAdditionalSignals()
         }
         for (int i = 0; i < 7; i++)
         {
-        mModelSignals.push_back(DataContainerFactory::createContainer(
+        m_ModelSignals.push_back(DataContainerFactory::createContainer(
             QJsonObject{
             {"name", QString("%1_Rv%2").arg(param).arg(i)},
             {"path", QString("Model.Peri.TriSeg.wRv.pRv%1.%2").arg(i).arg(param)},
@@ -583,7 +583,7 @@ void ModelWrapper::setupAdditionalSignals()
 
     for (QString atrium : {"La", "Ra"})
     {
-        mModelSignals.push_back(DataContainerFactory::createContainer(
+        m_ModelSignals.push_back(DataContainerFactory::createContainer(
             QJsonObject{
             {"name", QString("l_s_%1").arg(atrium)},
             {"path", QString("Model.Peri.%1.w%1.p%1%2.l_s").arg(atrium).arg("0")},
@@ -592,7 +592,7 @@ void ModelWrapper::setupAdditionalSignals()
             , this));
     }
 
-    mModelSignals.push_back(DataContainerFactory::createContainer(
+    m_ModelSignals.push_back(DataContainerFactory::createContainer(
         QJsonObject{
         {"name", "pSyVen"},
         {"path", "Model.SyVen.p"},
@@ -604,7 +604,7 @@ void ModelWrapper::setupAdditionalSignals()
 void ModelWrapper::setupParameters()
 {
     QJsonArray paramArray = Settings::instance().ExportParameters();
-    mModelSignals.reserve(paramArray.size());
+    m_ModelSignals.reserve(paramArray.size());
     for (auto s : paramArray)
     {
         QJsonObject obj = s.toObject();
@@ -612,7 +612,7 @@ void ModelWrapper::setupParameters()
         if (obj["type"].toString() != "bool")
             get_double(obj["path"].toString().toStdString(), d);
         obj["default"] = d;
-        mModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createContainer(obj, this);
+        m_ModelParameters[s.toObject()["name"].toString()] = DataContainerFactory::createContainer(obj, this);
 
     }
 
@@ -631,7 +631,7 @@ void ModelWrapper::updateBuffer()
     double val{};
     bool success;
     buffer.lock();
-    for (auto s : mModelSignals)
+    for (auto s : m_ModelSignals)
     {
         s->updateBuffer(buffer);
     }
@@ -648,7 +648,7 @@ void ModelWrapper::updateBuffer()
 
 void ModelWrapper::updateParam(const QString& name, const QVariant& value)
 {
-    mModelParameters[name]->updateParam(value);
+    m_ModelParameters[name]->updateParam(value);
 }
 
 void ModelWrapper::reset()
