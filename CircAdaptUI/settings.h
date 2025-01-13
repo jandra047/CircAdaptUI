@@ -38,7 +38,7 @@ public:
     }
 
     double paddingVertical() const {
-        return m_settings.value("GUI/paddingVertical", 0.05).toDouble();
+        return m_settings.value("GUI/padding", 0.05).toDouble();
     }
 
     void beatIdxIncrement() {
