@@ -2,6 +2,13 @@
 #include "modelwrapper.h"
 #include "buffer.h"
 
+DataContainer::DataContainer(const QString& name, const QString& path, const QString& mType, ModelWrapper* parent) :
+    QObject((QObject*)parent),
+    mName(name), mPath(path), mType(mType),
+    mw(*parent)
+    {
+    };
+
 void DataContainer::updateParam(QVariant variant) const
 {
     switch (variant.userType())
@@ -60,6 +67,11 @@ void DataContainer::updateBuffer(Buffer& buffer)
     }
 }
 
+/**
+ * @brief Container for pressure values with automatic unit conversion
+ *
+ * Converts between model units (Pa) and UI units (mmHg) using a conversion factor of 133.
+ */
 class PressureContainer : public DataContainer
 {
 public:
@@ -79,6 +91,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for stress values with automatic unit conversion
+ *
+ * Converts between model units and UI units using a conversion factor of 1000.
+ */
 class StressContainer : public DataContainer
 {
 public:
@@ -98,6 +115,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for volume values with automatic unit conversion
+ *
+ * Converts between model units (m³) and UI units (mL) using a factor of 1e6.
+ */
 class VolumeContainer : public DataContainer
 {
 public:
@@ -116,6 +138,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for flow values with automatic unit conversion
+ *
+ * Converts between model units (m³/s) and UI units (mL/s) using a factor of 1e6.
+ */
 class FlowContainer : public DataContainer
 {
 public:
@@ -134,10 +161,27 @@ public:
     }
 };
 
+/**
+ * @brief Container for flow velocity values with area-based calculations
+ *
+ * Computes flow velocity based on flow area parameters. Handles both forward
+ * and backward flow calculations using different area parameters.
+ */
 class FlowVelocityContainer : public DataContainer
 {
 public:
-    FlowVelocityContainer(const QString& name, const QString& path, const QString& type, ModelWrapper* parent):
+    /**
+     * @brief Constructs a FlowVelocityContainer
+     * @param name Container identifier
+     * @param path Base path in model
+     * @param mType Type identifier
+     * @param parent Parent ModelWrapper
+     *
+     * Automatically constructs paths for A_open, A_leak, and A parameters
+     * based on the provided base path.
+     */
+    FlowVelocityContainer(const QString& name, const QString& path,
+                          const QString& type, ModelWrapper* parent):
         DataContainer(name, path, type, parent)
     {
         int position = path.lastIndexOf(".");
@@ -147,6 +191,15 @@ public:
         mMetaType = QMetaType::Double;
 
     };
+
+    /**
+     * @brief Converts model values to UI representation
+     * @param variant Flow to convert to flow velocity
+     * @return Converted value as flow divided by area
+     *
+     * Calculates flow velocity on area.
+     * Returns 0 for very small areas.
+     */
     QVariant model_to_ui(QVariant variant) const override
     {
         double val = variant.toDouble();
@@ -175,11 +228,16 @@ public:
     }
 
 private:
-    QString A_Path;
-    QString A_openPath;
-    QString A_leakPath;
+    QString A_Path;      ///< Path to area parameter
+    QString A_openPath;  ///< Path to open area parameter
+    QString A_leakPath;  ///< Path to leak area parameter
 };
 
+/**
+ * @brief Container for heart rate values with period conversion
+ *
+ * Converts between model units (period in seconds) and UI units (beats per minute).
+ */
 class HRContainer : public DataContainer
 {
 public:
@@ -198,6 +256,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for cardiac output values with unit conversion
+ *
+ * Converts between model units (m³/s) and UI units (L/min) using appropriate scaling.
+ */
 class COContainer : public DataContainer
 {
 public:
@@ -216,6 +279,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for boolean values
+ *
+ * Performs no conversion
+ */
 class BoolContainer : public DataContainer
 {
 public:
@@ -234,7 +302,11 @@ public:
     }
 };
 
-
+/**
+ * @brief Container for millisecond time values
+ *
+ * Converts between model units (seconds) and UI units (milliseconds) using a factor of 1e3.
+ */
 class MilliSecondsContainer : public DataContainer
 {
 public:
@@ -253,6 +325,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for area values with automatic unit conversion
+ *
+ * Converts between model units (m²) and UI units (cm²) using a factor of 1e4.
+ */
 class AreaContainer : public DataContainer
 {
 public:
@@ -271,6 +348,12 @@ public:
     }
 };
 
+/**
+ * @brief Container for diameter values with area conversion
+ *
+ * Converts between diameter in UI units [mm] and area in model units [m²] using π and appropriate scaling.
+ * Base class for specialized diameter containers like ShuntContainer.
+ */
 class DiameterContainer : public DataContainer
 {
 public:
@@ -289,6 +372,12 @@ public:
     }
 };
 
+/**
+ * @brief Container for shunt diameter with special area handling
+ *
+ * Extends DiameterContainer with additional functionality to update both
+ * A_leak and A_open parameters simultaneously.
+ */
 class ShuntContainer : public DiameterContainer
 {
 public:
@@ -305,6 +394,13 @@ public:
     {
         return pow(variant.toDouble(), 2) * M_PI * 1e-6;
     }
+    /**
+     * @brief Updates both leak and open area parameters
+     * @param variant New diameter value
+     *
+     * Converts diameter to area and updates both A_leak and A_open parameters
+     * to maintain consistent shunt behavior.
+     */
     void updateParam(QVariant variant) const override
     {
         bool ok = false;
@@ -319,6 +415,11 @@ public:
     }
 };
 
+/**
+ * @brief Container for percentage coefficient values
+ *
+ * Converts between model units (0-1) and UI units (0-100) using a factor of 100.
+ */
 class PercentageCoeffContainer : public DataContainer
 {
 public:
@@ -337,9 +438,22 @@ public:
     }
 };
 
+/**
+ * @brief Container for percentage values with default scaling
+ *
+ * Converts between model units and UI percentage based on a provided default value.
+ */
 class PercentageContainer : public DataContainer
 {
 public:
+    /**
+     * @brief Constructs a PercentageContainer
+     * @param name Container identifier
+     * @param path Path in model
+     * @param type Type identifier
+     * @param defaultValue Reference value for percentage calculation
+     * @param parent Parent ModelWrapper
+     */
     PercentageContainer(const QString& name, const QString& path, const QString& type, const double defaultValue, ModelWrapper* parent):
         DataContainer(name, path, type, parent),
         m_defaultValue(defaultValue)
@@ -355,9 +469,14 @@ public:
         return variant.toDouble() * m_defaultValue / 100;
     }
 private:
-    double m_defaultValue;
+    double m_defaultValue;  ///< Reference value for percentage calculations
 };
 
+/**
+ * @brief Container for coefficient values
+ *
+ * Direct value conversion without scaling.
+ */
 class CoefficientContainer : public DataContainer
 {
 public:
@@ -377,6 +496,12 @@ public:
     }
 };
 
+/**
+ * @brief Container for wall strain values with patch support
+ *
+ * Handles wall strain parameters across multiple patches, updating all patches
+ * when values change.
+ */
 class WallStrainContainer : public DataContainer
 {
 public:
@@ -424,9 +549,22 @@ private:
     double m_defaultValue;
 };
 
+/**
+ * @brief Container for wall patch millisecond values
+ *
+ * Handles time values across multiple wall patches with millisecond conversion.
+ */
 class WallMSContainer : public DataContainer
 {
 public:
+    /**
+     * @brief Constructs a WallMSContainer
+     * @param name Container identifier
+     * @param path Base path in model
+     * @param type Type identifier
+     * @param defaultValue Default time value
+     * @param parent Parent ModelWrapper
+     */
     WallMSContainer(const QString& name, const QString& path, const QString& type, const double defaultValue, ModelWrapper* parent):
         DataContainer(name, path, type, parent)
     {
@@ -471,13 +609,18 @@ public:
         }
     }
 private:
-    int n_patch = qQNaN();
-    QString wallPath;
-    QString paramPart;
-    QString patchPart;
-    double m_defaultValue;
+    int n_patch = qQNaN();        ///< Number of patches
+    QString wallPath;   ///< Base path to wall
+    QString paramPart;  ///< Parameter path component
+    QString patchPart;  ///< Patch path component
+    double m_defaultValue;  ///< Default time value
 };
 
+/**
+ * @brief Container for wall coefficient values
+ *
+ * Handles coefficient values across multiple wall patches without scaling.
+ */
 class WallCoeffContainer : public DataContainer
 {
 public:
@@ -532,6 +675,11 @@ private:
     double m_defaultValue;
 };
 
+/**
+ * @brief Container for wall percentage values
+ *
+ * Handles percentage values across multiple wall patches with scaling based on default value.
+ */
 class WallPercentageContainer : public DataContainer
 {
 public:
@@ -588,6 +736,11 @@ private:
     double m_defaultValue;
 };
 
+/**
+ * @brief Container for hemoglobin concentration values
+ *
+ * Converts between model units [g/dL] and UI [mmol/L] units using a factor of 0.6206.
+ */
 class ConcentrationContainer : public DataContainer
 {
 public:
