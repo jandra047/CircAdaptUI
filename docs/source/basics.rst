@@ -24,3 +24,18 @@ Graph
    <div style="overflow: auto; width: 100%;">
        <object data="_static/graphs/basic.svg" type="image/svg+xml" style="width: 100%; height: auto;"></object>
    </div>
+
+#####
+GUI elements
+#####
+
+The `MainWindow` has 4 parts:
+
+   - **GraphGrid**: A matrix of graphs where columns represent `REFERENCE`, `SNAPSHOT` and `CURRENT` while each row corresponds to a signal type.
+
+   - **PVGraph**: Shows p-V loops.
+   - **SSGraph**: Shows stress-strain loops.
+   
+   - **ValueView**: Shows statistics for the previous completed beat.
+
+.. image:: _static/graphs/GUI.png

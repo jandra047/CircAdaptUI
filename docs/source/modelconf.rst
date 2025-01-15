@@ -1,0 +1,5 @@
+.. _modelconf:
+
+Model configuration
+===================
+

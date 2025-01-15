@@ -23,6 +23,7 @@ Key features
 
 .. toctree::
    :caption: Table of contents
+   :maxdepth: 1
     
    basics
    config
