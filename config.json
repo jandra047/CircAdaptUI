@@ -1567,48 +1567,42 @@
         "displayName": "Left atrium",
         "isVisible": false,
         "unit": "mmHg",
-        "color": "#FB9A99",
-        "row": "PRESSURES"
+        "color": "#FB9A99"
       },
       {
         "name": "pRa",
         "displayName": "Right atrium",
         "isVisible": false,
         "unit": "mmHg",
-        "color": "#A6CEE3",
-        "column": "PRESSURES"
+        "color": "#A6CEE3"
       },
       {
         "name": "pLv",
         "displayName": "Left ventricle",
         "isVisible": true,
         "unit": "mmHg",
-        "color": "#E31A1C",
-        "column": "PRESSURES"
+        "color": "#E31A1C"
       },
       {
         "name": "pRv",
         "displayName": "Right ventricle",
         "isVisible": true,
         "unit": "mmHg",
-        "color": "#1F78B4",
-        "column": "PRESSURES"
+        "color": "#1F78B4"
       },
       {
         "name": "pAo",
         "displayName": "Aorta",
         "isVisible": true,
         "unit": "mmHg",
-        "color": "#6A3D9A",
-        "column": "PRESSURES"
+        "color": "#6A3D9A"
       },
       {
         "name": "pPu",
         "displayName": "Pulmonary artery",
         "isVisible": true,
         "unit": "mmHg",
-        "color": "#000000",
-        "column": "PRESSURES"
+        "color": "#000000"
       }
     ],
     "VOLUME": [
@@ -1691,48 +1685,42 @@
         "displayName": "Left atrium",
         "isVisible": false,
         "unit": "[%]",
-        "color": "#FB9A99",
-        "row": "SATURATION"
+        "color": "#FB9A99"
       },
       {
         "name": "satRa",
         "displayName": "Right atrium",
         "isVisible": false,
         "unit": "[%]",
-        "color": "#A6CEE3",
-        "column": "SATURATION"
+        "color": "#A6CEE3"
       },
       {
         "name": "satLv",
         "displayName": "Left ventricle",
         "isVisible": true,
         "unit": "[%]",
-        "color": "#E31A1C",
-        "column": "SATURATION"
+        "color": "#E31A1C"
       },
       {
         "name": "satRv",
         "displayName": "Right ventricle",
         "isVisible": true,
         "unit": "[%]",
-        "color": "#1F78B4",
-        "column": "SATURATION"
+        "color": "#1F78B4"
       },
       {
         "name": "satSyArt",
         "displayName": "Aorta",
         "isVisible": true,
         "unit": "[%]",
-        "color": "#6A3D9A",
-        "column": "SATURATION"
+        "color": "#6A3D9A"
       },
       {
         "name": "satPuArt",
         "displayName": "Pulmonary artery",
         "isVisible": true,
         "unit": "[%]",
-        "color": "#000000",
-        "column": "SATURATION"
+        "color": "#000000"
       }
     ],
     "STRESS": [
