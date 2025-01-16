@@ -604,7 +604,6 @@ void ModelWrapper::setupAdditionalSignals()
 void ModelWrapper::setupParameters()
 {
     QJsonArray paramArray = Settings::instance().ExportParameters();
-    m_ModelSignals.reserve(paramArray.size());
     for (auto s : paramArray)
     {
         QJsonObject obj = s.toObject();
